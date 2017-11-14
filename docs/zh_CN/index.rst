@@ -10,13 +10,13 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Get Started:
 
-   文件1
+   file1
     
 .. toctree::
    :maxdepth: 2
    :caption: Key Concepts:
    
-   文件2
+   file2
 
 
 Indices and tables
