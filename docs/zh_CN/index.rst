@@ -25,3 +25,7 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+测试中文
+==================
+* :ref:`genindex`
