@@ -10,13 +10,12 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Get Started:
 
-   file1
     
 .. toctree::
    :maxdepth: 2
-   :caption: Key Concepts:
+   :caption: Architecture:
    
-   file2
+   bucket_tree(en).md
 
 
 Indices and tables
