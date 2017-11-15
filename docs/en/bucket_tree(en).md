@@ -115,7 +115,7 @@ The definition of a hash bucket is made up of a series of data entries, note tha
 type Bucket []*DataEntry
 ```
 
-####merkle node
+#### merkle node
 
 The definition of merkle node is as follows. The main field is the list of children nodes related to it. Each element in this list is a hash value of a child node.
 

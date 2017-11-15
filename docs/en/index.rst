@@ -17,10 +17,26 @@ Welcome to hyperchain's documentation!
    
    bucket_tree(en).md
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Privacy && Security:
+   
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 2
+   :caption: User manual:
+   
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+   :maxdepth: 2
+   :caption: Contributing:
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Roadmap:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: FAQ:
+
+

@@ -3,29 +3,38 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to hyperchain's documentation!
+Hyperchain文档
 ======================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Get Started:
+   :caption: 快速入门:
 
-   file1
     
 .. toctree::
    :maxdepth: 2
-   :caption: Key Concepts:
-   
-   file2
+   :caption: 系统架构:
+
+   bucket_tree.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 隐私与安全:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 用户手册:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 贡献:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 开发计划:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 常见问题:
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-测试中文
-==================
-* :ref:`genindex`
