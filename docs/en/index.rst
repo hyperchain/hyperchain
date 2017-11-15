@@ -30,6 +30,8 @@ Welcome to hyperchain's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contributing:
+
+   contributing.md
    
 .. toctree::
    :maxdepth: 2
