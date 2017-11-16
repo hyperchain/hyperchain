@@ -10,35 +10,36 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Get Started:
 
-    
+
 .. toctree::
    :maxdepth: 2
    :caption: Architecture:
-   
+
    bucket_tree(en).md
 
 .. toctree::
    :maxdepth: 2
    :caption: Privacy && Security:
-   
+
 
 .. toctree::
    :maxdepth: 2
    :caption: User manual:
-   
+
 
 .. toctree::
    :maxdepth: 2
    :caption: Contributing:
 
    contributing.md
-   
+   roadmap_en.md
+
 .. toctree::
    :maxdepth: 2
    :caption: Roadmap:
 
+   roadmap_en.md
+
 .. toctree::
    :maxdepth: 2
    :caption: FAQ:
-
-
