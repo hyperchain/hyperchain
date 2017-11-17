@@ -14,7 +14,8 @@ Welcome to hyperchain's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Architecture:
-
+   
+   ledger(en).md
    bucket_tree(en).md
 
 .. toctree::

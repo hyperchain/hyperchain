@@ -15,6 +15,7 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 系统架构:
 
+   ledger.md
    bucket_tree.md
 
    smart_contract_cn.md
