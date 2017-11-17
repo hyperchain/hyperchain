@@ -17,6 +17,7 @@ Welcome to hyperchain's documentation!
    
    ledger(en).md
    bucket_tree(en).md
+   smart_contract_en.md
 
 .. toctree::
    :maxdepth: 2
@@ -33,7 +34,6 @@ Welcome to hyperchain's documentation!
    :caption: Contributing:
 
    contributing.md
-   roadmap_en.md
 
 .. toctree::
    :maxdepth: 2
@@ -44,3 +44,4 @@ Welcome to hyperchain's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: FAQ:
+
