@@ -10,13 +10,15 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 快速入门:
 
-    
+
 .. toctree::
    :maxdepth: 2
    :caption: 系统架构:
 
    ledger.md
    bucket_tree.md
+
+   smart_contract_cn.md
 
 .. toctree::
    :maxdepth: 2
@@ -34,8 +36,8 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 开发计划:
 
+   roadmap_cn.md
+
 .. toctree::
    :maxdepth: 2
    :caption: 常见问题:
-
-
