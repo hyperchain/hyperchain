@@ -15,6 +15,7 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Architecture:
    
+   namespace_en.md
    ledger(en).md
    bucket_tree(en).md
    smart_contract_en.md
