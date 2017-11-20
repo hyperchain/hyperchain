@@ -16,7 +16,6 @@ Hyperchain文档
    :caption: 系统架构:
 
    namespace_cn.md
-
    ledger.md
    bucket_tree.md
 
