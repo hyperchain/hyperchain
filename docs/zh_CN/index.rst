@@ -28,6 +28,8 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 用户手册:
 
+   JSON-RPC_manual_cn.md
+
 .. toctree::
    :maxdepth: 2
    :caption: 贡献:
