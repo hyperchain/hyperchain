@@ -28,6 +28,7 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: User manual:
 
+   JSON-RPC_manual_en.md
 
 .. toctree::
    :maxdepth: 2
