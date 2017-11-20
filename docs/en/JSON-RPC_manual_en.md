@@ -220,13 +220,11 @@ If the method call failed, the members returned including: `jsonrpc`, `namespace
 
 ## JSON-RPC API Reference
 
-### Transaction
-
-#### <a name="tx_getTransactions">tx_getTransactions</a>
+### <a name="tx_getTransactions">tx_getTransactions</a>
 
 Returns a list of transactions in blocks from start block number to end block number.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `from`: `<blockNumber>` - Start block number.
@@ -242,7 +240,7 @@ Type `<blockNumber>` can be:
 - Hex string. 
 - The string `"latest"` for the latest block.
 
-##### Returns<a name="validTransaction"></a>
+#### Returns<a name="validTransaction"></a>
 
 1. `[<Transaction>]` - the valid Transaction object has the following members:
 - `version`: `<string>` - Platform version number.
@@ -259,7 +257,7 @@ Type `<blockNumber>` can be:
 - `executeTime`: `<string>` - The time it takes to execute this transaction (ms).
 - `payload`: `<string>` - The data send along with deploying contract, invoking contract and upgrading contract.
 
-##### Example1: Nomal request
+#### Example1: Nomal request
 
 ```bash
 # Request
@@ -305,7 +303,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-##### Example2: Block does not exist
+#### Example2: Block does not exist
 
 ```bash
 # Request
@@ -321,15 +319,15 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-#### <a name="tx_getDiscardTransactions">tx_getDiscardTransactions</a>
+### <a name="tx_getDiscardTransactions">tx_getDiscardTransactions</a>
 
 Returns all the invalid transactions.
 
-##### Parameters
+#### Parameters
 
 none
 
-##### Returns<a name="invalidTransaction"></a>
+#### Returns<a name="invalidTransaction"></a>
 
 1. `[<Transaction>]` - the invalid Transaction object has the following members:
 - `version`: `<string>` - Platform version number.
@@ -352,7 +350,7 @@ For invalid transaction, `invalid` value is true, and `invalidMsg` has following
 - **OUTOFBALANCE** - Transfer of account is out of balance;
 - **INVALID_PERMISSION** - Not enough permission to operate this contract;
 
-##### Example1: Normal request
+#### Example1: Normal request
 
 ```bash
 # Request
@@ -383,7 +381,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ get
 }
 ```
 
-##### Example2: There is no invalid transactions
+#### Example2: There is no invalid transactions
 
 ```bash
 # Request
@@ -399,15 +397,15 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ get
 }
 ```
 
-#### <a name= "tx_getTransactionByHash">tx_getTransactionByHash</a>
+### <a name= "tx_getTransactionByHash">tx_getTransactionByHash</a>
 
 Returns the information about a transaction by transaction hash.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 32 Bytes - Hash of a transaction.
 
-##### Returns
+#### Returns
 
 1. `[<Transaction>]` - the Transaction object has the following members:
 - `version`: `<string>` - Platform version number.
@@ -434,7 +432,7 @@ For invalid transaction, `invalid` value is true, and `invalidMsg` has following
 - **OUTOFBALANCE** - Transfer of account is out of balance;
 - **INVALID_PERMISSION** - Not enough permission to operate this contract;
 
-##### Example1: Query valid transaction
+#### Example1: Query valid transaction
 
 ```bash
 # Request
@@ -465,7 +463,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getTr
 }
 ```
 
-##### Example2: Query invalid transaction
+#### Example2: Query invalid transaction
 
 ```bash
 # Request
@@ -494,7 +492,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"tx_getTransactionByHash","params
 }
 ```
 
-##### Example3: The transaction requested does not exist
+#### Example3: The transaction requested does not exist
 
 ```bash
 # Request
@@ -510,20 +508,20 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getTr
 }
 ```
 
-#### <a name="tx_getTransactionByBlockHashAndIndex">tx_getTransactionByBlockHashAndIndex</a>
+### <a name="tx_getTransactionByBlockHashAndIndex">tx_getTransactionByBlockHashAndIndex</a>
 
 Returns information about a transaction by block hash and transaction index position.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 32 Bytes - Hash of a block.
 2. `<number>` - Transaction index position. This value can be decimal integer or hex string.
 
-##### Returns
+#### Returns
 
 1. `<Transaction>` - the members of Transaction object see [Valid Transaction](#validTransaction).
 
-##### Example1: Normal request
+#### Example1: Normal request
 
 ```bash
 # Request
@@ -554,7 +552,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-##### Example2: The block requested does not exist
+#### Example2: The block requested does not exist
 
 ```bash
 # Request
@@ -570,20 +568,20 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-#### <a name="tx_getTransactionByBlockNumberAndIndex">tx_getTransactionByBlockNumberAndIndex</a>
+### <a name="tx_getTransactionByBlockNumberAndIndex">tx_getTransactionByBlockNumberAndIndex</a>
 
 Returns information about a transaction by block number and transaction index position.
 
-##### Parameters
+#### Parameters
 
 1. `<blockNumber>` - Block number. See type [Block Number](#blockNumber).
 2. `<number>` - Transaction index position. This value can be decimal integer or hex string.
 
-##### Returns
+#### Returns
 
 1. `<Transaction>` - the members of Transaction object see [Valid Transaction](#validTransaction).
 
-##### Example1: Normal request
+#### Example1: Normal request
 
 ```bash
 # Request
@@ -614,7 +612,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":   "tx_ge
 }
 ```
 
-##### Example2: The block requested does not exist
+#### Example2: The block requested does not exist
 
 ```bash
 # Request
@@ -630,21 +628,21 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":   "tx_ge
 }
 ```
 
-#### <a name="tx_getTransactionsCount">tx_getTransactionsCount</a>
+### <a name="tx_getTransactionsCount">tx_getTransactionsCount</a>
 
 Returns the number of transactions on the chain.
 
-##### Parameters
+####  Parameters
 
 none
 
-##### Returns
+#### Returns
 
 1. `<Object>`
 - `count`: `<string>` - The number of transactions.
 - `timestamp`: `<number>` - The unix timestamp for response (ns).
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -664,11 +662,11 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ get
 }
 ```
 
-#### <a name="tx_getTxAvgTimeByBlockNumber">tx_getTxAvgTimeByBlockNumber</a>
+### <a name="tx_getTxAvgTimeByBlockNumber">tx_getTxAvgTimeByBlockNumber</a>
 
 Returns the average execution time of all transactions in the given block number.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `from`: `<blockNumber>` - Start block number. See type [Block Number](#blockNumber).
@@ -676,11 +674,11 @@ Returns the average execution time of all transactions in the given block number
 
  `from` must be less than or equal `to`, otherwise returns error.
 
-##### Returns
+#### Returns
 
 1. `<string>` -  the average execution time of all transactions (ms).
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -697,15 +695,15 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-#### <a name="tx_getTransactionReceipt">tx_getTransactionReceipt</a>
+### <a name="tx_getTransactionReceipt">tx_getTransactionReceipt</a>
 
 Returns the receipt of a transaction by transaction hash.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 32 Bytes - Hash of a transaction.
 
-##### Returns<a name="receipt"></a>
+#### Returns<a name="receipt"></a>
 
 1. `<Receipt>` - the Receipt object has the following members:
 - `version`: `<string>` - Platform version number.
@@ -730,7 +728,7 @@ If the transaction requested has not been confirmed, the error code returned is 
 - **INVOKE_CONTRACT_FAILED** - Contract invoke failed, code is **-32005**；
 - **INVALID_PERMISSION** - Not enough permission to operate this contract, code is **-32008**;
 
-##### Example1: The transaction has not been confirmed
+#### Example1: The transaction has not been confirmed
 
 ```bash
 # Request
@@ -746,7 +744,7 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-##### Example2: Deploying contract failed
+#### Example2: Deploying contract failed
 
 For this example, we use the following contract to recreate the situation:
 
@@ -806,7 +804,7 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-##### Example3: Invoking contract failed
+#### Example3: Invoking contract failed
 
 For this example, we use the following contract to recreate the situation:
 
@@ -867,7 +865,7 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-##### Example4: Invalid transaction signature
+#### Example4: Invalid transaction signature
 
 In this example, we use Example3 request example, but change the last letter "c" of param `from` to "0" in order to simulate the situation of illegal signature, then the invoking contract request is as follows:
 
@@ -908,7 +906,7 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-##### Example5
+#### Example5
 
 ```bash
 # Request
@@ -945,19 +943,19 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-#### <a name="tx_getBlockTransactionCountByHash">tx_getBlockTransactionCountByHash</a>
+### <a name="tx_getBlockTransactionCountByHash">tx_getBlockTransactionCountByHash</a>
 
 Returns the number of transactions in a block from a block matching the given block hash.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 32 Bytes - Hash of a block.
 
-##### Returns
+#### Returns
 
 1. `<string>` - The number of transactions in a block.
 
-##### Example1: Normal request
+#### Example1: Normal request
 
 ```bash
 # Request
@@ -974,7 +972,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getBl
 }
 ```
 
-##### Example2: The block requested does not exist
+#### Example2: The block requested does not exist
 
 ```bash
 # Request
@@ -990,19 +988,19 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getBl
 }
 ```
 
-#### <a name="tx_getBlockTransactionCountByNumber">tx_getBlockTransactionCountByNumber</a>
+### <a name="tx_getBlockTransactionCountByNumber">tx_getBlockTransactionCountByNumber</a>
 
 Returns the number of transactions in a block from a block matching the given block number.
 
-##### Parameters
+#### Parameters
 
 1. `<blcokNumber>` - Block number. See type [Block Number](#blockNumber).
 
-##### Returns
+#### Returns
 
 1. `<string>` - The number of transactions in a block.
 
-##### Example1: Normal request
+#### Example1: Normal request
 
 ```bash
 # Request
@@ -1019,7 +1017,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":" tx_getB
 }
 ```
 
-##### Example2: The block requested does not exist
+#### Example2: The block requested does not exist
 
 ```bash
 # Request
@@ -1035,11 +1033,11 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":" tx_getB
 }
 ```
 
-#### <a name="tx_getSignHash">tx_getSignHash</a>
+### <a name="tx_getSignHash">tx_getSignHash</a>
 
 Returns transaction content hash string used to sign a transaction by client.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `from`: `<string>`, 20 Bytes - Address of the sender.
@@ -1050,11 +1048,11 @@ Returns transaction content hash string used to sign a transaction by client.
 - `payload`: `<string>` - [optional] Payload can not be empty if it's a contract deployment transaction(See [contract_deployContract](#contract_deployContract)), a contract invoke transaction(See [contract_invokeContract](#contract_invokeContract)) or a contract upgrade transaction(See [contract_maintainContract](#contract_maintainContract)), otherwise, you needn't specify this member.
 - `timestamp`: `<number>` - The unix timestamp for when the transaction was generated.
 
-##### Returns
+#### Returns
 
 1. `<string>` - A hash string.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1075,21 +1073,21 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-#### <a name="tx_getTransactionsByTime">tx_getTransactionsByTime</a>
+### <a name="tx_getTransactionsByTime">tx_getTransactionsByTime</a>
 
 Returns a list of valid transactions generated at specific time periods.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `startTime`: `<number>` - The start unix timestamp.
 - `endTime`: `<number>` - The end unix timestamp.
 
-##### Returns
+#### Returns
 
 1. `[<Transaction>]` - the members of Transaction object see [Valid Transaction](#validTransaction).
 
-##### Example1: Normal request
+#### Example1: Normal request
 
 ```bash
 # Request
@@ -1120,7 +1118,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx_getTra
 }
 ```
 
-##### Example2: There is no data
+#### Example2: There is no data
 
 ```bash
 # Request
@@ -1137,22 +1135,22 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"tx_getTransactionsByTime","param
 }
 ```
 
-#### <a name="tx_getDiscardTransactionsByTime">tx_getDiscardTransactionsByTime</a>
+### <a name="tx_getDiscardTransactionsByTime">tx_getDiscardTransactionsByTime</a>
 
 Returns a list of invalid transactions generated at specific time periods.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `startTime`: `<number>` - The start unix timestamp.
 - `endTime`: `<number>` - The end unix timestamp.
 
-##### Returns
+#### Returns
 
 1. `[<Transaction>]` - the members of invalid Transaction object see [Invalid Transaction](#invalidTransaction).
 
 
-##### Example1: Normal request
+#### Example1: Normal request
 
 ```bash
 # Request
@@ -1183,20 +1181,20 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" tx_getDi
 }
 ```
 
-#### <a name="tx_getBatchTransactions">tx_getBatchTransactions</a>
+### <a name="tx_getBatchTransactions">tx_getBatchTransactions</a>
 
 Returns a list of transactions by a list of specific transaction hash.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `hashs`: `[<string>]` - Array of 32 Bytes string, a list of transaction hash.
 
-##### Returns
+#### Returns
 
 1. `[<Transaction>]` -  Array of Transaction object, the members of Transaction object see [Valid Transaction](#validTransaction).
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1246,20 +1244,20 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"tx_getBatchTransactions","params
 }
 ```
 
-#### <a name="tx_getBatchReceipt">tx_getBatchReceipt</a>
+### <a name="tx_getBatchReceipt">tx_getBatchReceipt</a>
 
 Returns a list of receipt of transactions by a list of specific transaction hash.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `hashs`: `[<string>]` - Array of 32 Bytes string, a list of transaction hash.
 
-##### Returns
+#### Returns
 
 1. `[<Receipt>]` - Array of Receipt object, the Receipt object see type [Receipt](#receipt).
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1295,24 +1293,22 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"tx_getBatchReceipt","params":[{
 }
 ```
 
-### Contract
-
-#### <a name="contract_compileContract">contract_compileContract</a>
+### <a name="contract_compileContract">contract_compileContract</a>
 
 Compiles contract and returns compiled solidity code and abi definition.
 
-##### Parameters
+#### Parameters
 
 1. `<string>` - The source code.
 
-##### Returns
+#### Returns
 
 1. `<Object>`
 - `abi`: `[<string>]` - The contract abi definition.
 - `bin`: `[<string>]` - The compiled solidity code.
 - `types`: `[<string>]` - The contract name.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1339,11 +1335,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"contract_
 }
 ```
 
-#### <a name="contract_deployContract">contract_deployContract</a>
+### <a name="contract_deployContract">contract_deployContract</a>
 
 Returns a transaction hash after deploying contract.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `from`: `<string>`, 20 Bytes - Address of the creator.
@@ -1354,11 +1350,11 @@ Returns a transaction hash after deploying contract.
 - `signature`: `<string>` - The signature of transaction.
 - `type`: `<string>` - [optional, default `"EVM"`] The execution engine type used by this transaction execution, this value is `EVM` OR `JVM`.
 
-##### Returns
+#### Returns
 
 1. `<string>`, 32 Bytes - Hash of the transaction.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1380,11 +1376,11 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global",  "method":"c
 }
 ```
 
-#### <a name="contract_invokeContract">contract_invokeContract</a>
+### <a name="contract_invokeContract">contract_invokeContract</a>
 
 Returns a transaction hash after invoking contract.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `from`: `<string>`, 20 Bytes - Address of the account invoked the contract.
@@ -1397,11 +1393,11 @@ Returns a transaction hash after invoking contract.
 - `simulate`: `<boolean>` - [optional, default `false`] Determines whether the transaction requires consensus or not, if true, no consensus.
 - `type`: `<string>` - [optional, default `"EVM"`] The execution engine type used by this transaction execution, this value is `EVM` OR `JVM`.
 
-##### Returns
+#### Returns
 
 1. `<string>`, 32 Bytes - Hash of the transaction.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1426,19 +1422,19 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getCode">contract_getCode</a>
+### <a name="contract_getCode">contract_getCode</a>
 
 Returns the compiled contract code by the given contract address.
 
-##### Parameters
+#### Parameters
 
 1. `<string>` - The address of contract.
 
-##### Returns
+#### Returns
 
 1. `<string>` - contract code.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1455,19 +1451,19 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"contract_
 } 
 ```
 
-#### <a name="contract_getContractCountByAddr">contract_getContractCountByAddr</a>
+### <a name="contract_getContractCountByAddr">contract_getContractCountByAddr</a>
 
 Returns the number of contract that has been deployed by given account address.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 20 Bytes - The address of account.
 
-##### Returns
+#### Returns
 
 1. `<string>` - The number of contract.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1484,13 +1480,13 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "contrac
 } 
 ```
 
-#### <a name="contarct_maintainContract">contarct_maintainContract</a>
+### <a name="contarct_maintainContract">contarct_maintainContract</a>
 
 Upgrade contract, freeze contract and unfreeze contract.
 
 *Note:* Only contract deployers have the authority to upgrade contract, freeze contract and unfreeze contract.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `from`: `<string>`, 20 Bytes - Address of the account.
@@ -1506,11 +1502,11 @@ Upgrade contract, freeze contract and unfreeze contract.
   - `2`: Freeze contract.
   - `3`: Unfreeze contract.
 
-##### Returns
+#### Returns
 
 1. `<string>`, 32 Bytes - Hash of the transaction.
 
-##### Example1: Upgrade contract
+#### Example1: Upgrade contract
 
 ```bash
 # Request
@@ -1535,7 +1531,7 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-##### Example2: Freeze contract
+#### Example2: Freeze contract
 
 ```bash
 # Request
@@ -1559,7 +1555,7 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-##### Example3: Unfreeze contract
+#### Example3: Unfreeze contract
 
 ```bash
 # Request
@@ -1582,22 +1578,22 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getStatus">contract_getStatus</a>
+### <a name="contract_getStatus">contract_getStatus</a>
 
 Returns status of a contract by contract address.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 20 Bytes - The address of contract.
 
-##### Returns
+#### Returns
 
 1. `<string>` - Status of the contract, this value may be:
    - `normal`: Normal status.
    - `frozen`: The contract has been frozen.
    - `non-contract`: The given address is not a contract address. It may be a normal account address.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1614,19 +1610,19 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getCreator">contract_getCreator</a>
+### <a name="contract_getCreator">contract_getCreator</a>
 
 Returns the address of contract creator.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 20 Bytes - The address of contract.
 
-##### Returns
+#### Returns
 
 1. `<string>`, 20 Bytes - The address of contract creator.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1643,19 +1639,19 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getCreateTime">contract_getCreateTime</a>
+### <a name="contract_getCreateTime">contract_getCreateTime</a>
 
 Returns the date and time a contract was created.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 20 Bytes - The address of contract.
 
-##### Returns
+#### Returns
 
 1. `<string>` - The date and time of contract created.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1672,19 +1668,19 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getDeployedList">contract_getDeployedList</a>
+### <a name="contract_getDeployedList">contract_getDeployedList</a>
 
 Returns a list of deployed contract address by account address.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 20 Bytes - The address of contract creator.
 
-##### Returns
+#### Returns
 
 1. `[<string>]` - a list of deployed contract address.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -1701,17 +1697,15 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-### Block
-
-#### <a name="block_latestBlock">block_latestBlock</a>
+### <a name="block_latestBlock">block_latestBlock</a>
 
 Returns information about the latest block.
 
-##### Parameters
+#### Parameters
 
 none
 
-##### Returns<a name="block"></a>
+#### Returns<a name="block"></a>
 
 1. `<Block>` - The Block object has the following members: 
 - `version`: `<string>` - Platform version number.
@@ -1724,7 +1718,7 @@ none
 - `merkleRoot`: `<string>` - Merkle tree root hash.
 - `transactions`: `[<Transaction>]` - The list of transactions in the block. The Transaction object see  [Valid Transaction](#validTransaction).
 
-##### Example1: Normal request
+#### Example1: Normal request
 
 ```bash
 # Request
@@ -1767,7 +1761,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_la
 }
 ```
 
-##### Example2: There is no block on the chain
+#### Example2: There is no block on the chain
 
 ```bash
 # Request
@@ -1783,11 +1777,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_la
 }
 ```
 
-#### <a name="block_getBlocks">block_getBlocks</a>
+### <a name="block_getBlocks">block_getBlocks</a>
 
 Returns a list of blocks from start block number to end block number.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `from`: `<blockNumber>` - Start block number. See type [Block Number](#blockNumber).
@@ -1796,11 +1790,11 @@ Returns a list of blocks from start block number to end block number.
 
  `from` must be less than or equal `to`, otherwise returns error.
 
-##### Returns
+#### Returns
 
 1. `[<Block>]` - array of Block, the members of Block object see [Block](#block).
 
-##### Example1: Returns block including transactions
+#### Example1: Returns block including transactions
 
 ```bash
 # Request
@@ -1872,7 +1866,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_g
 }
 ```
 
-##### Example2: Returns block excluding transactions
+#### Example2: Returns block excluding transactions
 
 ```bash
 # Request
@@ -1910,20 +1904,20 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_g
 }
 ```
 
-#### <a name="block_getBlockByHash">block_getBlockByHash</a>
+### <a name="block_getBlockByHash">block_getBlockByHash</a>
 
 Returns information about a block by hash.
 
-##### Parameters
+#### Parameters
 
 1. `<string>`, 32 Bytes - Hash of a block.
 2. `<boolean>` - If `true` it returns block excluding transactions, if `false` it returns block including transactions.
 
-##### Returns
+#### Returns
 
 1. `<Block>` - the members of Block object see [Block](#block).
 
-##### Example1: Returns block including transactions
+#### Example1: Returns block including transactions
 
 ```bash
 # Request
@@ -1966,7 +1960,7 @@ curl -X POST –data  '{"jsonrpc":"2.0","namespace":"global","method":"block_get
 }
 ```
 
-##### Example2: Returns block excluding transactions
+#### Example2: Returns block excluding transactions
 
 ```bash
 # Request
@@ -1992,20 +1986,20 @@ curl -X POST –data  '{"jsonrpc":"2.0","namespace":"global","method":"block_get
 }
 ```
 
-##### <a name="block_getBlockByNumber">block_getBlockByNumber</a>
+### <a name="block_getBlockByNumber">block_getBlockByNumber</a>
 
 Returns information about a block by number.
 
-##### Parameters
+#### Parameters
 
 1. `<blockNumber>` - The block number. See type [Block Number](#blockNumber).
 2. `<boolean>` - If `true` it returns block excluding transactions, if `false` it returns block including transactions.
 
-##### Returns
+#### Returns
 
 1. `<Block>` - the members of Block object see [Block](#block).
 
-##### Example1: Returns block including transactions
+#### Example1: Returns block including transactions
 
 ```bash
 # Request
@@ -2048,7 +2042,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_g
 }
 ```
 
-##### Example1: Returns block excluding transactions
+#### Example2: Returns block excluding transactions
 
 ```bash
 # Request
@@ -2074,21 +2068,21 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_g
 }
 ```
 
-#### <a name="block_getAvgGenerateTimeByBlockNumber">block_getAvgGenerateTimeByBlockNumber</a>
+### <a name="block_getAvgGenerateTimeByBlockNumber">block_getAvgGenerateTimeByBlockNumber</a>
 
 Returns the average generation time of all blocks for the given block number.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `from`: `<blockNumber>` - Start block number. See type [Block Number](#blockNumber).
 - `to`: `<blockNumber>` - End block number. See type [Block Number](#blockNumber).
 
-##### Returns
+#### Returns
 
 1. `<string>` - the average generation time of all blocks (ms).
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2105,24 +2099,24 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_ge
 }
 ```
 
-#### <a name="block_getBlocksByTime">block_getBlocksByTime</a>
+### <a name="block_getBlocksByTime">block_getBlocksByTime</a>
 
 Returns the number of blocks generated at specific time periods.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `startTime`: `<number>` - The start unix timestamp.
 - `endTime`: `<number>` - The end unix timestamp.
 
-##### Returns
+#### Returns
 
 1. `<Object>`
 - `sumOfBlocks`: `<string>` - The number of blocks.
 - `startBlock`: `<string>` - The start block number.
 - `endBlock`: `<string>` - The end block number.
 
-##### Example1: Normal request
+#### Example1: Normal request
 
 ```bash
 # Request
@@ -2143,7 +2137,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"block_get
 }
 ```
 
-##### Example2: Start unix timestamp and end unix timestamp are both more than written unix timestamp of the latest block.
+#### Example2: Start unix timestamp and end unix timestamp are both more than written unix timestamp of the latest block.
 
 ```bash
 # Request
@@ -2164,19 +2158,19 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"block_get
 }
 ```
 
-#### <a name="block_getGenesisBlock">block_getGenesisBlock</a>
+### <a name="block_getGenesisBlock">block_getGenesisBlock</a>
 
 Returns current genesis block number.
 
-##### Parameters
+#### Parameters
 
 none
 
-##### Returns
+#### Returns
 
 1. `<string>` - The genesis block number.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2193,19 +2187,19 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getGenesisBlock","params"
 }
 ```
 
-#### <a name="block_getChainHeight">block_getChainHeight</a>
+### <a name="block_getChainHeight">block_getChainHeight</a>
 
 Returns the current chain height.
 
-##### Parameters
+#### Parameters
 
 none
 
-##### Returns
+#### Returns
 
 1. `<string>` - The latest block number.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2222,21 +2216,21 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getChainHeight","params":
 }
 ```
 
-#### <a name="block_getBatchBlocksByHash">block_getBatchBlocksByHash</a>
+### <a name="block_getBatchBlocksByHash">block_getBatchBlocksByHash</a>
 
 Returns a list of blocks by a list of specific block hash.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `hashes`: `[<string>]` - Array of block hash.
 - `isPlain`: `<boolean>` - If `true` it returns block excluding transactions, if `false` it returns block including transactions.
 
-##### Returns
+#### Returns
 
 1. `[<Block>]` - Array of Block object, the members of Block object see [Block](#block).
 
-##### Example1: Returns block including transactions
+#### Example1: Returns block including transactions
 
 ```bash
 # Request
@@ -2293,7 +2287,7 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByHash","pa
 }
 ```
 
-##### Example2: Returns block excluding transactions
+#### Example2: Returns block excluding transactions
 
 ```bash
 # Request
@@ -2334,21 +2328,21 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByHash","pa
 }
 ```
 
-#### <a name="block_getBatchBlocksByNumber">block_getBatchBlocksByNumber</a>
+### <a name="block_getBatchBlocksByNumber">block_getBatchBlocksByNumber</a>
 
 Returns a list of blocks by a list of specific block number.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `numbers`: `[<blockNumber>]` - Array of block number. See type [Block Number](#blockNumber).
 - `isPlain`: `<boolean>` - If `true` it returns block excluding transactions, if `false` it returns block including transactions.
 
-##### Returns
+#### Returns
 
 1. `[<Block>]` -  Array of Block object, the members of Block object see [Block](#block).
 
-##### Example1: Returns block including transactions
+#### Example1: Returns block including transactions
 
 ```bash
 # Request
@@ -2422,7 +2416,7 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByNumber","
 }
 ```
 
-##### Example2: Returns block excluding transactions
+#### Example2: Returns block excluding transactions
 
 ```bash
 # Request
@@ -2463,21 +2457,19 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByNumber","
 }
 ```
 
-### Subscription
-
-#### <a name="sub_newBlockSubscription">sub_newBlockSubscription</a>
+### <a name="sub_newBlockSubscription">sub_newBlockSubscription</a>
 
 To subscribe  a new block event and create filter to notify client. The information of new block will be cached in filter when a new block is generated.
 
-##### Parameters
+#### Parameters
 
 1. `<boolean>` - If `true`,  the filter will return the full object [Block](#block) , if `false` it will return block hash. 
 
-##### Returns
+#### Returns
 
 1. `<string>` - Subscription ID.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2494,11 +2486,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_newBl
 }
 ```
 
-#### <a name="sub_newEventSubscription">sub_newEventSubscription</a>
+### <a name="sub_newEventSubscription">sub_newEventSubscription</a>
 
 To subscribe a new VM event and create filter to notify client. The VM event log will be cached when a VM event is triggered.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 
@@ -2510,11 +2502,11 @@ To subscribe a new VM event and create filter to notify client. The VM event log
   - `[A, [B, C]] = A && (B || C)`
   - `[null, A, B] = ANYTHING && A && B` `null` works as a wildcard
 
-##### Returns
+#### Returns
 
 1. `<string>` - Subscription ID.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2535,11 +2527,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_newEv
 }
 ```
 
-#### <a name="sub_getLogs">sub_getLogs</a>
+### <a name="sub_getLogs">sub_getLogs</a>
 
 Returns the eligible VM event log.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 
@@ -2551,7 +2543,7 @@ Returns the eligible VM event log.
   - `[A, [B, C]] = A && (B || C)`
   - `[null, A, B] = ANYTHING && A && B` `null` works as a wildcard
 
-##### Returns
+#### Returns
 
 1. `[<Log>]` -  the Log object has the following members:
    - `address`: `<string>`, 20 Bytes - Contract address by which this event log is generated.
@@ -2563,7 +2555,7 @@ Returns the eligible VM event log.
    - `txIndex`: `<number>` - Transaction index position in the block.
    - `index`: `<number>` - Event log index position in all logs generated in this transaction.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2594,11 +2586,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_getLo
 }
 ```
 
-#### <a name="sub_newSystemStatusSubscription">sub_newSystemStatusSubscription</a>
+### <a name="sub_newSystemStatusSubscription">sub_newSystemStatusSubscription</a>
 
 To subscribe a new system status event and create filter to notify client. The information of system status will be cached when a new system status event is thrown.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 
@@ -2609,11 +2601,11 @@ To subscribe a new system status event and create filter to notify client. The i
 - `error_codes`: `[<number>]` - [optional, default no limit] Array of number, specific status information under the module the client wants to subscribe.
 - `error_codes_exclude`: `[<number>]` - [optional, default no limit] Array of number, specific status information under the module the client doesn't want to subscribe. 
 
-##### Returns
+#### Returns
 
 1. `<string>` - Subscription ID.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2635,19 +2627,19 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ newS
 }
 ```
 
-#### <a name="sub_newArchiveSubscription">sub_newArchiveSubscription</a>
+### <a name="sub_newArchiveSubscription">sub_newArchiveSubscription</a>
 
 To subscribe a data archiving event and create filter to notify client. The information of archiving will be cached when a new data archiving event is triggered.
 
-##### Parameters
+#### Parameters
 
 none
 
-##### Returns
+#### Returns
 
 1. `<string>` - Subscription ID.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2664,19 +2656,19 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ newA
 }
 ```
 
-#### <a name="sub_getSubscriptionChanges">sub_getSubscriptionChanges</a>
+### <a name="sub_getSubscriptionChanges">sub_getSubscriptionChanges</a>
 
 Polling method for filters. Returns new messages since the last call of this method.
 
-##### Parameters
+#### Parameters
 
 1. `<string>` - Subscription ID.
 
-##### Returns
+#### Returns
 
 1. `<Array>` - Array of messages received since last poll.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2693,19 +2685,19 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_getSu
 }
 ```
 
-#### <a name="sub_unSubscription">sub_unSubscription</a>
+### <a name="sub_unSubscription">sub_unSubscription</a>
 
 To unsubscribe a subscription with given id. This method should be called when watch is no longer needed.
 
-##### Parameters
+#### Parameters
 
 1. `<string>` - Subscription ID.
 
-##### Returns
+#### Returns
 
 1. `<boolean>` - `true` if the subscription was successfully unsubscribe, otherwise `false`.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2722,17 +2714,15 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ unsu
 }
 ```
 
-### Node
-
-#### <a name="node_getNodes">node_getNodes</a>
+### <a name="node_getNodes">node_getNodes</a>
 
 Returns information of all nodes.
 
-##### Parameters
+#### Parameters
 
 none
 
-##### Returns
+#### Returns
 
 1. `[<PeerInfo>]` - Array of PeerInfo object, the PeerInfo object has following members:
 - `id`: `<number>` - The node ID. 
@@ -2749,7 +2739,7 @@ none
   - `2`: Stop status.
 - `delay`: `<number>` - Represents the delay time(ns) between this node and requested node. If this value is `0`, it represents this PeerInfo is the information of local node.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2815,19 +2805,19 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "node_ge
 }
 ```
 
-#### <a name="node_getNodeHash">node_getNodeHash</a>
+### <a name="node_getNodeHash">node_getNodeHash</a>
 
 Return hash of the requested node.
 
-##### Parameters
+#### Parameters
 
 none
 
-##### Returns
+#### Returns
 
 1. `<string>` - hash of the node.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2844,20 +2834,20 @@ curl -X POST --data ' {"jsonrpc":"2.0", "namespace":"global", "method":"node_get
 }
 ```
 
-#### <a name="node_deleteVP">node_deleteVP</a>
+### <a name="node_deleteVP">node_deleteVP</a>
 
 To disconnect a connected VP peer.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `nodehash`: `<string>` - Hash of the VP peer to disconnect.
 
-##### Returns
+#### Returns
 
 1. `<string>` - A message indicates whether the request is sent successfully or not.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2874,20 +2864,20 @@ curl -X POST --data ' {"jsonrpc":"2.0", "namespace":"global", "method":"node_del
 }
 ```
 
-#### <a name="node_deleteNVP">node_deleteNVP</a>
+### <a name="node_deleteNVP">node_deleteNVP</a>
 
 VP node disconnects to connected NVP peer by hash of NVP peer.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `nodehash`: `<string>` - Hash of NVP peer to disconnect.
 
-##### Returns
+#### Returns
 
 1. `<string>` - A message indicates whether the request is sent successfully or not.
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2904,23 +2894,21 @@ curl -X POST --data ' {"jsonrpc":"2.0","namespace":"global", "method":"node_dele
 }
 ```
 
-### Certificate
-
-#### <a name="cert_getTCert">cert_getTCert</a>
+### <a name="cert_getTCert">cert_getTCert</a>
 
 Returns the tcert certificate issued by the node to the client.
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 - `pubkey`: `<string>` - Public key(pem format).
 
-##### Returns
+#### Returns
 
 1. `<Object>`
 - `tcert`: `<string>` - tcert certificate.
 
-##### Example1: Getting tcert certificate failed
+#### Example: Getting tcert certificate failed
 
 ```bash
 # Request

@@ -190,13 +190,12 @@ curl -X POST -d '{"jsonrpc":"2.0","method":"block_latestBlock","namespace":"glob
 
 
 ## 接口描述
-### Transaction
-
-#### <a name="tx_getTransactions">tx_getTransactions</a>
+### <a name="tx_getTransactions">tx_getTransactions</a>
 
 查询指定区块区间的所有交易。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `from`: `<blockNumber>` - 起始区块号。
 - `to`: `<blockNumber>` - 终止区块号。
@@ -205,7 +204,8 @@ curl -X POST -d '{"jsonrpc":"2.0","method":"block_latestBlock","namespace":"glob
 
 `<blockNumber>`可以是十进制整数或者进制字符串，可以是`“latest”`字符串表示最新的区块。`from`必须小于等于`to`，否则会返回error。
 
-##### Returns<a name="validTransaction"></a>
+#### Returns<a name="validTransaction"></a>
+
 1.  `[<Transaction>]` - Transaction对象字段如下：
 - `version`: `<string>` - 平台版本号。
 - `hash`: `<string>` - 32字节的十六进制字符串，交易哈希值。
@@ -222,7 +222,8 @@ curl -X POST -d '{"jsonrpc":"2.0","method":"block_latestBlock","namespace":"glob
 - `payload`：`<string>` - 部署合约、调用合约、升级合约的时候才有这个值，可以通过这个值追溯到合约调用的方法以及调用传入的参数。
 
 
-##### Example1: 正常的请求
+#### Example1: 正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getTransactions", "params": [{"from": 1, "to": 2}], "id": 71}'
@@ -267,7 +268,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-##### Example2: 区块不存在
+#### Example2: 区块不存在
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getTransactions", "params": [{"from": 1, "to": 2}], "id": 71}'
@@ -282,14 +284,16 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-#### <a name="tx_getDiscardTransactions">tx_getDiscardTransactions</a>
+### <a name="tx_getDiscardTransactions">tx_getDiscardTransactions</a>
 
 查询所有非法交易。
 
-##### Parameters
+#### Parameters
+
 无
 
-##### Returns<a name="invalidTransaction"></a>
+#### Returns<a name="invalidTransaction"></a>
+
 1.  `[<Transaction>]` - Transaction对象字段如下：
 - `version`: `<string>` - 平台版本号。
 - `hash`: `<string>` - 32字节的十六进制字符串，交易哈希值。串，交易所在区块的哈希。
@@ -313,7 +317,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 - **INVALID_PERMISSION** - 合约操作权限不够;
 
 
-##### Example1：正常的请求
+#### Example1：正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ getDiscardTransactions", "params": [], "id": 71}'
@@ -343,7 +348,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ get
 }
 ```
 
-##### Example2：若没有非法交易
+#### Example2：若没有非法交易
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ getDiscardTransactions", "params": [], "id": 71}'
@@ -358,14 +364,16 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ get
 }
 ```
 
-#### <a name= "tx_getTransactionByHash">tx_getTransactionByHash</a>
+### <a name= "tx_getTransactionByHash">tx_getTransactionByHash</a>
 
 根据交易哈希查询交易详情。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 32字节的十六进制字符串，交易的哈希值。
 
-##### Returns
+#### Returns
+
 1.  `<Transaction>` - Transaction对象字段如下：
 - `version`: `<string>` - 平台版本号。
 - `hash`: `<string>` - 32字节的十六进制字符串，交易哈希值。
@@ -393,8 +401,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ get
 - **INVALID_PERMISSION** - 合约操作权限不够，对应code是-32008；
 
 
+#### Example1：查询合法的交易
 
-##### Example1：查询合法的交易
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getTransactionByHash", "params":["0xe652e25e617c5f193b240c0d8ff1941a8cfb1d15434eb3830892b7a8389730aa"], "id": 1}'
@@ -424,7 +432,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getTr
 }
 ```
 
-##### Example2：查询非法的交易
+#### Example2：查询非法的交易
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"tx_getTransactionByHash","params":["0x1f6dc4c744ce5e8a39e6a19f19dc27c99d7efd8e38061e80550bf5e7ab1060e1"],"id":1}'
@@ -452,7 +461,8 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"tx_getTransactionByHash","params
 }
 ```
 
-##### Example3：查询的交易不存在
+#### Example3：查询的交易不存在
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getTransactionByHash", "params":[" 0x0e707231fd779779ce25a06f51aec60faed8bf6907e6d74fb11a3fd585831a7e"], "id": 1}'
@@ -467,17 +477,20 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getTr
 }
 ```
 
-#### <a name="tx_getTransactionByBlockHashAndIndex">tx_getTransactionByBlockHashAndIndex</a>
+### <a name="tx_getTransactionByBlockHashAndIndex">tx_getTransactionByBlockHashAndIndex</a>
 
 根据区块哈希和交易偏移量查询交易。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 32字节的十六进制字符串，区块的哈希值。
 2. `<number>` - 交易在区块中的偏移量，可以是十进制整数或进制字符串。
 
-##### Returns
+#### Returns
+
 1.  `<Transaction>` - Transaction对象字段见 [合法交易](#validTransaction).
-##### Example1：正常的请求
+#### Example1：正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getTransactionsByBlockHashAndIndex","params": ["0xd198976fa8b4ca2de6b1b137552b84dc08b7cdcbebbf9388add88f4710fd2cf9", 0], "id": 71}'
@@ -507,7 +520,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-##### Example2：查询的区块不存在
+#### Example2：查询的区块不存在
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getTransactionsByBlockHashAndIndex","params": ["0xd198976fa8b4ca2de6b1b137552b84dc08b7cdcbebbf9388add88f4710fd2cf9", 0], "id": 71}'
@@ -522,17 +536,20 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-#### <a name="tx_getTransactionByBlockNumberAndIndex">tx_getTransactionByBlockNumberAndIndex</a>
+### <a name="tx_getTransactionByBlockNumberAndIndex">tx_getTransactionByBlockNumberAndIndex</a>
 
 根据区块号和交易偏移量查询交易。
 
-##### Parameters
+#### Parameters
+
 1. `<blockNumber>` - 区块号，可以是十进制整数、进制字符串或“latest”字符串表示最新的区块。
 2. `<number>` - 交易在区块中的偏移量，可以是十进制整数或进制字符串。
 
-##### Returns
+#### Returns
+
 1.  `<Transaction>` - Transaction对象字段见 [合法交易](#validTransaction).
-##### Example1：正常的请求
+#### Example1：正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":   "tx_getTransactionByBlockNumberAndIndex", "params": [2,0], "id": 71}'
@@ -562,7 +579,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":   "tx_ge
 }
 ```
 
-##### Example2：请求的区块不存在
+#### Example2：请求的区块不存在
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":   "tx_getTransactionsByBlockNumberAndIndex", "params": [2,0], "id": 71}'
@@ -577,19 +595,22 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":   "tx_ge
 }
 ```
 
-#### <a name="tx_getTransactionsCount">tx_getTransactionsCount</a>
+### <a name="tx_getTransactionsCount">tx_getTransactionsCount</a>
 
 查询当前链上交易量。
 
-##### Parameters
+#### Parameters
+
 无
 
-##### Returns
+#### Returns
+
 1. `<Object>`
 - `count`: `<string>` - 交易数量，十六进制字符串表示。
 - `timestamp`: `<number>` - 响应时间戳（单位ns）。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ getTransactionsCount", "params": [], "id": 71}'
@@ -608,21 +629,24 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_ get
 }
 ```
 
-#### <a name="tx_getTxAvgTimeByBlockNumber">tx_getTxAvgTimeByBlockNumber</a>
+### <a name="tx_getTxAvgTimeByBlockNumber">tx_getTxAvgTimeByBlockNumber</a>
 
 根据指定的区块区间计算出每笔交易的平均处理时间。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `from`: `<blockNumber>` - 起始区块号。
 - `to`: `<blockNumber>` - 终止区块号。
 
 blockNumber可以是十进制整数或者进制字符串，可以是“latest”字符串表示最新的区块。from必须小于等于to，否则会返回error。如果 from 和 to 的值一样，则表示计算的是当前指定区块交易的平均处理时间。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 十六进制字符串，表示交易的平均处理时间（单位ms）。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getTxAvgTimeByBlockNumber", "params": [{"from":10, "to":19}], "id": 71}'
@@ -638,14 +662,16 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-#### <a name="tx_getTransactionReceipt">tx_getTransactionReceipt</a>
+### <a name="tx_getTransactionReceipt">tx_getTransactionReceipt</a>
 
 根据交易哈希返回交易回执信息。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 32字节的十六进制字符串，交易的哈希值。
 
-##### Returns<a name="receipt"></a>
+#### Returns<a name="receipt"></a>
+
 1.  `<Receipt>` - Receipt对象字段如下：
 - `version`: `<string>` - 平台版本号。
 - `txHash`: `<string>` - 交易哈希。
@@ -664,7 +690,7 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 
 
 
-​如果该笔交易还没被确认，则返回的错误码为-32001的error，如果该笔交易处理过程中发生错误，则错误可能是：  
+如果该笔交易还没被确认，则返回的错误码为-32001的error，如果该笔交易处理过程中发生错误，则错误可能是：  
 
 - **OUTOFBALANCE** - 余额不足，对应code是-32002；
 - **SIGFAILED** - 签名非法，对应code是-32003；
@@ -672,7 +698,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 - **INVOKE_CONTRACT_FAILED** - 合约方法调用失败，对应code是-32005；
 - **INVALID_PERMISSION** - 合约操作权限不够，对应code是-32008；
 
-##### Example1：交易未被确认
+#### Example1：交易未被确认
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx_getTransactionReceipt","params":["0x0e0758305cde33c53f8c2b852e75bc9b670c14c547dd785d93cb48f661a2b36a "],"id":1}'
@@ -687,7 +714,8 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-##### Example2：合约部署出错
+#### Example2：合约部署出错
+
 在这个例子中我们使用以下合约来重现这个情况：
 ```bash
 contract TestContractor{
@@ -741,7 +769,8 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-##### Example3：合约方法调用出错
+#### Example3：合约方法调用出错
+
 在这个例子中我们使用以下合约来重现这个情况：
 ```bash
 contract TestContractor{
@@ -796,7 +825,8 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-##### Example4：签名非法
+#### Example4：签名非法
+
 我们将Example3合约方法调用失败例子的参数稍微修改一下，把`from`的最后一个字母“c”改为“0”，那么调用合约请求如下：
 ```bash
 # Request
@@ -833,7 +863,8 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-##### Example5
+#### Example5
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getTransactionReceipt", "params":["0x70376053e11bc753b8cc778e2fbb662718671712e1744980ba1110dd1118c059"], "id": 1}'
@@ -869,17 +900,20 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "tx_getT
 }
 ```
 
-#### <a name="tx_getBlockTransactionCountByHash">tx_getBlockTransactionCountByHash</a>
+### <a name="tx_getBlockTransactionCountByHash">tx_getBlockTransactionCountByHash</a>
 
 根据区块哈希查询区块交易数量。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 32字节的十六进制字符串，区块的哈希值。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 十六进制字符串，交易数量。
 
-##### Example1：正常的请求
+#### Example1：正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getBlockTransactionCountByHash", "params":  ["0x7a87bd1fb51a86763e9791eab1d5ecca7f004bea1cfcc426113b4625d267f699"], "id": 71}'
@@ -895,7 +929,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getBl
 }
 ```
 
-##### Example2：查询区块不存在
+#### Example2：查询区块不存在
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getBlockTransactionCountByHash", "params":  ["0x7a87bd1fb51a86763e9791eab1d5ecca7f004bea1cfcc426113b4625d267f699"], "id": 71}'
@@ -910,17 +945,20 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":"tx_getBl
 }
 ```
 
-#### <a name="tx_getBlockTransactionCountByNumber">tx_getBlockTransactionCountByNumber</a>
+### <a name="tx_getBlockTransactionCountByNumber">tx_getBlockTransactionCountByNumber</a>
 
 根据区块号查询区块交易数量。
 
-##### Parameters
+#### Parameters
+
 1. `<blcokNumber>` - 区块号，可以是十进制整数、进制字符串或“latest”字符串来表示最新区块。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 十六进制字符串，交易数量。
 
-##### Example1：正常的请求
+#### Example1：正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":" tx_getBlockTransactionCountByNumber", "params":  ["0x2"], "id": 71}'
@@ -936,7 +974,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":" tx_getB
 }
 ```
 
-##### Example2：查询的区块不存在
+#### Example2：查询的区块不存在
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":" tx_getBlockTransactionCountByNumber", "params":  ["0x2"], "id": 71}'
@@ -951,11 +990,12 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":" tx_getB
 }
 ```
 
-#### <a name="tx_getSignHash">tx_getSignHash</a>
+### <a name="tx_getSignHash">tx_getSignHash</a>
 
 获取用于签名算法的哈希。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `from`: `<string>` - 20字节的十六进制字符串，交易发送方的地址。
 - `to`: `<string>` -  [可选] 20字节的十六进制字符串，交易接收方的地址（普通账户或合约地址）。若是部署合约，则不需要这个参数。
@@ -966,10 +1006,12 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method":" tx_getB
 
 说明：如果是部署合约的交易，则不要传to。若为普通转账，则传value，表示转账金额。若是部署合约、调用合约或升级合约的交易，则传payload，含义详见[部署合约](#contract_deployContract)、[调用合约](#contract_invokeContract)或[升级合约](#contract_maintainContract)的接口。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 十六进制字符串，签名哈希。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx_getSignHash", "params":[{
@@ -989,18 +1031,21 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx
 }
 ```
 
-#### <a name="tx_getTransactionsByTime">tx_getTransactionsByTime</a>
+### <a name="tx_getTransactionsByTime">tx_getTransactionsByTime</a>
 
 查询指定时间区间内的所有合法交易。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `startTime`: `<number>` - 起始时间戳（单位ns）。
 - `endTime`: `<number>` - 结束时间戳（单位ns）。
 
-##### Returns
+#### Returns
+
 1.  `[<Transaction>]` - Transaction对象字段见[合法交易](#validTransaction).
-##### Example1：正常的请求
+#### Example1：正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx_getTransactionsByTime","params":[{"startTime":1, "endTime":1581776001230590326}],"id":1}'
@@ -1030,7 +1075,8 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"tx_getTra
 }
 ```
 
-##### Example2：查询数据不存在
+#### Example2：查询数据不存在
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"tx_getTransactionsByTime","params":[{"startTime":1681776001230590326, "endTime":1681776001230590326}],"id":1}'
@@ -1046,18 +1092,21 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"tx_getTransactionsByTime","param
 }
 ```
 
-#### <a name="tx_getDiscardTransactionsByTime">tx_getDiscardTransactionsByTime</a>
+### <a name="tx_getDiscardTransactionsByTime">tx_getDiscardTransactionsByTime</a>
 
 查询指定时间区间内的所有非法交易。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `startTime`: `<number>` - 起始时间戳（单位ns）。
 - `endTime`: `<number>` - 结束时间戳（单位ns）。
 
-##### Returns
+#### Returns
+
 1.  `[<Transaction>]` - Transaction对象字段见[非法交易](#invalidTransaction).
-##### Example1：正常的请求
+#### Example1：正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" tx_getDiscardTransactionsByTime","params":[{"startTime":1, "endTime":1581776001230590326}],"id":1}'
@@ -1087,17 +1136,20 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" tx_getDi
 }
 ```
 
-#### <a name="tx_getBatchTransactions">tx_getBatchTransactions</a>
+### <a name="tx_getBatchTransactions">tx_getBatchTransactions</a>
 
 根据交易哈希批量查询交易。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `hashs`: `[<string>]` - 交易哈希数组,，哈希值为32字节的十六进制字符串。
 
-##### Returns
+#### Returns
+
 1.  `[<Transaction>]` - Transaction对象字段见[合法交易](#validTransaction).
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"tx_getBatchTransactions","params":[{
@@ -1146,17 +1198,20 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"tx_getBatchTransactions","params
 }
 ```
 
-#### <a name="tx_getBatchReceipt">tx_getBatchReceipt</a>
+### <a name="tx_getBatchReceipt">tx_getBatchReceipt</a>
 
 根据交易哈希批量查询交易回执。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `hashs`: `[<string>]` - 交易哈希数组,，哈希值为32字节的十六进制字符串。
 
-##### Returns
+#### Returns
+
 1.  `[<Receipt>]` - Receipt对象字段见[Receipt](#receipt).
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0","method":"tx_getBatchReceipt","params":[{
@@ -1191,16 +1246,16 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"tx_getBatchReceipt","params":[{
 }
 ```
 
-### Contract
-
-#### <a name="contract_compileContract">contract_compileContract</a>
+### <a name="contract_compileContract">contract_compileContract</a>
 
 编译智能合约。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 合约源码。
 
-##### Returns
+#### Returns
+
 1. `<Object>`
 - `abi`: `[<string>]` - 合约源码对应的abi。
 - `bin`: `[<string>]` - 合约编译而成的字节码。
@@ -1208,7 +1263,8 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"tx_getBatchReceipt","params":[{
 
 若源码中有多个合约，则bin为顶层合约的字节码。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"contract_compileContract", "params":["contract Accumulator{    uint32 sum = 0;   function increment(){         sum = sum + 1;     }      function getSum() returns(uint32){         return sum;     }   function add(uint32 num1,uint32 num2) {         sum = sum+num1+num2;     } }"],"id":1}'
@@ -1234,11 +1290,12 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"contract_
 }
 ```
 
-#### <a name="contract_deployContract">contract_deployContract</a>
+### <a name="contract_deployContract">contract_deployContract</a>
 
 部署合约。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `from`: `<string>` - 20字节的十六进制字符串，交易发送方的地址。
 - `nonce`: `<number>` - 16位随机数，该值必须为十进制整数。
@@ -1250,10 +1307,12 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"contract_
 
 说明：若合约构造函数需要传参，则payload为编译合约返回的bin与构造函数参数编码的字符串拼接。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 32字节的十六进制字符串，交易的哈希值。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global",  "method":"contract_deployContract", "params":[{
@@ -1275,11 +1334,12 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global",  "method":"c
 }
 ```
 
-#### <a name="contract_invokeContract">contract_invokeContract</a>
+### <a name="contract_invokeContract">contract_invokeContract</a>
 
 调用合约。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `from`: `<string>` - 20字节的十六进制字符串，交易发送方的地址。
 - `to`: `<string>` - 20字节的十六进制字符串，合约地址。
@@ -1293,10 +1353,12 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global",  "method":"c
 
 说明：to合约地址需要在部署完合约以后，调用tx_getTransactionReceipt方法来获取。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 32字节的十六进制字符串，交易的哈希值。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_invokeContract", "params":[{
@@ -1320,17 +1382,20 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getCode">contract_getCode</a>
+### <a name="contract_getCode">contract_getCode</a>
 
 获取合约的字节编码。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 合约地址。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 十六进制字节码。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"contract_getCode","params": ["0xaeccd2fd1118334402c5de1cb014a9c192c498df"],"id": 1}'
@@ -1346,17 +1411,20 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"contract_
 } 
 ```
 
-#### <a name="contract_getContractCountByAddr">contract_getContractCountByAddr</a>
+### <a name="contract_getContractCountByAddr">contract_getContractCountByAddr</a>
 
 获取指定账户部署的合约量。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 20字节的十六进制字符串，账户地址。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 合约数量。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "contract_getContractCountByAddr", "params": ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b"], "id": 1}'
@@ -1372,13 +1440,14 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "contrac
 } 
 ```
 
-#### <a name="contarct_maintainContract">contarct_maintainContract</a>
+### <a name="contarct_maintainContract">contarct_maintainContract</a>
 
 升级合约、冻结合约、解冻合约。
 
 只有合约的部署者才拥有升级合约、冻结合约、解冻合约的权限。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `from`: `<string>` - 20字节的十六进制字符串，交易发送方的地址。
 - `to`: `<string>` - 20字节的十六进制字符串，合约地址。
@@ -1392,10 +1461,12 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "contrac
 
 说明：to合约地址需要在部署完合约以后，调用tx_getTransactionReceipt方法来获取。
 
-##### Returns
+#### Returns
+
 1. `<string>`: 32字节的十六进制字符串，交易的哈希值。
 
-##### Example1：升级合约
+#### Example1：升级合约
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_maintainContract","params":[{
@@ -1420,7 +1491,8 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-##### Example2：冻结合约
+#### Example2：冻结合约
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_maintainContract","params":[{
@@ -1443,7 +1515,8 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-##### Example3：解冻合约
+#### Example3：解冻合约
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_maintainContract","params":[{
@@ -1466,17 +1539,20 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getStatus">contract_getStatus</a>
+### <a name="contract_getStatus">contract_getStatus</a>
 
 查询合约状态。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 20字节的十六进制字符串，合约地址。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 合约状态。`normal`表示正常状态，`frozen`表示冻结状态，`non-contract`表示非合约，即为普通转账的交易。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_getStatus","params": ["0xbbe2b6412ccf633222374de8958f2acc76cda9c9"],"id": 1}'
@@ -1492,17 +1568,20 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getCreator">contract_getCreator</a>
+### <a name="contract_getCreator">contract_getCreator</a>
 
 查询合约部署者。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 20字节的十六进制字符串，合约地址。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 20字节的十六进制字符串，合约部署者地址。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_getCreator","params": ["0xbbe2b6412ccf633222374de8958f2acc76cda9c9"],"id": 1}'
@@ -1518,17 +1597,20 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getCreateTime">contract_getCreateTime</a>
+### <a name="contract_getCreateTime">contract_getCreateTime</a>
 
 查询合约部署时间。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 20字节的十六进制字符串，合约地址。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 合约部署的日期时间。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_getCreateTime","params": ["0xbbe2b6412ccf633222374de8958f2acc76cda9c9"],"id": 1}'
@@ -1544,17 +1626,20 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-#### <a name="contract_getDeployedList">contract_getDeployedList</a>
+### <a name="contract_getDeployedList">contract_getDeployedList</a>
 
 查询已部署的合约地址列表。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 20字节的十六进制字符串，账户地址。
 
-##### Returns
+#### Returns
+
 1. `[<string>]` - 已部署的所有合约地址。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_getDeployedList","params": ["0x000f1a7a08ccc48e5d30f80850cf1cf283aa3abd"],"id": 1}'
@@ -1570,16 +1655,16 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 }
 ```
 
-### Block
-
-#### <a name="block_latestBlock">block_latestBlock</a>
+### <a name="block_latestBlock">block_latestBlock</a>
 
 获取最新区块。
 
-##### Parameters
+#### Parameters
+
 无
 
-##### Returns<a name="block"></a>
+#### Returns<a name="block"></a>
+
 1. `<Block>` - Block对象字段如下：
 - `version`: `<string>` - 平台版本号。
 - `number`: `<string>` - 区块的高度。
@@ -1591,7 +1676,8 @@ curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "c
 - `merkleRoot`: `<string>` - Merkle树的根哈希。
 - `transactions`: ` [<Transaction>]` - 区块中的交易列表。
 
-##### Example1：正常的请求
+#### Example1：正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_latestBlock","params":[],"id":71}'
@@ -1633,7 +1719,8 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_la
 }
 ```
 
-##### Example2：如果链上一个区块都没有
+#### Example2：如果链上一个区块都没有
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_latestBlock","params":[],"id":71}'
@@ -1648,11 +1735,12 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_la
 }
 ```
 
-#### <a name="block_getBlocks">block_getBlocks</a>
+### <a name="block_getBlocks">block_getBlocks</a>
 
 查询指定区块区间的所有区块。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `from`: `<blockNumber>` - 起始区块号。
 - `to`: `<blockNumber>` - 终止区块号。
@@ -1660,9 +1748,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_la
 
 blockNumber可以是十进制整数或者进制字符串，可以是“latest”字符串表示最新的区块。from必须小于等于to，否则会返回error。
 
-##### Returns
+#### Returns
+
 1. `[<Block>]` - Block对象字段见 [Block](#block).
-##### Example1：返回的区块包括交易信息
+#### Example1：返回的区块包括交易信息
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_getBlocks", "params": [{"from":2,"to":3}], "id": 1}'
@@ -1733,7 +1823,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_g
 }
 ```
 
-##### Example2：返回的区块不包括交易信息
+#### Example2：返回的区块不包括交易信息
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_getBlocks", "params": [{"from":2,"to":3,"isPlain":true}], "id": 1}'
@@ -1770,17 +1861,20 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_g
 }
 ```
 
-#### <a name="block_getBlockByHash">block_getBlockByHash</a>
+### <a name="block_getBlockByHash">block_getBlockByHash</a>
 
 根据区块的哈希值查询区块详细信息。
 
-##### Parameters
+#### Parameters
+
 1. `<string>` - 32字节的十六进制字符串，区块的哈希值。
 2. `<boolean>` - 值为`true`，表示返回的区块不包括区块内的交易。值为`false`表示返回的区块包括区块内的交易信息。
 
-##### Returns
+#### Returns
+
 1. `<Block>` - Block对象字段见 [Block](#block).
-##### Example1：返回的区块包括交易信息
+#### Example1：返回的区块包括交易信息
+
 ```bash
 # Request
 curl -X POST –data  '{"jsonrpc":"2.0","namespace":"global","method":"block_getBlockByHash","params":["0x00acc3e13d8124fe799d55d7d2af06223148dc7bbc723718bb1a88fead34c914", false],"id":1}'
@@ -1822,7 +1916,8 @@ curl -X POST –data  '{"jsonrpc":"2.0","namespace":"global","method":"block_get
 }
 ```
 
-##### Example2：返回的区块不包括交易信息
+#### Example2：返回的区块不包括交易信息
+
 ```bash
 # Request
 curl -X POST –data  '{"jsonrpc":"2.0","namespace":"global","method":"block_getBlockByHash","params":["0x00acc3e13d8124fe799d55d7d2af06223148dc7bbc723718bb1a88fead34c914", true],"id":1}'
@@ -1847,17 +1942,20 @@ curl -X POST –data  '{"jsonrpc":"2.0","namespace":"global","method":"block_get
 }
 ```
 
-##### <a name="block_getBlockByNumber">block_getBlockByNumber</a>
+### <a name="block_getBlockByNumber">block_getBlockByNumber</a>
 
 根据区块高度查询区块详细信息。
 
-##### Parameters
+#### Parameters
+
 1. `<blockNumber>` - 区块号，可以是十进制整数、进制字符串或“latest”字符串来表示最新区块。
 2. `<boolean>` - 值为`true`，表示返回的区块不包括区块内的交易。值为`false`表示返回的区块包括区块内的交易信息。
 
-##### Returns
+#### Returns
+
 1. `<Block>` - Block对象字段见 [Block](#block).
-##### Example1：返回的区块包括交易信息
+#### Example1：返回的区块包括交易信息
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_getBlockByNumber", "params": ["0x3", false], "id": 1}'
@@ -1899,7 +1997,8 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_g
 }
 ```
 
-##### Example1：返回的区块不包括交易信息
+#### Example2：返回的区块不包括交易信息
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_getBlockByNumber", "params": ["0x3", true], "id": 1}'
@@ -1924,21 +2023,24 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "block_g
 }
 ```
 
-#### <a name="block_getAvgGenerateTimeByBlockNumber">block_getAvgGenerateTimeByBlockNumber</a>
+### <a name="block_getAvgGenerateTimeByBlockNumber">block_getAvgGenerateTimeByBlockNumber</a>
 
 查询区块平均生成时间。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `from`: `<blockNumber>` - 起始区块号。
 - `to`: `<blockNumber>` - 终止区块号。
 
 blockNumber可以是十进制整数或者进制字符串，可以是“latest”字符串表示最新的区块。from必须小于等于to，否则会返回error。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 区块的平均生成时间（单位ms）。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_getAvgGenerateTimeByBlockNumber","params": [{"from": 10, "to": 19}],"id":71}'
@@ -1954,22 +2056,25 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":" block_ge
 }
 ```
 
-#### <a name="block_getBlocksByTime">block_getBlocksByTime</a>
+### <a name="block_getBlocksByTime">block_getBlocksByTime</a>
 
 查询指定时间区间内的区块数量。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `startTime`: `<number>` - 起始unix时间戳（单位ns）。
 - `endTime`: `<number>` - 结束unix时间戳（单位ns）。
 
-##### Returns
+#### Returns
+
 1. `<Object>`
 - `sumOfBlocks`: `<string>` - 区块总数。
 - `startBlock`: `<string>` - 起始区块号。
 - `endBlock`: `<string>` - 结束区块号。
 
-##### Example1: 正常的请求
+#### Example1: 正常的请求
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"block_getBlocksByTime","params":[{"startTime":1481778635567920177, "endTime":1481778653997475900}],"id":1}'
@@ -1989,7 +2094,8 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"block_get
 }
 ```
 
-##### Example2：如果起始时间和终止时间均大于链上最新区块的写入时间
+#### Example2：如果起始时间和终止时间均大于链上最新区块的写入时间
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"block_getBlocksByTime","params":[{"startTime":1481778635567920177, "endTime":1481778653997475900}],"id":1}'
@@ -2009,17 +2115,20 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"block_get
 }
 ```
 
-#### <a name="block_getGenesisBlock">block_getGenesisBlock</a>
+### <a name="block_getGenesisBlock">block_getGenesisBlock</a>
 
 查询创世区块号。
 
-##### Parameters
+#### Parameters
+
 无
 
-##### Returns
+#### Returns
+
 1. `<string>` - 区块号。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getGenesisBlock","params":[],"id":1}'
@@ -2035,18 +2144,20 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getGenesisBlock","params"
 }
 ```
 
-
-#### <a name="block_getChainHeight">block_getChainHeight</a>
+### <a name="block_getChainHeight">block_getChainHeight</a>
 
 查询最新区块号。
 
-##### Parameters
+#### Parameters
+
 无
 
-##### Returns
+#### Returns
+
 1. `<string>` - 区块号。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getChainHeight","params":[],"id":1}'
@@ -2062,18 +2173,21 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getChainHeight","params":
 }
 ```
 
-#### <a name="block_getBatchBlocksByHash">block_getBatchBlocksByHash</a>
+### <a name="block_getBatchBlocksByHash">block_getBatchBlocksByHash</a>
 
 根据区块哈希列表批量查询区块详细信息。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `hashes`: `[<string>]` - 要查询的区块哈希数组，哈希值为32字节的十六进制字符串。
 - `isPlain`: `<boolean>` - 值为`true`，表示返回的区块不包括区块内的交易。值为`false`表示返回的区块包括区块内的交易信息。
 
-##### Returns
+#### Returns
+
 1. `[<Block>]` - Block对象数组，Block对象字段见 [Block](#block).
-##### Example1：返回的区块包含交易信息
+#### Example1：返回的区块包含交易信息
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByHash","params":[{
@@ -2129,7 +2243,8 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByHash","pa
 }
 ```
 
-##### Example2：返回的区块不包括交易信息
+#### Example2：返回的区块不包括交易信息
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByHash","params":[{
@@ -2169,18 +2284,21 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByHash","pa
 }
 ```
 
-#### <a name="block_getBatchBlocksByNumber">block_getBatchBlocksByNumber</a>
+### <a name="block_getBatchBlocksByNumber">block_getBatchBlocksByNumber</a>
 
 根据区块号列表批量查询区块详细信息。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `numbers`: `[<blockNumber>]` - 要查询的区块号数组，区块号可以是十进制整数或者进制字符串，也可以是“latest”字符串表示最新的区块。
 - `isPlain`: `<boolean>` - 值为`true`，表示返回的区块不包括区块内的交易。值为`false`表示返回的区块包括区块内的交易信息。
 
-##### Returns
+#### Returns
+
 1. `[<Block>]` - Block对象数组，Block对象字段见 [Block](#block).
-##### Example1：返回的区块包括交易信息
+#### Example1：返回的区块包括交易信息
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByNumber","params":[{
@@ -2253,7 +2371,8 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByNumber","
 }
 ```
 
-##### Example2：返回的区块不包括交易信息
+#### Example2：返回的区块不包括交易信息
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByNumber","params":[{
@@ -2293,21 +2412,19 @@ curl -X POST --data ' {"jsonrpc":"2.0","method":"block_getBatchBlocksByNumber","
 }
 ```
 
-### Subscription
-
-#### <a name="sub_newBlockSubscription">sub_newBlockSubscription</a>
+### <a name="sub_newBlockSubscription">sub_newBlockSubscription</a>
 
 订阅新区块事件并且创建一个过滤器用于通知客户端，当有一个新区块产生的时候，该区块信息会缓存在过滤器中。
 
-##### Parameters
+#### Parameters
 
 1. `<boolean>` - 是否返回完整数据；值为`true`表示返回完整 [Block 对象](#block)；值为`false`表示只返回区块哈希。
 
-##### Returns
+#### Returns
 
 1. `<string>` - 订阅标号。
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2324,11 +2441,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_newBl
 }
 ```
 
-#### <a name="sub_newEventSubscription">sub_newEventSubscription</a>
+### <a name="sub_newEventSubscription">sub_newEventSubscription</a>
 
 订阅虚拟机事件并且创建一个过滤器用于通知客户端，当虚拟机事件被触发的时候，该事件日志会缓存在过滤器中。
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 
@@ -2340,11 +2457,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_newBl
   - `[A, [B, C]] = A && (B || C)`
   - `[null, A, B] = ANYTHING && A && B`  `null` 表示通配符
 
-##### Returns
+#### Returns
 
 1. `<string>` - 订阅标号。
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2365,11 +2482,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_newEv
 }
 ```
 
-#### <a name="sub_getLogs">sub_getLogs</a>
+### <a name="sub_getLogs">sub_getLogs</a>
 
 获取符合条件的虚拟机事件。
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 
@@ -2381,7 +2498,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_newEv
   - `[A, [B, C]] = A && (B || C)`
   - `[null, A, B] = ANYTHING && A && B`  `null` 表示通配符
 
-##### Returns
+#### Returns
 
 1. `[<Log>]` - 事件信息，Log对象字段如下：
    - `address`: `<string>` - 20字节的十六进制字符串，产生事件的合约地址。
@@ -2393,7 +2510,7 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_newEv
    - `txIndex`: `<number>` - 十进制整数，所属交易在当前区块交易列表中的偏移量。
    - `index`: `<number>` - 十进制整数，该日志在本条交易产生的所有日志中的偏移量。
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2424,11 +2541,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_getLo
 }
 ```
 
-#### <a name="sub_newSystemStatusSubscription">sub_newSystemStatusSubscription</a>
+### <a name="sub_newSystemStatusSubscription">sub_newSystemStatusSubscription</a>
 
 订阅系统状态事件。
 
-##### Parameters
+#### Parameters
 
 1. `<Object>`
 
@@ -2439,11 +2556,11 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_getLo
 - `error_codes`: `[<number>]` - [可选] 一维数组，元素为十进制整数，表示要订阅指定的具体哪一条状态信息，若为空，则表示订阅所有状态信息。
 - `error_codes_exclude`: `[<number>]` - [可选] 一维数组，元素为十进制整数，表示要排除指定的具体哪一条状态信息，若为空，则表示不排除。
 
-##### Returns
+#### Returns
 
 1. `<string>` - 订阅标号。
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2465,19 +2582,19 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ newS
 }
 ```
 
-#### <a name="sub_newArchiveSubscription">sub_newArchiveSubscription</a>
+### <a name="sub_newArchiveSubscription">sub_newArchiveSubscription</a>
 
 订阅数据归档事件。
 
-##### Parameters
+#### Parameters
 
 无
 
-##### Returns
+#### Returns
 
 1. `<string>` - 订阅标号。
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2494,19 +2611,19 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ newA
 }
 ```
 
-#### <a name="sub_getSubscriptionChanges">sub_getSubscriptionChanges</a>
+### <a name="sub_getSubscriptionChanges">sub_getSubscriptionChanges</a>
 
 获取所订阅的事件。
 
-##### Parameters
+#### Parameters
 
 1. `<string>` - 订阅标号。
 
-##### Returns
+#### Returns
 
 1. `<Array>` - 一维数组，所订阅的事件返回的内容。
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2523,19 +2640,19 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_getSu
 }
 ```
 
-#### <a name="sub_unSubscription">sub_unSubscription</a>
+### <a name="sub_unSubscription">sub_unSubscription</a>
 
 取消订阅。
 
-##### Parameters
+#### Parameters
 
 1. `<string>` - 订阅标号。
 
-##### Returns
+#### Returns
 
 1. `<boolean>` - 值为`true`表示取消订阅指定事件成功，否则失败。
 
-##### Example
+#### Example
 
 ```bash
 # Request
@@ -2552,16 +2669,16 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ unsu
 }
 ```
 
-### Node
-
-#### <a name="node_getNodes">node_getNodes</a>
+### <a name="node_getNodes">node_getNodes</a>
 
 获取节点信息。
 
-##### Parameters
+#### Parameters
+
 无
 
-##### Returns
+#### Returns
+
 1. `[<PeerInfo>]` - PeerInfo对象字段如下
 - `id`: `<number>` - 该节点id。
 - `ip`: `<string>` - 该节点IP地址。
@@ -2574,7 +2691,8 @@ curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ unsu
 - `status`: `<number>` - 表示该节点的状态，值为`0`表示节点处于Alive状态，值为`1`表示节点处于Pending状态，值为`2`表示节点处于Stop状态。
 - `delay`: `<number>` - 表示该节点与本节点的延迟时间（单位ns），若为0，则为本节点。 
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "node_getNodes", "params": [],"id":1}'
@@ -2639,17 +2757,20 @@ curl -X POST --data '{"jsonrpc": "2.0", "namespace":"global", "method": "node_ge
 }
 ```
 
-#### <a name="node_getNodeHash">node_getNodeHash</a>
+### <a name="node_getNodeHash">node_getNodeHash</a>
 
 获取当前节点哈希值（向哪个节点发送请求即获取那个节点的哈希值）。
 
-##### Parameters
+#### Parameters
+
 无
 
-##### Returns
+#### Returns
+
 1. `<string>` - 节点哈希值。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0", "namespace":"global", "method":"node_getNodeHash","params":[],"id":1}'
@@ -2665,20 +2786,23 @@ curl -X POST --data ' {"jsonrpc":"2.0", "namespace":"global", "method":"node_get
 }
 ```
 
-#### <a name="node_deleteVP">node_deleteVP</a>
+### <a name="node_deleteVP">node_deleteVP</a>
 
 删除VP节点。
 
 说明：假设当前有5个VP节点，如果要删除第3个节点，则需要向其他4个节点都发送删除节点的请求，3号节点才能成功删除。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `nodehash`: `<string>` - 要删除的VP节点的哈希值。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 请求发送成功的mesage。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0", "namespace":"global", "method":"node_deleteVP","params":[{"nodehash":"c605d50c3ed56902ec31492ed43b238b36526df5d2fd6153c1858051b6635f6e"}],"id":1}'
@@ -2694,18 +2818,21 @@ curl -X POST --data ' {"jsonrpc":"2.0", "namespace":"global", "method":"node_del
 }
 ```
 
-#### <a name="node_deleteNVP">node_deleteNVP</a>
+### <a name="node_deleteNVP">node_deleteNVP</a>
 
 VP节点断开与NVP节点的连接。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `nodehash`: `<string>` - 要删除的NVP节点的哈希值。
 
-##### Returns
+#### Returns
+
 1. `<string>` - 请求发送成功的mesage。
 
-##### Example
+#### Example
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0","namespace":"global", "method":"node_deleteNVP","params":[{"nodehash":"c605d50c3ed56902ec31492ed43b238b36526df5d2fd6153c1858051b6635f6e"}],"id":1}'
@@ -2721,21 +2848,22 @@ curl -X POST --data ' {"jsonrpc":"2.0","namespace":"global", "method":"node_dele
 }
 ```
 
-### Certificate
-
-#### <a name="cert_getTCert">cert_getTCert</a>
+### <a name="cert_getTCert">cert_getTCert</a>
 
 获取节点颁发给用户的tcert证书。
 
-##### Parameters
+#### Parameters
+
 1. `<Object>`
 - `pubkey`: `<string>` - 十六进制表示的pem格式公钥。
 
-##### Returns
+#### Returns
+
 1. `<Object>`
 - `tcert`: `<string>` - tcert证书。
 
-##### Example1：获取tcert失败
+#### Example：获取tcert失败
+
 ```bash
 # Request
 curl -X POST --data ' {"jsonrpc":"2.0", "namespace":"global", "method":"cert_getTCert","params":[{
