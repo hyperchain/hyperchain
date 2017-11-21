@@ -15,6 +15,7 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 系统架构:
 
+   txflow_cn.md
    namespace_cn.md
    ledger.md
    bucket_tree.md

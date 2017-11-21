@@ -17,7 +17,7 @@ HyperVM developed by Hyperchain is a pluggable smart contract engine generic fra
 
 As shown in the following figure is the schematic diagram of HyperVM architecture, HyperVM architecture provides smart contract compiler, interpreter, executor and state management components and other related major components. Among them, Compiler provides smart contract compilation related functions, Interpreter and Executor provide smart contract interpretation and execution related functions, and State components help contract to operate blockchain ledger. Guard module provides smart contract security-related mechanisms.
 
-![hypervm-architecture](./hypervm.png)
+![hypervm-architecture](../../images/hypervm.png)
 
 ### 2.1 HyperEVM
 
@@ -25,7 +25,7 @@ To maximize the open source community's research and accumulation in smart contr
 
 The following figure shows the HyperEVM smart contract execution flow:
 
-![hyperevm-flow](./hyperevm-flow_en.png)
+![hyperevm-flow](../../images/hyperevm-flow_en.png)
 
 
 HyperEVM executes a transaction, it returns an execution result. The system stores it in a variable called a transaction receipt, and the platform client can query the transaction result according to the current transaction hash. 
