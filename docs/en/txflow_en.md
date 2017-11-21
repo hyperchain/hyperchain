@@ -33,7 +33,7 @@ The transaction goes through the three-phase protocol the Consensus Algorithm (R
 
 (1) *Pre-Prepare*
 The primary peer (master peer among all VPs) orders tansactions chronologically by channel, and creates block of transactions in a certain period of time (or a certain number). And then, primary broadcasts the block to all VPs.
-![](../../images/tx_to_block.png)
+![](../../images/txs_to_block.png)
 (2) *Prepare*
 Replicas (another name of all VPs used in consensus) make confirmation and pre-execute the transactions in the block. Then they broadcast the result hash.
 (3) *Commit*
