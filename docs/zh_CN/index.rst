@@ -19,12 +19,13 @@ Hyperchain文档
    namespace_cn.md
    ledger.md
    bucket_tree.md
-
    smart_contract_cn.md
-
+   
 .. toctree::
    :maxdepth: 2
    :caption: 隐私与安全:
+   
+   camanager_cn.md
 
 .. toctree::
    :maxdepth: 2
