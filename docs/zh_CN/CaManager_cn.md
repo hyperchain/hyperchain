@@ -27,11 +27,9 @@ Hyperchain是一个联盟链级别的区块链服务平台，拥有精确的权�
 
 Hyperchian区块链平台证书均符合ITU-T X.509国际标准，它仅包含了公钥信息而没有私钥信息，是可以公开进行发布的，所以X.509证书对象一般都不需要加密。X.509证书的格式通常如下:
 
-                 ```
----BEGIN CERTIFICATE---
-……PEM编码的X.509证书内容(省略)……
----END CERTIFICATE---
-                 ```
+    ---BEGIN CERTIFICATE---
+    ……PEM编码的X.509证书内容(省略)……
+    ---END CERTIFICATE---
 
 PEM编码全称是Privacy Enhanced Mail，是一种保密邮件的编码标准。通常来说，对信息的编码过程基本如下：
 
