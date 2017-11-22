@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>namespace &mdash; hyperchain  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="hyperchain  documentation" href="index.html"/>
+        <link rel="next" title="Ledger" href="ledger(en).html"/>
+        <link rel="prev" title="Transaction Flow" href="txflow_en.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Architecture:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="txflow_en.html">Transaction Flow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">namespace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">1.Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cluster-architecture">2.Cluster Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#node-architecture">3.Node Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transaction-flow">4.Transaction Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ledger(en).html">Ledger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bucket_tree(en).html">Bucket tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smart_contract_en.html">Smart Contract</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User manual:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual_en.html">JSON-RPC API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Developers' Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Roadmap:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap_en.html">Hyperchain Roadmap</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>namespace</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/namespace_en.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="namespace">
+<span id="namespace"></span><h1>namespace<a class="headerlink" href="#namespace" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="overview"></span><h2>1.Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Hyperchain achieves a partitioned consensus on internal transactions in blockchain network  by the Namespace mechanism. Users of the Hyperchain platform can differentiate business transactions by namespace. Nodes in the same Hyperchain consortium blockchain network form sub-blockchain networks in namespace-size based on the services they participate in. Namespaces achieve business-level privacy protection through physical level isolation of business transaction consensus, distribution and storage .</p>
+</div>
+<div class="section" id="cluster-architecture">
+<span id="cluster-architecture"></span><h2>2.Cluster Architecture<a class="headerlink" href="#cluster-architecture" title="Permalink to this headline">¶</a></h2>
+<p>Namespaces can be dynamically created, and individual Hyperchain nodes can participate in one or more namespaces according to their business needs. The following figure shows the overall cluster architecture of the namespace mechanism: six nodes participate in two namespaces. Node1, node2, node4 and node5 form namespace1, and node2, node3, node5 and node6 form namespace2. Node1 and node4 only participate in namespace1, node3 and node6 only participate in namespace2, while node2 and node4 participate in two namespaces at the same time. The namespace controls the dynamic joining and exiting of nodes through CA authentication, and each node is allowed to participate in one or more namesapces.</p>
+<p>The verification, consensus, storage and transmission of transactions with specific namespace information are performed only among nodes that participate in the corresponding namespace. Transactions between different namespaces can be executed in parallel. As shown in the following figure, Node1 can only participate in the verification of the transactions in namespace1 and the corresponding ledger maintenance. Node2 can simultaneously participate in transaction execution and account maintenance of namespace1 and namespace2. However, the ledgers of namespace1 and namespace2 in node2 are not accessible to each other.</p>
+<p><img alt="" src="_images/namespace_arch.png" /></p>
+</div>
+<div class="section" id="node-architecture">
+<span id="node-architecture"></span><h2>3.Node Architecture<a class="headerlink" href="#node-architecture" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">Hyperchain</span></code>'s single node with the partition consensus mechanism will include a  <code class="docutils literal"><span class="pre">NamespaceManager</span></code> object. <code class="docutils literal"><span class="pre">NamespaceManager</span></code> is the key management component of the partition consensus mechanism, which is responsible for a series of life-cycle state operations such as registering, starting, stopping and de-registering a specific namespace.</p>
+<p><code class="docutils literal"><span class="pre">NamespaceManager</span></code> contains multiple namespaces, in addition to JvmManager and BloomFilter.</p>
+<p>In particular：</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">JvmManager</span></code>  is responsible for managing the jvm executor, and starting JvmManager or not should be configured in the configuration file;</li>
+<li><code class="docutils literal"><span class="pre">BloomFilter</span></code> is a bloomFilter for transactions, which is mainly responsible for detecting duplicate transactions and preventing replay attacks.</li>
+</ul>
+<p>One of the partitions is called a <code class="docutils literal"><span class="pre">namespace</span></code>, and each namespace is isolated from each other, including the execution space and data storage space. Each node joins the namespace named global by default. Each <code class="docutils literal"><span class="pre">namespace</span></code> contains key components such as <code class="docutils literal"><span class="pre">consenter</span></code>, <code class="docutils literal"><span class="pre">executor</span></code>, <code class="docutils literal"><span class="pre">eventHub</span></code>, <code class="docutils literal"><span class="pre">peerManager</span></code>, <code class="docutils literal"><span class="pre">caManager</span></code>, <code class="docutils literal"><span class="pre">requestProcessor</span></code>, etc.. And these key components implement consensus service, transaction execution and storage, asynchronous interaction among modules, inter-node communication, identity authentication, transaction processing for the respective namespace blockchain.</p>
+<p><img alt="" src="_images/namespace_design.png" /></p>
+<p>To be specific:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">consenter</span></code> provides consensus services and currently supports the RBFT algorithm, which is responsible for sequencing the transactions to ensure the consistency of the hyperchain nodes in the same namespace;</li>
+<li><code class="docutils literal"><span class="pre">executor</span></code> is responsible for the invocation of the smart contract in the namespace and the maintenance of the ledger;</li>
+<li><code class="docutils literal"><span class="pre">eventHub</span></code> is an event bus, which is a message transit center for asynchronous interaction between various key components in the namespace;</li>
+<li><code class="docutils literal"><span class="pre">peerManager</span></code> provides node communication management, is responsible for network communication between namespace members;</li>
+<li><code class="docutils literal"><span class="pre">caManager</span></code> is a certificate authority, which is responsible for the identity authentication on the Internet;</li>
+<li><code class="docutils literal"><span class="pre">requestProcessor</span></code> is a request processing component, which is responsible for processing JSON-RPC messages and eventually invokes the corresponding api via reflection.</li>
+</ul>
+<p><img alt="" src="_images/namespace_life.png" /></p>
+</div>
+<div class="section" id="transaction-flow">
+<span id="transaction-flow"></span><h2>4.Transaction Flow<a class="headerlink" href="#transaction-flow" title="Permalink to this headline">¶</a></h2>
+<p>After the introduction of namespace, hyperchain node's transaction execution flow has been changed. The client can send the transaction to the corresponding namespace. After the transaction is passed to the hyperchain platform, the json rpc service will first conduct preliminary work on parameter checking and signature verifying. After that, the json rpc service forwards the request to the NamespaceManager. The NamespaceManager will send the transaction to the specific namespace according to the namespace field in the request. Transactions between different namespaces can execute concurrently. The corresponding namespace will call requestProcessor to process transactions, and firstly check the parameters of the request. If there is no problem, the corresponding processing function is called by reflection and the result could be returned.</p>
+<p><img alt="" src="_images/namespace_flow.png" /></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ledger(en).html" class="btn btn-neutral float-right" title="Ledger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="txflow_en.html" class="btn btn-neutral" title="Transaction Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -3,47 +3,48 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Hyperchain文档
+Welcome to hyperchain's documentation!
 ======================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: 快速入门:
+   :caption: Get Started:
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: 系统架构:
-
-   txflow_cn.md
-   namespace_cn.md
-   ledger.md
-   bucket_tree.md
- 
-   smart_contract_cn.md
+   :caption: Architecture:
    
-.. toctree::
-   :maxdepth: 2
-   :caption: 隐私与安全:
-   
-   camanager_cn.md
+   txflow_en.md
+   namespace_en.md
+   ledger(en).md
+   bucket_tree(en).md
+   smart_contract_en.md
 
 .. toctree::
    :maxdepth: 2
-   :caption: 用户手册:
+   :caption: Privacy && Security:
 
-   JSON-RPC_manual_cn.md
-
-.. toctree::
-   :maxdepth: 2
-   :caption: 贡献:
 
 .. toctree::
    :maxdepth: 2
-   :caption: 开发计划:
+   :caption: User manual:
 
-   roadmap_cn.md
+   JSON-RPC_manual_en.md
 
 .. toctree::
    :maxdepth: 2
-   :caption: 常见问题:
+   :caption: Contributing:
+
+   contributing.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Roadmap:
+
+   roadmap_en.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: FAQ:
+

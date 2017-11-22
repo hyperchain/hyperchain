@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bucket tree &mdash; hyperchain  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="hyperchain  documentation" href="index.html"/>
+        <link rel="next" title="Smart Contract" href="smart_contract_en.html"/>
+        <link rel="prev" title="Ledger" href="ledger(en).html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Architecture:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="txflow_en.html">Transaction Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_en.html">namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ledger(en).html">Ledger</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bucket tree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structural-analysis">Structural analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#merkle-tree">merkle tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hash-table">Hash table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bucket-tree">bucket tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bucket">Bucket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merkle-node">merkle node</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#core-operation">Core operation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialize">Initialize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prepare">Prepare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process">Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commit">Commit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="smart_contract_en.html">Smart Contract</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User manual:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual_en.html">JSON-RPC API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Developers' Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Roadmap:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap_en.html">Hyperchain Roadmap</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Bucket tree</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/bucket_tree(en).md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bucket-tree">
+<span id="bucket-tree"></span><h1>Bucket tree<a class="headerlink" href="#bucket-tree" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In hyperchain, the ledger data can be divided into two parts：</p>
+<ul class="simple">
+<li>blockchain data</li>
+<li>account data</li>
+</ul>
+<p>The blockchain data includes: block, transaction, receipt and other data. This part is what we call the blockchain in the traditional sense. All blocks are chained sequentially from back to front in this chain, with each block pointing to its parent block.</p>
+<p>Block contains a number of transactions, the consensus module will be responsible for the deciding order of the received transactions and packaged into a block for distribution. After receiving a block, the block chain node executes the transaction in sequence on the basis of the original state, and reads / writes status data of the relevant account during this period. When the execution ends, all account data are written and changed atomically. The execution of each transaction means that the blockchain has undergone a state transition.</p>
+<p>The state of the blockchain refers to a collection of all the account states on the blockchain,  called <strong><em>world state</em></strong>. As support smart contracts, like Ethereum, hyperchain abandoned the Bitcoin UTXO model and used an account model to organize the data, so this part of the data is called account data.</p>
+<p>Therefore, hyperchain's ledger can be broadly divided into the above two parts, the structure diagram is as follows.</p>
+<p><img alt="" src="_images/ledger_arch.jpeg" /></p>
+<p>In this article we will not start the discussion of the structure of the ledger, but to discuss a tree structure used to <em>quickly calculate the world state hash</em>.</p>
+<p>In hyperchain, after each block executed,  each node needs to compare whether the results of the execution is consistent in the third phase of BFT. In other words, the account data needs to be consistent in each node. Therefore, the hyperchain uses a bucket tree structure to hash the account data. The nodes only need to compare the <em>tree hash values</em> to determine the consistency of the account data.</p>
+<blockquote>
+<div>Note: Bucket tree does not organize and maintain the account data directly, but only  calculates the hash.</div></blockquote>
+<p>Bucket tree has the following characteristics：</p>
+<ul class="simple">
+<li>Provides a mechanism to quickly calculate the hash of account data;</li>
+<li>Provides a mechanism for ledger rollback;</li>
+</ul>
+<p>The theory of bucket tree in hyperchain is the earliest learned from the <em>fabric project</em>, a series of reconstruction and optimization, making the final performance in line with production needs. In the following, the structure of this tree, the core operations, and the final performance are described in detail.</p>
+</div>
+<div class="section" id="structural-analysis">
+<span id="structural-analysis"></span><h2>Structural analysis<a class="headerlink" href="#structural-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Bucket tree is actually a combination of two different data structures, the two data structures are：</p>
+<ul class="simple">
+<li>merkle tree</li>
+<li>hash table</li>
+</ul>
+<p>Therefore, before introducing the structure of bucket tree, we first briefly introduce these two data structures。</p>
+<div class="section" id="merkle-tree">
+<span id="merkle-tree"></span><h3>merkle tree<a class="headerlink" href="#merkle-tree" title="Permalink to this headline">¶</a></h3>
+<p>The Merkle tree was introduced many years ago by computer scientist Ralph Merkle and named with his own name. This data structure is used in bitcoin networks for verification of data correctness.</p>
+<p>In bitcoin networks, the merkle tree is used to summarize all transactions in a block and to generate a digital fingerprint of the entire transaction set. In addition, due to the existence of the merkle tree, it becomes possible to extend a &quot;light node&quot; for simple payment verification in the case of a Bitcoin chain.</p>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li>Merkle tree is a kind of tree, most of them are binary tree, also can be multi-tree. It has all the characteristics of tree structure;</li>
+<li>Merkle tree leaf node value is the content of the data entry, or the data entry hash value;</li>
+<li>The value of a non-leaf node is calculated by Hash according to the information of its child node;</li>
+</ul>
+<p><strong>Principle</strong></p>
+<p>In bitcoin networks, the merkle tree is built from the bottom up. In the example below, we first hash the four data entry of ENTRY1-ENTRY4 and then store the hash value to the corresponding leaf node. These nodes are Hash0-0, Hash0-1, Hash1-0, Hash1-1</p>
+<p><img alt="" src="_images/merkle.jpeg" /></p>
+<p>Combine two adjacent node's hash into a single string, and then calculate the hash of this string.</p>
+<p>The result is the parent node's hash value of these two nodes.</p>
+<p>If the number of tree nodes in this layer is a single number, then this case directly performs hashing on the last remaining tree node, and the hash of its parent node is the hash of its hash value (for the singular There are different ways to deal with leaf nodes, and you can copy the last leaf node to get even number of leaf nodes). Loop repeat the calculation process, get the last node as the root node, the hash of the root node is the hash of the entire tree.</p>
+<p>If the two trees have the same root hash, the contents of the two trees must be the same.</p>
+<p>The advantage of using the merkle tree is that when the content of a node changes, it only needs to recalculate the hash of <em>all the tree nodes in the path from the node to the root node</em> to obtain a hash that can represent the status of the whole tree value.</p>
+<p>It is also because of this feature of the merkle tree that the bucket tree avoids many unnecessary computational overheads and has the ability to quickly compute the world state hash.</p>
+</div>
+<div class="section" id="hash-table">
+<span id="hash-table"></span><h3>Hash table<a class="headerlink" href="#hash-table" title="Permalink to this headline">¶</a></h3>
+<p>Hash table, also known as hash table, is a very familiar data structure, is based on the key (key) and direct access to the memory storage location. In other words, it speeds up lookup by calculating a function on the key that maps the data of the desired query to a location in the table to access the record. This mapping function is called a hash function, the record array is called a hash table.</p>
+<p><img alt="" src="_images/hashtable.jpeg" /></p>
+<p>The description about the hash is not repeat here. In the bucket tree, use the hash table to maintain the original data。</p>
+</div>
+<div class="section" id="bucket-tree">
+<span id="id1"></span><h3>bucket tree<a class="headerlink" href="#bucket-tree" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="_images/bucket_tree_arch.jpeg" /></p>
+<p>Bucket tree consists of two parts: the bottom hash table and the upper merkel tree. Bucket tree is actually a merkle tree built on the hash table.</p>
+<p>A hash table consists of a series of buckets, each of which contains a number of entries that have been hashed into the bucket, all of which are arranged in sequence. Each bucket has a hash value to represent the state of the entire hash bucket, which is hashed according to the contents of all the data entries in the bucket.</p>
+<p>Except the underlying hashtable, the upper level is a series of merkle tree nodes. A merkle tree node corresponds to n hash buckets or merkle tree nodes in the lower level. This n is also called the degree of aggregation of the merkle tree. The merkle tree node maintains the hash values of the n child nodes, and the hash value of the merkle tree node is calculated according to the hash values of the n child nodes.</p>
+<p>So continuous iteration, the ultimate tree node is the root node of the entire tree, the node's hash value represents the hash of the entire tree.</p>
+<p>The purpose of this design is：</p>
+<ul class="simple">
+<li>Using the characteristics of the merkle tree, the computational cost of re-hashing is minimized every time the tree state changes;</li>
+<li>The use of hash table for the maintenance of the underlying data, making the data entries evenly distributed;</li>
+</ul>
+<p>For example, in the figure above, a new data entry <code class="docutils literal"><span class="pre">entry5</span></code> is inserted, and the data entry is hashed to a bucket at POS 2. The bucket,  as well as all the nodes from the bucket to the root node are dirty nodes marked in pink. Recalculation only with these dirty nodes can gives you a new hash value to represent the new tree state.</p>
+<p>Because the bucket tree is a fixed-size tree (that is, the underlying hash table can not be changed after the tree has been initialized). Using hash table to distribute data entries evenly can avoid data aggregation occurs.</p>
+<p>In addition, bucket tree has two important tunable parameters：</p>
+<ul class="simple">
+<li>capacity</li>
+<li>aggreation</li>
+</ul>
+<p>The former indicates the <strong>capacity of the hash table</strong>. The larger capacity, more number of data entries that the entire tree can accommodate. Under the condition of the same degree of aggregation, the larger capacity,  the higher tree height, and more number of tree nodes in the path from the leaf node to the root node, the number of hash calculation increases.</p>
+<p>The latter represents <strong>the number of child nodes corresponding to a parent node</strong>. The larger aggreation, the faster the tree converges. Under the premise of the same hash table capacity, the tree height is lower, the number of tree nodes in the path from the leaf node to the root node is less, and the hash calculation times are reduced. However, the size of each Merkle tree node is larger, which increases the database IO overhead.</p>
+</div>
+<div class="section" id="bucket">
+<span id="bucket"></span><h3>Bucket<a class="headerlink" href="#bucket" title="Permalink to this headline">¶</a></h3>
+<p>The definition of a hash bucket is made up of a series of data entries, note that these data entries are sorted by key's lexicographical order, each of which represents a user data (which can be optimized to store only the hash of user data).</p>
+<div class="highlight-Go"><div class="highlight"><pre><span></span><span class="kd">type</span> <span class="nx">Bucket</span> <span class="p">[]</span><span class="o">*</span><span class="nx">DataEntry</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="merkle-node">
+<span id="merkle-node"></span><h3>merkle node<a class="headerlink" href="#merkle-node" title="Permalink to this headline">¶</a></h3>
+<p>The definition of merkle node is as follows. The main field is the list of children nodes related to it. Each element in this list is a hash value of a child node.</p>
+<div class="highlight-Go"><div class="highlight"><pre><span></span><span class="c1">// MerkleNode merkleNode represents a tree node except the lowest level&#39;s hash bucket.</span>
+<span class="c1">// Each node contains a list of children&#39;s hash. It&#39;s hash is derived from children&#39;s content.</span>
+<span class="c1">// If the aggreation is larger(children number is increased), the size of a merkle node will increase too.</span>
+<span class="kd">type</span> <span class="nx">MerkleNode</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">pos</span>      <span class="o">*</span><span class="nx">Position</span>
+    <span class="nx">children</span> <span class="p">[][]</span><span class="kt">byte</span>
+    <span class="nx">dirty</span>    <span class="p">[]</span><span class="kt">bool</span>
+    <span class="nx">deleted</span>  <span class="kt">bool</span>
+    <span class="nx">lock</span>     <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+    <span class="nx">log</span>      <span class="o">*</span><span class="nx">logging</span><span class="p">.</span><span class="nx">Logger</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="core-operation">
+<span id="core-operation"></span><h2>Core operation<a class="headerlink" href="#core-operation" title="Permalink to this headline">¶</a></h2>
+<p>The calculation procedure of bucket tree can be divided to four parts：</p>
+<ol class="simple">
+<li>Initialize</li>
+<li>Prepare</li>
+<li>Process</li>
+<li>Commit</li>
+</ol>
+<p><img alt="" src="_images/bucket_process_diagram.jpeg" /></p>
+<div class="section" id="initialize">
+<span id="initialize"></span><h3>Initialize<a class="headerlink" href="#initialize" title="Permalink to this headline">¶</a></h3>
+<p>In the initialization phase,  building tree shape construction, cache initialization and historical data recovery (from the db read the latest root node hash)</p>
+<p>The tree structure uses user configuration capacity and aggreation two parameters to construct . The build function is as follows：</p>
+<div class="highlight-Go"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="p">(</span>
+        <span class="nx">curlevel</span>  <span class="kt">int</span>
+        <span class="nx">curSize</span>   <span class="kt">int</span> <span class="p">=</span> <span class="nx">cap</span>
+        <span class="nx">levelInfo</span>     <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nx">levelInfo</span><span class="p">[</span><span class="nx">curlevel</span><span class="p">]</span> <span class="p">=</span> <span class="nx">curSize</span>
+    <span class="k">for</span> <span class="nx">curSize</span> <span class="p">&gt;</span> <span class="mi">1</span> <span class="p">{</span>
+        <span class="nx">parSize</span> <span class="o">:=</span> <span class="nx">curSize</span> <span class="o">/</span> <span class="nx">aggr</span> 
+        <span class="k">if</span> <span class="nx">curSize</span><span class="o">%</span><span class="nx">aggr</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="nx">parSize</span><span class="o">++</span>
+        <span class="p">}</span>
+        <span class="nx">curSize</span> <span class="p">=</span> <span class="nx">parSize</span>
+        <span class="nx">curlevel</span><span class="o">++</span>
+        <span class="nx">levelInfo</span><span class="p">[</span><span class="nx">curlevel</span><span class="p">]</span> <span class="p">=</span> <span class="nx">curSize</span>
+    <span class="p">}</span>
+    <span class="nx">conf</span><span class="p">.</span><span class="nx">lowest</span> <span class="p">=</span> <span class="nx">curlevel</span>
+    <span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">levelInfo</span> <span class="p">{</span>
+        <span class="nx">conf</span><span class="p">.</span><span class="nx">levelInfo</span><span class="p">[</span><span class="nx">conf</span><span class="p">.</span><span class="nx">lowest</span><span class="o">-</span><span class="nx">k</span><span class="p">]</span> <span class="p">=</span> <span class="nx">v</span> 
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>In addition, bucket tree in order to</p>
+<ol class="simple">
+<li>increase the efficiency of reading</li>
+<li>to prevent write loss</li>
+</ol>
+<p>uses two caches for cache hash bucket and merkle node data.</p>
+<p>These two cache are achieved by LRUCache, each update will be synchronized to update the contents of the cache. So, the during next hash calculation, bucket tree can hit hot data from the cache and try to avoid the disk read.</p>
+<p>As for the prevention of write loss, since <strong>validation</strong> and <strong>commit</strong> are two separate asynchronous processes in hyperchain, validation of block 101 may be performed immediately based on the state  the validation process of block 100 proceeds. At this moment, the modification of the ledger in the execution of the block 100 has not yet been submitted to the database, so in order to &quot;prevent write loss&quot;, the contents need to hit from the cache.</p>
+<p>If at this moment there is a situation where the capacity of the cache is <strong>too small</strong> and the content that which not submitted is driven out. The result of the validation of the block 101 is inconsistent with other nodes (usually the primary node). When this happen, this node will enter <code class="docutils literal"><span class="pre">recovery</span></code> procedure and <code class="docutils literal"><span class="pre">rbft</span></code> will promise the corecctness.</p>
+<p>The bucket cache is used to store the hash bucket data, each hash bucket is a cache data item. The problem is that a hash bucket itself consists of a number of data entries, with the running time increasing, the size of a hash bucket will be larger and larger, resulting in increasing memory usage.</p>
+<p>The merkle node cache is used to store all merkle node data except for the highest layer. The number of merkle nodes is fixed, and the size of each node is also capped. Therefore, merkle node cache does not have a problem that content occupancy is increased.</p>
+</div>
+<div class="section" id="prepare">
+<span id="prepare"></span><h3>Prepare<a class="headerlink" href="#prepare" title="Permalink to this headline">¶</a></h3>
+<p>During the preparation phase, the bucket tree receives the modified set passed in by the user and constructs a dirty set of hash buckets using the contents of the modified set. Note that in the returned hash bucket, the internal data items are arranged in ascending lexicographical order.</p>
+<div class="highlight-Go"><div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nx">newBuckets</span><span class="p">(</span><span class="nx">prefix</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">entries</span> <span class="nx">Entries</span><span class="p">)</span> <span class="o">*</span><span class="nx">Buckets</span> <span class="p">{</span>
+    <span class="nx">buckets</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Buckets</span><span class="p">{</span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="nx">Position</span><span class="p">]</span><span class="nx">Bucket</span><span class="p">)}</span>
+    <span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">entries</span> <span class="p">{</span>
+        <span class="nx">buckets</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">prefix</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">bucket</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">buckets</span><span class="p">.</span><span class="nx">data</span> <span class="p">{</span>
+        <span class="nx">sort</span><span class="p">.</span><span class="nx">Sort</span><span class="p">(</span><span class="nx">bucket</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">buckets</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="process">
+<span id="process"></span><h3>Process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h3>
+<p>Process is the hash recalculation phase, can be divided into two parts (1) dirty hash bucket re-calculation (2) dirty merkle node hash re-calculation.</p>
+<p><img alt="" src="_images/bucket_process.jpeg" /></p>
+<p><strong>Dirty hash bucket re-calculation</strong></p>
+<p>As shown in the figure above, two new entry data items entry5 and entry6 are inserted in the bucket tree. The hash address obtained by entry5 is Pos2, and the hash address obtained by entry6 is Pos5.</p>
+<p>There is a merge operation in Pos2 to insert the new data and merge with historical data with the fixed sorting algorithm to reorder, and ultimately get a new hash bucket, contains all new and old data in order.</p>
+<p>The hash value of each hash bucket is <em>a result of hashing the data in the whole bucket</em>.</p>
+<p>As shown in the figure, Pos2 and Pos5 are two dirty hash buckets. After the calculation is completed, the corresponding child hash value is set in the parent node.</p>
+<p><strong>Dirty merkle node re-calculation</strong></p>
+<p>When the hash bucket calculation is completed, the hash calculation of the merkle node can be performed. In this step, only the dirty merkle nodes are hash calculated.</p>
+<p>Note that the hash calculation of the merkle node is done hierarchically.</p>
+<p>Each merkle node maintains the hash value of its child node, and if the child node hash value of the lower layer changes, the latest hash value is placed in the parent node in the previous calculation. For no change child node, bucket tree can directly use the history value.</p>
+<p>The hash value of each merkle node is <em>a result of hashing all its child node hashes</em>.</p>
+</div>
+<div class="section" id="commit">
+<span id="commit"></span><h3>Commit<a class="headerlink" href="#commit" title="Permalink to this headline">¶</a></h3>
+<p>After the calculation is completed, the latest hash bucket data and merkle node data needs to be persisted.</p>
+<p>In addition, all the hash bucket data, merkle node data will be stored in the cache as hot data, both to improve data search efficiency, but also to avoid data write loss.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="smart_contract_en.html" class="btn btn-neutral float-right" title="Smart Contract" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ledger(en).html" class="btn btn-neutral" title="Ledger" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
