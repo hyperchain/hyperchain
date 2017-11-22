@@ -16,7 +16,6 @@ Welcome to hyperchain's documentation!
    :caption: Architecture:
    
    txflow_en.md
-   namespace_en.md
    ledger(en).md
    bucket_tree(en).md
    smart_contract_en.md
@@ -25,7 +24,8 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Privacy && Security:
 
-
+   namespace_en.md
+   
 .. toctree::
    :maxdepth: 2
    :caption: User manual:

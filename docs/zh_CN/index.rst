@@ -16,7 +16,6 @@ Hyperchain文档
    :caption: 系统架构:
 
    txflow_cn.md
-   namespace_cn.md
    ledger.md
    bucket_tree.md
    smart_contract_cn.md
@@ -26,6 +25,7 @@ Hyperchain文档
    :caption: 隐私与安全:
    
    ca_manager_cn.md
+   namespace_cn.md
 
 .. toctree::
    :maxdepth: 2
