@@ -19,7 +19,6 @@ Hyperchain文档
    namespace_cn.md
    ledger.md
    bucket_tree.md
- 
    smart_contract_cn.md
    
 .. toctree::
