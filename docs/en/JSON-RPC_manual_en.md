@@ -42,19 +42,19 @@ When a rpc call is made, the Server MUST reply with a Response object. The Respo
 
 Hyperchain JSON-RPC API consists of seven services: 
 
-1. Transaction service，the method name prefix is "**tx**".
+1. Transaction service, the method name prefix is "**`tx`**".
 
-2. Contract service，the method name prefix is "**contract**".
+2. Contract service, the method name prefix is "**`contract`**".
 
-3. Block service，the method name prefix is "**block**".
+3. Block service, the method name prefix is "**`block`**".
 
-4. Archive service，the method name prefix is "**archive**".
+4. Archive service, the method name prefix is "**`archive`**".
 
-5. Event subscription service，the method name prefix is "**sub**".
+5. Event subscription service, the method name prefix is "**`sub`**".
 
-6. Node service，the method name prefix is "**node**".
+6. Node service, the method name prefix is "**`node`**".
 
-7. Cert service，the method name prefix is "**cert**".
+7. Cert service, the method name prefix is "**`cert`**".
 
 Hyperchain JSON-RPC API design bases on JSON-RPC 2.0 specification, all the requests are POST. The Request object has the following members:
 
@@ -73,8 +73,8 @@ curl -X POST -d '{"jsonrpc":"2.0","method":"block_latestBlock","namespace":"glob
 The Response object has the following members:
 
 - **`jsonrpc`**: A String specifying the version of the JSON-RPC protocol. MUST be exactly "2.0".
-- **`namespace`**: A String specifying which namespace this response is sent from。
-- **`code`**: Status code. If successful, the value is 0，others status code see 表5-1。
+- **`namespace`**: A String specifying which namespace this response is sent from.
+- **`code`**: Status code. If successful, the value is 0, others status code see the form below。
 - **`message`**: Status message. If successful, the value is SUCCESS, otherwise, the value is error detail message.
 - **`result`**: The data returned by the method invoked on the Server. This member doen't exist if there was an error invoking the method.
 - **`id`**: The same as the value of the id member in the Request Object.
@@ -122,32 +122,70 @@ If the method call succeeds, the members returned including: `jsonrpc`, `namespa
 
 If the method call failed, the members returned including: `jsonrpc`, `namespace`, `id`, `code`, `message`. And the `code` is non-zero value, `message` value is error message. Status code definition: 
 
-|  code  |               implication                |
-| :----: | :--------------------------------------: |
-|   0    |           Request successfully           |
-| -32700 | Parse error, invalid JSON was received by the server. <br/>An error occurred on the server while parsing the JSON text. |
-| -32600 | Invalid request,  the JSON sent is not a valid Request object. |
-| -32601 | The method does not exist / is not available. |
-| -32602 |       Invalid method parameter(s).       |
-| -32603 |         Internal JSON-RPC error.         |
-| -32000 | Internal Hyperchain error or the node does not install solidity environment. |
-| -32001 |  The data for the query does not exist.  |
-| -32002 |      The account is out of balance.      |
-| -32003 |      Invalid transaction signature.      |
-| -32004 |         Contract deploy failed.          |
-| -32005 |         Contract invoke failed.          |
-| -32006 |           System is too busy.            |
-| -32007 | duplicate transaction was received by the server. |
-| -32008 | Not enough permission to operate contract. |
-| -32009 |  The (contract) account does not exist.  |
-| -32010 |      The namespace does not exist.       |
-| -32011 | No block generated on the chain. It may return When querying latest block. |
-| -32012 | The event client subscribed does not exist. (*Reserved code*) |
-| -32013 | It returns when making snapshot or data archive happen unexpected error. |
-| -32098 | Invalid TCert or missing TCert when sending request to node. |
-| -32099 |           Failed to get TCert.           |
-
-
++--------+-------------------------------------+
+| code   | implication                         |
++========+=====================================+
+| 0      | Request successfully                |
++--------+-------------------------------------+
+| -32700 | Parse error, invalid JSON was       |
+|        | received by the server. An error    |
+|        | occurred on the server while        |
+|        | parsing the JSON text.              |
++--------+-------------------------------------+
+| -32600 | Invalid request, the JSON sent is   |
+|        | not a valid Request object.         |
++--------+-------------------------------------+
+| -32601 | The method does not exist / is not  |
+|        | available.                          |
++--------+-------------------------------------+
+| -32602 | Invalid method parameter(s).        |
++--------+-------------------------------------+
+| -32603 | Internal JSON-RPC error.            |
++--------+-------------------------------------+
+| -32000 | Internal Hyperchain error or the    |
+|        | node does not install solidity      |
+|        | environment.                        |
++--------+-------------------------------------+
+| -32001 | The data for the query does not     |
+|        | exist.                              |
++--------+-------------------------------------+
+| -32002 | The account is out of balance.      |
++--------+-------------------------------------+
+| -32003 | Invalid transaction signature.      |
++--------+-------------------------------------+
+| -32004 | Contract deploy failed.             |
++--------+-------------------------------------+
+| -32005 | Contract invoke failed.             |
++--------+-------------------------------------+
+| -32006 | System is too busy.                 |
++--------+-------------------------------------+
+| -32007 | duplicate transaction was received  |
+|        | by the server.                      |
++--------+-------------------------------------+
+| -32008 | Not enough permission to operate    |
+|        | contract.                           |
++--------+-------------------------------------+
+| -32009 | The (contract) account does not     |
+|        | exist.                              |
++--------+-------------------------------------+
+| -32010 | The namespace does not exist.       |
++--------+-------------------------------------+
+| -32011 | No block generated on the chain. It |
+|        | may return When querying latest     |
+|        | block.                              |
++--------+-------------------------------------+
+| -32012 | The event client subscribed does    |
+|        | not exist. (*Reserved code*)        |
++--------+-------------------------------------+
+| -32013 | It returns when making snapshot or  |
+|        | data archive happen unexpected      |
+|        | error.                              |
++--------+-------------------------------------+
+| -32098 | Invalid TCert or missing TCert when |
+|        | sending request to node.            |
++--------+-------------------------------------+
+| -32099 | Failed to get TCert.                |
++--------+-------------------------------------+
 
 ## JSON-RPC Methods
 
@@ -235,7 +273,6 @@ Returns a list of transactions in blocks from start block number to end block nu
 <a name="blockNumber"></a>
 
 Type `<blockNumber>` can be:
-
 - Decimal integer.
 - Hex string. 
 - The string `"latest"` for the latest block.
@@ -343,7 +380,6 @@ none
 - `invalidMsg`: `<string>` - Invalid message of this transaction.
 
 For invalid transaction, `invalid` value is true, and `invalidMsg` has following situations:  
-
 - **DEPLOY_CONTRACT_FAILED** - Contract deploy failed;
 - **INVOKE_CONTRACT_FAILED** - Contract invoke failed；
 - **SIGFAILED** - The transaction signature is invalid；
@@ -425,10 +461,9 @@ Returns the information about a transaction by transaction hash.
 - `invalidMsg`: `<string>` - Invalid message of this transaction.
 
 For invalid transaction, `invalid` value is true, and `invalidMsg` has following situations:  
-
 - **DEPLOY_CONTRACT_FAILED** - Contract deploy failed;
-- **INVOKE_CONTRACT_FAILED** - Contract invoke failed；
-- **SIGFAILED** - The transaction signature is invalid；
+- **INVOKE_CONTRACT_FAILED** - Contract invoke failed;
+- **SIGFAILED** - The transaction signature is invalid;
 - **OUTOFBALANCE** - Transfer of account is out of balance;
 - **INVALID_PERMISSION** - Not enough permission to operate this contract;
 
@@ -710,6 +745,7 @@ Returns the receipt of a transaction by transaction hash.
 - `txHash`: `<string>`, 32 Bytes - Hash of the transaction.
 - `vmType`: `<string>` - The execution engine type used by this transaction execution, this value is `EVM` OR `JVM`.
 - `contractAddress`: `<string>`, 20 Bytes - The contract address created, if the transaction was a contract creation, otherwise `0x0000000000000000000000000000000000000000`.
+- `gasUsed`: `<number>`- The amount of gas used by this specific transaction alone.
 - `ret`: `<string>` - Contract compling code OR contract execution results.
 - `log`: `[<Log>]` - Array of Log. The Log object has following members:
   - `address`: `<string>`, 20 Bytes - Contract address by which this event log is generated.
@@ -721,11 +757,10 @@ Returns the receipt of a transaction by transaction hash.
   - `index`: `<number>` - Event log index position in all logs generated in this transaction.
 
 If the transaction requested has not been confirmed, the error code returned is **-32001**. If an error occurs during the transaction processing, the error may be:  
-
 - **OUTOFBALANCE** - Transfer of account is out of balance, code is **-32002**;
-- **SIGFAILED** - The transaction signature is invalid, code is **-32003**；
+- **SIGFAILED** - The transaction signature is invalid, code is **-32003**;
 - **DEPLOY_CONTRACT_FAILED** - Contract deploy failed, code is **-32004**;
-- **INVOKE_CONTRACT_FAILED** - Contract invoke failed, code is **-32005**；
+- **INVOKE_CONTRACT_FAILED** - Contract invoke failed, code is **-32005**;
 - **INVALID_PERMISSION** - Not enough permission to operate this contract, code is **-32008**;
 
 #### Example1: The transaction has not been confirmed
@@ -1921,7 +1956,7 @@ Returns information about a block by hash.
 
 ```bash
 # Request
-curl -X POST –data  '{"jsonrpc":"2.0","namespace":"global","method":"block_getBlockByHash","params":["0x00acc3e13d8124fe799d55d7d2af06223148dc7bbc723718bb1a88fead34c914", false],"id":1}'
+curl -X POST -data  '{"jsonrpc":"2.0","namespace":"global","method":"block_getBlockByHash","params":["0x00acc3e13d8124fe799d55d7d2af06223148dc7bbc723718bb1a88fead34c914", false],"id":1}'
 
 # Response
 {
@@ -1964,7 +1999,7 @@ curl -X POST –data  '{"jsonrpc":"2.0","namespace":"global","method":"block_get
 
 ```bash
 # Request
-curl -X POST –data  '{"jsonrpc":"2.0","namespace":"global","method":"block_getBlockByHash","params":["0x00acc3e13d8124fe799d55d7d2af06223148dc7bbc723718bb1a88fead34c914", true],"id":1}'
+curl -X POST -data  '{"jsonrpc":"2.0","namespace":"global","method":"block_getBlockByHash","params":["0x00acc3e13d8124fe799d55d7d2af06223148dc7bbc723718bb1a88fead34c914", true],"id":1}'
 
 # Response
 {
@@ -2535,10 +2570,10 @@ Returns the eligible VM event log.
 
 1. `<Object>`
 
-- `fromBlock`：`<number>` - [optional, default `0`] Start block number. This block number shouldn't be less than the genesis block number.
+- `fromBlock`: `<number>` - [optional, default `0`] Start block number. This block number shouldn't be less than the genesis block number.
 - `toBlock`：`<number>` - [optional, default `the latest block number`] End block number. This block number shouldn't be more than current latest block number.
-- `addresses`：`[<string>]` - [optional, default no limit]  Array of 20 Bytes string, indicates that listen to event generated by specified address of contract.
-- `topics`：`[<string>][<string>]` - [optional, default no limit] two-dimensional array of string, topics which the incoming message's topics should match. You can use the following combinations:
+- `addresses`: `[<string>]` - [optional, default no limit]  Array of 20 Bytes string, indicates that listen to event generated by specified address of contract.
+- `topics`: `[<string>][<string>]` - [optional, default no limit] two-dimensional array of string, topics which the incoming message's topics should match. You can use the following combinations:
   - `[A, B] = A && B`
   - `[A, [B, C]] = A && (B || C)`
   - `[null, A, B] = ANYTHING && A && B` `null` works as a wildcard
@@ -2672,7 +2707,7 @@ Polling method for filters. Returns new messages since the last call of this met
 
 ```bash
 # Request
-curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_getSubscriptionChanges","params":[“0x7e533eb0647ecbe473ae610ebdd1bba6”], "id":1}'
+curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_getSubscriptionChanges","params":["0x7e533eb0647ecbe473ae610ebdd1bba6"], "id":1}'
 
 # Response
 {
@@ -2701,7 +2736,7 @@ To unsubscribe a subscription with given id. This method should be called when w
 
 ```bash
 # Request
-curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ unsubscription","params":[“0x7e533eb0647ecbe473ae610ebdd1bba6”], "id":1}'
+curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ unsubscription","params":["0x7e533eb0647ecbe473ae610ebdd1bba6"], "id":1}'
 
 # Response
 {
@@ -2836,7 +2871,7 @@ curl -X POST --data ' {"jsonrpc":"2.0", "namespace":"global", "method":"node_get
 
 ### <a name="node_deleteVP">node_deleteVP</a>
 
-To disconnect a connected VP peer.
+To disconnect from a connected VP peer.
 
 #### Parameters
 
@@ -2866,7 +2901,7 @@ curl -X POST --data ' {"jsonrpc":"2.0", "namespace":"global", "method":"node_del
 
 ### <a name="node_deleteNVP">node_deleteNVP</a>
 
-VP node disconnects to connected NVP peer by hash of NVP peer.
+VP node disconnects from connected NVP peer by hash of NVP peer.
 
 #### Parameters
 
