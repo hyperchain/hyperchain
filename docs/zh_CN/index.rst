@@ -26,6 +26,7 @@ Hyperchain文档
    
    ca_manager_cn.md
    namespace_cn.md
+   crypto_cn.md
 
 .. toctree::
    :maxdepth: 2
