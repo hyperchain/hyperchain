@@ -11,10 +11,6 @@ First of all, we need to know is that the permissions control is the Namespace l
 
 ![](../../images/ca.png)
 
-
-
-
-
 - root.ca (root certification authority): It represents the trust anchor in the PKI architecture. Verification of digital certificates follows the chain of trust. The root CA is the top-level CA in the PKI hierarchy and is used to issue enrollment certificate authorities and role certificate authorities.
 - eca.ca (enrollment certificate authority): Used to issue nodes node Enrollment certificates (ecert) and sdk certificates (sdkcert).
 - rca.ca (role certificate authority): Used to issue a role certificate (rcert) to a node.
