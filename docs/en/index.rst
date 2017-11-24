@@ -10,6 +10,8 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Get Started:
 
+   preflight.md
+   quickstart.md
 
 .. toctree::
    :maxdepth: 2
