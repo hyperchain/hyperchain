@@ -24,6 +24,7 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Privacy && Security:
 
+   ca_manager_en.md
    namespace_en.md
    
 .. toctree::
