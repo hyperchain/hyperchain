@@ -1,6 +1,6 @@
 # JSON-RPC API
 
-## JSON-RPC Overview
+## 1. JSON-RPC Overview
 
 JSON-RPC is a stateless, light-weight remote procedure call(RPC) protocol. It is transport agnostic in that the concepts can be used within the same process, over sockets, over http, or in many various message passing environments. It uses [JSON](http://www.json.org/) ([RFC 4627](http://www.ietf.org/rfc/rfc4627.txt)) as data format. A rpc call is represented by sending a Request object to a Server. The Request object has the following members:
 
@@ -38,7 +38,7 @@ When a rpc call is made, the Server MUST reply with a Response object. The Respo
 
   This member is REQUIRED. It MUST be the same as the value of the id member in the Request Object. If there was an error in detecting the id in the Request object (e.g. Parse error/Invalid Request), it MUST be Null.
 
-## Hyperchain JSON-RPC API Design
+## 2. Hyperchain JSON-RPC API Design
 
 Hyperchain JSON-RPC API consists of seven services: 
 
@@ -187,7 +187,7 @@ If the method call failed, the members returned including: `jsonrpc`, `namespace
 | -32099 | Failed to get TCert.                |
 +--------+-------------------------------------+
 
-## JSON-RPC Methods
+## 3. JSON-RPC Methods
 
 #### Transaction
 
@@ -256,7 +256,7 @@ If the method call failed, the members returned including: `jsonrpc`, `namespace
 
 
 
-## JSON-RPC API Reference
+## 4. JSON-RPC API Reference
 
 ### <a name="tx_getTransactions">tx_getTransactions</a>
 

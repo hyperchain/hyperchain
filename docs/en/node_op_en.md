@@ -1,6 +1,6 @@
 # Node Operation
 
-## Add Node
+## 1. Add Node
 
 Adding nodes requires the configuration of the following three files:
 
@@ -148,7 +148,7 @@ domain = "domain5"
 
 
 
-## Delete Node
+## 2. Delete Node
 
 We divide deleting nodes into three cases:
 

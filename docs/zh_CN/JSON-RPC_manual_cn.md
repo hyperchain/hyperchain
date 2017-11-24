@@ -1,5 +1,5 @@
 # JSON-RPC API
-## JSON-RPC概述
+## 1. JSON-RPC概述
 JSON-RPC是一个无状态且轻量级的远程过程调用(RPC)协议。它允许运行在基于socket、http等诸多不同消息传输环境的同一进程中，其使用JSON作为数据格式。发送一个请求对象至服务端代表一个RPC调用,一个请求对象包含下列成员: 
 
 - `jsonrpc`: 指定JSON-RPC协议版本的字符串,如果是2.0版本,则必须准确写为 “2.0”。
@@ -16,7 +16,7 @@ JSON-RPC是一个无状态且轻量级的远程过程调用(RPC)协议。它允�
 - `error`: 该成员在失败时必须包含，当没有错误引起时,不包含该成员。若引起错误,则该成员对象将包含code和message两个属性。 
 - `id`: 该成员必须包含。该成员值必须与请求对象中的id成员值一致。若在检查请求对象id时错误(例如参数错误或无效请求)，则该值必须为空值（NULL）。
 
-## 接口设计
+## 2. 接口设计
 Hyperchain接口主要由六块接口组成：
 1. 交易服务，方法名前缀为“**`tx`**”。
 2. 合约服务，方法名前缀为“**`contract`**”。
@@ -141,7 +141,7 @@ curl -X POST -d '{"jsonrpc":"2.0","method":"block_latestBlock","namespace":"glob
 | -32099 | 请求tcert失败                                              |
 +--------+------------------------------------------------------------+
 
-## 接口概览
+## 3. 接口概览
 
 #### Transaction
 * [tx_getTransactions](#tx_getTransactions)
@@ -207,7 +207,7 @@ curl -X POST -d '{"jsonrpc":"2.0","method":"block_latestBlock","namespace":"glob
 
 
 
-## 接口描述
+## 4. 接口描述
 ### <a name="tx_getTransactions">tx_getTransactions</a>
 
 查询指定区块区间的所有交易。

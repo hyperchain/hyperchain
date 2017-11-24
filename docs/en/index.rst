@@ -21,6 +21,7 @@ Welcome to hyperchain's documentation!
    ledger(en).md
    bucket_tree(en).md
    smart_contract_en.md
+   p2p_introduce_en.md
 
 .. toctree::
    :maxdepth: 2
