@@ -19,6 +19,7 @@ Hyperchain文档
    ledger.md
    bucket_tree.md
    smart_contract_cn.md
+   p2p_introduce_cn.md
    
 .. toctree::
    :maxdepth: 2
