@@ -16,12 +16,10 @@ After received transcations from clients, the API layer parses out the transacti
 
 In a consensus network of N nodes (N> = 4), RBFT can tolerate at most f Byzantine faults which:
 
-​                                                                          $$f=\lfloor \frac{N-1}{3} \rfloor$$
-
+![](../../images/f.png)
 The number of nodes that can guarantee consensus is:
 
-​                                                                  $$quorum=\lceil \frac{N+f+1}{2} \rceil$$
-
+![](../../images/quorum.png)
 
 
 ## 3. RBFT normal case
@@ -62,8 +60,7 @@ The ViewChange mechanism of RBFT solves the problem that the primary node may be
 
 In RBFT, the concept of view has been introduced as same as PBFT. The view is changed each time a new Primary node is elected. At present, RBFT chooses the Primary node by rotation, and the view increases monotonically from zero. The current view and the total number of nodes N determines the Primary node id:
 
-​                                                                 $$PrimaryId = (view + 1) \bmod N$$
-
+![](../../images/primaryID.png)
 ### Byzantine behavior that can be detected
 
 Currently, there are mainly two types of Primary‘s Byzantine behavior that RBFT can detect：
@@ -135,7 +132,7 @@ In the above figure,  replica 5 is the node to be added. The process of dynamica
 
 
 
-[1]: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.84.6725&amp;amp;rep=rep1&amp;amp;type=pdf
+[1]: http://www.usenix.net/legacy/publications/library/proceedings/osdi2000/castro/castro.pdf
 [2]: https://www.usenix.org/legacy/event/nsdi09/tech/full_papers/clement/clement.pdf
 
 
