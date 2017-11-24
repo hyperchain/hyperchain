@@ -1,6 +1,6 @@
 # consensus
 
-##1. Overview
+## 1. Overview
 
 Consensus mechanism is the foundation of blockchain consistency, it ensures that all consensus nodes (or say validating peer, VP) execute transactions in the same order and then write into exactly the same ledgers. Accounting nodes(or say non-validating peer, NVP) which connect to one or more VP(s) can only synchronize ledger information from its connected VP(s), so NVP don't participate in consensus while NVP can forward transactions to VP(s) received from client.
 
@@ -44,7 +44,7 @@ RBFT inserts important transaction validation session into native PBFT normal ca
 
 By adding a validation mechanism in the consensus module, Hyperchain ensures that every backup node participates in checking all primay's ordering results, so backup can discovery primary's Byzantine behavior as soon as possible which improves the stability of the system.
 
-## Checkpoint
+### Checkpoint
 
 Consensus nodes need to periodically clean up some useless message caches in order to prevent unlimit message caching during operation. RBFT collectes garbage by introducing checkpoint mechanism in the PBFT algorithm and fixedly set the checkpoint size K to 10. The node reaches a checkpoint after writing into an integer multiple of K and broadcasts the checkpoint information. After receiving the same checkpoint information from other quorum-1 nodes, replica reaches a stable checkpoint, then replica can clean up some of the message cache whose message number is less than checkpoint index.
 
