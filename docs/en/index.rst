@@ -26,6 +26,7 @@ Welcome to hyperchain's documentation!
 
    ca_manager_en.md
    namespace_en.md
+   crypto_en.md
    
 .. toctree::
    :maxdepth: 2
