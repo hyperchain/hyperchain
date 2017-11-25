@@ -16,12 +16,10 @@ Hyperchain平台支持可插拔的共识机制，可以针对区块链的不同�
 
 在一个由N个节点（N>=4）组成的共识网络中，RBFT最多能容忍f个节点的拜占庭错误，其中：
 
-​                                                                      $$f=\lfloor \frac{N-1}{3} \rfloor$$
-
+![](../../images/f.png)
 而能够保证达成共识的节点个数为：
 
-​                                                              $$quorum=\lceil \frac{N+f+1}{2} \rceil$$
-
+![](../../images/quorum.png)
 
 
 ## 3. RBFT常规流程
@@ -59,12 +57,11 @@ Hyperchain通过在共识模块中加入验证机制，可以保证从节点对�
 
 RBFT视图变更能够解决主节点成为拜占庭节点的问题。在RBFT算法中，参与共识的节点可根据角色分为主节点和从节点。主节点最重要的功能是将收到的交易按照一定策略打包成块，为交易定序，并让所有节点按照此顺序执行。然而，如果主节点发生宕机、系统错误或者被攻占（即成为拜占庭节点），从节点需要及时发现主节点异常并选举产生新的主节点。这将是所有BFT类算法为满足稳定性必须要解决的问题。
 
-###视图
+### 视图
 
 在RBFT与PBFT中，都引入了视图（View）概念，即每次更换一个主节点的同时都会切换视图。目前RBFT采用轮换的方式切换主节点，并且view从0开始只增不减。当前的view和总节点数量N决定了主节点id：
 
-​                                                                 $$PrimaryId = (view + 1) \bmod N$$
-
+![](../../images/primaryID.png)
 ### 可检测到的拜占庭行为
 
 目前RBFT能够检测到的主节点的拜占庭行为主要有2种场景：
@@ -136,6 +133,6 @@ RBFT视图变更能够解决主节点成为拜占庭节点的问题。在RBFT算
 
 
 
-[1]: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.84.6725&amp;amp;rep=rep1&amp;amp;type=pdf
+[1]: http://www.usenix.net/legacy/publications/library/proceedings/osdi2000/castro/castro.pdf
 [2]: https://www.usenix.org/legacy/event/nsdi09/tech/full_papers/clement/clement.pdf
 
