@@ -26,9 +26,9 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 隐私与安全:
    
-   ca_manager_cn.md
+   ca_manager_cn
    namespace_cn.md
-   crypto_cn.md
+   crypto_cn
 
 .. toctree::
    :maxdepth: 2
