@@ -19,8 +19,8 @@ Welcome to hyperchain's documentation!
    
    txflow_en.md
    consensus_en.md
-   ledger(en).md
-   bucket_tree(en).md
+   ledger
+   bucket_tree
    smart_contract_en.md
    p2p_introduce_en.md
 

@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>交易执行流程 &mdash; hyperchain  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="hyperchain  documentation" href="index.html"/>
+        <link rel="next" title="数字证书" href="ca_manager_cn.html"/>
+        <link rel="prev" title="Hyperchain文档" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">系统架构:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">交易执行流程</a></li>
+</ul>
+<p class="caption"><span class="caption-text">隐私与安全:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ca_manager_cn.html">数字证书</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace_cn.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto_cn.html">密码学算法</a></li>
+</ul>
+<p class="caption"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual_cn.html">JSON-RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_op_cn.html">节点操作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发计划:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap_cn.html">Hyperchain 开发路线图</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>交易执行流程</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/txflow_cn.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="">
+<span id="id1"></span><h1>交易执行流程<a class="headerlink" href="#" title="Permalink to this headline">¶</a></h1>
+<p>本文意在描述一条交易从最初产生到最终上链的交易机制。场景包括发起交易的客户端和与之直连的共识节点A，客户端通过SDK与共识节点A以交易的形式与区块链账本进行交互；共识节点A与其他共识节点B、C、D...全连接，同时共识节点A有两个用于备份的记账节点a1和a2。
+<img alt="" src="_images/tx_flow.png" /></p>
+<p><strong>假设</strong></p>
+<p>我们假设客户端已经拿到证书管理中心（CA）颁发的准入证书（SDKCert），智能合约已经部署在同一命名空间的区块链节点上。</p>
+<p><strong>客户端发起交易</strong></p>
+<p>现在要做的是发起一笔交易请求（调用已部署合约中的一个方法）。</p>
+<p>客户端首先通过调用SDK的接口初始化一个 <em>HyperchainAPI</em> 对象，初始化过程中，SDK会以SDKCert和公钥向共识节点A请求获取发起交易所需的TCert。然后通过调用SDK的 <em>Transaction</em> 接口生成一条交易，SDK会用客户端指定的私钥对交易进行签名，再对交易进行JSONRPC协议封装后用TCert对应的私钥进行消息签名。SDK与节点间支持 <em>HTTP/HTTPS</em> 短连接和 <em>WebSocket</em> 长连接。
+<img alt="" src="_images/get_tcert.png" /></p>
+<p><strong>节点受理交易，发送到全网共识节点</strong></p>
+<p>节点A收到交易后先进行TCert验证，节点只会对通过TCert验证的请求进行处理。节点的API模块还会做如下交易验证：</p>
+<p>（1）根据流控配置确认是否接受交易请求；
+（2）验证交易字段的合法性，包括交易的格式，是否为空值，以及时间戳的合法性；
+（3）是否已经提交过相同交易（重放攻击）；
+（4）验证交易签名。</p>
+<p>当交易通过以上验证后，会被提交到共识模块，共识模块将收到的交易向全网的共识节点进行广播。</p>
+<p><strong>交易的共识：排序，验证，写块</strong></p>
+<p>交易将会经历共识算法（RBFT）的三步走流程。</p>
+<p>(1) <em>预准备 · Pre-Prepare</em>
+共识主节点会将一定时间内（或者一定数量）的交易定序后打包成一个区块，然后发送到全网进行共识。
+<img alt="" src="_images/txs_to_block.png" />
+(2) <em>准备 · Prepare</em>
+所有共识节点对区块进行预处理，并广播结果哈希。
+(3) <em>提交 · Commit</em>
+所有共识节点写入区块，并更新区块链账本。
+<img alt="" src="_images/block_to_ledger.png" /></p>
+<p>在执行过程中发现的非法交易会被存储到数据库的非法交易记录中，并不会记录到区块链账本上。区块链账本上存储了所有合法交易。</p>
+<p>所有共识节点在区块成功生成后也会将区块推送到所连接的所有记账节点进行记账。</p>
+<p><strong>交易回执</strong></p>
+<p>SDK在 <em>Transaction</em> 接口中实现了定时向节点获取交易结果，即查询交易回执。区块链网络设置的交易打包数量和打包时间会影响交易的延迟。</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ca_manager_cn.html" class="btn btn-neutral float-right" title="数字证书" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Hyperchain文档" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
