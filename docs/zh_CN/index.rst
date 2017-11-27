@@ -17,8 +17,8 @@ Hyperchain文档
 
    txflow_cn.md
    consensus_cn.md
-   ledger.md
-   bucket_tree.md
+   ledger
+   bucket_tree
    smart_contract_cn.md
    p2p_introduce_cn.md
    
