@@ -34,8 +34,8 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 用户手册:
 
-   JSON-RPC_manual_cn.md
-   node_op_cn.md
+   JSON-RPC_manual_cn.rst
+   node_op_cn.rst
 
 .. toctree::
    :maxdepth: 2
