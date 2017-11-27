@@ -10,6 +10,8 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 快速入门:
 
+   prerequisites.rst
+   quickstart.rst
 
 .. toctree::
    :maxdepth: 2
