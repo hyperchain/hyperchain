@@ -10,8 +10,8 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Get Started:
 
-   preflight.md
-   quickstart.md
+   prerequisites.rst
+   quickstart.rst
 
 .. toctree::
    :maxdepth: 2
@@ -19,8 +19,8 @@ Welcome to hyperchain's documentation!
    
    txflow_en.md
    consensus_en.md
-   ledger(en).md
-   bucket_tree(en).md
+   ledger
+   bucket_tree
    smart_contract_en.md
    p2p_introduce_en.rst
 
@@ -28,9 +28,9 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Privacy && Security:
 
-   ca_manager_en.md
+   ca_manager_en
    namespace_en.md
-   crypto_en.md
+   crypto_en
    
 .. toctree::
    :maxdepth: 2

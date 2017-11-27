@@ -10,6 +10,8 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 快速入门:
 
+   prerequisites.rst
+   quickstart.rst
 
 .. toctree::
    :maxdepth: 2
@@ -17,18 +19,18 @@ Hyperchain文档
 
    txflow_cn.md
    consensus_cn.md
-   ledger.md
-   bucket_tree.md
+   ledger
+   bucket_tree
    smart_contract_cn.md
-   p2p_introduce_cn.md
+   p2p_introduce_cn.rst
    
 .. toctree::
    :maxdepth: 2
    :caption: 隐私与安全:
    
-   ca_manager_cn.md
+   ca_manager_cn
    namespace_cn.md
-   crypto_cn.md
+   crypto_cn
 
 .. toctree::
    :maxdepth: 2
