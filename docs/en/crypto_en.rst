@@ -102,7 +102,7 @@ ECDH is a combination of ECC and DH algorithms for key negotiation. The
 exchange parties can negotiate a key without sharing any secrets. ECC is
 a cryptosystem based on the discrete logarithm problem of elliptic
 curve. Given a point P and an integer k on the elliptic curve, it is
-easy to solve Q = kP. Given a point P, Q, we know that Q = kP , Find the
+easy to solve ``Q = kP``. Given a point P, Q, we know that ``Q = kP`` , Find the
 integer k is indeed a problem. ECDH is built on this math puzzle.
 
 In addition, Hyperchain exchanges keys when the node handshake for the
