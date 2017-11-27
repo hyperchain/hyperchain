@@ -42,7 +42,7 @@ git clone https://github.com/hyperchain/hyperchain
 ```
 
 **Building**
-Please make sure you've installed Go tool properly, if you don't have it already, please see [Instructions](./Preflight.md).
+Please make sure you've installed Go tool properly, if you don't have it already, please see [Instructions](https://github.com/hyperchain/hyperchain/blob/master/docs/en/prerequisites.rst).
 
 To build Hyperchain:
 
@@ -110,6 +110,20 @@ ssh-copy-id {username}@node4
 
 **Distribute Hyperchain**
 We've provided a script named `server.sh` which distributes Hyperchain to all nodes and starts up them separately.
+
+1 . Put servers' IP addresses into a file named serverlist.txt which under hyperchain/scripts directory.
+
+For instance:
+
+```bash
+    cat $GOPATH/src/github.com/hyperchain/hyperchain/scripts/serverlist.txt
+    172.16.1.101
+    172.16.1.102
+    172.16.1.103
+    172.16.1.104
+```
+
+2 . Start up Hyperchain with server.sh script.
 
 ```bash
 cd $GOPATH/src/github.com/hyperchain/hyperchain/scripts
