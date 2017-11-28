@@ -18,7 +18,7 @@ Welcome to hyperchain's documentation!
    :caption: Architecture:
    
    txflow_en.md
-   consensus_en.md
+   consensus_en.rst
    ledger
    bucket_tree
    smart_contract_en.md
