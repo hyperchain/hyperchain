@@ -29,7 +29,7 @@ Hyperchain文档
    :caption: 隐私与安全:
    
    ca_manager_cn
-   namespace_cn.md
+   namespace_cn.rst
    crypto_cn
 
 .. toctree::
