@@ -29,7 +29,7 @@ Welcome to hyperchain's documentation!
    :caption: Privacy && Security:
 
    ca_manager_en
-   namespace_en.md
+   namespace_en.rst
    crypto_en
    
 .. toctree::
