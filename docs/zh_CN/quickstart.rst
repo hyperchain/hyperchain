@@ -28,7 +28,7 @@
 .. code:: bash
 
     cd $GOPATH/src/github.com/hyperchain/hyperchain
-    govendoer build
+    govendor build
 
 您也可以执行 ``go build``\ 来编译。
 

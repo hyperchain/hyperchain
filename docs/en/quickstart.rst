@@ -30,7 +30,7 @@ To build Hyperchain:
 .. code:: bash
 
     cd $GOPATH/src/github.com/hyperchain/hyperchain
-    govendoer build
+    govendor build
 
 You can run ``go build`` as well.
 
