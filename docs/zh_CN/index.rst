@@ -18,7 +18,7 @@ Hyperchain文档
    :caption: 系统架构:
 
    txflow_cn.md
-   consensus_cn.md
+   consensus_cn.rst
    ledger
    bucket_tree
    smart_contract_cn.md
