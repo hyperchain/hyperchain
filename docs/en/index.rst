@@ -22,7 +22,7 @@ Welcome to hyperchain's documentation!
    ledger
    bucket_tree
    smart_contract_en.md
-   p2p_introduce_en.md
+   p2p_introduce_en.rst
 
 .. toctree::
    :maxdepth: 2
@@ -36,8 +36,8 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: User manual:
 
-   JSON-RPC_manual_en.md
-   node_op_en.md
+   JSON-RPC_manual_en.rst
+   node_op_en.rst
 
 .. toctree::
    :maxdepth: 2
