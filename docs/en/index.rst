@@ -10,46 +10,46 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Get Started:
 
-   prerequisites.rst
-   quickstart.rst
+   prerequisites
+   quickstart
 
 .. toctree::
    :maxdepth: 2
    :caption: Architecture:
    
-   txflow_en.md
-   consensus_en.rst
+   txflow_en
+   consensus_en
    ledger
    bucket_tree
-   smart_contract_en.md
-   p2p_introduce_en.rst
+   smart_contract_en
+   p2p_introduce_en
 
 .. toctree::
    :maxdepth: 2
    :caption: Privacy && Security:
 
    ca_manager_en
-   namespace_en.rst
+   namespace_en
    crypto_en
    
 .. toctree::
    :maxdepth: 2
    :caption: User manual:
 
-   JSON-RPC_manual_en.rst
-   node_op_en.rst
+   JSON-RPC_manual_en
+   node_op_en
 
 .. toctree::
    :maxdepth: 2
    :caption: Contributing:
 
-   contributing.md
+   contributing
 
 .. toctree::
    :maxdepth: 2
    :caption: Roadmap:
 
-   roadmap_en.md
+   roadmap_en
 
 .. toctree::
    :maxdepth: 2
