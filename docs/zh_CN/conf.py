@@ -211,4 +211,5 @@ else:
         ''',
     }
 
+latex_engine = 'xelatex'
 
