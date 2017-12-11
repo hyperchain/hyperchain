@@ -12,6 +12,7 @@ Welcome to hyperchain's documentation!
 
    prerequisites
    quickstart
+   hyperchain_samples
 
 .. toctree::
    :maxdepth: 2
