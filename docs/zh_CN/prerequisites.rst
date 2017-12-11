@@ -77,7 +77,7 @@ https://golang.org/doc/code.html.
 
     export PATH=$PATH:$GOPATH/bin
 
--  由于我们将在GO中进行一系列编码，您可以将以下内容添加到您的\ ``~/.bashrc``\ 文件中：
+-  由于我们将在Go中进行一系列编码，您可以将以下内容添加到您的\ ``~/.bashrc``\ 文件中：
 
 .. code:: bash
 
