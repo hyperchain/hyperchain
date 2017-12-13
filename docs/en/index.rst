@@ -18,27 +18,27 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Architecture:
    
-   txflow_en
-   consensus_en
+   txflow
+   consensus
    ledger
    bucket_tree
-   smart_contract_en
-   p2p_introduce_en
+   smart_contract
+   p2p_introduce
 
 .. toctree::
    :maxdepth: 2
    :caption: Privacy && Security:
 
-   ca_manager_en
-   namespace_en
-   crypto_en
+   ca_manager
+   namespace
+   crypto
    
 .. toctree::
    :maxdepth: 2
    :caption: User manual:
 
-   JSON-RPC_manual_en
-   node_op_en
+   JSON-RPC_manual
+   node_op
 
 .. toctree::
    :maxdepth: 2
@@ -50,7 +50,7 @@ Welcome to hyperchain's documentation!
    :maxdepth: 2
    :caption: Roadmap:
 
-   roadmap_en
+   roadmap
 
 .. toctree::
    :maxdepth: 2

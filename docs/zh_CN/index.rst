@@ -18,27 +18,27 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 系统架构:
 
-   txflow_cn
-   consensus_cn
+   txflow
+   consensus
    ledger
    bucket_tree
-   smart_contract_cn
-   p2p_introduce_cn
+   smart_contract
+   p2p_introduce
    
 .. toctree::
    :maxdepth: 2
    :caption: 隐私与安全:
    
-   ca_manager_cn
-   namespace_cn
-   crypto_cn
+   ca_manager
+   namespace
+   crypto
 
 .. toctree::
    :maxdepth: 2
    :caption: 用户手册:
 
-   JSON-RPC_manual_cn
-   node_op_cn
+   JSON-RPC_manual
+   node_op
 
 .. toctree::
    :maxdepth: 2
@@ -48,7 +48,7 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 开发计划:
 
-   roadmap_cn
+   roadmap
 
 .. toctree::
    :maxdepth: 2

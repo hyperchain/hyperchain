@@ -177,10 +177,10 @@ on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 if on_rtd:
     latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
-    #'papersize': 'letterpaper',
+    'papersize': 'a4paper',
 
     # The font size ('10pt', '11pt' or '12pt').
-    #'pointsize': '10pt',
+    'pointsize': '10pt',
 
     # Additional stuff for the LaTeX preamble.
     'preamble': r'''
@@ -199,6 +199,7 @@ if on_rtd:
     \begin{CJK}{UTF8}{gbsn}
     \AtEndDocument{\end{CJK}}
     ''',
+    
     }
 else:
     latex_elements = {
