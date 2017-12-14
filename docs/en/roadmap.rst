@@ -1,46 +1,95 @@
 Hyperchain Roadmap
 ==================
 
-Hyperchain 1.X
---------------
+Currently, hyperchain is available in the open source community with 1.4
+stable version, will continue to introduce new features in the future.
 
-2018-01
-~~~~~~~
+Welcome to join the community of Hyperchain to participate in our
+development!
 
-**IPC Shell** Provide IPC Shell, IPC Shell provide Hyperchain network
-debugging function;
+.. figure:: ../../images/roadmap.jpeg
+   :alt: 
 
-2018-02
-~~~~~~~
+First community version
+-----------------------
 
-**JVM-based smart contract execution engine** For the simplicity of
-blockchain smart contract writing and support for complex smart
-contracts, Hyperchain will provide a high-performance JVM-based smart
-contract execution engine that allows users to write smart contracts in
-Java.
+This is the first community version of Hyperchain that includes the
+complete components of the consortium blockchain platform:
 
-2018-03
-~~~~~~~
+1. Consensus engine based on RBFT algorithm;
+2. Compatible with Ethereum smart contract virtual machine;
+3. Data partition, isolate the business data physically ;
+4. Rich event subscription interface, capture blockchain platform events
+   in real-time;
+5. Multi-level encryption mechanism, including asymmetric encryption,
+   symmetric encryption, admittance mechanism based on digital
+   certificate;
+6. Available level of performance to meet the needs of most business
+   scenarios;
 
-**External messaging subscription system** In order to enable
-enterprise users to better monitor the operation of Hyperchain platform,
-Hyperchain platform will provide a unified external event subscription
-interface. Enterprise users can capture and monitor the operation status
-of Hyperchain in time according to their own regulatory requirements.
+Better smart contract
+---------------------
 
-2018-04
-~~~~~~~
+This version is planned to be released in February 2018.
 
-**Data archive mechanism** As the running time of the blockchain
-system increases, the storage of blocks and data storage capacity in the
-system also increases sharply. The data archiving function allows
-archiving and storing the historical data so as to solve the problem of
-insufficient storage space in a single blockchain node.
+The main feature is to support the smart contract development in the
+Java language, reducing the difficulty for blockchain application
+development.
 
-Hyperchain 2.X
---------------
+In addition, there will have a easy-to-use hyperchain docker images for
+one-click cluster deployments.
 
-Hyperchain version 2.X will further improve system performance,
-including scalability of single-point systems, storage performance of
-single-point systems, scalability of the number of federation nodes, and
-further refinement of blockchain privacy protection mechanisms.
+Controllable data capacity
+--------------------------
+
+Currently, the existing blockchain data is accumulated, so the storage
+capacity of blockchain data will be a big problem.
+
+We plan to release a version in April 2018 to support archiving of
+blockchain data and archiving of smart contract data.
+
+Autonomous
+----------
+
+The existing consortium blockchain admittance mechanism has the
+following problems:
+
+1. There is a single point of failure;
+2. The entire blockchain network is easy to be controlled by a single
+   node;
+3. Low degree of automation;
+
+Therefore, we propose to release a version to support decentralized
+autonomous admittance mechanism in July 2018 that will enable automated
+member management, identity switching, version upgrades and more.
+
+Protect your pricacy
+--------------------
+
+Currently in the same partition, blockchain data is shared by all nodes,
+and there is no user privacy at all. In September 2018, we will release
+a version that support two advanced cryptographic features to protect
+user privacy.
+
+The two cryptographic techniques are (1) zero knowledge proof (2) ring
+signature technique.
+
+Run fast
+--------
+
+Currently hyperchain's performance can meet the needs of most business
+scenarios, but for particularly high-frequency and complex scenarios
+still do nothing. As a result, we will make major adjustments to the
+existing architecture to transform hyperchain with microservices and
+cloud-based architectures so as to improve performance.
+
+This version is scheduled to be released in December 2018.
+
+What is your favourite
+----------------------
+
+In June 2019, we will release a version that supports multiple consensus
+algorithms to support dynamic consensus engine switching.
+
+Besides we plan to come up with a new consensus algorithm that will
+support larger node sizes in consortium blockchain.
