@@ -26,7 +26,7 @@ Hyperchain provides a high-quality platform for underlying blockchain support an
 
 The above diagram is a high-level overview of the system architecture used by Hyperchain.
 
-Find more detail in the [documentation](hyperchain.readthedocs.io/en/latest/).
+Find more detail in the [english documentation](https://hyperchain.readthedocs.io/en/latest/) and [chinese version](https://hyperchain.readthedocs.io/zh_CN/latest/).
 
 ## Quick Start
 
@@ -116,11 +116,11 @@ We've provided a script named `server.sh` which distributes Hyperchain to all no
 For instance:
 
 ```bash
-    cat $GOPATH/src/github.com/hyperchain/hyperchain/scripts/serverlist.txt
-    172.16.1.101
-    172.16.1.102
-    172.16.1.103
-    172.16.1.104
+cat $GOPATH/src/github.com/hyperchain/hyperchain/scripts/serverlist.txt
+172.16.1.101
+172.16.1.102
+172.16.1.103
+172.16.1.104
 ```
 
 2 . Start up Hyperchain with server.sh script.
