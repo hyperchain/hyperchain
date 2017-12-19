@@ -13,6 +13,20 @@ We recommend using ``HyperCli`` for administration.
 various functions. We'll introduce its contract and transaction related
 functions in the following steps.
 
+To build HyperCli:
+
+.. code:: bash
+
+    cd $GOPATH/src/github.com/hyperchain/hyperchain/hypercli
+    govendor build
+
+You can run ``go build`` as well.
+
+.. note:: By default, HyperCli sends message to localhost:8081,
+          so we recommend you to run HyperCli on your Hyperchain node locally.
+          Otherwise you need to specify HyperCli's ``--host`` and ``--port`` parameters 
+          with Hyperchain node IP and JSON-RPC port for remote execution.
+
 Sample Contract 1 - Set/Get Hash
 --------------------------------
 

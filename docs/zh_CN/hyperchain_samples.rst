@@ -12,6 +12,20 @@ HyperCli
 是一个基于Hyperchain平台开发的命令行工具，方便管理员操作Hyperchain平台。
 ``HyperCli``\ 提供了丰富的命令行接口，下面我们会介绍它的智能合约、交易处理等相关功能。
 
+编译HyperCli:
+
+.. code:: bash
+
+    cd $GOPATH/src/github.com/hyperchain/hyperchain/hypercli
+    govendor build
+
+您也可以执行 ``go build``\ 来编译。
+
+.. note:: 默认情况下，HyperCli是给localhost:8081发送消息的，
+          所以我们建议您在Hyperchain节点服务器上运行HyperCli。
+          如果您希望在本地执行HyperCli，那么就需要指定 ``--host``\ 和 ``--port``\ 选项
+          来设置远程Hyperchain节点的地址和JSON-RPC端口。
+
 合约样例1 - Set/Get Hash
 ------------------------
 
