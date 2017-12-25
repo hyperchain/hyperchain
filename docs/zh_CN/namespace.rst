@@ -14,7 +14,10 @@ Node4和Node5组成namespace1，而Node2、Node3、Node5和Node6组成namespace2
 
 带特定Namespace信息的交易的验证、共识、存储以及传输仅在参与特定Namespace的节点之间进行，不同Namespace之间的交易可实现并行执行。如下图所示Node1仅能参与namespace1中交易的验证以及相应账本的维护而Node2能够同时参与namespace1和namespace2的交易执行和账本维护，但Node2中的namespace1和namespace2的账本互相隔离互不可见。
 
-|image0| ## 3.节点架构
+|image0|
+
+3.节点架构
+----------
 
 加入分区共识机制之后的\ ``Hyperchain``\ 单节点将包含一个
 ``NamespaceManager``\ 对象。\ ``NamespaceManager``\ 是分区共识机制的关键管理组件，负责namespace的注册、启动、停止、注销等一系列的生命周期状态操作。NamespaceManager中包含多个namespace，此外还包含JvmManager和BloomFilter。
