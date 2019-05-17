@@ -46,19 +46,13 @@ Hyperchain provides a high-quality platform for underlying blockchain support an
 
 The above diagram is a high-level overview of the system architecture used by Hyperchain.
 
-Find more detail in the [english documentation](https://hyperchain.readthedocs.io/en/latest/) and [chinese version](https://hyperchain.readthedocs.io/zh_CN/latest/).
+Find more detail in the [documentation](http://docs.hyperchain.cn/).
 
 ## Quick Start
 
-Refer to our [quick start docs](http://docs.hyperchain.cn/docs/hyperchain/3.1-hyperchain-quickstart)
+Download the solo version of Hyperchain in the [Release Page](https://github.com/hyperchain/hyperchain/releases).
 
-## Documentation
-
-We used readTheDoc to manage our project documentation, which contains the system architecture design, the introduction of key modules, system configuration, user manuals, project developement roadmap and other details.
-
-If you are interested in the above, please click on the [documentation link](https://github.com/hyperchain/hyperchain/blob/master/Contributing.md) to browse.
-
-Note that we now provide documentation in both English and Chinese.
+Build Hyperchain refer to our [QuickStart Docs](http://docs.hyperchain.cn/docs/hyperchain/3.1-hyperchain-quickstart).
 
 ## Contribution
 
