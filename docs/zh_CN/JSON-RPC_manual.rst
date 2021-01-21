@@ -139,11 +139,84 @@ Hyperchain接口主要由六块接口组成：
 | -32099 | 请求tcert失败                                              |
 +--------+------------------------------------------------------------+
 
+下面列出几个例子：
+
+Example1: 请求无效
+^^^^^^^^^^^^^^^^^^^^
+
+.. code:: bash
+
+    # Request
+    curl -X GET localhost:8081
+
+    # Result
+    {
+      "jsonrpc": "2.0",
+      "code": -32600,
+      "message": "EOF"
+    },
+
+Example2: 交易重复
+^^^^^^^^^^^^^^^^^^^^
+
+.. code:: bash
+
+    # Request
+    curl localhost:8081 --data
+    {
+        "jsonrpc":"2.0",
+        "namespace":"global",
+        "method":"contract_deployContract",
+        "params":
+            [{
+                "from":"0x000f1a7a08ccc48e5d30f80850cf1cf283aa3abd",
+                "nonce":1204154551977848,
+                "payload":"0x60606040526000805463ffffffff19168155609e908190601e90396000f3606060405260e060020a60003504633ad14af381146030578063569c5f6d146056578063d09de08a14607c575b6002565b346002576000805463ffffffff8116600435016024350163ffffffff199091161790555b005b3460025760005463ffffffff166040805163ffffffff9092168252519081900360200190f35b3460025760546000805463ffffffff19811663ffffffff90911660010117905556",
+                "signature":"97501a6f16b00916298f93fb865d296074e2bcbbee87d276c3d968ebf5b4bdab5ed01b679d24dc918180840414d27fbfe3c21fc5f3534b866024f6995c330e0b00",
+                "timestamp":1486995057580182971
+            }],
+        "id":"1"
+    }
+
+    # Result
+    {
+        "jsonrpc": "2.0",
+        "namespace":"global",
+        "id": 1,
+        "code": -32007,
+        "message": "repeated tx"
+    },
+
+Example3: 方法不存在
+^^^^^^^^^^^^^^^^^^^^
+
+.. code:: bash
+
+    # Request
+    curl localhost:8081 --data
+    {
+        "jsonrpc":"2.0",
+        "namespace":"global",
+        "method":"tx_test",
+        "params":["0x0e0758305cde33c53f8c2b852e75bc9b670c14c547dd785d93cb48f661a2b36a"],
+        "id":"1"
+    }
+
+    # Result
+    {
+        "jsonrpc": "2.0",
+        "namespace":"global",
+        "id": 1,
+        "code": -32601,
+        "message": "The method tx_test does not exist/is not available"
+    },
+
 3. 接口概览
 -----------
 
 Transaction
 ~~~~~~~~~~~
+- :ref:`tx_sendTransaction`
 - :ref:`tx_getTransactions`
 - :ref:`tx_getDiscardTransactions`
 - :ref:`tx_getTransactionByHash`
@@ -154,9 +227,11 @@ Transaction
 - :ref:`tx_getTransactionReceipt`
 - :ref:`tx_getBlockTransactionCountByHash`
 - :ref:`tx_getBlockTransactionCountByNumber`
-- :ref:`tx_getSignHash`
 - :ref:`tx_getTransactionsByTime`
 - :ref:`tx_getDiscardTransactionsByTime`
+- :ref:`tx_getTransactionsCountByContractAddr`
+- :ref:`tx_getTransactionsCountByMethodID`
+
 - :ref:`tx_getBatchTransactions`
 - :ref:`tx_getBatchReceipt`
 
