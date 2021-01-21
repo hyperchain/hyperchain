@@ -1,0 +1,207 @@
+合约部署及调用
+^^^^^^^^^^^^^^^^
+
+接下来将以JavaSDK为例，介绍如何快速部署及调用合约。
+
+**JavaSDK现已开源，如果您想了解更多内容请参考:** https://github.com/hyperchain/javasdk
+
+准备工作
+---------
+
+**Java环境**
+
+如果您还没有搭建本地Java环境，请点击下载安装JDK: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+**Java IDE**
+
+如果您还没有合适的Java IDE，请点击下载安装IntelliJIDEA: https://www.jetbrains.com/idea/download/
+
+创建项目
+----------
+
+如果您已经完成了准备工作，Java开发环境也配置完毕，则开始创建项目。
+
+**新建一个Maven项目**
+
+此处以 `groupId` 和 `artifactId` 是 `demo` 为例。
+
+**获取依赖**
+
+点击获取JavaSDK最新版本jar包： https://mvnrepository.com/artifact/cn.hyperchain/litesdk
+
+在项目中添加相关的依赖::
+
+ - Maven
+
+ <!-- https://mvnrepository.com/artifact/cn.hyperchain/litesdk -->
+ <dependency>
+    <groupId>cn.hyperchain</groupId>
+    <artifactId>litesdk</artifactId>
+    <version>1.0.4</version>
+ </dependency>
+
+ - Gradle
+
+ // https://mvnrepository.com/artifact/cn.hyperchain/litesdk
+ compile group: 'cn.hyperchain',
+ name: 'litesdk',
+ version: '1.0.4'
+
+ - STB
+
+ // https://mvnrepository.com/artifact/cn.hyperchain/litesdk
+ libraryDependencies += "cn.hyperchain" % "litesdk" % "1.0.4"
+
+ - grape
+
+ // https://mvnrepository.com/artifact/cn.hyperchain/litesdk
+ @Grapes(
+    @Grab(group='cn.hyperchain', module='litesdk', version='1.0.4')
+ )
+
+ - Ivy
+
+ <!-- https://mvnrepository.com/artifact/cn.hyperchain/litesdk -->
+ <dependency org="cn.hyperchain" name="litesdk" rev="1.0.4"/>
+
+  完成以上步骤即可得到LiteSDK进行使用。
+
+编写智能合约
+-------------
+
+平台目前支持Java语言进行智能合约的开发，此处以HVM为例。
+
+**下面是一个模拟银行智能合约的例子**::
+
+ 本例使用了一个map的结构进行用户及其资产的映射关系的维护，transfer实现了简单的用户之间的资产转账的业务，deposit函数实现了用户存款的业务。
+
+ //合约主体类SBank.java
+ public class SBank extends BaseContract implements ISBank {
+    //注解标记数据持久化
+    @StoreField
+    public HyperMap<String, Integer> accounts = new HyperMap<String, Integer>();
+
+    public SBank() {
+    }
+
+    @Override
+    public void onInit() {
+        this.accounts.put("AAA", 1000000000);
+        this.accounts.put("BBB", 1000000000);
+        this.accounts.put("CCC", 1000000000);
+        this.accounts.put("DDD", 1000000000);
+    }
+
+    @Override
+    public boolean transfer(String from, String to, int value) {
+        int fromBalance = this.accounts.get(from);
+        int toBalance;
+        if (!this.accounts.containsKey(from) || fromBalance < value) {
+            return false;
+        }
+        // if to account not exist, create
+        if (!this.accounts.containsKey(to)) {
+            toBalance = 0;
+        } else {
+            toBalance = this.accounts.get(to);
+        }
+
+        // do transaction
+        this.accounts.put(from, fromBalance - value);
+        this.accounts.put(to, toBalance + value);
+        return true;
+    }
+
+    @Override
+    public boolean deposit(String from, int value) {
+        // if to account not exist, create
+        if (!this.accounts.containsKey(from)) {
+            this.accounts.put(from, 0);
+        }
+        this.accounts.put(from, this.accounts.get(from) + value);
+        return true;
+    }
+ }
+
+ //ISBank.java
+ public interface ISBank extends BaseContractInterface {
+    boolean transfer(String from, String to, int val);
+
+    boolean deposit(String from, int val);
+ }
+
+ //invoke bean: InvokeBank.java
+ public class InvokeBank implements BaseInvoke<Boolean, ISBank> {
+
+    public String from;
+    public String to;
+    public int value;
+
+    // 必须有一个无参默认构造方法
+    public InvokeBank() {
+    }
+
+    public InvokeBank(String from, String to, int value) {
+        this.from = from;
+        this.to = to;
+        this.value = value;
+    }
+
+    @Override
+    public Boolean invoke(ISBank obj) {
+        boolean a = obj.transfer(from, to, value);
+        return a;
+    }
+ }
+
+部署及调用合约
+------------------
+
+下文将阐述如何对该合约进行编译、部署和调用。
+
+开始前，您需要先将合约SBank.java、ISBank.java打成一个jar包，在 `pom.xml` 文件中配置 `Main-Class` 为SBank.java（合约主体类），再jar包放到 `resources` 文件夹中（也可放入其他路径）。
+
+首先创建一个HttpProvider的实例，然后创建账户，接着使用该实例去进行合约的编译、部署和调用。合约部署之后只能返回一个交易哈希，需要通过该哈希去查询交易结果，获得合约地址。合约地址是调用合约的一个必须选项。此外在进行方法调用之前需要将调用的方法及其参数进行编码，最后通过invoke方法进行具体的合约调用。
+
+**下面是利用 LiteSDK 进行 SimulateBank 部署、调用的例子**::
+
+ 本例在部署过程中创建了AAA、BBB、CCC、DDD四个账户，分别设置余额1000000000；在调用合约过程中，AAA账户向BBB账户中转入100，并返回成功或失败的状态。
+
+ public class TestSBank {
+    //合约jar包路径
+    String jarPath = "/Users/dong/IdeaProjects/hyperchain/contractRes/hvm-bench-test/hypermap/target/sbank.jar";
+    String defaultURL = "localhost:8081";
+
+    @Test
+    public void testSBank() throws Exception {
+        InputStream is = FileUtil.readFileAsStream(jarPath);
+        DefaultHttpProvider defaultHttpProvider = new DefaultHttpProvider.Builder().setUrl(defaultURL).build();
+        ProviderManager providerManager = ProviderManager.createManager(defaultHttpProvider);
+
+        ContractService contractService = ServiceManager.getContractService(providerManager);
+        AccountService accountService = ServiceManager.getAccountService(providerManager);
+        Account account = accountService.genAccount(Algo.ECRAW);
+
+
+        //部署合约
+        Transaction transaction = new Transaction.HVMBuilder(account.getAddress()).deploy(is).build();
+        transaction.sign(account);
+        ReceiptResponse receiptResponse = contractService.deploy(transaction).send().polling();
+        //获取合约地址
+        String contractAddress = receiptResponse.getContractAddress();
+        System.out.println("contract address: " + contractAddress);
+
+        //调用合约, 可使用直接调用模式或InvokeBean类调用模式两种调用模式来构造交易
+        //直接调用模式
+        InvokeDirectlyParams params = new InvokeDirectlyParams.ParamBuilder("transfer").addString("AAA").addString("BBB").addint(100).build();
+        Transaction transaction1 = new Transaction.HVMBuilder(backup.getAddress()).invokeDirectly(contractAddress, params).build();
+        //或创建指定InvokeBaan来构造交易
+        // Transaction transaction1 = new Transaction.HVMBuilder(account.getAddress()).invoke(contractAddress, new InvokeBank("AAA", "BBB", 100)).build();
+        transaction1.sign(account);
+        ReceiptResponse receiptResponse1 = contractService.invoke(transaction1).send().polling();
+        //对交易执行结果进行解码
+        String decodeHVM = Decoder.decodeHVM(receiptResponse1.getRet(), String.class);
+        System.out.println("decode: " + decodeHVM);
+    }
+ }
+
