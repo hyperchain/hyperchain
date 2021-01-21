@@ -8,48 +8,43 @@ Hyperchain文档
 
 .. toctree::
    :maxdepth: 2
+   :caption: 平台介绍:
+
+   Introduction
+
+.. toctree::
+   :maxdepth: 2
    :caption: 快速入门:
 
-   prerequisites
-   quickstart
-   hyperchain_samples
+   /*prerequisites
+     quickstart
+     hyperchain_samples*/
 
 .. toctree::
    :maxdepth: 2
-   :caption: 系统架构:
+   :caption: 基础协议:
 
-   txflow
-   consensus
-   ledger
-   bucket_tree
-   smart_contract
-   p2p_introduce
-   
+   /*consensus mechanism
+     Networking protocol
+     execution engine
+     Storage model
+     security mechanism*/
+
 .. toctree::
    :maxdepth: 2
-   :caption: 隐私与安全:
+   :caption: 扩展协议:
    
-   ca_manager
-   namespace
-   crypto
+   /*Architecture development
+     Safe Privacy
+     Governonce and audit
+     Data management
+     Operation manage
+     Ecological components*/
 
 .. toctree::
    :maxdepth: 2
    :caption: 用户手册:
 
-   JSON-RPC_manual
-   node_op
+   /*Deployment docuemnt
+     */
 
-.. toctree::
-   :maxdepth: 2
-   :caption: 贡献:
-
-.. toctree::
-   :maxdepth: 2
-   :caption: 开发计划:
-
-   roadmap
-
-.. toctree::
-   :maxdepth: 2
-   :caption: 常见问题:

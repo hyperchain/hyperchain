@@ -21,7 +21,7 @@ JSON-RPC是一个无状态且轻量级的远程过程调用(RPC)协议。它允�
 2. 接口设计
 -----------
 
-Hyperchain接口主要由六块接口组成： 
+Hyperchain接口主要由六块接口组成：
 1. 交易服务，方法名前缀为 ``"tx"``;
 2. 合约服务，方法名前缀为 ``"contract"``;
 3. 区块服务，方法名前缀为 ``"block"``;
@@ -39,8 +39,8 @@ Hyperchain接口主要由六块接口组成：
 
 .. code:: bash
 
-    # Request
-    curl -X POST -d '{"jsonrpc":"2.0","method":"block_latestBlock","namespace":"global","params":[],"id":1}' localhost:8081
+ # Request
+ curl -X POST -d '{"jsonrpc":"2.0","method":"block_latestBlock","namespace":"global","params":[],"id":1}' localhost:8081
 
 返回值格式为：
 
@@ -139,11 +139,85 @@ Hyperchain接口主要由六块接口组成：
 | -32099 | 请求tcert失败                                              |
 +--------+------------------------------------------------------------+
 
+下面列出几个例子：
+
+Example1: 请求无效
+>>>>>>>>>>>>>>>>>>>>
+
+.. code:: bash
+
+    # Request
+    curl -X GET localhost:8081
+
+    # Result
+    {
+      "jsonrpc": "2.0",
+      "code": -32600,
+      "message": "EOF"
+    },
+
+Example2: 交易重复
+^^^^^^^^^^^^^^^^^^^^
+
+.. code:: bash
+
+    # Request
+    curl localhost:8081 --data
+    {
+        "jsonrpc":"2.0",
+        "namespace":"global",
+        "method":"contract_deployContract",
+        "params":
+            [{
+                "from":"0x000f1a7a08ccc48e5d30f80850cf1cf283aa3abd",
+                "nonce":1204154551977848,
+                "payload":"0x60606040526000805463ffffffff19168155609e908190601e90396000f3606060405260e060020a60003504633ad14af381146030578063569c5f6d146056578063d09de08a14607c575b6002565b346002576000805463ffffffff8116600435016024350163ffffffff199091161790555b005b3460025760005463ffffffff166040805163ffffffff9092168252519081900360200190f35b3460025760546000805463ffffffff19811663ffffffff90911660010117905556",
+                "signature":"97501a6f16b00916298f93fb865d296074e2bcbbee87d276c3d968ebf5b4bdab5ed01b679d24dc918180840414d27fbfe3c21fc5f3534b866024f6995c330e0b00",
+                "timestamp":1486995057580182971
+            }],
+        "id":"1"
+    }
+
+    # Result
+    {
+        "jsonrpc": "2.0",
+        "namespace":"global",
+        "id": 1,
+        "code": -32007,
+        "message": "repeated tx"
+    },
+
+Example3: 方法不存在
+^^^^^^^^^^^^^^^^^^^^
+
+.. code:: bash
+
+    # Request
+    curl localhost:8081 --data
+    {
+        "jsonrpc":"2.0",
+        "namespace":"global",
+        "method":"tx_test",
+        "params":["0x0e0758305cde33c53f8c2b852e75bc9b670c14c547dd785d93cb48f661a2b36a"],
+        "id":"1"
+    }
+
+    # Result
+    {
+        "jsonrpc": "2.0",
+        "namespace":"global",
+        "id": 1,
+        "code": -32601,
+        "message": "The method tx_test does not exist/is not available"
+    },
+
 3. 接口概览
 -----------
 
 Transaction
-~~~~~~~~~~~
+>>>>>>>>>>>>>
+
+- :ref:`tx_sendTransaction`
 - :ref:`tx_getTransactions`
 - :ref:`tx_getDiscardTransactions`
 - :ref:`tx_getTransactionByHash`
@@ -154,14 +228,16 @@ Transaction
 - :ref:`tx_getTransactionReceipt`
 - :ref:`tx_getBlockTransactionCountByHash`
 - :ref:`tx_getBlockTransactionCountByNumber`
-- :ref:`tx_getSignHash`
 - :ref:`tx_getTransactionsByTime`
 - :ref:`tx_getDiscardTransactionsByTime`
+- :ref:`tx_getTransactionsCountByContractAddr`
+- :ref:`tx_getTransactionsCountByMethodID`
+
 - :ref:`tx_getBatchTransactions`
 - :ref:`tx_getBatchReceipt`
 
 Contract
-~~~~~~~~
+>>>>>>>>>>>
 
 - :ref:`contract_compileContract`
 - :ref:`contract_deployContract`
@@ -175,7 +251,7 @@ Contract
 - :ref:`contract_getDeployedList`
 
 Block
-~~~~~
+>>>>>>>>
 
 - :ref:`block_latestBlock`
 - :ref:`block_getBlocks`
@@ -189,7 +265,7 @@ Block
 - :ref:`block_getBatchBlocksByNumber`
 
 Subscription
-~~~~~~~~~~~~
+>>>>>>>>>>>>>
 
 - :ref:`sub_newBlockSubscription`
 - :ref:`sub_newEventSubscription`
@@ -199,7 +275,7 @@ Subscription
 - :ref:`sub_unSubscription`
 
 Node
-~~~~
+>>>>>>
 
 - :ref:`node_getNodes`
 - :ref:`node_getNodeHash`
@@ -207,7 +283,7 @@ Node
 - :ref:`node_deleteNVP`
 
 Certificate
-~~~~~~~~~~~
+>>>>>>>>>>>>>
 
 - :ref:`cert_getTCert`
 
@@ -217,12 +293,12 @@ Certificate
 .. _tx_getTransactions:
 
 tx_getTransactions
-~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>
 
 查询指定区块区间的所有交易。
 
 Parameters
-^^^^^^^^^^
+>>>>>>>>>>>>>
 
 1. ``<Object>``
 
@@ -234,7 +310,7 @@ Parameters
 .. _validtransaction:
 
 Returns
-^^^^^^^
+>>>>>>>>>>
 
 1. ``[<Transaction>]`` - Transaction对象字段如下：
 
@@ -255,7 +331,7 @@ Returns
    部署合约、调用合约、升级合约的时候才有这个值，可以通过这个值追溯到合约调用的方法以及调用传入的参数。
 
 Example1: 正常的请求
-^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -302,7 +378,7 @@ Example1: 正常的请求
     }
 
 Example2: 区块不存在
-^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -321,19 +397,19 @@ Example2: 区块不存在
 .. _tx_getDiscardTransactions:
 
 tx_getDiscardTransactions
-~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 查询所有非法交易。
 
 Parameters
-^^^^^^^^^^
+>>>>>>>>>>>>>
 
 无
 
 .. _invalidtransaction:
 
 Returns
-^^^^^^^
+>>>>>>>>>>
 
 1. ``[<Transaction>]`` - Transaction对象字段如下：
 
@@ -351,16 +427,16 @@ Returns
 -  ``invalid``: ``<boolean>`` - 交易是否不合法。
 -  ``invalidMsg``: ``<string>`` - 交易的不合法信息。
 
-不合法的交易\ ``invalid``\ 值为true， ``invalidMsg``\ 可能为： 
+不合法的交易\ ``invalid``\ 值为true， ``invalidMsg``\ 可能为：
 
--  **DEPLOY_CONTRACT_FAILED** - 合约部署失败； 
--  **INVOKE_CONTRACT_FAILED** - 合约方法调用失败； 
--  **SIGFAILED** - 签名非法； 
--  **OUTOFBALANCE** - 余额不足; 
+-  **DEPLOY_CONTRACT_FAILED** - 合约部署失败；
+-  **INVOKE_CONTRACT_FAILED** - 合约方法调用失败；
+-  **SIGFAILED** - 签名非法；
+-  **OUTOFBALANCE** - 余额不足;
 -  **INVALID_PERMISSION** - 合约操作权限不够;
 
 Example1：正常的请求
-^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -392,7 +468,7 @@ Example1：正常的请求
     }
 
 Example2：若没有非法交易
-^^^^^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -411,17 +487,17 @@ Example2：若没有非法交易
 .. _tx_getTransactionByHash:
 
 tx_getTransactionByHash
-~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 根据交易哈希查询交易详情。
 
 Parameters
-^^^^^^^^^^
+>>>>>>>>>>>>>
 
 1. ``<string>`` - 32字节的十六进制字符串，交易的哈希值。
 
 Returns
-^^^^^^^
+>>>>>>>>>>>
 
 1. ``<Transaction>`` - Transaction对象字段如下：
 
@@ -443,16 +519,16 @@ Returns
 -  ``invalid``: ``<boolean>`` - 交易是否不合法。
 -  ``invalidMsg``: ``<string>`` - 交易的不合法信息。
 
-不合法的交易\ ``invalid``\ 值为true， ``invalidMsg``\ 可能为： 
+不合法的交易\ ``invalid``\ 值为true， ``invalidMsg``\ 可能为：
 
-- **OUTOFBALANCE** - 余额不足，对应code是-32002； 
-- **SIGFAILED** - 签名非法，对应code是-32003； 
-- **DEPLOY_CONTRACT_FAILED** - 合约部署失败，对应code是-32004； 
-- **INVOKE_CONTRACT_FAILED** - 合约方法调用失败，对应code是-32005； 
+- **OUTOFBALANCE** - 余额不足，对应code是-32002；
+- **SIGFAILED** - 签名非法，对应code是-32003；
+- **DEPLOY_CONTRACT_FAILED** - 合约部署失败，对应code是-32004；
+- **INVOKE_CONTRACT_FAILED** - 合约方法调用失败，对应code是-32005；
 - **INVALID_PERMISSION** - 合约操作权限不够，对应code是-32008；
 
 Example1：查询合法的交易
-^^^^^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -484,7 +560,7 @@ Example1：查询合法的交易
     }
 
 Example2：查询非法的交易
-^^^^^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -514,7 +590,7 @@ Example2：查询非法的交易
     }
 
 Example3：查询的交易不存在
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -533,23 +609,23 @@ Example3：查询的交易不存在
 .. _tx_getTransactionByBlockHashAndIndex:
 
 tx_getTransactionByBlockHashAndIndex
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 根据区块哈希和交易偏移量查询交易。
 
 Parameters
-^^^^^^^^^^
+>>>>>>>>>>>>>
 
 1. ``<string>`` - 32字节的十六进制字符串，区块的哈希值。
 2. ``<number>`` - 交易在区块中的偏移量，可以是十进制整数或进制字符串。
 
 Returns
-^^^^^^^
+>>>>>>>>>>
 
-1. ``<Transaction>`` - Transaction对象字段见 `合法交易 <#validtransaction>`__. 
+1. ``<Transaction>`` - Transaction对象字段见 `合法交易 <#validtransaction>`__.
 
 Example1：正常的请求
-^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -572,7 +648,7 @@ Example1：正常的请求
         "from": "0x17d806c92fa941b4b7a8ffffc58fa2f297a3bffc",
         "to": "0x3a3cae27d1b9fa931458b5b2a5247c5d67c75d61",
         "amount": "0x0",
-        "timestamp": 1481767474717000000,   
+        "timestamp": 1481767474717000000,
         "nonce": 8054165127693853,
         "extra": "",
         "executeTime": "0x2",
@@ -581,7 +657,7 @@ Example1：正常的请求
     }
 
 Example2：查询的区块不存在
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -600,23 +676,23 @@ Example2：查询的区块不存在
 .. _tx_getTransactionByBlockNumberAndIndex:
 
 tx_getTransactionByBlockNumberAndIndex
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 根据区块号和交易偏移量查询交易。
 
 Parameters
-^^^^^^^^^^
+>>>>>>>>>>>>>
 
 1. ``<blockNumber>`` - 区块号，可以是十进制整数、进制字符串或“latest”字符串表示最新的区块。
 2. ``<number>`` - 交易在区块中的偏移量，可以是十进制整数或进制字符串。
 
 Returns
-^^^^^^^
+>>>>>>>>>>>>>
 
-1. ``<Transaction>`` - Transaction对象字段见 `合法交易 <#validtransaction>`__. 
+1. ``<Transaction>`` - Transaction对象字段见 `合法交易 <#validtransaction>`__.
 
 Example1：正常的请求
-^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -648,7 +724,7 @@ Example1：正常的请求
     }
 
 Example2：请求的区块不存在
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -667,17 +743,17 @@ Example2：请求的区块不存在
 .. _tx_getTransactionsCount:
 
 tx_getTransactionsCount
-~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 查询当前链上交易量。
 
 Parameters
-^^^^^^^^^^
+>>>>>>>>>>>>>
 
 无
 
 Returns
-^^^^^^^
+>>>>>>>>>>>>>
 
 1. ``<Object>``
 
@@ -685,7 +761,7 @@ Returns
 -  ``timestamp``: ``<number>`` - 响应时间戳（单位ns）。
 
 Example
-^^^^^^^
+>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -708,12 +784,12 @@ Example
 .. _tx_getTxAvgTimeByBlockNumber:
 
 tx_getTxAvgTimeByBlockNumber
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 根据指定的区块区间计算出每笔交易的平均处理时间。
 
 Parameters
-^^^^^^^^^^
+>>>>>>>>>>>>>
 
 1. ``<Object>``
 
@@ -723,12 +799,12 @@ Parameters
 ``blockNumber`` 可以是十进制整数或者进制字符串，可以是“latest”字符串表示最新的区块。 ``from`` 必须小于等于 ``to`` ，否则会返回error。如果 ``from`` 和 ``to`` 的值一样，则表示计算的是当前指定区块交易的平均处理时间。
 
 Returns
-^^^^^^^
+>>>>>>>>>>>>>
 
 1. ``<string>`` - 十六进制字符串，表示交易的平均处理时间（单位ms）。
 
 Example
-^^^^^^^
+>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -748,19 +824,19 @@ Example
 .. _tx_getTransactionReceipt:
 
 tx_getTransactionReceipt
-~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 根据交易哈希返回交易回执信息。
 
 Parameters
-^^^^^^^^^^
+>>>>>>>>>>>>>
 
 1. ``<string>`` - 32字节的十六进制字符串，交易的哈希值。
 
 .. _receipt:
 
 Returns
-^^^^^^^
+>>>>>>>>>>>>>
 
 1. ``<Receipt>`` - Receipt对象字段如下：
 
@@ -783,14 +859,14 @@ Returns
 
 如果该笔交易还没被确认，则返回的错误码为-32001的error，如果该笔交易处理过程中发生错误，则错误可能是：
 
-- **OUTOFBALANCE** - 余额不足，对应code是-32002； 
-- **SIGFAILED** - 签名非法，对应code是-32003； 
-- **DEPLOY_CONTRACT_FAILED** - 合约部署失败，对应code是-32004； 
-- **INVOKE_CONTRACT_FAILED** - 合约方法调用失败，对应code是-32005； 
+- **OUTOFBALANCE** - 余额不足，对应code是-32002；
+- **SIGFAILED** - 签名非法，对应code是-32003；
+- **DEPLOY_CONTRACT_FAILED** - 合约部署失败，对应code是-32004；
+- **INVOKE_CONTRACT_FAILED** - 合约方法调用失败，对应code是-32005；
 - **INVALID_PERMISSION** - 合约操作权限不够，对应code是-32008；
 
 Example1：交易未被确认
-^^^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 .. code:: bash
 
@@ -807,7 +883,7 @@ Example1：交易未被确认
     }
 
 Example2：合约部署出错
-^^^^^^^^^^^^^^^^^^^^^^
+>>>>>>>>>>>>>>>>>>>>>>
 
 在这个例子中我们使用以下合约来重现这个情况：
 
@@ -815,7 +891,7 @@ Example2：合约部署出错
 
     contract TestContractor{
         int length = 0;
-        
+
         modifier justForTest(){
             length = 2;
             throw;
@@ -823,7 +899,7 @@ Example2：合约部署出错
         }
         function TestContractor()justForTest{
         }
-        
+
         function getLength() returns(int){
             return length;
         }
@@ -876,7 +952,7 @@ Example3：合约方法调用出错
 
     contract TestContractor{
         int length = 0;
-        
+
         modifier justForTest(){
             length = 2;
             throw;
@@ -884,7 +960,7 @@ Example3：合约方法调用出错
         }
         function TestContractor(){
         }
-        
+
         function getLength()justForTest returns(int){
             return length;
         }
@@ -896,11 +972,11 @@ Example3：合约方法调用出错
 
     # Request
     curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_invokeContract", "params": [{
-    "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bffc", 
-    "to":"0xaeccd2fd1118334402c5de1cb014a9c192c498df", 
-    "timestamp":1487042517534000000, 
+    "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bffc",
+    "to":"0xaeccd2fd1118334402c5de1cb014a9c192c498df",
+    "timestamp":1487042517534000000,
     "nonce":2472630987523856,
-    "payload":"0xbe1c766b", 
+    "payload":"0xbe1c766b",
     "signature":"0x8c56f025610dd9cb3f4ac346d35978639a536505527b7593d87f3b45c35328637280995ed32f6a6809069da915740b363c1b357cf31a7eb83e05dde0afc4937300"}],"id": 1}'
 
     # Response
@@ -938,11 +1014,11 @@ Example4：签名非法
 
     # Request
     curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_invokeContract", "params": [{
-    "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bff0", 
-    "to":"0xaeccd2fd1118334402c5de1cb014a9c192c498df", 
-    "timestamp":1481872888621000000, 
+    "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bff0",
+    "to":"0xaeccd2fd1118334402c5de1cb014a9c192c498df",
+    "timestamp":1481872888621000000,
     "nonce":9206467481004664,
-    "payload":"0xbe1c766b", 
+    "payload":"0xbe1c766b",
     "signature":"0x57dfa7f2c2d8c762c9c0e5ef7b1c4dda84b584f36799ab751891c8dc553862145f64d1991441c9460481af4e4231db393744ad3cfd37c8cce74c873002745aa401"}],"id": 1}'
 
     # Response
@@ -1180,7 +1256,7 @@ Parameters
 Returns
 ^^^^^^^
 
-1. ``[<Transaction>]`` - Transaction对象字段见 `合法交易 <#validtransaction>`__. 
+1. ``[<Transaction>]`` - Transaction对象字段见 `合法交易 <#validtransaction>`__.
 
 Example1：正常的请求
 ^^^^^^^^^^^^^^^^^^^^
@@ -1250,7 +1326,7 @@ Parameters
 Returns
 ^^^^^^^
 
-1. ``[<Transaction>]`` - Transaction对象字段见 `非法交易 <#invalidtransaction>`__. 
+1. ``[<Transaction>]`` - Transaction对象字段见 `非法交易 <#invalidtransaction>`__.
 
 Example1：正常的请求
 ^^^^^^^^^^^^^^^^^^^^
@@ -1301,7 +1377,7 @@ Parameters
 Returns
 ^^^^^^^
 
-1. ``[<Transaction>]`` - Transaction对象字段见 `合法交易 <#validtransaction>`__. 
+1. ``[<Transaction>]`` - Transaction对象字段见 `合法交易 <#validtransaction>`__.
 
 Example
 ^^^^^^^
@@ -1371,7 +1447,7 @@ Parameters
 Returns
 ^^^^^^^
 
-1. ``[<Receipt>]`` - Receipt对象字段见 `Receipt <#receipt>`__. 
+1. ``[<Receipt>]`` - Receipt对象字段见 `Receipt <#receipt>`__.
 
 Example
 ^^^^^^^
@@ -1600,7 +1676,7 @@ Example
       "code": 0,
       "message": "SUCCESS",
       "result": "0x606060405236156100565760e060020a600035046301000dd7811461005b5780638e739461146100e55780638f24d79614610107578063ae9f75e314610191578063b30cd67c1461021e578063e01da11e14610289575b610000565b346100005761006e6004356024356102e0565b604051808315158152602001806020018281038252838181518152602001915080519060200190808383829060006004602084601f0104600302600f01f150905090810190601f1680156100d65780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b34610000576100f56004356103f1565b60408051918252519081900360200190f35b346100005761006e600435602435610409565b604051808315158152602001806020018281038252838181518152602001915080519060200190808383829060006004602084601f0104600302600f01f150905090810190601f1680156100d65780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b346100005761006e6004356024356044356104b7565b604051808315158152602001806020018281038252838181518152602001915080519060200190808383829060006004602084601f0104600302600f01f150905090810190601f1680156100d65780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b346100005761026e6004808035906020019082018035906020019080806020026020016040519081016040528093929190818152602001838360200280828437509496506105cf95505050505050565b60408051921515835260208301919091528051918290030190f35b3461000057610296610683565b60405180806020018281038252838181518152602001915080519060200190602002808383829060006004602084601f0104600302600f01f1509050019250505060405180910390f35b6040805160208181018352600080835285815290819052918220541561033e57505060408051808201909152601781527f75736572206973206578697374656420616c726561647900000000000000000060208201526000906103ea565b60018054806001018281815481835581811511610380576000838152602090206103809181019083015b8082111561037c5760008155600101610368565b5090565b5b505050916000526020600020900160005b508590555050506000828152602081815260409182902084815560019081018490558251808401909352601083527f6e6577207573657220737563636573730000000000000000000000000000000091830191909152905b9250929050565b6000818152602081905260409020600101545b919050565b60408051602081810183526000808352858152908190529182208054151561046a5760408051808201909152601181527f75736572206973206e6f7420657869737400000000000000000000000000000060208201526000935091506104af565b600180820180548601905560408051808201909152601381527f7365742062616c616e6365207375636365737300000000000000000000000000602082015290935091505b509250929050565b6040805160208181018352600080835286815290819052828120858252928120835491939115806104e757508054155b1561052b5760408051808201909152601181527f75736572206973206e6f7420657869737400000000000000000000000000000060208201526000945092506105c5565b84826001015410156105765760408051808201909152601481527f616d6f756e74206973206e6f7420656e6f75676800000000000000000000000060208201526000945092506105c5565b60018083018054879003905581810180548701905560408051808201909152601081527f7472616e73666572207375636365737300000000000000000000000000000000602082015290945092505b5050935093915050565b8051600180548282556000828152928392917fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf69081019190602087018215610633579160200282015b82811115610633578251825591602001919060010190610618565b5b506106549291505b8082111561037c5760008155600101610368565b5090565b505060017f7365742055736572496473207375636365737300000000000000000000000000915091505b915091565b6040805160208181018352600082526001805484518184028101840190955280855292939290918301828280156106d957602002820191906000526020600020905b8154815260200190600101908083116106c5575b505050505090505b9056"
-    } 
+    }
 
 .. _contract_getContractCountByAddr:
 
@@ -1635,7 +1711,7 @@ Example
       "code": 0,
       "message": "SUCCESS",
       "result": "0x3"
-    } 
+    }
 
 .. _contract_maintainContract:
 
@@ -1674,12 +1750,12 @@ Example1：升级合约
 
     # Request
     curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_maintainContract","params":[{
-        "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bffc", 
-        "to":"0x3a3cae27d1b9fa931458b5b2a5247c5d67c75d61", 
-        "timestamp":1481767474717000000, 
+        "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bffc",
+        "to":"0x3a3cae27d1b9fa931458b5b2a5247c5d67c75d61",
+        "timestamp":1481767474717000000,
         "nonce": 8054165127693853,
-        "payload":"0x6fd7cc16000000000000000000000000000000000000000000000000000000000000007b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 
-        "signature":"0x19c0655d05b9c24f5567846528b81a25c48458a05f69f05cf8d6c46894b9f12a02af471031ba11f155e41adf42fca639b67fb7148ddec90e7628ec8af60c872c00", 
+        "payload":"0x6fd7cc16000000000000000000000000000000000000000000000000000000000000007b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "signature":"0x19c0655d05b9c24f5567846528b81a25c48458a05f69f05cf8d6c46894b9f12a02af471031ba11f155e41adf42fca639b67fb7148ddec90e7628ec8af60c872c00",
         "opcode": 1}],
     "id": 1}'
 
@@ -1701,11 +1777,11 @@ Example2：冻结合约
 
     # Request
     curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_maintainContract","params":[{
-        "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bffc", 
-        "to":"0x3a3cae27d1b9fa931458b5b2a5247c5d67c75d61", 
-        "timestamp":1481767474717000000, 
+        "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bffc",
+        "to":"0x3a3cae27d1b9fa931458b5b2a5247c5d67c75d61",
+        "timestamp":1481767474717000000,
         "nonce": 8054165127693853,
-        "signature":"0x19c0655d05b9c24f5567846528b81a25c48458a05f69f05cf8d6c46894b9f12a02af471031ba11f155e41adf42fca639b67fb7148ddec90e7628ec8af60c872c00", 
+        "signature":"0x19c0655d05b9c24f5567846528b81a25c48458a05f69f05cf8d6c46894b9f12a02af471031ba11f155e41adf42fca639b67fb7148ddec90e7628ec8af60c872c00",
         "opcode": 2}],
     "id": 1}'
 
@@ -1726,11 +1802,11 @@ Example3：解冻合约
 
     # Request
     curl localhost:8081 --data '{"jsonrpc":"2.0", "namespace":"global", "method": "contract_maintainContract","params":[{
-        "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bffc", 
-        "to":"0x3a3cae27d1b9fa931458b5b2a5247c5d67c75d61", 
-        "timestamp":1481767474717000000, 
+        "from": "17d806c92fa941b4b7a8ffffc58fa2f297a3bffc",
+        "to":"0x3a3cae27d1b9fa931458b5b2a5247c5d67c75d61",
+        "timestamp":1481767474717000000,
         "nonce": 8054165127693853,
-        "signature":"0x19c0655d05b9c24f5567846528b81a25c48458a05f69f05cf8d6c46894b9f12a02af471031ba11f155e41adf42fca639b67fb7148ddec90e7628ec8af60c872c00", 
+        "signature":"0x19c0655d05b9c24f5567846528b81a25c48458a05f69f05cf8d6c46894b9f12a02af471031ba11f155e41adf42fca639b67fb7148ddec90e7628ec8af60c872c00",
         "opcode": 3}],
     "id": 1}'
 
@@ -1845,7 +1921,7 @@ Example
       "jsonrpc":"2.0",
       "namespace":"global",
       "id":1,
-      "code":0, 
+      "code":0,
       "message":"SUCCESS",
       "result":"2017-04-07 12:37:06.152111325 +0800 CST"
     }
@@ -1997,7 +2073,7 @@ Returns
 ^^^^^^^
 
 1. ``[<Block>]`` - Block对象字段见 `Block <#block-object>`__.
-   
+
 Example1：返回的区块包括交易信息
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -2127,7 +2203,7 @@ Returns
 ^^^^^^^
 
 1. ``<Block>`` - Block对象字段见 `Block <#block-object>`__.
-  
+
 Example1：返回的区块包括交易信息
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -2216,7 +2292,7 @@ Returns
 ^^^^^^^
 
 1. ``<Block>`` - Block对象字段见 `Block <#block-object>`__.
-   
+
 Example1：返回的区块包括交易信息
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -2793,7 +2869,7 @@ Example
 
     # Request
     curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_newEventSubscription","params":[{
-        "fromBlock":100,  
+        "fromBlock":100,
         "addresses": ["000f1a7a08ccc48e5d30f80850cf1cf283aa3abd"]
     }],
     "id":1}'
@@ -2906,8 +2982,8 @@ Example
 
     # Request
     curl -X POST --data '{"jsonrpc":"2.0", "namespace":"global", "method":"sub_ newSystemStatusSubscription","params":[{
-        "modules":["executor", "consensus"],  
-        "subtypes": ["viewchange"], 
+        "modules":["executor", "consensus"],
+        "subtypes": ["viewchange"],
         "error_codes_exclude": [-1, -2]
     }],
     "id":1}'
