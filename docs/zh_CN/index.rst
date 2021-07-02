@@ -17,29 +17,29 @@ Hyperchain文档
    :caption: 快速入门:
 
    prerequisites
-     quickstart
-     hyperchain_samples
+   quickstart
+   hyperchain_samples
 
 .. toctree::
    :maxdepth: 2
    :caption: 基础协议:
 
    consensus mechanism
-     Networking protocol
-     execution engine
-     Storage model
-     security mechanism
+   Networking protocol
+   execution engine
+   Storage model
+   security mechanism
 
 .. toctree::
    :maxdepth: 2
    :caption: 扩展协议:
    
    Architecture development
-     Safe Privacy
-     Governonce and audit
-     Data management
-     Operation manage
-     Ecological components
+   Safe Privacy
+   Governonce and audit
+   Data management
+   Operation manage
+   Ecological components
 
 .. toctree::
    :maxdepth: 2
