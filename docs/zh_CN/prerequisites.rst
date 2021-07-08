@@ -1,8 +1,8 @@
 准备工作
-^^^^^^^^^^^^
+^^^^^^^^
 
 操作系统版本要求
--------------------
+----------------
 
 以下图表说明了Hyperchain对于不同操作系统的版本要求。
 
@@ -23,12 +23,12 @@
 +----------+--------------+------------+
 
 安装Go语言开发环境
-----------------------
+------------------
 
 因为Hyperchain使用Go语言来实现它的各个组件，所以需要安装Go语言开发环境。
 
 下载 Go
->>>>>>>>>>>>>
+>>>>>>>>
 
 Go为Mac OS X、Linux和Windows提供二进制发行版。如果您使用的是不同的操作系统，您可以下载Go源代码并从源代码安装。
 
@@ -36,7 +36,7 @@ Go为Mac OS X、Linux和Windows提供二进制发行版。如果您使用的是�
 - 请下载 ``1.7.x 或更新``
 
 安装 Go
->>>>>>>>>>>>>
+>>>>>>>>
 
 请按照对应于您的平台的步骤来安装Go环境：\ `安装Go <https://golang.org/doc/install#install>`__\ ，推荐使用默认配置安装。
 
@@ -55,7 +55,7 @@ Go为Mac OS X、Linux和Windows提供二进制发行版。如果您使用的是�
     export PATH=$PATH:$GOROOT/bin
 
 设置 GOPATH
->>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>
 
 您的Go工作目录 (``GOPATH``)
 是用来存储您的Go代码的地方，您必须要将他跟您的Go安装目录区分开
@@ -87,7 +87,7 @@ https://golang.org/doc/code.html.
     export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 检查Go安装结果
->>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>
 
 创建和运行这里描述的hello.go应用:
 https://golang.org/doc/install#testing.
@@ -95,20 +95,20 @@ https://golang.org/doc/install#testing.
 如果您正确设置了Go运行环境，您应该能够从任何目录运行hello程序，并看到程序成功执行。
 
 安装 Go vendor
---------------------
+--------------
 
 Go
 vendor是管理包及其依赖项的工具。此工具将依赖的包复制到项目的\ ``vendor``\ 目录中，并将其版本记录在名为\ ``vendor.json``\ 的文件中。
 
 安装命令
->>>>>>>>>>>>>
+>>>>>>>>
 
 .. code:: bash
 
     go get -u github.com/kardianos/govendor
 
 检查Go vendor安装结果
->>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>
 
 为了要验证您的govendor安装正确，可以通过查看govendor版本信息来检验。
 
@@ -120,13 +120,13 @@ vendor是管理包及其依赖项的工具。此工具将依赖的包复制到�
     v1.0.9
 
 更多信息
->>>>>>>>>>>>>>
+>>>>>>>>>
 
 您可以转到项目的主页了解更多细节。 - `Go
 vendor <https://github.com/kardianos/govendor>`__
 
 安装合约编译器(可选)
-------------------------
+--------------------
 
 Hyperchain
 支持用\ `Solidity <https://solidity.readthedocs.org/en/latest/>`__\ 编写的智能合约，然后将它编译为字节码并部署到区块链中。
