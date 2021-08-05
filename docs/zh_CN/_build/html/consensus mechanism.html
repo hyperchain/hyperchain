@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>共识机制 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="网络协议" href="Networking%20protocol.html" />
+    <link rel="prev" title="Hyperchain 使用示例" href="hyperchain_samples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain 使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">共识机制</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rbft">1. RBFT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">相关变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">常规流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">视图更换流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">算法优势</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#noxbft">2. NoxBFT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">共识主流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">超时轮换主节点流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">算法优势</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id2">合约操作层</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id3">库函数层</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id4">虚拟机层</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">大规模组网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment%20document.html">部署文档</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>共识机制</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/consensus mechanism.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>共识机制<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>共识算法是用于保证分布式系统一致性的机制。这里的一致性可以是交易顺序的一致性、账本一致性、节点状态的一致性等。一般地，我们根据容错类型将共识算法分为两类。</p>
+<ul class="simple">
+<li><p><strong>拜占庭容错</strong> : 拜占庭容错强调的是能够容忍部分区块链节点由于硬件错误、网络拥塞或断开以及遭到恶意攻击等情况出现的不可预料的行为。BFT系列算法是典型的拜占庭容错算法，比如PBFT、HotStuff等。</p></li>
+<li><p><strong>非拜占庭容错</strong> : 非拜占庭容错通常指能够容忍部分区块链节点出现宕机错误，但不容忍出现不可预料的恶意行为导致的系统故障。常见的CFT共识算法有Paxos、Raft等。</p></li>
+</ul>
+<p>平台采用 <strong>自适应共识机制</strong> ，支持RBFT、NoxBFT（BFT类）以及RAFT（CFT类）等多种共识算法，以满足不同的业务场景需求。下文将主要介绍RBFT和NoxBFT两类共识算法。</p>
+<div class="section" id="rbft">
+<h2>1. RBFT<a class="headerlink" href="#rbft" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>相关变量<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>在一个由N个节点（N&gt;=4）组成的共识网络中，RBFT最多能容忍f个节点的拜占庭错误，其中：</p>
+<div class="math notranslate nohighlight">
+\[f=[(N- 1)/3]\]</div>
+<p>能够保证达成共识的节点个数为：</p>
+<div class="math notranslate nohighlight">
+\[Quorum=[(N + f +1)/2]\]</div>
+</div>
+<div class="section" id="id3">
+<h3>常规流程<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>共识算法RBFT的核心在于保证了区块链各节点以 <strong>相同的顺序</strong> 处理来自客户端的交易。下图为最少集群节点数下的共识流程，其中N=4，f=1。图中的Primary1为共识节点动态选举出来的主节点，负责对客户端发来的交易进行排序打包，Replica2，3，4为从节点。所有节点执行交易的逻辑相同并能够在主节点失效时参与新主节点的选举。</p>
+<p><img alt="image0" src="_images/RBFT1.png" /></p>
+<ol class="arabic simple">
+<li><p><strong>交易转发阶段</strong> ：客户端Client将交易发送到区块链中的任意节点；Replica节点将接收到的交易广播给所有节点,节点将收到的交易放入交易缓存池；</p></li>
+<li><p><strong>Preprepare</strong> ：Primary会选择交易缓存池交易进行打包，构造交易哈希的batch；Primary通过batch构造PrePrepare消息广播给其他节点；</p></li>
+<li><p><strong>Prepare阶段</strong> ：Replica接收来自Primary的PrePrepare消息之后,对batch中的交易哈希进行验证，验证无误后构造Prepare消息发送给其他Replica节点，表明该节点接收到来自主节点的PrePrepare消息并认可主节点的batch排序。</p></li>
+<li><p><strong>Commit阶段</strong> ：Replica接收到2f个节点的Prepare消息之后对batch的消息进行合法性验证，验证通过之后向其他节点广播Commit消息，表示本节点同意Primary节点的验证结果。</p></li>
+<li><p><strong>写入账本</strong> ：Replica节点接收到2f+1个Commit之后执行batch中的交易并写入本地账本。</p></li>
+</ol>
+<p>需要注意的是，主节点除负责对交易排序打包外，与从节点功能无异。并且当从节点不认可主节点的排序结果时可以发起相应请求，集齐Quorum个该请求即可切换主节点。</p>
+<ul class="simple">
+<li><p><strong>检查点机制</strong></p></li>
+</ul>
+<p>平台设计检查点机制用于对执行结果进行校验。检查点的大小K默认设置为10个区块，节点在写入到K的整数倍个区块后达到一个检查点，广播该检查点的信息对账本一致性进行校验，校验通过后，平台就达到了一个稳定检查点（stable checkpoint）。检查点的大小可按需配置。</p>
+<ul class="simple">
+<li><p><strong>交易缓存池</strong></p></li>
+</ul>
+<p>交易缓存池用于共识节点进行交易缓存，一方面可以限制客户端发送交易的频率，另一方面减少了主节点的带宽压力。首先，通过限制交易池的缓存大小，平台可以在交易池达到上限后拒绝接收来自客户端的交易，因此在合理评估机器性能的情况下，可通过合理设置交易缓存大小，从而最大限度地利用机器性能而又不至于出现异常。其次，共识节点在接收到来自客户端的交易后先将其存入本地交易池，随后向全网其他共识节点广播该交易，保证所有共识节点都维护了一份完整的交易列表；主节点在打包后只需要将交易哈希列表放到PrePrepare消息中进行广播即可，而不用将完整的交易列表打包进行广播，从而大大减轻了主节点的出口带宽压力。如果从节点在验证之前发现缺少了某些交易，也只需要向主节点索取缺少的那些交易而不用索取整个区块里面所有的交易。</p>
+</div>
+<div class="section" id="id4">
+<h3>视图更换流程<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>视图更换（ViewChange）是指因原Primary节点失效而Replica节点参与新Primary节点选举的过程。视图变更能够解决主节点成为拜占庭节点的问题，是保证整个共识算法健壮性的关键。当前可检测到的拜占庭行为有以下情况：</p>
+<ul class="simple">
+<li><p>节点停止工作</p></li>
+</ul>
+<p>不再发送任何消息: 这种错误可以通过nullRequest机制保证，行为正确的主节点会在没有交易发生时向所有从节点发送nullRequest表明仍在正常工作，如果从节点在规定时间内没有收到主节点的nullRequest，则会引发ViewChange行为选举新的Primary。</p>
+<ul class="simple">
+<li><p>节点发送错误的消息</p></li>
+</ul>
+<p>错误可能是消息内容不正确、包含恶意交易的消息等，需要注意的是，这里的消息类型不仅是batch，也有可能是用于ViewChange的功能性消息。这种错误的解决方案是从节点在接收主节点的消息时，都会对内容进行相应的验证，如果发现主节点的交易包含不符合相应格式的交易或者恶意交易，即验证不通过的时候，会发起ViewChange选举新的Primary。</p>
+<p>Viewchange流程如下所示：</p>
+<p><img alt="image1" src="_images/viewchange1.png" /></p>
+<ol class="arabic simple">
+<li><p>Replica节点检测到主节点有以上异常情况，向全网广播ViewChange消息；</p></li>
+<li><p>当新主节点收到Quorum个ViewChange消息时，会发送NewView消息。视图切换成功，新的主节点也切换成功。</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>算法优势<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>RBFT基于PBFT做了一系列的优化，交易吞吐量可达万级TPS，延迟为毫秒级别。通过新增以下特性大大增强了共识模块的的可用性与稳定性：</p>
+<ol class="arabic simple">
+<li><p><strong>动态数据自动恢复机制</strong> ：保证网络异常后能快速恢复工作，提升稳定性；</p></li>
+<li><p><strong>动态节点增删机制</strong> ：支持在系统正常运行时动态增删共识节点，提升可扩展性；</p></li>
+<li><p><strong>共享交易池</strong> ：通过预先的交易广播和共享，仅共识交易哈希，降低了主节点的出口带宽。</p></li>
+</ol>
+<ul class="simple">
+<li><p>动态数据失效恢复</p></li>
+</ul>
+<p>区块链网络在运行过程中由于网络抖动、突然断电、磁盘故障等原因，可能会导致部分节点的执行速度落后于大多数节点或者直接宕机。在这种场景下，节点需要能够做到自动恢复并将账本同步到当前区块链的最新账本状态，才能参与后续的交易执行。为了解决这类数据恢复问题，RBFT算法提供了一种动态数据自动恢复机制。</p>
+<p>RBFT的自动恢复机制通过主动索取区块和正在共识的区块信息使自身节点的存储尽快和系统中的最新存储状态一致。自动恢复机制大大增强了整个区块链系统的可用性。RBFT为了恢复的方便，对执行的数据设置检查点机制。这样可以确保每个节点检查点之前的数据都是一致的。除了检查点之外，还有部分数据是当前还未共识的本地执行数据。在恢复过程中，首先需要本节点的检查点与区块链其他正在正常服务节点的检查点同步。其次，需要恢复检查点之外的部分数据。</p>
+<p>自动恢复机制的基本处理流程如下所示：</p>
+<p><img alt="image2" src="_images/Recover1.png" /></p>
+<dl class="simple">
+<dt>图中的Replica 4为新启动节点或者其他需要做数据自动恢复的节点，运行中节点为集群中其他正常运行的节点。</dt><dd><p>Replica 4自动恢复流程如下：</p>
+</dd>
+</dl>
+<ol class="arabic simple">
+<li><p>Replica 4 首先广播NegotiateView消息，获取当前其余节点的视图信息；</p></li>
+<li><p>其余三个节点向Replica 4发送NegotiateViewResponse，返回当前视图信息；</p></li>
+<li><p>Replica 4 收到Quorum个NegotiateViewResponse消息后，更新本节点的视图；</p></li>
+<li><p>Replica 4 广播RecoveryInit消息到其余节点，通知其他节点本节点需要进行自动恢复，请求其余节点的检查点信息和最新区块信息；</p></li>
+<li><p>正常运行节点在收到RecoveryInit消息之后，发送RecoveryResponse，将自身的检查点信息以及最新区块信息返回给Replica 4节点；</p></li>
+<li><p>Replica 4节点在收到Quorum个RecoveryResponse消息后，开始尝试从这些response中寻找一个全网共识的最高的检查点，随后将自身的状态更新到该检查点；</p></li>
+<li><p>Replica 4节点向正常运行节点索要检查点之后的PQC数据，最终同步至全网最新的状态。</p></li>
+</ol>
+<ul class="simple">
+<li><p>节点动态增删</p></li>
+</ul>
+<p>在联盟链的场景下，由于联盟的扩展或者某些成员的退出，需要联盟链支持成员的动态治理服务，而传统的PBFT算法不支持节点的动态增删。RBFT为了能够更便捷地管控联盟成员的准入和准出，基于PBFT增加了保持集群非停机情况下动态增删节点的功能。</p>
+<p><strong>新增节点</strong></p>
+<p>新增节点流程如下所示（New为新增节点）：</p>
+<p><img alt="image3" src="_images/addnode1.png" /></p>
+<ol class="arabic simple">
+<li><p>首先，新的节点需要获取证书颁发机构颁发的证书，然后向联盟中的所有节点发送NewNode请求；</p></li>
+<li><p>各个节点确认同意后会向联盟中的其他节点进行全网广播，发送AgreeAdd消息；当一个节点得到Quorum个同意加入的回复后会与新的节点建立连接，随后开始回应新增节点的共识消息请求（在此之前，新增节点的所有共识消息是不予处理的）；</p></li>
+<li><p>随后，当新的节点和N-f（N为区块链联盟节点总数）个节点建立连接后就可以执行主动恢复算法，同步区块链联盟成员的最新状态。之后向其他节点广播ReadyForN请求；</p></li>
+<li><p>现有节点在收到ReadyForN请求后，重新计算新增节点加入之后的N,view等信息，随后将其与PQC消息封装到AgreeUpdateN消息中，进行全网广播；</p></li>
+<li><p>New加入后的共识网络会产生一个新的主节点，该主节点在收到N-f个AgreeUpdateN消息后，以新的主节点的身份发送UpdateN消息；</p></li>
+<li><p>全网所有节点在收到UpdateN消息之后确认消息的正确性，进行VCReset；</p></li>
+<li><p>每个节点完成VCReset后，全网广播FinishVcReset消息；</p></li>
+<li><p>节点在收到N-f个FinishVcReset消息后，处理后续请求，完成新增节点流程。</p></li>
+</ol>
+<p><strong>删除节点</strong></p>
+<p>RBFT节点的动态删除和节点的动态增加流程类似，流程如下所示（Replica5为删除节点）：</p>
+<p><img alt="image4" src="_images/delnode1.png" /></p>
+<ol class="arabic simple">
+<li><p>节点管理员通过调用RPC请求得到删除节点的哈希值，然后发起删除节点请求；</p></li>
+<li><p>接收到删除请求的节点管理员确认同意该节点退出，然后向全网广播AgreeDel消息，表明自己同意该节点退出整个区块链共识的请求；</p></li>
+<li><p>当现有节点收到Quorum个AgreeDel消息后，该节点更新连接信息，断开与请求退出的节点间的连接；并在断开连接之后向全网广播AgreeUpdateN消息，表明请求整个系统暂停执行交易的处理行为，为更新整个系统参与共识的N，view做准备；</p></li>
+<li><p>当节点收到Quorum个AgreeUpdateN消息后，更新节点系统状态，与增加节点步骤5）及之后的流程一样，不再重复。至此，请求退出节点正式退出区块链系统。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="noxbft">
+<h2>2. NoxBFT<a class="headerlink" href="#noxbft" title="Permalink to this headline">¶</a></h2>
+<p>联盟链一般采用RAFT、BFT类共识算法，性能方面能得到一定的保证，但随着节点数量增多到几百甚至上千个共识节点的规模，所需要交换的信息量也呈指数级增长，最终导致系统负载增加及网络通信量增大，性能下降会很明显，可扩展性问题也随之产生。</p>
+<p>为了解决大规模节点组网场景下共识效率低下、可扩展性不强的问题，平台自研NoxBFT，借鉴Hotstuff算法，将全网网络复杂度由O (n2)降低至O (n)，并在Hotstuff算法基础上，在算法的活性、可靠性、数字签名性能方面进一步进行优化，支持大规模节点扩展，在1000节点规模下吞吐量可达3000TPS。</p>
+<p>NoxBFT中的Nox是Node of X的缩写，意指节点数不限，适用于大规模节点的BFT类共识算法。</p>
+<div class="section" id="id6">
+<h3>共识主流程<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>共识主流程指的是共识算法运行良好的情况下，共识推进的流程，在NoxBFT中，主要是Proposal提案阶段与Vote投票阶段的循环，正常的共识流程如下所示：</p>
+<p><img alt="image5" src="_images/NoxBFT1.png" /></p>
+<ol class="arabic simple">
+<li><p><strong>Transaction&amp;Broadcast</strong> ：任意节点收到交易之后，首先将其存入到本地mempool中，随后将其广播给其他所有节点，收到广播的节点也会将其存入到各自的mempool中。每个节点在接收到交易后，都会进行交易的去重判断，剔除重复交易之后才能进入到节点的mempool中，需要注意的是，现在交易的接收与广播流程并不在共识主流程中，而是由mempool负责进行；</p></li>
+<li><p><strong>Proposal</strong> ：当前轮次的主节点负责进行打包，从mempool中取出若干笔符合要求的交易打包成一个batch，并附带上一轮的QC封装成一个proposal，广播给其他节点；</p></li>
+<li><p><strong>Vote</strong> ：所有的节点（包括主节点）在监听到提案消息后，都会验证proposal的合法性（safety rules），验证通过后，首先检查该proposal中的QC是否能够提交前序的区块，如果达到了3-chain安全性提交规则（commit rules），则直接提交区块，等待区块执行完成之后将其中的交易从mempool中移除（CommitTxs）。最后，节点会将投票（vote）信息发送至下一轮的主节点，其中下一轮的主节点选择策略定义在liveness活性规则中。需要注意的是，每个节点的投票中都会附带上节点签名；</p></li>
+<li><p><strong>Proposal</strong> ：下一轮的主节点收到quorum个vote后，聚合成一个QC，并开始下一轮打包，并重复步骤2与步骤3，一直到出现超时的情况。</p></li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h3>超时轮换主节点流程<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>当主节点由于网络原因或者其他因素导致从节点无法按期收到Proposal进行投票时，NoxBFT就会触发超时机制，通过Pacemaker活性模块让全网快速地进入到下一个round继续共识。超时轮换主节点的流程如下所示：</p>
+<p><img alt="image6" src="_images/NoxBFT2.png" /></p>
+<ol class="arabic simple">
+<li><p><strong>Transaction&amp;Broadcast&amp;Proposal</strong> ：所有共识节点接收交易并且广播交易，当前的主节点正常的进行打包并广播proposal；</p></li>
+<li><p><strong>Round Timeout</strong> ：由于网络原因，导致主节点proposal并没有及时地发送到从节点，因此从节点不会对本轮次进行投票；</p></li>
+<li><p><strong>Broadcast TimeoutMsg</strong> ：所有节点都无法按期收到本轮的Proposal，导致超时，全网广播TimeoutVote消息，其中会附带上本节点当前所处的轮次号以及节点的签名；</p></li>
+<li><p><strong>Proposal</strong> ：下一轮的主节点在一定时间内收到 quorum个TimeoutVote消息，构造成TC（Timeout cert），并从mempool中取出若干笔合法交易打包成batch，即可将TC与batch封装成一个新的提案proposal进行广播。</p></li>
+</ol>
+</div>
+<div class="section" id="id8">
+<h3>算法优势<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>活性机制优化</p></li>
+</ul>
+<p>活性机制是保证共识能够持续推进的关键所在。在HotStuff的原始论文中，对于活性机制的定义较为模糊，只用了一个全局一致的超时时间来确定轮次的超时。</p>
+<p>而在NoxBFT中，我们设计并实现了一个更加灵活的超时机制来应对实际互联网环境中不稳定的延迟与断网情况。具体的：每个节点在进入到新的轮次（R）时，各自启动一个超时器，超时时间初始值为initial_timeout（该值可配置），如果本轮能够正常收到主节点的QC的话，则正常进入下一轮，并重启一个时长为initial_timeout的超时器，如果本轮超时的话，则节点不断广播超时消息TimeoutMsg，直到收到quorum个TimeoutMsg进入下一轮（R+1），此时启动一个initial_timeout*K的超时器，其中K值大于1（该值可配置），如果R+1轮连续超时进入R+2轮的话，则R+2轮的超时时间为initial_timeout*(K^2)。以此类推，如果节点因为系统网络不稳定导致进入多轮超时的话，不会频繁地进行轮次切换，而是以一个逐渐放缓的速率进行轮次切换，大大减少了轮次切换的次数。</p>
+<ul class="simple">
+<li><p>交易缓存池</p></li>
+</ul>
+<p>在区块链中，为了防止交易丢失，需要设计一个交易缓存池用于缓存客户端发送过来的交易。发起提案时，共识模块会从交易缓存池中取出一定量的交易进行打包，作为提案消息发送给其他节点。交易缓存池不仅能用于交易缓存，还可进行交易去重。这里说的交易去重是指相同的交易不会被执行两次，也即防止双花。通过设置交易缓存池，共识阶段就可以发现重复交易，不会将重复交易作为提案消息通过网络发送给其他节点，从源头上杜绝重复交易的发生。</p>
+<p>在NoxBFT中，我们设计的交易的唯一性标准是通过交易内容的hash值来确定的。同时，我们将所有已经上链的交易hash值写入到布隆过滤器中，通过布隆过滤器的去重特性可以达到快速的交易去重的目的，只有比较小的概率需要通过读取账本数据库来确定交易不存在。</p>
+<ul class="simple">
+<li><p>快速恢复机制</p></li>
+</ul>
+<p>网络波动可能导致共识节点丢失部分共识消息，从而落后于其他共识节点。在HotStuff的原始论文中，作者并没有显式地去描述状态同步的流程，而将其作为工程实现的一部分抛给了实现者。为了实现一个工程可  用的算法，让落后的共识节点恢复正常的定序功能，我们提供了状态同步功能StateSync来拉取最新的区块、账本信息等。落后的节点将分两阶段来进行同步：</p>
+<ol class="arabic simple">
+<li><p>当节点落后足够多的时候，我们会通过直接拉取区块执行的方式恢复到一个最新的稳定检查点stable checkpoint高度；</p></li>
+<li><p>当节点落后足够少的时候，我们可以通过直接向其他节点所要QC的方式来快速恢复共识进度。</p></li>
+</ol>
+<p>此外，为了提高同步的效率，我们采用了并行向不同源节点拉取区块的机制。并行的数量n采用可配置的方式来设置，落后节点将向分数最高的前n个节点并行发送请求分别向不同节点拉取不同的区块片段。落后节点收到源节点的响应信息后，首先会将拉取到区块在本地进行持久化，随后按序地执行落后的交易，并提高对应源节点的分数，以便下次高效地选取源节点。通过该机制，我们可以以最快的速度拉取所有丢失的交易等待执行，减少了整个等待执行的时间。</p>
+<ul class="simple">
+<li><p>聚合签名</p></li>
+</ul>
+<p>在HotStuff论文中，作者提出了对于共识消息中的签名和验签可以通过聚合签名进行加速。但是，HotStuff本身并没有实现聚合签名，而只是使用了最基本的椭圆曲线进行签名和验签。</p>
+<p>NoxBFT则实现并改进了Ed25519的聚合签名算法。一方面我们将椭圆曲线计算过程中的一些可以进行预先进行计算的数据在编译过程中就提前计算出来，加速运行时的计算速度；另一方面，我们实现了一个大数类型专门用于加速Ed25519的计算过程。通用的大数类型由于要无限扩展，所以需要使用链表，这不利于缓存命中。而我们的大数类型则充分考虑了Ed25519使用的大数长度是确定性的，从而采用了数组的形式，并且尽可能压缩大数的存储。最终，我们的Ed25519算法比官方提供的库要快2.5倍。基于我们的Ed25519算法实现的聚合签名算法同样也比基于官方库的实现性能更高。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Networking%20protocol.html" class="btn btn-neutral float-right" title="网络协议" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hyperchain_samples.html" class="btn btn-neutral float-left" title="Hyperchain 使用示例" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>准备工作 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="快速入门" href="quickstart.html" />
+    <link rel="prev" title="平台介绍" href="Introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">准备工作</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">操作系统版本要求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#go">安装Go语言开发环境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">下载 Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">安装 Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gopath">设置 GOPATH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">检查Go安装结果</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#go-vendor">安装 Go vendor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">安装命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">检查Go vendor安装结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">更多信息</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">安装合约编译器(可选)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain 使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id2">合约操作层</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id3">库函数层</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id4">虚拟机层</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">大规模组网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Deployment%20document.html">部署文档</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>准备工作</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/prerequisites.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>准备工作<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>操作系统版本要求<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>以下图表说明了Hyperchain对于不同操作系统的版本要求。</p>
+<p><strong>不同平台版本要求</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 39%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>操作系统</p></th>
+<th class="head"><p>系统版本</p></th>
+<th class="head"><p>系统架构</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RHEL</p></td>
+<td><p>6 或更新</p></td>
+<td><p>amd64, 386</p></td>
+</tr>
+<tr class="row-odd"><td><p>CentOS</p></td>
+<td><p>6 或更新</p></td>
+<td><p>amd64, 386</p></td>
+</tr>
+<tr class="row-even"><td><p>SLES</p></td>
+<td><p>11SP3 或更新</p></td>
+<td><p>amd64, 386</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu</p></td>
+<td><p>14.04 或更新</p></td>
+<td><p>amd64, 386</p></td>
+</tr>
+<tr class="row-even"><td><p>macOS</p></td>
+<td><p>10.8 或更新</p></td>
+<td><p>amd64, 386</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="go">
+<h2>安装Go语言开发环境<a class="headerlink" href="#go" title="Permalink to this headline">¶</a></h2>
+<p>因为Hyperchain使用Go语言来实现它的各个组件，所以需要安装Go语言开发环境。</p>
+<div class="section" id="id3">
+<h3>下载 Go<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Go为Mac OS X、Linux和Windows提供二进制发行版。如果您使用的是不同的操作系统，您可以下载Go源代码并从源代码安装。</p>
+<p>在这里下载适用于您的平台的最新版本Go：<a class="reference external" href="https://golang.org/dl">下载</a>
+- 请下载 <code class="docutils literal notranslate"><span class="pre">1.7.x</span> <span class="pre">或更新</span></code></p>
+</div>
+<div class="section" id="id4">
+<h3>安装 Go<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>请按照对应于您的平台的步骤来安装Go环境：<a class="reference external" href="https://golang.org/doc/install#install">安装Go</a>，推荐使用默认配置安装。</p>
+<ul class="simple">
+<li><p>对于Mac OS X 和
+Linux操作系统，默认情况下Go会被安装到<code class="docutils literal notranslate"><span class="pre">/usr/local/go/</span></code>，并且将环境变量<code class="docutils literal notranslate"><span class="pre">GOROOT</span></code>设置为该路径<code class="docutils literal notranslate"><span class="pre">/usr/local/go</span></code>.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GOROOT</span><span class="o">=</span>/usr/local/go
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>同时，请添加路径 <code class="docutils literal notranslate"><span class="pre">GOROOT/bin</span></code>
+到环境变量<code class="docutils literal notranslate"><span class="pre">PATH</span></code>中，可以使Go工具正常执行。</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOROOT</span>/bin
+</pre></div>
+</div>
+</div>
+<div class="section" id="gopath">
+<h3>设置 GOPATH<a class="headerlink" href="#gopath" title="Permalink to this headline">¶</a></h3>
+<p>您的Go工作目录 (<code class="docutils literal notranslate"><span class="pre">GOPATH</span></code>)
+是用来存储您的Go代码的地方，您必须要将他跟您的Go安装目录区分开
+(<code class="docutils literal notranslate"><span class="pre">GOROOT</span></code>)。</p>
+<p>以下命令是用了设置您的<code class="docutils literal notranslate"><span class="pre">GOPATH</span></code>环境变量的，您也可以参考Go官方文档，来获得更详细的内容:
+<a class="reference external" href="https://golang.org/doc/code.html">https://golang.org/doc/code.html</a>.</p>
+<ul class="simple">
+<li><p>对于 Mac OS X 和 Linux 操作系统 将 <code class="docutils literal notranslate"><span class="pre">GOPATH</span></code>
+环境变量设置为您的工作路径：</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/go
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>同时添加路径 <code class="docutils literal notranslate"><span class="pre">GOPATH/bin</span></code>
+到环境变量<code class="docutils literal notranslate"><span class="pre">PATH</span></code>中，可以使编译后的Go程序正常执行。</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOPATH</span>/bin
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>由于我们将在Go中进行一系列编码，您可以将以下内容添加到您的<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>文件中：</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GOROOT</span><span class="o">=</span>/usr/local/go
+<span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/go
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOPATH</span>/bin:<span class="nv">$GOROOT</span>/bin
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>检查Go安装结果<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>创建和运行这里描述的hello.go应用:
+<a class="reference external" href="https://golang.org/doc/install#testing">https://golang.org/doc/install#testing</a>.</p>
+<p>如果您正确设置了Go运行环境，您应该能够从任何目录运行hello程序，并看到程序成功执行。</p>
+</div>
+</div>
+<div class="section" id="go-vendor">
+<h2>安装 Go vendor<a class="headerlink" href="#go-vendor" title="Permalink to this headline">¶</a></h2>
+<p>Go
+vendor是管理包及其依赖项的工具。此工具将依赖的包复制到项目的<code class="docutils literal notranslate"><span class="pre">vendor</span></code>目录中，并将其版本记录在名为<code class="docutils literal notranslate"><span class="pre">vendor.json</span></code>的文件中。</p>
+<div class="section" id="id6">
+<h3>安装命令<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>go get -u github.com/kardianos/govendor
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>检查Go vendor安装结果<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>为了要验证您的govendor安装正确，可以通过查看govendor版本信息来检验。</p>
+<p>在命令提示符下，键入以下命令并确保您看到了govendor版本信息：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ govendor --version
+v1.0.9
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>更多信息<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>您可以转到项目的主页了解更多细节。 - <a class="reference external" href="https://github.com/kardianos/govendor">Go
+vendor</a></p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>安装合约编译器(可选)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>Hyperchain
+支持用<a class="reference external" href="https://solidity.readthedocs.org/en/latest/">Solidity</a>编写的智能合约，然后将它编译为字节码并部署到区块链中。</p>
+<p>鉴于我们是用Solidity语言编写的合约，所以需要确保我们已经安装名为<code class="docutils literal notranslate"><span class="pre">solc</span></code>的合约编译器。</p>
+<p>我们已经在源码中提供了一些平台的通用安装包，您可以直接使用他们来快速安装
+<code class="docutils literal notranslate"><span class="pre">solc</span></code> ，您也可以参考官方文档来完成安装 -
+<a class="reference external" href="https://solidity.readthedocs.io/en/latest/installing-solidity.html#installing-solidity">安装Solidity</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="快速入门" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Introduction.html" class="btn btn-neutral float-left" title="平台介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>存储模型 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="加密机制" href="security%20mechanism.html" />
+    <link rel="prev" title="执行引擎" href="execution%20engine.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain 使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id2">合约操作层</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id3">库函数层</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id4">虚拟机层</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">存储模型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">数据结构</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">连续型数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#k-v">K/V型数据</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">存储模式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">大规模组网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>存储模型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Storage model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>存储模型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>区块链数据通过多节点冗余存储实现账本可信，而且随着区块的不断追加，数据量会不断增长，整体读写性能也会受到明显影响，如何保证区块链存储的可拓展性是亟需解决的一大问题。</p>
+<p>平台为适配多种特性，对数据类型进行了进一步的拆分和分类，主要分为连续型数据和K/V型（Key-Value键值对）数据。</p>
+<div class="section" id="id2">
+<h2>数据结构<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>连续型数据<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>连续型数据包括区块数据、交易回执以及修改集数据：</p>
+<ul class="simple">
+<li><p>区块数据 ：区块数据即所有区块的集合，主包括区块头内的区块元数据（区块哈希、父区块哈希、时间戳等），以及交易列表信息，是最重要的数据；</p></li>
+<li><p>回执数据 ：回执数据以区块为单位组织，记录所有合法交易的回执；</p></li>
+<li><p>修改集数据 ：修改集数据以区块为单位组织，记录这一区块对账本数据的全量修改信息。</p></li>
+</ul>
+<p>其中，区块数据主要通过区块的形式进行串联，所有区块被从后向前有序地链接在一个链条里，每一个区块都指向其父区块，其主要存储内容如下表所示：</p>
+<ol class="arabic simple">
+<li><p>区块定义</p></li>
+</ol>
+<ul class="simple">
+<li><p>区块头 ：区块元数据集</p></li>
+<li><p>交易列表 ：收录在区块里的交易信息</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>区块头定义</p></li>
+</ol>
+<ul class="simple">
+<li><p>版本信息：区块结构定义版本信息</p></li>
+<li><p>父区块哈希：父区块哈希值</p></li>
+<li><p>区块哈希：区块内容的哈希标识</p></li>
+<li><p>区块号：区块高度</p></li>
+<li><p>区块时间戳：主节点构造区块的近似时间</p></li>
+<li><p>合约状态哈希：所有合约账户状态的哈希标识</p></li>
+<li><p>交易集哈希：区块中收录的交易列表哈希标识</p></li>
+<li><p>回执集哈希：执行交易产生的回执列表哈希标识</p></li>
+<li><p>其他：区块执行时间戳，区块入链时间戳等</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>区块的交易列表中存储了被收录的交易数据，每条交易包含以下字段：</p></li>
+</ol>
+<ul class="simple">
+<li><p>版本信息：区块结构定义版本信息</p></li>
+<li><p>父区块哈希：父区块哈希值</p></li>
+<li><p>区块哈希：区块内容的哈希标识</p></li>
+<li><p>区块号：区块高度</p></li>
+<li><p>区块时间戳：主节点构造区块的近似时间</p></li>
+<li><p>合约状态哈希：所有合约账户状态的哈希标识</p></li>
+<li><p>交易集哈希：区块中收录的交易列表哈希标识</p></li>
+<li><p>回执集哈希：执行交易产生的回执列表哈希标识</p></li>
+<li><p>其他：区块执行时间戳，区块入链时间戳等</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>区块的交易列表中存储了被收录的交易数据，每条交易包含以下字段：</p></li>
+</ol>
+<ul class="simple">
+<li><p>版本信息：交易结构定义版本信息</p></li>
+<li><p>交易哈希值：根据交易内容生产的哈希标识</p></li>
+<li><p>交易发起者地址：用于标识发起者</p></li>
+<li><p>交易接收者地址：用于标识接收者</p></li>
+<li><p>合约调用信息：调用合约函数标志及调用参数编码后内容</p></li>
+<li><p>交易时间戳：节点收到交易的近似时间</p></li>
+<li><p>交易保留字段：用于存储业务相关数据</p></li>
+<li><p>随机数：随机产生的64位整数</p></li>
+<li><p>用户签名：用户对交易内容签名生成的签名信息</p></li>
+</ul>
+</div>
+<div class="section" id="k-v">
+<h3>K/V型数据<a class="headerlink" href="#k-v" title="Permalink to this headline">¶</a></h3>
+<p>K/V型数据主要包括区块链元数据、账户数据以及合约数据：</p>
+<ul class="simple">
+<li><p>区块链元数据 ：区块链元数据存储当前链高度、交易数量、索引信息等辅助信息；</p></li>
+<li><p>账户数据 ：账户数据包含所有账户信息，包括普通账户和合约账户；</p></li>
+<li><p>合约数据 ：合约数据存储了合约的具体信息，包括合约源码与所有合约内部数据，存储于合约数据库中。</p></li>
+</ul>
+<p>与比特币系统采用UTXO模型不同，平台采用账户模型来表示系统状态。当一笔执行交易结束后，会更改相应账户的状态，例如某用户A发起一笔合约调用交易，使得某合约中的变量a的值由0变为1，并持久化到合约账户数据库中存储。</p>
+<p>因此，每一笔交易的执行，即意味着账户状态的一次转移，也代表着区块链系统账本的一次状态转移。相对于创世状态，最新的区块链账本状态被称为世界状态。</p>
+<p>合约账户定义</p>
+<ul class="simple">
+<li><p>合约地址 ：用于标识合约账户的唯一标识</p></li>
+<li><p>合约存储空间哈希 ：利用Merkle树计算合约存储空间所得的标识</p></li>
+<li><p>合约代码哈希 ：合约可执行代码哈希产生的标识</p></li>
+<li><p>余额 ：账户余额</p></li>
+<li><p>创建者 ：创建该合约的账户地址</p></li>
+<li><p>创建区块高度 ：合约被部署时的区块高度</p></li>
+<li><p>合约状态 ：当前合约的可访问状态（正常或冻结）</p></li>
+</ul>
+<p>除以上数据外，合约账户还有两个数据字段：合约源码以及变量存储空间。合约源码就是一段用字节数组编码的指令集，每一次合约的调用其实就是一次合约代码的运行。合约内部定义的变量则会被存储在合约所属的存储空间中。一个简化版的合约账户结构如下所示：</p>
+<p><img alt="image0" src="_images/storage1.png" /></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>存储模式<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>为了突破区块链系统的存储瓶颈，平台自研混合存储引擎，针对不同的数据类型设计相应存储模式。</p>
+<p><img alt="image1" src="_images/storage2.png" /></p>
+<p>针对顺序型的区块数据，设计区块链专用存储引擎Filelog；针对随机性较强的K/V型区块链状态数据，选用具备很高随机写顺序读性能的存储引擎LevelDB，并设计多级缓存机制Multicache，实现状态数据的高效存取，以此保证在数据量不断增大的情况下，系统读写性能不受影响。</p>
+<p>其中，平台自研的Filelog是一种Append-only形式的数据库，用来存储区块链场景中按照区块号严格递增的数据，因此Filelog的基本操作仅包括read/write两种。Filelog具有顺序写、随机读的特点，相比于LevelDB，Filelog对区块数据写入性能的提升高达90%。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="security%20mechanism.html" class="btn btn-neutral float-right" title="加密机制" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="execution%20engine.html" class="btn btn-neutral float-left" title="执行引擎" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

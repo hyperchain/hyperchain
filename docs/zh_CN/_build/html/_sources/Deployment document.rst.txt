@@ -1,8 +1,8 @@
 部署文档
-^^^^^^^^
+^^^^^^^^^^^^^
 
 前言
------
+-----------
 
 该文档将介绍如何部署一个拥有4个节点的Flato集群，操作步骤会较其他系统的部署稍繁琐一些，用户需要 **分别登录到4台服务器上** 进行操作。
 
@@ -11,10 +11,10 @@
 **该部署文档是为模拟平台上线部署的场景而编写的，所有的操作都只有普通用户权限，因此不涉及任何sudo权限的操作。不推荐使用root用户部署平台，容易养成不好的操作习惯，也不利于发现操作步骤中的错误。**
 
 第一章 获取安装包以及用户登录
---------------------------
+-------------------------------
 
 1.获取安装包
->>>>>>>>>>>>>
+>>>>>>>>>>>>>>>
 
 如果您已通过其他方式获取安装包请忽略此步骤。
 
@@ -40,7 +40,7 @@ Flato License签发地址：https://filoop.com/console/license
 
 
 2.创建使用用户及文件权限
->>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 创建平台部署所需的用户，例如创建如下用户::
 
@@ -57,7 +57,7 @@ Flato License签发地址：https://filoop.com/console/license
     1. sudo chown -R flato: /data/flato
 
 3. 上传安装包
->>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>
 
 登录服务器前需要上传Flato安装包和另外的小工具。
 
@@ -71,8 +71,9 @@ Flato License签发地址：https://filoop.com/console/license
     6. scp nt-linux64.tar.gz flato@node1:~
 
 4. 登录操作用户
->>>>>>>>>>>>>>>
-    ::
+>>>>>>>>>>>>>>>>>>>
+
+ ::
 
     1. #具体操作时将node1换成服务器IP地址
     2. ssh flato@node1
@@ -80,29 +81,31 @@ Flato License签发地址：https://filoop.com/console/license
     4. #输入登录密码
 
 5. 重复操作
->>>>>>>>>>>>
+>>>>>>>>>>>>>>>>
 
 - 请按照1.2~1.3中的步骤，再分别登录到 ``node2~node4`` 上，以继续之后的操作。
 
 第二章 检查系统环境
-------------------
+---------------------
 
 首先以 ``node1`` 服务器为例，完成以下的检查步骤。
 
 1. 检查服务器时间
->>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>
 
 检查Flato节点所在服务器的时间是否与标准时间同步，如果不同步请联络系管理员同步系统时钟。
-    ::
+
+ ::
 
     1. #查看服务器时间命令
     2. date
 
 2. 检查服务器配置
->>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>
 
 检查服务器配置是否与预期的配置一致，如果不一致请联系系统管理调整配置。
-    ::
+
+ ::
 
     1. #查看CPU主频
     2. cat /proc/cpuinfo | grep 'model name' | uniq
@@ -115,7 +118,7 @@ Flato License签发地址：https://filoop.com/console/license
     9. df -h
 
 3. 检查端口占用情况
->>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>
 
 检查Flato节点所需的端口是否被其他进程占用，如已被占用请联络系统管理员进行调整。
 
@@ -131,7 +134,7 @@ Flato License签发地址：https://filoop.com/console/license
     3. tcp6 0 0 8001 * LISTEN 30207/./process1
 
 4. 检查网络连通性
->>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>
 
 检查网络连通性的目的，就是为了检查Flato节点所监听的端口能否被其他节点访问到，如果其他节点访问不到请联络系统管理做处理。可以使用以下三种方法检查网络连通性， ``选择任意一种即可`` 。
 
@@ -225,7 +228,7 @@ nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以
     16. CTRL-C
 
 5. 检查系统字符集
->>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>
 
 ``flato`` 节点默认使用的字符集为 ``UTF-8`` ，请检查 ``SDK`` 或者应用服务器的默认字符集是否为 ``UTF-8`` ，如果不是，有可能造成签名非法。
  ::
@@ -239,7 +242,7 @@ nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以
     7. source /etc/sysconfig/i18n
 
 6. 检查最大文件句柄数
->>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>
 
 启动flato之前，需要保证文件句柄数至少为65535，否则有可能会由于文件句柄数不足引发系统宕机。
  ::
@@ -250,20 +253,20 @@ nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以
 查询到的数值应至少为65535，否则，建议联系当前服务器的管理员进行修改。
 
 7. 重复操作
->>>>>>>>>>>>>
+>>>>>>>>>>>>>>
 
 在完成以上步骤后， ``node1`` 服务器的系统环境就检查完毕了。请按照2.1~2.5中的步骤，再分别登录到 ``node2~node4`` 上做一次检查。
 
 第三章 安装节点
----------------
+----------------
 
 1. 备份数据
->>>>>>>>>>>>
+>>>>>>>>>>>>>>>
 
 在做安装操作之前，需要先检查目标目录是否有数据，如果不是首次安装，请先备份一下历史数据。
 
 2. 安装节点
->>>>>>>>>>>>
+>>>>>>>>>>>>>>>
 
 以下步骤以安装node1上的Flato为例
 
@@ -277,7 +280,8 @@ nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以
     6. cd flato-abcdef
 
 假设目标安装目录是 ``/opt/flato`` , 请先对照操作步骤2.2中的文件系统检查结果，再次确认目标目录的大小满足需求。
-    ::
+
+ ::
 
     1. df -h
 
@@ -309,7 +313,8 @@ nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以
     3. unzip 2019-10-31_06_43_59_allcerts.zip
 
 解压后的2019-10-31_06_43_59_allcerts文件夹里包含了一个README文件，请先仔细阅读该文件，并按照文件内容进行操作。
-    ::
+
+ ::
 
     1. #上传LICENSE文件
     2. #根据具体情况替换LICENSE文件的名字
@@ -325,7 +330,7 @@ nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以
     1. source ~/.bashrc
 
 3. 验证安装是否成功
->>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>
 
 在执行完步骤3.2后，需要验证一下节点是否已经正确安装。请执行以下命令做测试::
 
@@ -338,8 +343,7 @@ nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以
     1. $ ./flato version
     2. Flato Commercial Version: 0.1
 
-如果出现了以下报错信息，说明openssl的动态链接库没有安装成功
- ::
+如果出现了以下报错信息，说明openssl的动态链接库没有安装成功::
 
     1. error while loading shared libraries: libxxx. so: cannot open shared object file: No such file or directory
 
@@ -355,7 +359,7 @@ nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以
 至此，node1服务器上的Flato节点就算完成了。
 
 第四章 检查、修改配置文件
-----------------------
+--------------------------
 
 **注意，以下操作都是在Flato的目标安装目录操作的，不是在原先未安装前的目录下操作。本例中，是在/opt/flato路径下检查、修改配置文件。**
 
@@ -364,12 +368,11 @@ nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以
 |image0|
 
 1. 检查LICENSE文件
->>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>
 
 由于LINCESE文件和Flato安装包不是一起打包分发的，所以在启动节点前，需要检查一下LICENSE文件是否已经更新到正确版本。
 
-LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确定是否是最新版本，可以用原始的LICENSE文件再覆盖一遍。
-    ::
+LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确定是否是最新版本，可以用原始的LICENSE文件再覆盖一遍::
 
     1. #解压缩
     2. cd ~
@@ -383,7 +386,7 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
 请依次检查4个节点的LICENSE文件。
 
 2. vi编辑器使用方法
->>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>
 
 下面的配置文件的编辑需要使用到vi文本编辑器，在此介绍vi的使用方法
 
@@ -400,7 +403,7 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
 - :q!
 
 3. 修改配置文件
->>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>
 
 - **dynamic.toml**
 
@@ -619,10 +622,10 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
 这些账户及其对应的余额会在区块链启动时被创建。需要注意的是，作为默认账户，它们的私钥并不会对外暴露，因此请您自行创建创世账户，填入所有创世节点的配置文件，并妥善保管账户私钥。
 
 4. 检查配置文件
->>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>
 
 1号节点：
->>>>>>>>>
+>>>>>>>>>>>>>
  ::
 
     1. self = "node1"
@@ -662,7 +665,8 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
     35. start = true
 
 2号节点:
->>>>>>>>>
+>>>>>>>>>>>>
+
  ::
 
     1. self = "node2"
@@ -704,7 +708,7 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
 - 各节点dynamic.toml
 
 1号节点：
->>>>>>>>>
+>>>>>>>>>>>>
  ::
 
  self = "node1"
@@ -725,7 +729,7 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
  #
  [p2p]
 	[p2p.ip.remote]
-	 # this node will connect to those peer, if here has self hostname, we will ignore it
+	# this node will connect to those peer, if here has self hostname, we will ignore it
 	hosts = [
 	"node1 10.10.10.1:50011",
 	"node2 10.10.10.2:50012",
@@ -740,8 +744,8 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
 	"domain1 10.10.10.1:50011",
 	]
  [[namespace]]
- name = "global"
-	start = true
+    name = "global",
+	start = true.
 
 2号节点：
 >>>>>>>>>
@@ -765,23 +769,23 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
  #
  [p2p]
 	[p2p.ip.remote]
- # this node will connect to those peer, if here has self hostname, we will ignore it
+    # this node will connect to those peer, if here has self hostname, we will ignore it
 	hosts = [
-	"node1 10.10.10.1:50011",
- "node2 10.10.10.2:50012",
- "node3 10.10.10.3:50013",
- "node4 10.10.10.4:50014",
+        "node1 10.10.10.1:50011",
+        "node2 10.10.10.2:50012",
+        "node3 10.10.10.3:50013",
+        "node4 10.10.10.4:50014",
 	]
 	[p2p.ip.self]
 	domain = "domain1"
 	# addr is (domain,endpoint) pair, those items defined the ip address:port which
 	# other domains' host how connect to self
 	addrs = [
-	"domain1 10.10.10.2:50012",
+        "domain1 10.10.10.2:50012",
 	]
  [[namespace]]
- name = "global"
- start = true
+    name = "global",
+    start = true
 
 3号节点：
 >>>>>>>>>
@@ -808,9 +812,9 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
  # this node will connect to those peer, if here has self hostname, we will ignore it
  hosts = [
 	"node1 10.10.10.1:50011",
- "node2 10.10.10.2:50012",
- "node3 10.10.10.3:50013",
- "node4 10.10.10.4:50014",
+    "node2 10.10.10.2:50012",
+    "node3 10.10.10.3:50013",
+    "node4 10.10.10.4:50014",
  ]
  [p2p.ip.self]
  domain = "domain1"
@@ -847,24 +851,24 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
  [p2p.ip.remote]
  # this node will connect to those peer, if here has self hostname, we will ignore it
  hosts = [
- "node1 10.10.10.1:50011",
+    "node1 10.10.10.1:50011",
 	"node2 10.10.10.2:50012",
 	"node3 10.10.10.3:50013",
 	"node4 10.10.10.4:50014",
 	]
  [p2p.ip.self]
- domain = "domain1"
- # addr is (domain,endpoint) pair, those items defined the ip address:port which
- # other domains' host how connect to self
+    domain = "domain1",
+    # addr is (domain,endpoint) pair, those items defined the ip address:port which
+    # other domains' host how connect to self
  addrs = [
- "domain1 10.10.10.4:50014",
+    "domain1 10.10.10.4:50014",
  ]
  [[namespace]]
  name = "global"
  start = true
 
 - 各节点ns_dynamic.toml
->>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>
  ::
 
  [consensus]
@@ -903,7 +907,7 @@ LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确�
  score       = 10
 
 5. 检查证书配置
->>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>
 
 - 非分布式CA证书配置
 
@@ -929,8 +933,7 @@ flato在默认配置下都是以非分布式CA的方式进行启动。
 
 [encryption.ecert]配置项，修改为 ``ecert = "certs/certs"``
 
-- 如果节点启动报错 **"the searched certificate configuration item does not match hostname : need hostname1, but hostname2"**
-此类的错误，请查看证书生成时是否有误。在INFO或者OA上申请SDKCERT,ECERT时，节点名称（域名）一栏需要填写每个节点对应的hostname，如下图：
+- 如果节点启动报错 **"the searched certificate configuration item does not match hostname : need hostname1, but hostname2"** 此类的错误，请查看证书生成时是否有误。在INFO或者OA上申请SDKCERT,ECERT时，节点名称（域名）一栏需要填写每个节点对应的hostname，如下图：
 
 |image3|
 
@@ -1001,10 +1004,10 @@ node4需要生成node1.cert, node2.cert, node3.cert;
 请 **注意** 这种情况下 **请务必采取必要的外部措施保护区块链网络安全** 。
 
 第五章 启动节点
----------------
+-----------------
 
 1. 保存配置
->>>>>>>>>>>>
+>>>>>>>>>>>>>>>
 
 在启动节点前，将整个/opt/flato目录备份一下，主要是dynamic.toml和ns_dynamic.toml需要备份。
 
@@ -1017,7 +1020,7 @@ node4需要生成node1.cert, node2.cert, node3.cert;
 **请依次备份4个节点的Flato目标安装目录，本例中就是** ` **/opt/flato** ` **目录。**
 
 2. 启动节点
->>>>>>>>>>>>
+>>>>>>>>>>>>>>>
 
 启动请再按照步骤 `3.3` 检查一次flato二进制程序能否正常执行::
 
@@ -1036,7 +1039,7 @@ node4需要生成node1.cert, node2.cert, node3.cert;
 **依次启动4台服务器上的Flato进程。**
 
 3. 查看日志
->>>>>>>>>>>
+>>>>>>>>>>>>>>>
 
 查看flato的日志，查看运行情况。
 
@@ -1055,7 +1058,7 @@ Namespace级别日志的路径默认(以global为例)：
 **请依次检查4台服务器上的Flato日志。**
 
 4. 停止节点
->>>>>>>>>>>
+>>>>>>>>>>>>>>>
 
 停止某个节点的flato，执行步骤如下::
 
@@ -1065,7 +1068,7 @@ Namespace级别日志的路径默认(以global为例)：
      #./flato stop
 
 5. 重启节点
->>>>>>>>>>>>
+>>>>>>>>>>>>>>>
 
 重启某个节点的flato，执行步骤如下::
 
@@ -1075,7 +1078,7 @@ Namespace级别日志的路径默认(以global为例)：
   #./flato restart
 
 6. 失败恢复
->>>>>>>>>>>
+>>>>>>>>>>>>>>>
 
 若启动失败，需要使用5.1小节当中的备份进行失败恢复
 
