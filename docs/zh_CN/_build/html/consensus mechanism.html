@@ -43,7 +43,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="网络协议" href="Networking%20protocol.html" />
-    <link rel="prev" title="Hyperchain 使用示例" href="hyperchain_samples.html" /> 
+    <link rel="prev" title="趣链区块链平台 使用示例" href="hyperchain_samples.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,31 +96,38 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain 使用示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">趣链区块链平台 使用示例</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">共识机制</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#rbft">1. RBFT</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">相关变量</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">常规流程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">视图更换流程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">算法优势</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#raft">1. RAFT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">RAFT介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">共识流程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">角色介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">具体流程</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#noxbft">2. NoxBFT</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">共识主流程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">超时轮换主节点流程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">算法优势</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">优势</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rbft">2. RBFT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">相关变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">常规流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">视图更换流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">算法优势</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#noxbft">3. NoxBFT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">共识主流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">超时轮换主节点流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">算法优势</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id2">合约操作层</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id3">库函数层</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id4">虚拟机层</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
 </ul>
@@ -132,10 +139,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Deployment%20document.html">部署文档</a></li>
 </ul>
 
             
@@ -210,11 +213,81 @@
 <li><p><strong>拜占庭容错</strong> : 拜占庭容错强调的是能够容忍部分区块链节点由于硬件错误、网络拥塞或断开以及遭到恶意攻击等情况出现的不可预料的行为。BFT系列算法是典型的拜占庭容错算法，比如PBFT、HotStuff等。</p></li>
 <li><p><strong>非拜占庭容错</strong> : 非拜占庭容错通常指能够容忍部分区块链节点出现宕机错误，但不容忍出现不可预料的恶意行为导致的系统故障。常见的CFT共识算法有Paxos、Raft等。</p></li>
 </ul>
-<p>平台采用 <strong>自适应共识机制</strong> ，支持RBFT、NoxBFT（BFT类）以及RAFT（CFT类）等多种共识算法，以满足不同的业务场景需求。下文将主要介绍RBFT和NoxBFT两类共识算法。</p>
-<div class="section" id="rbft">
-<h2>1. RBFT<a class="headerlink" href="#rbft" title="Permalink to this headline">¶</a></h2>
+<p>平台采用 <strong>自适应共识机制</strong> ，支持RBFT、NoxBFT（BFT类）以及RAFT（CFT类）等多种共识算法，以满足不同的业务场景需求。下文将主要介绍RAFT、RBFT和NoxBFT两类共识算法。</p>
+<div class="section" id="raft">
+<h2>1. RAFT<a class="headerlink" href="#raft" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
-<h3>相关变量<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>RAFT介绍<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>由前文所了解, 分布式共识算法可以分为两类，即拜占庭容错（Byzantine Fault Tolerance，BFT）和非拜占庭容错类共识(Crash Fault Tolerance，CFT)。与BFT类共识算法相比，CFT共识，尤其是Raft共识算法，从性能、可理解性和可实现性等方面来说具有一定优势。</p>
+<p>平台目前已经支持的RBFT共识为BFT类共识算法，与不限制共识成员的公链不同，联盟链中所有参与节点的身份都是已知的，每个节点有很高的可信度，故在某些可信度高的业务场景下可采用不容拜占庭节点的传统共识算法，如RAFT、ZAB等共识协议。基于此，我们同时支持Raft共识机制。</p>
+</div>
+<div class="section" id="id3">
+<h3>共识流程<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>角色介绍<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>首先在Raft共识机制中，节点共分为三种角色：</p>
+<ul class="simple">
+<li><p><strong>领导者（Leader）</strong> : 接受客户端请求，并向从节点同步请求日志，当日志同步到大多数节点上后将提交日志，并广播给从节点。</p></li>
+<li><p><strong>从节点（Follower）</strong> : 单向接收并持久化主节点同步的日志。</p></li>
+<li><p><strong>候选节点（Candidate）</strong> : 主节点选举过程中的过渡角色,当从节点在规定的超时时间内没有收到主节点的任何消息，将转变为候选节点，并广播选举消息，且只有候选状态的节点才会接收选举投票的消息。候选节点有可能被选举为主节点，也有可能回退为从节点。</p></li>
+</ul>
+<p>在同一时刻，集群中只有一个Leader，负责生成日志数据（对应在区块链中即负责打包）并广播给Follower节点，为了保证共识的正确性和简单性，所有Follower节点只能单向接收从Leader发来的日志数据，即Leader节点不会接收Follower节点发来的日志数据。</p>
+</div>
+<div class="section" id="id5">
+<h4>具体流程<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Raft算法共识流程分为主节点选举和日志同步两步。将时间分为一个个的任期（term），每一个term以Leader选举开始。在成功选举Leader之后，Leader会在整个term内管理整个集群。如果Leader选举失败，该term就会因为没有Leader而结束，任期选举图如图所示。</p>
+<p><img alt="image7" src="_images/Raft1.png" /></p>
+<div class="section" id="id6">
+<h5>领导人选举<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h5>
+<p>Raft 使用心跳（heartbeat）触发Leader选举。当服务器启动时，Leader向所有Followers周期性发送heartbeat。如果Follower在选举超时时间内没有收到Leader的heartbeat，就会等待一段随机的时间（避免同一时刻有多个Candidate参与竞选导致系统可能出现的多次选举失败）后发起一次Leader选举。</p>
+<p>Follower将其当前term加一然后转换为Candidate。它首先给自己投票并且给集群中的其他服务器发送RequestVoteRPC。结果有以下三种情况：</p>
+<ul class="simple">
+<li><p>赢得了多数的选票，成功选举为Leader；</p></li>
+<li><p>收到了Leader的消息，表示有其它服务器已经抢先当选了Leader；</p></li>
+<li><p>没有服务器赢得多数的选票，Leader选举失败，等待选举时间超时后发起下一次选举。</p></li>
+</ul>
+<p>选举出Leader后，Leader通过定期向所有Followers发送心跳信息维持其统治。若Follower一段时间未收到Leader的心跳则认为Leader可能已经挂了，再次发起Leader选举过程。Raft保证选举出的Leader上一定具有最新的已提交的日志。</p>
+</div>
+<div class="section" id="id7">
+<h5>日志同步<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<p>Leader选出后，就开始接收客户端的请求。Leader把请求作为日志条目（Log entries）加入到它的日志中，然后并行的向其他Follower节点发起 AppendEntries RPC以复制该日志条目。当这条日志被复制到大多数服务器上，Leader将这条日志应用到它的状态机并向客户端返回执行结果。具体步骤如下：</p>
+<p><img alt="image8" src="_images/Raft2.png" /></p>
+<ol class="arabic simple">
+<li><p>Client将transaction发给任意一个节点；</p></li>
+<li><p>节点接收到的transaction后，将其封装在一个Propose提案中，并抛给Leader节点；</p></li>
+<li><p>Leader节点收到新区块的提案消息后，将提案信息（即log entry）append到自己的log日志集中，并广播对应的log entry给Follower节点；</p></li>
+<li><p>Follower节点接收到Leader节点的 log entry消息后，将其append到自己的log中，并向Leader发送append response消息，表明自己已经收到该log entry并同意其排序；</p></li>
+<li><p>Leader节点收到n/2+1个append response消息后，该 log entry达到committed状态（此时Leader可apply log entry中的transaction并写入区块）；</p></li>
+<li><p>Leader节点再次广播append 消息给Follower节点，通知其他节点该log entry已经是committed状态；</p></li>
+<li><p>Follower节点接收到Leader节点的append消息后，该log entry达到committed状态，随后可apply该log entry中的transaction并写入区块。</p></li>
+<li><p>继续处理下一次Request。</p></li>
+</ol>
+<p>注意:</p>
+<ul class="simple">
+<li><p>某些Followers可能没有成功的复制日志，Leader会无限的重试 AppendEntries RPC直到所有的Followers最终存储了所有的日志条目。</p></li>
+<li><p>日志由有序编号（log index）的日志条目组成。每个日志条目包含它被创建时的任期号（term），和用于状态机执行的命令。如果一个日志条目被复制到大多数服务器上，就被认为可以提交（commit）了。</p></li>
+</ul>
+<p><strong>Raft日志同步保证如下两点：</strong></p>
+<ol class="arabic simple">
+<li><p>如果不同日志中的两个条目有着相同的索引和任期号，则它们所存储的命令是相同的。</p></li>
+<li><p>如果不同日志中的两个条目有着相同的索引和任期号，则它们之前的所有条目都是完全一样的。另外，对于安全的保证，Raft增加了如下两条限制：</p></li>
+</ol>
+<ul class="simple">
+<li><p>拥有最新的已提交的log entry的Follower才有资格成为Leader。</p></li>
+<li><p>Leader只能推进commit index来提交当前term的已经复制到大多数服务器上的日志，旧term日志的提交要等到提交当前term的日志来间接提交（log index 小于 commit index的日志被间接提交）。</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>优势<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Raft的优势在于使用过程中拥有与Paxos相近的效率,但是比Paxos算法更易理解，而且更有利于工程化实现；可以直接从Leader的角度描述协议的流程与论证正确性。同时，还提供了协议的安全性证明和形式化证明，在可信场景中拥有良好的性能。</p>
+</div>
+</div>
+<div class="section" id="rbft">
+<h2>2. RBFT<a class="headerlink" href="#rbft" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>相关变量<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>在一个由N个节点（N&gt;=4）组成的共识网络中，RBFT最多能容忍f个节点的拜占庭错误，其中：</p>
 <div class="math notranslate nohighlight">
 \[f=[(N- 1)/3]\]</div>
@@ -222,8 +295,8 @@
 <div class="math notranslate nohighlight">
 \[Quorum=[(N + f +1)/2]\]</div>
 </div>
-<div class="section" id="id3">
-<h3>常规流程<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>常规流程<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>共识算法RBFT的核心在于保证了区块链各节点以 <strong>相同的顺序</strong> 处理来自客户端的交易。下图为最少集群节点数下的共识流程，其中N=4，f=1。图中的Primary1为共识节点动态选举出来的主节点，负责对客户端发来的交易进行排序打包，Replica2，3，4为从节点。所有节点执行交易的逻辑相同并能够在主节点失效时参与新主节点的选举。</p>
 <p><img alt="image0" src="_images/RBFT1.png" /></p>
 <ol class="arabic simple">
@@ -243,8 +316,8 @@
 </ul>
 <p>交易缓存池用于共识节点进行交易缓存，一方面可以限制客户端发送交易的频率，另一方面减少了主节点的带宽压力。首先，通过限制交易池的缓存大小，平台可以在交易池达到上限后拒绝接收来自客户端的交易，因此在合理评估机器性能的情况下，可通过合理设置交易缓存大小，从而最大限度地利用机器性能而又不至于出现异常。其次，共识节点在接收到来自客户端的交易后先将其存入本地交易池，随后向全网其他共识节点广播该交易，保证所有共识节点都维护了一份完整的交易列表；主节点在打包后只需要将交易哈希列表放到PrePrepare消息中进行广播即可，而不用将完整的交易列表打包进行广播，从而大大减轻了主节点的出口带宽压力。如果从节点在验证之前发现缺少了某些交易，也只需要向主节点索取缺少的那些交易而不用索取整个区块里面所有的交易。</p>
 </div>
-<div class="section" id="id4">
-<h3>视图更换流程<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>视图更换流程<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>视图更换（ViewChange）是指因原Primary节点失效而Replica节点参与新Primary节点选举的过程。视图变更能够解决主节点成为拜占庭节点的问题，是保证整个共识算法健壮性的关键。当前可检测到的拜占庭行为有以下情况：</p>
 <ul class="simple">
 <li><p>节点停止工作</p></li>
@@ -261,8 +334,8 @@
 <li><p>当新主节点收到Quorum个ViewChange消息时，会发送NewView消息。视图切换成功，新的主节点也切换成功。</p></li>
 </ol>
 </div>
-<div class="section" id="id5">
-<h3>算法优势<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>算法优势<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>RBFT基于PBFT做了一系列的优化，交易吞吐量可达万级TPS，延迟为毫秒级别。通过新增以下特性大大增强了共识模块的的可用性与稳定性：</p>
 <ol class="arabic simple">
 <li><p><strong>动态数据自动恢复机制</strong> ：保证网络异常后能快速恢复工作，提升稳定性；</p></li>
@@ -318,12 +391,12 @@
 </div>
 </div>
 <div class="section" id="noxbft">
-<h2>2. NoxBFT<a class="headerlink" href="#noxbft" title="Permalink to this headline">¶</a></h2>
+<h2>3. NoxBFT<a class="headerlink" href="#noxbft" title="Permalink to this headline">¶</a></h2>
 <p>联盟链一般采用RAFT、BFT类共识算法，性能方面能得到一定的保证，但随着节点数量增多到几百甚至上千个共识节点的规模，所需要交换的信息量也呈指数级增长，最终导致系统负载增加及网络通信量增大，性能下降会很明显，可扩展性问题也随之产生。</p>
 <p>为了解决大规模节点组网场景下共识效率低下、可扩展性不强的问题，平台自研NoxBFT，借鉴Hotstuff算法，将全网网络复杂度由O (n2)降低至O (n)，并在Hotstuff算法基础上，在算法的活性、可靠性、数字签名性能方面进一步进行优化，支持大规模节点扩展，在1000节点规模下吞吐量可达3000TPS。</p>
 <p>NoxBFT中的Nox是Node of X的缩写，意指节点数不限，适用于大规模节点的BFT类共识算法。</p>
-<div class="section" id="id6">
-<h3>共识主流程<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>共识主流程<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>共识主流程指的是共识算法运行良好的情况下，共识推进的流程，在NoxBFT中，主要是Proposal提案阶段与Vote投票阶段的循环，正常的共识流程如下所示：</p>
 <p><img alt="image5" src="_images/NoxBFT1.png" /></p>
 <ol class="arabic simple">
@@ -333,8 +406,8 @@
 <li><p><strong>Proposal</strong> ：下一轮的主节点收到quorum个vote后，聚合成一个QC，并开始下一轮打包，并重复步骤2与步骤3，一直到出现超时的情况。</p></li>
 </ol>
 </div>
-<div class="section" id="id7">
-<h3>超时轮换主节点流程<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>超时轮换主节点流程<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>当主节点由于网络原因或者其他因素导致从节点无法按期收到Proposal进行投票时，NoxBFT就会触发超时机制，通过Pacemaker活性模块让全网快速地进入到下一个round继续共识。超时轮换主节点的流程如下所示：</p>
 <p><img alt="image6" src="_images/NoxBFT2.png" /></p>
 <ol class="arabic simple">
@@ -344,8 +417,8 @@
 <li><p><strong>Proposal</strong> ：下一轮的主节点在一定时间内收到 quorum个TimeoutVote消息，构造成TC（Timeout cert），并从mempool中取出若干笔合法交易打包成batch，即可将TC与batch封装成一个新的提案proposal进行广播。</p></li>
 </ol>
 </div>
-<div class="section" id="id8">
-<h3>算法优势<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>算法优势<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>活性机制优化</p></li>
 </ul>
@@ -381,7 +454,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Networking%20protocol.html" class="btn btn-neutral float-right" title="网络协议" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="hyperchain_samples.html" class="btn btn-neutral float-left" title="Hyperchain 使用示例" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hyperchain_samples.html" class="btn btn-neutral float-left" title="趣链区块链平台 使用示例" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

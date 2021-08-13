@@ -45,5 +45,4 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 用户手册:
 
-   JSON-RPC_manual
 

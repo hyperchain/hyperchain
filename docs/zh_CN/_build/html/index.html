@@ -94,7 +94,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain 使用示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">趣链区块链平台 使用示例</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
 <ul>
@@ -112,10 +112,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual.html">JSON-RPC API</a></li>
 </ul>
 
             
@@ -195,6 +191,7 @@
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html#id5">4. 国产自主可控</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html#id6">5. 节点类型</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Introduction.html#id7">6. 交易流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#sdk">7. SDK使用说明</a></li>
 </ul>
 </li>
 </ul>
@@ -210,11 +207,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#hyperchain">编译Hyperchain</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id4">启动 Hyperchain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id2">编译趣链区块链平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#id5">启动 趣链区块链平台</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain 使用示例</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">趣链区块链平台 使用示例</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hyperchain_samples.html#hypercli">HyperCli</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperchain_samples.html#set-get-hash">合约样例1 - Set/Get Hash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperchain_samples.html#simulate-bank">合约样例2 - Simulate Bank</a></li>
@@ -226,8 +223,9 @@
 <p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="consensus%20mechanism.html#rbft">1. RBFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="consensus%20mechanism.html#noxbft">2. NoxBFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus%20mechanism.html#raft">1. RAFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus%20mechanism.html#rbft">2. RBFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consensus%20mechanism.html#noxbft">3. NoxBFT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a><ul>
@@ -269,7 +267,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Safe%20Privacy.html#id2">分区共识</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Safe%20Privacy.html#tee">TEE账本加密</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Safe%20Privacy.html#id3">隐私交易</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a><ul>
@@ -295,7 +292,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Ecological%20components.html#sdk">多语言SDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Ecological%20components.html#frigate">Frigate测试框架</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ecological%20components.html#hyperbench">Hyperbench测试框架</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Ecological%20components.html#archive-reader">Archive-reader浏览器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Ecological%20components.html#id2">消息订阅</a></li>
 </ul>
@@ -303,16 +300,6 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual.html">JSON-RPC API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="JSON-RPC_manual.html#json-rpc">1. JSON-RPC概述</a></li>
-<li class="toctree-l2"><a class="reference internal" href="JSON-RPC_manual.html#id1">2. 接口设计</a></li>
-<li class="toctree-l2"><a class="reference internal" href="JSON-RPC_manual.html#id2">3. 接口概览</a></li>
-<li class="toctree-l2"><a class="reference internal" href="JSON-RPC_manual.html#id3">4. 接口描述</a></li>
-</ul>
-</li>
-</ul>
 </div>
 </div>
 

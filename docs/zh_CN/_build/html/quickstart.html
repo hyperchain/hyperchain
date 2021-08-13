@@ -41,7 +41,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Hyperchain 使用示例" href="hyperchain_samples.html" />
+    <link rel="next" title="趣链区块链平台 使用示例" href="hyperchain_samples.html" />
     <link rel="prev" title="准备工作" href="prerequisites.html" /> 
 </head>
 
@@ -95,32 +95,29 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">快速入门</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#hyperchain">编译Hyperchain</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">拉取代码</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">编译代码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">编译趣链区块链平台</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">拉取代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">编译代码</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">启动 Hyperchain</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">单服务器模式 - 本地运行4个节点</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">多服务器模式 - 多服务器运行4个节点</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id5">启动 趣链区块链平台</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">单服务器模式 - 本地运行4个节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">多服务器模式 - 多服务器运行4个节点</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#ssh">SSH免密通路</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">分发部署 Hyperchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">分发部署 趣链区块链平台</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain 使用示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">趣链区块链平台 使用示例</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id2">合约操作层</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id3">库函数层</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id4">虚拟机层</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
 </ul>
@@ -132,10 +129,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Deployment%20document.html">部署文档</a></li>
 </ul>
 
             
@@ -207,10 +200,10 @@
 <h1>快速入门<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>如果您还没有完成上一篇中提到的所有<a class="reference external" href="prerequisites.html">准备工作</a>,
 请先完成它们，再继续下一步的操作。本快速入门告诉您如何从源代码构建Hyperchain，如何启动一个Hyperchain集群。</p>
-<div class="section" id="hyperchain">
-<h2>编译Hyperchain<a class="headerlink" href="#hyperchain" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
-<h3>拉取代码<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h2>编译趣链区块链平台<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>拉取代码<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>克隆代码到您的<code class="docutils literal notranslate"><span class="pre">GOPATH</span></code>工作目录下：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p <span class="nv">$GOPATH</span>/src/github.com/hyperchain
 <span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/hyperchain
@@ -218,10 +211,10 @@ git clone https://github.com/hyperchain/hyperchain
 </pre></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h3>编译代码<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>编译代码<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>请确保您已经安装了正确的Go工具，如有问题，请参见<a class="reference external" href="prerequisites.html">准备工作</a>.</p>
-<p>编译Hyperchain：</p>
+<p>编译趣链区块链平台：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/hyperchain/hyperchain
 govendor build
 </pre></div>
@@ -229,22 +222,22 @@ govendor build
 <p>您也可以执行 <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">build</span></code>来编译。</p>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>启动 Hyperchain<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
-<p>由于Hyperchain集群需要至少4个节点建立一个BFT系统，我们建议用以下几种模式启动Hyperchain节点：</p>
+<div class="section" id="id5">
+<h2>启动 趣链区块链平台<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>由于趣链区块链平台集群需要至少4个节点建立一个BFT系统，我们建议用以下几种模式启动趣链区块链平台节点：</p>
 <ul class="simple">
 <li><p>单服务器模式 - 本地运行4个节点</p></li>
 <li><p>多服务器模式 - 多服务器运行4个节点</p></li>
 </ul>
-<div class="section" id="id5">
-<h3>单服务器模式 - 本地运行4个节点<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>单服务器模式 - 本地运行4个节点<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>我们提供了一个工具脚本名为<code class="docutils literal notranslate"><span class="pre">local.sh</span></code>,
-可以用来快速部署运行本地4个Hyperchain节点。</p>
+可以用来快速部署运行本地4个趣链区块链平台节点。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/hyperchain/hyperchain/scripts
 ./local.sh
 </pre></div>
 </div>
-<p>如果脚本输出以下信息，说明Hyperchian节点已经正常运行了。</p>
+<p>如果脚本输出以下信息，说明趣链区块链平台节点已经正常运行了。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$./local.sh
 ...
 ...
@@ -255,8 +248,8 @@ start up node <span class="m">4</span> ... <span class="k">done</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>多服务器模式 - 多服务器运行4个节点<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>多服务器模式 - 多服务器运行4个节点<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="ssh">
 <h4>SSH免密通路<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h4>
 <p>因为我们使用的<code class="docutils literal notranslate"><span class="pre">server.sh</span></code>工具脚本在执行ssh操作时，会提示输入远程服务器
@@ -274,7 +267,7 @@ Your identification has been saved <span class="k">in</span> /home/hyperchain/.s
 Your public key has been saved <span class="k">in</span> /home/hyperchain/.ssh/id_rsa.pub.
 </pre></div>
 </div>
-<p>2. 将SSH公钥拷贝到 Hyperchain 节点,
+<p>2. 将SSH公钥拷贝到 趣链区块链平台 节点,
 请用您远程服务器上的用户名代替以下命令中的 <code class="docutils literal notranslate"><span class="pre">{username}</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-copy-id <span class="o">{</span>username<span class="o">}</span>@node1
 ssh-copy-id <span class="o">{</span>username<span class="o">}</span>@node2
@@ -283,10 +276,10 @@ ssh-copy-id <span class="o">{</span>username<span class="o">}</span>@node4
 </pre></div>
 </div>
 </div>
-<div class="section" id="id7">
-<h4>分发部署 Hyperchain<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id8">
+<h4>分发部署 趣链区块链平台<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <p>我们提供了一个工具脚本名为<code class="docutils literal notranslate"><span class="pre">server.sh</span></code>,
-可以用来快速分发到4个节点部署运Hyperchain。</p>
+可以用来快速分发到4个节点部署运趣链区块链平台。</p>
 <p>1. 首先请您将4台服务器的IP地址填入到
 hyperchain/scripts目录下的serverlist.txt文件中。</p>
 <p>格式如下所示：</p>
@@ -298,13 +291,13 @@ hyperchain/scripts目录下的serverlist.txt文件中。</p>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>使用server.sh启动远程多个Hyperchain节点。</p></li>
+<li><p>使用server.sh启动远程多个趣链区块链平台节点。</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/hyperchain/hyperchain/scripts
 ./server.sh
 </pre></div>
 </div>
-<p>如果脚本输出以下信息，说明Hyperchian节点已经正常运行了。</p>
+<p>如果脚本输出以下信息，说明趣链区块链平台节点已经正常运行了。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$./server.sh
 ...
 ...
@@ -325,7 +318,7 @@ start up node <span class="m">4</span> ... <span class="k">done</span>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="hyperchain_samples.html" class="btn btn-neutral float-right" title="Hyperchain 使用示例" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hyperchain_samples.html" class="btn btn-neutral float-right" title="趣链区块链平台 使用示例" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="prerequisites.html" class="btn btn-neutral float-left" title="准备工作" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

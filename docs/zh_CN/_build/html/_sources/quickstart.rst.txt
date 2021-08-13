@@ -4,8 +4,8 @@
 如果您还没有完成上一篇中提到的所有\ `准备工作 <prerequisites.html>`__,
 请先完成它们，再继续下一步的操作。本快速入门告诉您如何从源代码构建Hyperchain，如何启动一个Hyperchain集群。
 
-编译Hyperchain
---------------
+编译趣链区块链平台
+--------------------
 
 拉取代码
 >>>>>>>>
@@ -23,7 +23,7 @@
 
 请确保您已经安装了正确的Go工具，如有问题，请参见\ `准备工作 <prerequisites.html>`__.
 
-编译Hyperchain：
+编译趣链区块链平台：
 
 .. code:: bash
 
@@ -32,10 +32,10 @@
 
 您也可以执行 ``go build``\ 来编译。
 
-启动 Hyperchain
----------------
+启动 趣链区块链平台
+---------------------
 
-由于Hyperchain集群需要至少4个节点建立一个BFT系统，我们建议用以下几种模式启动Hyperchain节点：
+由于趣链区块链平台集群需要至少4个节点建立一个BFT系统，我们建议用以下几种模式启动趣链区块链平台节点：
 
 - 单服务器模式 - 本地运行4个节点 
 - 多服务器模式 - 多服务器运行4个节点
@@ -44,14 +44,14 @@
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 我们提供了一个工具脚本名为\ ``local.sh``,
-可以用来快速部署运行本地4个Hyperchain节点。
+可以用来快速部署运行本地4个趣链区块链平台节点。
 
 .. code:: bash
 
     cd $GOPATH/src/github.com/hyperchain/hyperchain/scripts
     ./local.sh
 
-如果脚本输出以下信息，说明Hyperchian节点已经正常运行了。
+如果脚本输出以下信息，说明趣链区块链平台节点已经正常运行了。
 
 .. code:: bash
 
@@ -85,7 +85,7 @@ SSH免密通路
     Your identification has been saved in /home/hyperchain/.ssh/id_rsa.
     Your public key has been saved in /home/hyperchain/.ssh/id_rsa.pub.
 
-2. 将SSH公钥拷贝到 Hyperchain 节点,
+2. 将SSH公钥拷贝到 趣链区块链平台 节点,
 请用您远程服务器上的用户名代替以下命令中的 ``{username}``
 
 .. code:: bash
@@ -95,11 +95,11 @@ SSH免密通路
     ssh-copy-id {username}@node3
     ssh-copy-id {username}@node4
 
-分发部署 Hyperchain
-::::::::::::::::::::::
+分发部署 趣链区块链平台
+:::::::::::::::::::::::::::
 
 我们提供了一个工具脚本名为\ ``server.sh``,
-可以用来快速分发到4个节点部署运Hyperchain。
+可以用来快速分发到4个节点部署运趣链区块链平台。
 
 1. 首先请您将4台服务器的IP地址填入到
 hyperchain/scripts目录下的serverlist.txt文件中。
@@ -114,14 +114,14 @@ hyperchain/scripts目录下的serverlist.txt文件中。
     172.16.1.103
     172.16.1.104
 
-2. 使用server.sh启动远程多个Hyperchain节点。
+2. 使用server.sh启动远程多个趣链区块链平台节点。
 
 .. code:: bash
 
     cd $GOPATH/src/github.com/hyperchain/hyperchain/scripts
     ./server.sh
 
-如果脚本输出以下信息，说明Hyperchian节点已经正常运行了。
+如果脚本输出以下信息，说明趣链区块链平台节点已经正常运行了。
 
 .. code:: bash
 

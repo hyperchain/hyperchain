@@ -10,9 +10,87 @@
 - **拜占庭容错** : 拜占庭容错强调的是能够容忍部分区块链节点由于硬件错误、网络拥塞或断开以及遭到恶意攻击等情况出现的不可预料的行为。BFT系列算法是典型的拜占庭容错算法，比如PBFT、HotStuff等。
 - **非拜占庭容错** : 非拜占庭容错通常指能够容忍部分区块链节点出现宕机错误，但不容忍出现不可预料的恶意行为导致的系统故障。常见的CFT共识算法有Paxos、Raft等。
 
-平台采用 **自适应共识机制** ，支持RBFT、NoxBFT（BFT类）以及RAFT（CFT类）等多种共识算法，以满足不同的业务场景需求。下文将主要介绍RBFT和NoxBFT两类共识算法。
+平台采用 **自适应共识机制** ，支持RBFT、NoxBFT（BFT类）以及RAFT（CFT类）等多种共识算法，以满足不同的业务场景需求。下文将主要介绍RAFT、RBFT和NoxBFT两类共识算法。
 
-1. RBFT
+1. RAFT
+------------
+
+RAFT介绍
+>>>>>>>>>>>>
+
+由前文所了解, 分布式共识算法可以分为两类，即拜占庭容错（Byzantine Fault Tolerance，BFT）和非拜占庭容错类共识(Crash Fault Tolerance，CFT)。与BFT类共识算法相比，CFT共识，尤其是Raft共识算法，从性能、可理解性和可实现性等方面来说具有一定优势。
+
+平台目前已经支持的RBFT共识为BFT类共识算法，与不限制共识成员的公链不同，联盟链中所有参与节点的身份都是已知的，每个节点有很高的可信度，故在某些可信度高的业务场景下可采用不容拜占庭节点的传统共识算法，如RAFT、ZAB等共识协议。基于此，我们同时支持Raft共识机制。
+
+共识流程
+>>>>>>>>>>>>
+
+角色介绍
+::::::::::::
+
+首先在Raft共识机制中，节点共分为三种角色：
+
+- **领导者（Leader）** : 接受客户端请求，并向从节点同步请求日志，当日志同步到大多数节点上后将提交日志，并广播给从节点。
+- **从节点（Follower）** : 单向接收并持久化主节点同步的日志。
+- **候选节点（Candidate）** : 主节点选举过程中的过渡角色,当从节点在规定的超时时间内没有收到主节点的任何消息，将转变为候选节点，并广播选举消息，且只有候选状态的节点才会接收选举投票的消息。候选节点有可能被选举为主节点，也有可能回退为从节点。
+
+在同一时刻，集群中只有一个Leader，负责生成日志数据（对应在区块链中即负责打包）并广播给Follower节点，为了保证共识的正确性和简单性，所有Follower节点只能单向接收从Leader发来的日志数据，即Leader节点不会接收Follower节点发来的日志数据。
+
+具体流程
+:::::::::::::
+
+Raft算法共识流程分为主节点选举和日志同步两步。将时间分为一个个的任期（term），每一个term以Leader选举开始。在成功选举Leader之后，Leader会在整个term内管理整个集群。如果Leader选举失败，该term就会因为没有Leader而结束，任期选举图如图所示。
+
+|image7|
+
+领导人选举
+''''''''''''''
+
+Raft 使用心跳（heartbeat）触发Leader选举。当服务器启动时，Leader向所有Followers周期性发送heartbeat。如果Follower在选举超时时间内没有收到Leader的heartbeat，就会等待一段随机的时间（避免同一时刻有多个Candidate参与竞选导致系统可能出现的多次选举失败）后发起一次Leader选举。
+
+Follower将其当前term加一然后转换为Candidate。它首先给自己投票并且给集群中的其他服务器发送RequestVoteRPC。结果有以下三种情况：
+
+- 赢得了多数的选票，成功选举为Leader；
+- 收到了Leader的消息，表示有其它服务器已经抢先当选了Leader；
+- 没有服务器赢得多数的选票，Leader选举失败，等待选举时间超时后发起下一次选举。
+
+选举出Leader后，Leader通过定期向所有Followers发送心跳信息维持其统治。若Follower一段时间未收到Leader的心跳则认为Leader可能已经挂了，再次发起Leader选举过程。Raft保证选举出的Leader上一定具有最新的已提交的日志。
+
+日志同步
+''''''''''''''
+
+Leader选出后，就开始接收客户端的请求。Leader把请求作为日志条目（Log entries）加入到它的日志中，然后并行的向其他Follower节点发起 AppendEntries RPC以复制该日志条目。当这条日志被复制到大多数服务器上，Leader将这条日志应用到它的状态机并向客户端返回执行结果。具体步骤如下：
+
+|image8|
+
+1. Client将transaction发给任意一个节点；
+2. 节点接收到的transaction后，将其封装在一个Propose提案中，并抛给Leader节点；
+3. Leader节点收到新区块的提案消息后，将提案信息（即log entry）append到自己的log日志集中，并广播对应的log entry给Follower节点；
+4. Follower节点接收到Leader节点的 log entry消息后，将其append到自己的log中，并向Leader发送append response消息，表明自己已经收到该log entry并同意其排序；
+5. Leader节点收到n/2+1个append response消息后，该 log entry达到committed状态（此时Leader可apply log entry中的transaction并写入区块）；
+6. Leader节点再次广播append 消息给Follower节点，通知其他节点该log entry已经是committed状态；
+7. Follower节点接收到Leader节点的append消息后，该log entry达到committed状态，随后可apply该log entry中的transaction并写入区块。
+8. 继续处理下一次Request。
+
+注意:
+
+- 某些Followers可能没有成功的复制日志，Leader会无限的重试 AppendEntries RPC直到所有的Followers最终存储了所有的日志条目。
+- 日志由有序编号（log index）的日志条目组成。每个日志条目包含它被创建时的任期号（term），和用于状态机执行的命令。如果一个日志条目被复制到大多数服务器上，就被认为可以提交（commit）了。
+
+**Raft日志同步保证如下两点：**
+
+1. 如果不同日志中的两个条目有着相同的索引和任期号，则它们所存储的命令是相同的。
+2. 如果不同日志中的两个条目有着相同的索引和任期号，则它们之前的所有条目都是完全一样的。另外，对于安全的保证，Raft增加了如下两条限制：
+
+- 拥有最新的已提交的log entry的Follower才有资格成为Leader。
+- Leader只能推进commit index来提交当前term的已经复制到大多数服务器上的日志，旧term日志的提交要等到提交当前term的日志来间接提交（log index 小于 commit index的日志被间接提交）。
+
+优势
+>>>>>>>>>
+
+Raft的优势在于使用过程中拥有与Paxos相近的效率,但是比Paxos算法更易理解，而且更有利于工程化实现；可以直接从Leader的角度描述协议的流程与论证正确性。同时，还提供了协议的安全性证明和形式化证明，在可信场景中拥有良好的性能。
+
+2. RBFT
 ------------
 
 相关变量
@@ -129,7 +207,7 @@ RBFT节点的动态删除和节点的动态增加流程类似，流程如下所�
 3. 当现有节点收到Quorum个AgreeDel消息后，该节点更新连接信息，断开与请求退出的节点间的连接；并在断开连接之后向全网广播AgreeUpdateN消息，表明请求整个系统暂停执行交易的处理行为，为更新整个系统参与共识的N，view做准备；
 4. 当节点收到Quorum个AgreeUpdateN消息后，更新节点系统状态，与增加节点步骤5）及之后的流程一样，不再重复。至此，请求退出节点正式退出区块链系统。
 
-2. NoxBFT
+3. NoxBFT
 -------------
 
 联盟链一般采用RAFT、BFT类共识算法，性能方面能得到一定的保证，但随着节点数量增多到几百甚至上千个共识节点的规模，所需要交换的信息量也呈指数级增长，最终导致系统负载增加及网络通信量增大，性能下降会很明显，可扩展性问题也随之产生。
@@ -202,3 +280,5 @@ NoxBFT则实现并改进了Ed25519的聚合签名算法。一方面我们将椭�
 .. |image4| image:: ../../images/delnode1.png
 .. |image5| image:: ../../images/NoxBFT1.png
 .. |image6| image:: ../../images/NoxBFT2.png
+.. |image7| image:: ../../images/Raft1.png
+.. |image8| image:: ../../images/Raft2.png

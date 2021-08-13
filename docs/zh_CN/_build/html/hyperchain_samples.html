@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Hyperchain 使用示例 &mdash; hyperchain  documentation</title>
+  <title>趣链区块链平台 使用示例 &mdash; hyperchain  documentation</title>
   
 
   
@@ -95,27 +95,27 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Hyperchain 使用示例</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">趣链区块链平台 使用示例</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#hypercli">HyperCli</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#set-get-hash">合约样例1 - Set/Get Hash</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">编译合约</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">部署合约</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">调用合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">编译合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">部署合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">调用合约</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sethash">setHash</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gethash">getHash</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#simulate-bank">合约样例2 - Simulate Bank</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">编译合约</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">部署合约</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">调用合约</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">发布资产</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">交易资产</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">查询资产</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">交易处理</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">发送交易</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id12">交易信息</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">交易回执</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">编译合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">部署合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">调用合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">发布资产</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">交易资产</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">查询资产</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">交易处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">发送交易</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">交易信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">交易回执</a></li>
 </ul>
 </li>
 </ul>
@@ -126,9 +126,6 @@
 <li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id2">合约操作层</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id3">库函数层</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id4">虚拟机层</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
 </ul>
@@ -188,7 +185,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Hyperchain 使用示例</li>
+      <li>趣链区块链平台 使用示例</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -207,14 +204,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="hyperchain">
-<h1>Hyperchain 使用示例<a class="headerlink" href="#hyperchain" title="Permalink to this headline">¶</a></h1>
-<p>在这一节中，我们将会用一些例子，来介绍一下Hyperchain平台的简单使用方法。</p>
+  <div class="section" id="id1">
+<h1>趣链区块链平台 使用示例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>在这一节中，我们将会用一些例子，来介绍一下趣链区块链平台平台的简单使用方法。</p>
 <div class="section" id="hypercli">
 <h2>HyperCli<a class="headerlink" href="#hypercli" title="Permalink to this headline">¶</a></h2>
 <p>我们推荐使用<code class="docutils literal notranslate"><span class="pre">HyperCli</span></code>作为您的管理工具。</p>
 <p><code class="docutils literal notranslate"><span class="pre">HyperCli</span></code>
-是一个基于Hyperchain平台开发的命令行工具，方便管理员操作Hyperchain平台。
+是一个基于趣链区块链平台开发的命令行工具，方便管理员操作趣链区块链平台。
 <code class="docutils literal notranslate"><span class="pre">HyperCli</span></code>提供了丰富的命令行接口，下面我们会介绍它的智能合约、交易处理等相关功能。</p>
 <p>编译HyperCli:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/hyperchain/hyperchain/hypercli
@@ -225,9 +222,9 @@ govendor build
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>默认情况下，HyperCli是给localhost:8081发送消息的，
-所以我们建议您在Hyperchain节点服务器上运行HyperCli。
+所以我们建议您在趣链区块链平台节点服务器上运行HyperCli。
 如果您希望在本地执行HyperCli，那么就需要指定 <code class="docutils literal notranslate"><span class="pre">--host</span></code>和 <code class="docutils literal notranslate"><span class="pre">--port</span></code>选项
-来设置远程Hyperchain节点的地址和JSON-RPC端口。</p>
+来设置远程趣链区块链平台节点的地址和JSON-RPC端口。</p>
 </div>
 </div>
 <div class="section" id="set-get-hash">
@@ -253,8 +250,8 @@ govendor build
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="section" id="id1">
-<h3>编译合约<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>编译合约<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>如果您已经安装了<code class="docutils literal notranslate"><span class="pre">solc</span></code>，您只需通过一个简单的命令就能得到合约的字节码。如果您没有安装编译器，也可以直接使用以下的字节码，该字节码是本合约的编译结果。</p>
 <p><strong>字节码</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x606060405261015c806100126000396000f3606060405260e060020a60003504633cf5040a8114610029578063d7fa10071461007b575b610002565b34610002576100ca6004356000818152602081905260408120548190819015156101055750600091507f746865206b6579206973206e6f7420657869737400000000000000000000000090508161012a565b34610002576100ea6004356024356000828152602081905260408120548190156101315750600090507f746865206b657920657869737400000000000000000000000000000000000000610155565b604080519315158452602084019290925282820152519081900360600190f35b60408051921515835260208301919091528051918290030190f35b50505060008181526020819052604090205460019060c860020a665375636365737302905b9193909250565b50506000828152602081905260409020819055600160c860020a6653756363657373025b925092905056
@@ -266,8 +263,8 @@ govendor build
 </pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h3>部署合约<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>部署合约<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>HyperCli提供了一个合约部署的功能，以下是该功能的参数：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli contract deploy --help
 
@@ -302,8 +299,8 @@ OPTIONS:
 </div>
 <p>之后它将会被用于合约调用的操作中。</p>
 </div>
-<div class="section" id="id3">
-<h3>调用合约<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>调用合约<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>HyperCli提供了一个合约调用的功能，以下是该功能的参数：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli contract invoke --help
 
@@ -405,8 +402,8 @@ OPTIONS:
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="section" id="id4">
-<h3>编译合约<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>编译合约<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>如果您已经安装了<code class="docutils literal notranslate"><span class="pre">solc</span></code>，您只需通过一个简单的命令就能得到合约的字节码。如果您没有安装编译器，也可以直接使用以下的字节码，该字节码是本合约的编译结果。</p>
 <p><strong>字节码</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x606060405260405160608061020083395060c06040525160805160a05160018390556002829055600380547f01000000000000000000000000000000000000000000000000000000000000008084020460ff19909116179055600080546c0100000000000000000000000033810204600160a060020a03199091161790555050506101728061008e6000396000f3606060405260e060020a60003504635e5c06e2811461003f578063867904b41461005c57806393423e9c146100a8578063beabacc8146100d1575b610002565b346100025761013760043560046020526000908152604090205481565b34610002576101496004356024356000805433600160a060020a039081169116141561015d5750600160a060020a03821660009081526004602052604090208054820190556001610161565b3461000257610137600435600160a060020a038116600090815260046020526040902054919050565b3461000257610149600435602435604435600160a060020a0383166000908152600460205260408120548290106101675750600160a060020a0380841660009081526004602052604080822080548590039055918416815220805482019055600161016b565b60408051918252519081900360200190f35b604080519115158252519081900360200190f35b5060005b92915050565b5060005b939250505056
@@ -418,8 +415,8 @@ OPTIONS:
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>部署合约<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>部署合约<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>HyperCli提供了一个合约部署的功能，以下是该功能的参数：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli contract deploy --help
 
@@ -454,8 +451,8 @@ OPTIONS:
 </div>
 <p>之后它将会被用于合约调用的操作中。</p>
 </div>
-<div class="section" id="id6">
-<h3>调用合约<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>调用合约<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>HyperCli提供了一个合约调用的功能，以下是该功能的参数：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli contract invoke --help
 
@@ -482,8 +479,8 @@ OPTIONS:
 </ul>
 <p>我们提供了一些函数调用的字节码，您可以直接使用它们。</p>
 </div>
-<div class="section" id="id7">
-<h3>发布资产<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>发布资产<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>调用issue函数，给账户0x1234567发布资产1,000,000,000，以下是该调用的字节码：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x867904b40000000000000000000000000000000000000000000000000000000001234567000000000000000000000000000000000000000000000000000000003b9aca00
 </pre></div>
@@ -501,8 +498,8 @@ OPTIONS:
 </pre></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h3>交易资产<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3>交易资产<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>调用transfer函数，从账户0x1234567向账户0x2345678转移1个资产，以下是该调用的字节码：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0xbeabacc8000000000000000000000000000000000000000000000000000000000123456700000000000000000000000000000000000000000000000000000000023456780000000000000000000000000000000000000000000000000000000000000001
 </pre></div>
@@ -520,8 +517,8 @@ OPTIONS:
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h3>查询资产<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>查询资产<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>调用getAccountBalance函数，查询账户0x1234567的资产，以下是该调用的字节码：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x93423e9c0000000000000000000000000000000000000000000000000000000001234567
 </pre></div>
@@ -555,8 +552,8 @@ OPTIONS:
 </pre></div>
 </div>
 </div>
-<div class="section" id="id10">
-<h3>交易处理<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>交易处理<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>HyperCli提供了交易处理相关的功能，以下是该功能的参数：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli tx --help
 NAME:
@@ -576,8 +573,8 @@ OPTIONS:
 </div>
 <p>可以看到tx命令有三个子命令，下面我们将介绍这三个命令。</p>
 </div>
-<div class="section" id="id11">
-<h3>发送交易<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3>发送交易<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>send命令可以用来发送普通的交易，以下是它的参数：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli tx send --help
 NAME:
@@ -616,8 +613,8 @@ OPTIONS:
 </pre></div>
 </div>
 </div>
-<div class="section" id="id12">
-<h3>交易信息<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>交易信息<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>info命令可以用来获取交易的信息，以下是它的参数：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli tx info --help
 NAME:
@@ -640,8 +637,8 @@ OPTIONS:
 </pre></div>
 </div>
 </div>
-<div class="section" id="id13">
-<h3>交易回执<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>交易回执<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>receipt命令可以用来获取交易的回执，以下是它的参数：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli tx receipt --help
 NAME:
