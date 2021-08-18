@@ -280,5 +280,5 @@ NoxBFT则实现并改进了Ed25519的聚合签名算法。一方面我们将椭�
 .. |image4| image:: ../../images/delnode1.png
 .. |image5| image:: ../../images/NoxBFT1.png
 .. |image6| image:: ../../images/NoxBFT2.png
-.. |image7| image:: ../../images/Raft1.PNG
+.. |image7| image:: ../../images/Raft1.png
 .. |image8| image:: ../../images/Raft2.png
