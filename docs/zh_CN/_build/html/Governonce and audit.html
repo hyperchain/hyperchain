@@ -95,16 +95,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain 使用示例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">趣链区块链平台 使用示例</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
 <li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id2">合约操作层</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id3">库函数层</a></li>
-<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html#id4">虚拟机层</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
 </ul>
@@ -130,10 +127,6 @@
 <li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Deployment%20document.html">部署文档</a></li>
 </ul>
 
             
@@ -208,8 +201,10 @@
 <p>平台使用CA证书体系进行联盟成员的准入控制。主要分为集中式CA认证体系、分布式CA认证体系两种方式。根据业务需求，任一节点可能参与一个或多个业务分区，所有在同一个分区中的节点都处于同一条链上，不同的分区处于不同的链上。不同的分区将拥有各自的证书体系，分区间不共享证书体系。</p>
 <div class="section" id="ca">
 <h3>中心化CA<a class="headerlink" href="#ca" title="Permalink to this headline">¶</a></h3>
-<p>中心化CA认证体系可以由可信机构提供，也可通过自建CA体系实现。平台已通过集成CFCA（China Financial Certification Authority）实现数字证书管理功能，适用于对于证书系统安全性与权威性有较高要求的银行或金融机构；自建CA体系需要建设独立的PKI／CA系统，并且建立完整的运营管理体系。在中心化CA模型下，每个分区将有唯一的CA进行证书的签发与管理。中心化CA证书体系的证书类型与签发关系如下图所示：</p>
+<p>中心化CA认证体系可以由可信机构提供，也可通过自建CA体系实现。平台已通过集成CFCA（China Financial Certification Authority）实现数字证书管理功能，适用于对于证书系统安全性与权威性有较高要求的银行或金融机构；自建CA体系需要建设独立的PKI／CA系统，并且建立完整的运营管理体系。中心化CA证书体系的证书类型与签发关系如下图所示：</p>
 <p><img alt="image0" src="_images/Cert1.png" /></p>
+<p>在中心化CA模型下，每个节点需配置其参与的每个分区所信任的CA，将CA的根证书配置到成员管理文件夹（MSP）中，后续该节点在与其他节点建立P2P网络连接时（节点加入区块链阶段），该节点将信任由成员管理文件夹中所记录的CA根证书所签发的数字证书。因为，数字证书签发能力由若干CA掌握，因此我们称其为中心化CA。</p>
+<p><img alt="image6" src="_images/CA1.png" /></p>
 </div>
 <div class="section" id="id3">
 <h3>分布式CA<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
@@ -224,6 +219,8 @@
 <li><p><strong>IDCert</strong> :IDCert为账户证书，用于维持账户地址与账户密钥间的映射关系。依此证书，账户将获得注册、冻结/解冻、密钥重置、注销的账户生命周期管理功能。</p></li>
 <li><p><strong>TLSCert</strong> :TLSCert(Transport Layer Security Cert) 为安全传输层协议证书。TlsCert 用于传输层安全协议证书，即在传输网络传输过程中需要验证传输层安全协议证书的安全性，验证通过即可以进行正常网络通信，反之则无法进行网络通信。</p></li>
 </ul>
+<p>在分布式CA模型下，每个节点将拥有独立的根证书，并使用该根证书签发网络连接身份证明所需的数字证书。在初次加入区块链网络时，节点将与其他区块链节点两两互换证书，节点增删事项以提案的形式提交至区块链中进行投票共识决议。因为该模式下，节点是两两相互签发认证证书的，无需指定的CA进行签发，具有分布式认证的特征，遂称为分布式CA。在分布式CA体系下，SDKCert和IDCert皆由某一节点的根证书签发。</p>
+<p><img alt="image7" src="_images/CA2.png" /></p>
 </div>
 </div>
 <div class="section" id="id4">
