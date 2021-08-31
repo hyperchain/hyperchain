@@ -1,134 +1,192 @@
 快速入门
-========
+^^^^^^^^^^^^
 
-如果您还没有完成上一篇中提到的所有\ `准备工作 <prerequisites.html>`__,
-请先完成它们，再继续下一步的操作。本快速入门告诉您如何从源代码构建Hyperchain，如何启动一个Hyperchain集群。
+本章将介绍如何在本地部署一条4节点的底层链。
 
-编译Hyperchain
---------------
+下载安装包
+-------------
 
-拉取代码
-````````
+请根据您使用的操作系统下载相应的安装包。
 
-克隆代码到您的\ ``GOPATH``\ 工作目录下：
+**登录飞洛官方资源库下载试用版：**
 
-.. code:: bash
+https://www.hyperchain.cn/products/hyperchain
 
-    mkdir -p $GOPATH/src/github.com/hyperchain
-    cd $GOPATH/src/github.com/hyperchain
-    git clone https://github.com/hyperchain/hyperchain
+点击右上角 “登录服务平台” 按钮了解
 
-编译代码
-````````
+安装节点
+----------
 
-请确保您已经安装了正确的Go工具，如有问题，请参见\ `准备工作 <prerequisites.html>`__.
+首先解压安装包，并拷贝分发至4个节点目录下::
 
-编译Hyperchain：
+ # 创建工作目录
+ mkdir /opt/workspace && cd /opt/workspace
 
-.. code:: bash
+ # 解压缩安装包
+ tar xvf hpc-flato-1.0.6-fa3ca76-20210316-CentOS-6.10.tar.gz
 
-    cd $GOPATH/src/github.com/hyperchain/hyperchain
-    govendor build
+ # 根据实际情况，将解压后的目录拷贝至四个节点目录
+ cp -r flato-fa3ca76 node1/
+ cp -r flato-fa3ca76 node2/
+ cp -r flato-fa3ca76 node3/
+ cp -r flato-fa3ca76 node4/
 
-您也可以执行 ``go build``\ 来编译。
 
-启动 Hyperchain
----------------
+**注：“Flato”为趣链区块链平台新版英文名称**
 
-由于Hyperchain集群需要至少4个节点建立一个BFT系统，我们建议用以下几种模式启动Hyperchain节点：
+通过执行安装脚本依次安装四个节点::
 
-- 单服务器模式 - 本地运行4个节点 
-- 多服务器模式 - 多服务器运行4个节点
+ cd /opt/workspace/node1/
+ ./deploy-local.sh -d ./
 
-单服务器模式 - 本地运行4个节点
-``````````````````````````````
+ cd /opt/workspace/node2/
+ ./deploy-local.sh -d ./
 
-我们提供了一个工具脚本名为\ ``local.sh``,
-可以用来快速部署运行本地4个Hyperchain节点。
+ cd /opt/workspace/node3/
+ ./deploy-local.sh -d ./
 
-.. code:: bash
+ cd /opt/workspace/node4/
+ ./deploy-local.sh -d ./
 
-    cd $GOPATH/src/github.com/hyperchain/hyperchain/scripts
-    ./local.sh
+  source ~/.bashrc
 
-如果脚本输出以下信息，说明Hyperchian节点已经正常运行了。
 
-.. code:: bash
+修改配置文件
+-------------
 
-    $./local.sh
-    ...
-    ...
-    start up node 1 ... done
-    start up node 2 ... done
-    start up node 3 ... done
-    start up node 4 ... done
+所有配置文件均保存在 `node/configuration` 中，按照本步骤对相关的配置进行修改，未在本步骤中说明的配置使用默认配置，即可完成节点的正常启动。
 
-多服务器模式 - 多服务器运行4个节点
-``````````````````````````````````
+单服务器部署模式下，各节点互相通信的IP可以直接使用 `localhost` 或 `127.0.0.1` ，但各节点所使用的端口则必须保证不冲突，如四节点分别为 `xxxx1~xxxx4` 。
 
-SSH免密通路
-'''''''''''
+**依次修改每个节点的 `configuration/dynamic.toml` ：**
 
-因为我们使用的\ ``server.sh``\ 工具脚本在执行ssh操作时，会提示输入远程服务器
-的密码，所以我们建议您打通与远程服务器之间的SSH免密通路。
+修改node1::
 
-1. 本地节点生成SSH秘钥对，密码请设置为空：
+ self = "node1"
 
-.. code:: bash
+ [port]
+ jsonrpc     = 8081
+ grpc        = 50011
 
-    ssh-keygen
+ [p2p]
+	[p2p.ip.remote]
+		hosts = [
+		 "node1 127.0.0.1:50011",
+		 "node2 127.0.0.1:50012",
+		 "node3 127.0.0.1:50013",
+		 "node4 127.0.0.1:50014",
+	    ]
 
-    Generating public/private key pair.
-    Enter file in which to save the key (/home/hyperchain/.ssh/id_rsa):
-    Enter passphrase (empty for no passphrase):
-    Enter same passphrase again:
-    Your identification has been saved in /home/hyperchain/.ssh/id_rsa.
-    Your public key has been saved in /home/hyperchain/.ssh/id_rsa.pub.
+	[p2p.ip.self]
+	   domain = "domain1",
+	   addrs = ["domain1 127.0.0.1:50011"]
 
-2. 将SSH公钥拷贝到 Hyperchain 节点,
-请用您远程服务器上的用户名代替以下命令中的 ``{username}``
+修改node2::
 
-.. code:: bash
+ self = "node2"
 
-    ssh-copy-id {username}@node1
-    ssh-copy-id {username}@node2
-    ssh-copy-id {username}@node3
-    ssh-copy-id {username}@node4
+ [port]
+ jsonrpc     = 8082
+ grpc        = 50012
 
-分发部署 Hyperchain
-'''''''''''''''''''
+ [p2p]
+	[p2p.ip.remote]
+		hosts = [
+		 "node1 127.0.0.1:50011",
+		 "node2 127.0.0.1:50012",
+		 "node3 127.0.0.1:50013",
+		 "node4 127.0.0.1:50014",
+	    ]
 
-我们提供了一个工具脚本名为\ ``server.sh``,
-可以用来快速分发到4个节点部署运Hyperchain。
+	[p2p.ip.self]
+	    domain = "domain1",
+	    addrs = ["domain1 127.0.0.1:50012"]
 
-1. 首先请您将4台服务器的IP地址填入到
-hyperchain/scripts目录下的serverlist.txt文件中。
+修改node3::
 
-格式如下所示：
+ self = "node3"
 
-.. code:: bash
+ [port]
+ jsonrpc     = 8083
+ grpc        = 50013
 
-    $ cat $GOPATH/src/github.com/hyperchain/hyperchain/scripts/serverlist.txt
-    172.16.1.101
-    172.16.1.102
-    172.16.1.103
-    172.16.1.104
+ [p2p]
+	[p2p.ip.remote]
+		hosts = [
+		 "node1 127.0.0.1:50011",
+		 "node2 127.0.0.1:50012",
+		 "node3 127.0.0.1:50013",
+		 "node4 127.0.0.1:50014",
+	    ]
 
-2. 使用server.sh启动远程多个Hyperchain节点。
+	[p2p.ip.self]
+	    domain = "domain1",
+	    addrs = ["domain1 127.0.0.1:50013"]
 
-.. code:: bash
+修改node4::
 
-    cd $GOPATH/src/github.com/hyperchain/hyperchain/scripts
-    ./server.sh
+ self = "node4"
 
-如果脚本输出以下信息，说明Hyperchian节点已经正常运行了。
+ [port]
+ jsonrpc     = 8084
+ grpc        = 50014
 
-.. code:: bash
+ [p2p]
+	[p2p.ip.remote]
+		hosts = [
+		 "node1 127.0.0.1:50011",
+		 "node2 127.0.0.1:50012",
+		 "node3 127.0.0.1:50013",
+		 "node4 127.0.0.1:50014",
+	    ]
 
-    $./server.sh
-    ...
-    ...
-    start up node 1 ... done
-    start up node 2 ... done
-    start up node 3 ... done
-    start up node 4 ... done
+	[p2p.ip.self]
+	    domain = "domain1",
+	    addrs = ["domain1 127.0.0.1:50014"]
+
+**依次修改每个节点的** `configuration/global/ns_dynamic.toml`
+
+修改node1::
+
+ [self]
+ n           = 4,     
+ hostname    = "node1",
+ new         = false
+
+修改node2::
+
+ [self]
+ n           = 4,     
+ hostname    = "node2",
+ new         = false
+
+修改node3::
+
+ [self]n           = 4 ,
+ hostname    = "node3",
+ new         = false
+
+修改node4::
+
+ [self]n           = 4,
+ hostname    = "node4",
+ new         = false
+
+启动节点
+---------
+
+执行启动脚本，依次启动节点::
+
+ # 启动节点1cd /opt/workspace/node1 && ./start.sh
+ # 启动节点2cd /opt/workspace/node2 && ./start.sh
+ # 启动节点3cd /opt/workspace/node3 && ./start.sh
+ # 启动节点4cd /opt/workspace/node4 && ./start.sh
+
+部署成功
+----------
+
+按照上述步骤启动节点之后，若在节点控制台日志输出中观察到如下字样，则代表节点启动成功::
+
+ NOTI [2021-05-13T19:04:19.429] [consensus] flato-rbft@v0.2.31/exec.go:226 ======== Replica 1 finished recovery, epoch=0/view=1/height=0.NOTI [2021-05-13T19:04:19.429] [consensus] flato-rbft@v0.2.31/exec.go:227  +==============================================+  |                                              |  |            RBFT Recovery Finished            |  |                                              |  +==============================================+
+
+

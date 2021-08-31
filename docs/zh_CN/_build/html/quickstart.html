@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>快速入门 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="合约部署及调用" href="invoking%20contract.html" />
+    <link rel="prev" title="准备工作" href="Prepare.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">快速入门</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">下载安装包</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">安装节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">修改配置文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">启动节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">部署成功</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">大规模组网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>快速入门</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>快速入门<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>本章将介绍如何在本地部署一条4节点的底层链。</p>
+<div class="section" id="id2">
+<h2>下载安装包<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>请根据您使用的操作系统下载相应的安装包。</p>
+<p><strong>登录飞洛官方资源库下载试用版：</strong></p>
+<p><a class="reference external" href="https://www.hyperchain.cn/products/hyperchain">https://www.hyperchain.cn/products/hyperchain</a></p>
+<p>点击右上角 “登录服务平台” 按钮了解</p>
+</div>
+<div class="section" id="id3">
+<h2>安装节点<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>首先解压安装包，并拷贝分发至4个节点目录下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 创建工作目录</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">workspace</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">workspace</span>
+
+<span class="c1"># 解压缩安装包</span>
+<span class="n">tar</span> <span class="n">xvf</span> <span class="n">hpc</span><span class="o">-</span><span class="n">flato</span><span class="o">-</span><span class="mf">1.0.6</span><span class="o">-</span><span class="n">fa3ca76</span><span class="o">-</span><span class="mi">20210316</span><span class="o">-</span><span class="n">CentOS</span><span class="o">-</span><span class="mf">6.10</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+
+<span class="c1"># 根据实际情况，将解压后的目录拷贝至四个节点目录</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">flato</span><span class="o">-</span><span class="n">fa3ca76</span> <span class="n">node1</span><span class="o">/</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">flato</span><span class="o">-</span><span class="n">fa3ca76</span> <span class="n">node2</span><span class="o">/</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">flato</span><span class="o">-</span><span class="n">fa3ca76</span> <span class="n">node3</span><span class="o">/</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">flato</span><span class="o">-</span><span class="n">fa3ca76</span> <span class="n">node4</span><span class="o">/</span>
+</pre></div>
+</div>
+<p><strong>注：“Flato”为趣链区块链平台新版英文名称</strong></p>
+<p>通过执行安装脚本依次安装四个节点:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">node1</span><span class="o">/</span>
+<span class="o">./</span><span class="n">deploy</span><span class="o">-</span><span class="n">local</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">d</span> <span class="o">./</span>
+
+<span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">node2</span><span class="o">/</span>
+<span class="o">./</span><span class="n">deploy</span><span class="o">-</span><span class="n">local</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">d</span> <span class="o">./</span>
+
+<span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">node3</span><span class="o">/</span>
+<span class="o">./</span><span class="n">deploy</span><span class="o">-</span><span class="n">local</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">d</span> <span class="o">./</span>
+
+<span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">node4</span><span class="o">/</span>
+<span class="o">./</span><span class="n">deploy</span><span class="o">-</span><span class="n">local</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">d</span> <span class="o">./</span>
+
+ <span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>修改配置文件<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>所有配置文件均保存在 <cite>node/configuration</cite> 中，按照本步骤对相关的配置进行修改，未在本步骤中说明的配置使用默认配置，即可完成节点的正常启动。</p>
+<p>单服务器部署模式下，各节点互相通信的IP可以直接使用 <cite>localhost</cite> 或 <cite>127.0.0.1</cite> ，但各节点所使用的端口则必须保证不冲突，如四节点分别为 <cite>xxxx1~xxxx4</cite> 。</p>
+<p><strong>依次修改每个节点的 `configuration/dynamic.toml` ：</strong></p>
+<p>修改node1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span> <span class="o">=</span> <span class="s2">&quot;node1&quot;</span>
+
+<span class="p">[</span><span class="n">port</span><span class="p">]</span>
+<span class="n">jsonrpc</span>     <span class="o">=</span> <span class="mi">8081</span>
+<span class="n">grpc</span>        <span class="o">=</span> <span class="mi">50011</span>
+
+<span class="p">[</span><span class="n">p2p</span><span class="p">]</span>
+       <span class="p">[</span><span class="n">p2p</span><span class="o">.</span><span class="n">ip</span><span class="o">.</span><span class="n">remote</span><span class="p">]</span>
+               <span class="n">hosts</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;node1 127.0.0.1:50011&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node2 127.0.0.1:50012&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node3 127.0.0.1:50013&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node4 127.0.0.1:50014&quot;</span><span class="p">,</span>
+           <span class="p">]</span>
+
+       <span class="p">[</span><span class="n">p2p</span><span class="o">.</span><span class="n">ip</span><span class="o">.</span><span class="n">self</span><span class="p">]</span>
+          <span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;domain1&quot;</span><span class="p">,</span>
+          <span class="n">addrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;domain1 127.0.0.1:50011&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>修改node2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span> <span class="o">=</span> <span class="s2">&quot;node2&quot;</span>
+
+<span class="p">[</span><span class="n">port</span><span class="p">]</span>
+<span class="n">jsonrpc</span>     <span class="o">=</span> <span class="mi">8082</span>
+<span class="n">grpc</span>        <span class="o">=</span> <span class="mi">50012</span>
+
+<span class="p">[</span><span class="n">p2p</span><span class="p">]</span>
+       <span class="p">[</span><span class="n">p2p</span><span class="o">.</span><span class="n">ip</span><span class="o">.</span><span class="n">remote</span><span class="p">]</span>
+               <span class="n">hosts</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;node1 127.0.0.1:50011&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node2 127.0.0.1:50012&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node3 127.0.0.1:50013&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node4 127.0.0.1:50014&quot;</span><span class="p">,</span>
+           <span class="p">]</span>
+
+       <span class="p">[</span><span class="n">p2p</span><span class="o">.</span><span class="n">ip</span><span class="o">.</span><span class="n">self</span><span class="p">]</span>
+           <span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;domain1&quot;</span><span class="p">,</span>
+           <span class="n">addrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;domain1 127.0.0.1:50012&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>修改node3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span> <span class="o">=</span> <span class="s2">&quot;node3&quot;</span>
+
+<span class="p">[</span><span class="n">port</span><span class="p">]</span>
+<span class="n">jsonrpc</span>     <span class="o">=</span> <span class="mi">8083</span>
+<span class="n">grpc</span>        <span class="o">=</span> <span class="mi">50013</span>
+
+<span class="p">[</span><span class="n">p2p</span><span class="p">]</span>
+       <span class="p">[</span><span class="n">p2p</span><span class="o">.</span><span class="n">ip</span><span class="o">.</span><span class="n">remote</span><span class="p">]</span>
+               <span class="n">hosts</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;node1 127.0.0.1:50011&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node2 127.0.0.1:50012&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node3 127.0.0.1:50013&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node4 127.0.0.1:50014&quot;</span><span class="p">,</span>
+           <span class="p">]</span>
+
+       <span class="p">[</span><span class="n">p2p</span><span class="o">.</span><span class="n">ip</span><span class="o">.</span><span class="n">self</span><span class="p">]</span>
+           <span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;domain1&quot;</span><span class="p">,</span>
+           <span class="n">addrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;domain1 127.0.0.1:50013&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>修改node4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span> <span class="o">=</span> <span class="s2">&quot;node4&quot;</span>
+
+<span class="p">[</span><span class="n">port</span><span class="p">]</span>
+<span class="n">jsonrpc</span>     <span class="o">=</span> <span class="mi">8084</span>
+<span class="n">grpc</span>        <span class="o">=</span> <span class="mi">50014</span>
+
+<span class="p">[</span><span class="n">p2p</span><span class="p">]</span>
+       <span class="p">[</span><span class="n">p2p</span><span class="o">.</span><span class="n">ip</span><span class="o">.</span><span class="n">remote</span><span class="p">]</span>
+               <span class="n">hosts</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;node1 127.0.0.1:50011&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node2 127.0.0.1:50012&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node3 127.0.0.1:50013&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;node4 127.0.0.1:50014&quot;</span><span class="p">,</span>
+           <span class="p">]</span>
+
+       <span class="p">[</span><span class="n">p2p</span><span class="o">.</span><span class="n">ip</span><span class="o">.</span><span class="n">self</span><span class="p">]</span>
+           <span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;domain1&quot;</span><span class="p">,</span>
+           <span class="n">addrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;domain1 127.0.0.1:50014&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>依次修改每个节点的 `configuration/global/ns_dynamic.toml` ：</strong></p>
+<p>修改node1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="bp">self</span><span class="p">]</span>
+<span class="n">n</span>           <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+<span class="n">hostname</span>    <span class="o">=</span> <span class="s2">&quot;node1&quot;</span><span class="p">,</span>
+<span class="n">new</span>         <span class="o">=</span> <span class="n">false</span>
+</pre></div>
+</div>
+<p>修改node2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="bp">self</span><span class="p">]</span>
+<span class="n">n</span>           <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+<span class="n">hostname</span>    <span class="o">=</span> <span class="s2">&quot;node2&quot;</span><span class="p">,</span>
+<span class="n">new</span>         <span class="o">=</span> <span class="n">false</span>
+</pre></div>
+</div>
+<p>修改node3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="bp">self</span><span class="p">]</span><span class="n">n</span>           <span class="o">=</span> <span class="mi">4</span> <span class="p">,</span>
+<span class="n">hostname</span>    <span class="o">=</span> <span class="s2">&quot;node3&quot;</span><span class="p">,</span>
+<span class="n">new</span>         <span class="o">=</span> <span class="n">false</span>
+</pre></div>
+</div>
+<p>修改node4:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="bp">self</span><span class="p">]</span><span class="n">n</span>           <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+<span class="n">hostname</span>    <span class="o">=</span> <span class="s2">&quot;node4&quot;</span><span class="p">,</span>
+<span class="n">new</span>         <span class="o">=</span> <span class="n">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>启动节点<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>执行启动脚本，依次启动节点:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 启动节点1cd /opt/workspace/node1 &amp;&amp; ./start.sh</span>
+<span class="c1"># 启动节点2cd /opt/workspace/node2 &amp;&amp; ./start.sh</span>
+<span class="c1"># 启动节点3cd /opt/workspace/node3 &amp;&amp; ./start.sh</span>
+<span class="c1"># 启动节点4cd /opt/workspace/node4 &amp;&amp; ./start.sh</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>部署成功<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>按照上述步骤启动节点之后，若在节点控制台日志输出中观察到如下字样，则代表节点启动成功:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NOTI</span> <span class="p">[</span><span class="mi">2021</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">13</span><span class="n">T19</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mf">19.429</span><span class="p">]</span> <span class="p">[</span><span class="n">consensus</span><span class="p">]</span> <span class="n">flato</span><span class="o">-</span><span class="n">rbft</span><span class="nd">@v0</span><span class="mf">.2.31</span><span class="o">/</span><span class="n">exec</span><span class="o">.</span><span class="n">go</span><span class="p">:</span><span class="mi">226</span> <span class="o">========</span> <span class="n">Replica</span> <span class="mi">1</span> <span class="n">finished</span> <span class="n">recovery</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="n">view</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">height</span><span class="o">=</span><span class="mf">0.</span><span class="n">NOTI</span> <span class="p">[</span><span class="mi">2021</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">13</span><span class="n">T19</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mf">19.429</span><span class="p">]</span> <span class="p">[</span><span class="n">consensus</span><span class="p">]</span> <span class="n">flato</span><span class="o">-</span><span class="n">rbft</span><span class="nd">@v0</span><span class="mf">.2.31</span><span class="o">/</span><span class="n">exec</span><span class="o">.</span><span class="n">go</span><span class="p">:</span><span class="mi">227</span>  <span class="o">+==============================================+</span>  <span class="o">|</span>                                              <span class="o">|</span>  <span class="o">|</span>            <span class="n">RBFT</span> <span class="n">Recovery</span> <span class="n">Finished</span>            <span class="o">|</span>  <span class="o">|</span>                                              <span class="o">|</span>  <span class="o">+==============================================+</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="invoking%20contract.html" class="btn btn-neutral float-right" title="合约部署及调用" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Prepare.html" class="btn btn-neutral float-left" title="准备工作" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

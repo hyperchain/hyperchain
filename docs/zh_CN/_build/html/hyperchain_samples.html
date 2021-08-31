@@ -1,0 +1,715 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>使用示例 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="共识机制" href="consensus%20mechanism.html" />
+    <link rel="prev" title="快速入门" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">使用示例</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hypercli">HyperCli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-get-hash">合约样例1 - Set/Get Hash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">编译合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">部署合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">调用合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sethash">setHash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gethash">getHash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simulate-bank">合约样例2 - Simulate Bank</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">编译合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">部署合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">调用合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">发布资产</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">交易资产</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">查询资产</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">交易处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">发送交易</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">交易信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">交易回执</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">大规模组网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>使用示例</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/hyperchain_samples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>使用示例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>在这一节中，我们将会用一些例子，来介绍一下趣链区块链平台平台的简单使用方法。</p>
+<div class="section" id="hypercli">
+<h2>HyperCli<a class="headerlink" href="#hypercli" title="Permalink to this headline">¶</a></h2>
+<p>我们推荐使用<code class="docutils literal notranslate"><span class="pre">HyperCli</span></code>作为您的管理工具。</p>
+<p><code class="docutils literal notranslate"><span class="pre">HyperCli</span></code>
+是一个基于趣链区块链平台开发的命令行工具，方便管理员操作趣链区块链平台。
+<code class="docutils literal notranslate"><span class="pre">HyperCli</span></code>提供了丰富的命令行接口，下面我们会介绍它的智能合约、交易处理等相关功能。</p>
+<p>编译HyperCli:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$GOPATH</span>/src/github.com/hyperchain/hyperchain/hypercli
+govendor build
+</pre></div>
+</div>
+<p>您也可以执行 <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">build</span></code>来编译。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>默认情况下，HyperCli是给localhost:8081发送消息的，
+所以我们建议您在趣链区块链平台节点服务器上运行HyperCli。
+如果您希望在本地执行HyperCli，那么就需要指定 <code class="docutils literal notranslate"><span class="pre">--host</span></code>和 <code class="docutils literal notranslate"><span class="pre">--port</span></code>选项
+来设置远程趣链区块链平台节点的地址和JSON-RPC端口。</p>
+</div>
+</div>
+<div class="section" id="set-get-hash">
+<h2>合约样例1 - Set/Get Hash<a class="headerlink" href="#set-get-hash" title="Permalink to this headline">¶</a></h2>
+<p>这里是一个实现setHash和getHash功能的智能合约。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">contract</span> <span class="nx">Anchor</span><span class="p">{</span>
+    <span class="nx">mapping</span><span class="p">(</span><span class="nx">bytes32</span> <span class="p">=&gt;</span> <span class="nx">bytes32</span><span class="p">)</span> <span class="nx">hashMap</span><span class="p">;</span>
+
+    <span class="kd">function</span> <span class="nx">setHash</span><span class="p">(</span><span class="nx">bytes32</span> <span class="nx">key</span><span class="p">,</span><span class="nx">bytes32</span> <span class="nx">value</span><span class="p">)</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">bool</span><span class="p">,</span><span class="nx">bytes32</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">hashMap</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">!=</span> <span class="mh">0x0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">false</span><span class="p">,</span><span class="s2">&quot;the key exist&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="nx">hashMap</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="s2">&quot;Success&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">getHash</span><span class="p">(</span><span class="nx">bytes32</span> <span class="nx">key</span><span class="p">)</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">bool</span><span class="p">,</span><span class="nx">bytes32</span><span class="p">,</span><span class="nx">bytes32</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">hashMap</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">==</span> <span class="mh">0x0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">false</span><span class="p">,</span><span class="s2">&quot;the key is not exist&quot;</span><span class="p">,</span><span class="mh">0x0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="s2">&quot;Success&quot;</span><span class="p">,</span><span class="nx">hashMap</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>编译合约<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>如果您已经安装了<code class="docutils literal notranslate"><span class="pre">solc</span></code>，您只需通过一个简单的命令就能得到合约的字节码。如果您没有安装编译器，也可以直接使用以下的字节码，该字节码是本合约的编译结果。</p>
+<p><strong>字节码</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x606060405261015c806100126000396000f3606060405260e060020a60003504633cf5040a8114610029578063d7fa10071461007b575b610002565b34610002576100ca6004356000818152602081905260408120548190819015156101055750600091507f746865206b6579206973206e6f7420657869737400000000000000000000000090508161012a565b34610002576100ea6004356024356000828152602081905260408120548190156101315750600090507f746865206b657920657869737400000000000000000000000000000000000000610155565b604080519315158452602084019290925282820152519081900360600190f35b60408051921515835260208301919091528051918290030190f35b50505060008181526020819052604090205460019060c860020a665375636365737302905b9193909250565b50506000828152602081905260409020819055600160c860020a6653756363657373025b925092905056
+</pre></div>
+</div>
+<p>假设您的智能合约文件名为<code class="docutils literal notranslate"><span class="pre">sample1.sol</span></code>,
+您可以通过以下命令获得合约字节码：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>solc --bin sample1.sol
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>部署合约<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>HyperCli提供了一个合约部署的功能，以下是该功能的参数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli contract deploy --help
+
+NAME:
+   hypercli contract deploy - Deploy a contract
+
+USAGE:
+   hypercli contract deploy <span class="o">[</span><span class="nb">command</span> options<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span>
+
+OPTIONS:
+   --namespace value, -n value  specify the namespace, default to global <span class="o">(</span>default: <span class="s2">&quot;global&quot;</span><span class="o">)</span>
+   --from value, -f value       specify the account <span class="o">(</span>default: <span class="s2">&quot;000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="o">)</span>
+   --payload value, -p value    specify the contract payload
+   --extra value, -e value      specify the extra information
+   --simulate, -s               simulate execute or not, default to <span class="nb">false</span>
+   --directory value, -d value  specify the contract file directory
+</pre></div>
+</div>
+<p>您可以将合约的字节码作为<code class="docutils literal notranslate"><span class="pre">--payload</span></code>
+选项的值，使用以下的命令来部署合约：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli contract deploy --from 000f1a7a08ccc48e5d30f80850cf1cf283aa3abd --payload 0x606060405261015c806100126000396000f3606060405260e060020a60003504633cf5040a8114610029578063d7fa10071461007b575b610002565b34610002576100ca6004356000818152602081905260408120548190819015156101055750600091507f746865206b6579206973206e6f7420657869737400000000000000000000000090508161012a565b34610002576100ea6004356024356000828152602081905260408120548190156101315750600090507f746865206b657920657869737400000000000000000000000000000000000000610155565b604080519315158452602084019290925282820152519081900360600190f35b60408051921515835260208301919091528051918290030190f35b50505060008181526020819052604090205460019060c860020a665375636365737302905b9193909250565b50506000828152602081905260409020819055600160c860020a6653756363657373025b925092905056
+</pre></div>
+</div>
+<p>该命令的意思是HyperCli使用地址为000f1a7a08ccc48e5d30f80850cf1cf283aa3abd的账户来部署合约。</p>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span><span class="nt">&quot;txHash&quot;</span><span class="p">:</span><span class="s2">&quot;0xb1b7d4f083ac65679ddd31a9b864fc8ca1ec75eee2f7a46cca1b223eae94527c&quot;</span><span class="p">,</span><span class="nt">&quot;vmType&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="s2">&quot;0xbbe2b6412ccf633222374de8958f2acc76cda9c9&quot;</span><span class="p">,</span><span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">69660</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;0x606060405260e060020a60003504633cf5040a8114610029578063d7fa10071461007b575b610002565b34610002576100ca6004356000818152602081905260408120548190819015156101055750600091507f746865206b6579206973206e6f7420657869737400000000000000000000000090508161012a565b34610002576100ea6004356024356000828152602081905260408120548190156101315750600090507f746865206b657920657869737400000000000000000000000000000000000000610155565b604080519315158452602084019290925282820152519081900360600190f35b60408051921515835260208301919091528051918290030190f35b50505060008181526020819052604090205460019060c860020a665375636365737302905b9193909250565b50506000828152602081905260409020819055600160c860020a6653756363657373025b925092905056&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+<p>从结果中可以得到部署后的合约地址，在这个例子中，合约地址为：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0xbbe2b6412ccf633222374de8958f2acc76cda9c9
+</pre></div>
+</div>
+<p>之后它将会被用于合约调用的操作中。</p>
+</div>
+<div class="section" id="id4">
+<h3>调用合约<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>HyperCli提供了一个合约调用的功能，以下是该功能的参数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli contract invoke --help
+
+NAME:
+   hypercli contract invoke - Invoke a contract
+
+USAGE:
+   hypercli contract invoke <span class="o">[</span><span class="nb">command</span> options<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span>
+
+OPTIONS:
+   --namespace value, -n value  specify the namespace, default to global <span class="o">(</span>default: <span class="s2">&quot;global&quot;</span><span class="o">)</span>
+   --from value, -f value       specify the account <span class="o">(</span>default: <span class="s2">&quot;000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="o">)</span>
+   --payload value, -p value    specify the contract payload
+   --to value, -t value         specify the contract address
+   --extra value, -e value      specify the extra information
+   --simulate, -s               simulate execute or not, default to <span class="nb">false</span>
+   --args value, -a value       specify the args of invoke contract
+</pre></div>
+</div>
+<p>在本例中，您至少需要指定两个参数的值，才能调用合约中的函数：</p>
+<ul class="simple">
+<li><p>payload选项: 函数调用的字节码</p></li>
+<li><p>to选项: 合约地址</p></li>
+</ul>
+<p>我们提供了一些函数调用的字节码，您可以直接使用它们。</p>
+</div>
+<div class="section" id="sethash">
+<h3>setHash<a class="headerlink" href="#sethash" title="Permalink to this headline">¶</a></h3>
+<p>调用setHash函数，设置key1 = value1, 以下是该调用的字节码：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0xd7fa10076b6579310000000000000000000000000000000000000000000000000000000076616c7565310000000000000000000000000000000000000000000000000000
+</pre></div>
+</div>
+<p>以下是该合约的地址：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0xbbe2b6412ccf633222374de8958f2acc76cda9c9
+</pre></div>
+</div>
+<p>您可以通过以下命令调用合约：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli contract invoke --from 000f1a7a08ccc48e5d30f80850cf1cf283aa3abd --payload 0xd7fa10076b6579310000000000000000000000000000000000000000000000000000000076616c7565310000000000000000000000000000000000000000000000000000 --to 0xbbe2b6412ccf633222374de8958f2acc76cda9c9
+</pre></div>
+</div>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span><span class="nt">&quot;txHash&quot;</span><span class="p">:</span><span class="s2">&quot;0xa28350777a964f5ab6f4ef355131c0c241388ac6e8548c191aa5b3b94af95571&quot;</span><span class="p">,</span><span class="nt">&quot;vmType&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="p">,</span><span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">20477</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;0x00000000000000000000000000000000000000000000000000000000000000015375636365737300000000000000000000000000000000000000000000000000&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gethash">
+<h3>getHash<a class="headerlink" href="#gethash" title="Permalink to this headline">¶</a></h3>
+<p>调用getHash函数，获得key1对应的value值， 以下是该调用的字节码：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x3cf5040a6b65793100000000000000000000000000000000000000000000000000000000
+</pre></div>
+</div>
+<p>以下是该合约的地址：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0xbbe2b6412ccf633222374de8958f2acc76cda9c9
+</pre></div>
+</div>
+<p>您可以通过以下命令调用合约：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli contract invoke --from 000f1a7a08ccc48e5d30f80850cf1cf283aa3abd --payload 0x3cf5040a6b65793100000000000000000000000000000000000000000000000000000000 --to 0xbbe2b6412ccf633222374de8958f2acc76cda9c9
+</pre></div>
+</div>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span><span class="nt">&quot;txHash&quot;</span><span class="p">:</span><span class="s2">&quot;0x185dba5451ace5ffcf4c11d10968e1e4ed299eb78ca6ddda65539dfca2fc56df&quot;</span><span class="p">,</span><span class="nt">&quot;vmType&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="p">,</span><span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">523</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000000000000000000000000001537563636573730000000000000000000000000000000000000000000000000076616c7565310000000000000000000000000000000000000000000000000000&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="simulate-bank">
+<h2>合约样例2 - Simulate Bank<a class="headerlink" href="#simulate-bank" title="Permalink to this headline">¶</a></h2>
+<p>这里是另一个实现了资产管理的合约示例。</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">contract</span> <span class="nx">SimulateBank</span><span class="p">{</span>
+    <span class="nx">address</span> <span class="nx">owner</span><span class="p">;</span>
+    <span class="nx">bytes32</span> <span class="nx">bankName</span><span class="p">;</span>
+    <span class="nx">uint</span> <span class="nx">bankNum</span><span class="p">;</span>
+    <span class="nx">bool</span> <span class="nx">isInvalid</span><span class="p">;</span>
+    <span class="nx">mapping</span><span class="p">(</span><span class="nx">address</span> <span class="p">=&gt;</span> <span class="nx">uint</span><span class="p">)</span> <span class="nx">public</span> <span class="nx">accounts</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">SimulateBank</span><span class="p">(</span> <span class="nx">bytes32</span> <span class="nx">_bankName</span><span class="p">,</span><span class="nx">uint</span> <span class="nx">_bankNum</span><span class="p">,</span><span class="nx">bool</span> <span class="nx">_isInvalid</span><span class="p">){</span>
+        <span class="nx">bankName</span> <span class="o">=</span> <span class="nx">_bankName</span><span class="p">;</span>
+        <span class="nx">bankNum</span> <span class="o">=</span> <span class="nx">_bankNum</span><span class="p">;</span>
+        <span class="nx">isInvalid</span> <span class="o">=</span> <span class="nx">_isInvalid</span><span class="p">;</span>
+        <span class="nx">owner</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">function</span> <span class="nx">issue</span><span class="p">(</span><span class="nx">address</span> <span class="nx">addr</span><span class="p">,</span><span class="nx">uint</span> <span class="nx">number</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">sender</span><span class="o">==</span><span class="nx">owner</span><span class="p">){</span>
+            <span class="nx">accounts</span><span class="p">[</span><span class="nx">addr</span><span class="p">]</span> <span class="o">=</span> <span class="nx">accounts</span><span class="p">[</span><span class="nx">addr</span><span class="p">]</span> <span class="o">+</span> <span class="nx">number</span><span class="p">;</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">function</span> <span class="nx">transfer</span><span class="p">(</span><span class="nx">address</span> <span class="nx">addr1</span><span class="p">,</span><span class="nx">address</span> <span class="nx">addr2</span><span class="p">,</span><span class="nx">uint</span> <span class="nx">amount</span><span class="p">)</span> <span class="nx">returns</span> <span class="p">(</span><span class="nx">bool</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">accounts</span><span class="p">[</span><span class="nx">addr1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">amount</span><span class="p">){</span>
+            <span class="nx">accounts</span><span class="p">[</span><span class="nx">addr1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">accounts</span><span class="p">[</span><span class="nx">addr1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">amount</span><span class="p">;</span>
+            <span class="nx">accounts</span><span class="p">[</span><span class="nx">addr2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">accounts</span><span class="p">[</span><span class="nx">addr2</span><span class="p">]</span> <span class="o">+</span> <span class="nx">amount</span><span class="p">;</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">function</span> <span class="nx">getAccountBalance</span><span class="p">(</span><span class="nx">address</span> <span class="nx">addr</span><span class="p">)</span> <span class="nx">returns</span><span class="p">(</span><span class="nx">uint</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">accounts</span><span class="p">[</span><span class="nx">addr</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id5">
+<h3>编译合约<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>如果您已经安装了<code class="docutils literal notranslate"><span class="pre">solc</span></code>，您只需通过一个简单的命令就能得到合约的字节码。如果您没有安装编译器，也可以直接使用以下的字节码，该字节码是本合约的编译结果。</p>
+<p><strong>字节码</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x606060405260405160608061020083395060c06040525160805160a05160018390556002829055600380547f01000000000000000000000000000000000000000000000000000000000000008084020460ff19909116179055600080546c0100000000000000000000000033810204600160a060020a03199091161790555050506101728061008e6000396000f3606060405260e060020a60003504635e5c06e2811461003f578063867904b41461005c57806393423e9c146100a8578063beabacc8146100d1575b610002565b346100025761013760043560046020526000908152604090205481565b34610002576101496004356024356000805433600160a060020a039081169116141561015d5750600160a060020a03821660009081526004602052604090208054820190556001610161565b3461000257610137600435600160a060020a038116600090815260046020526040902054919050565b3461000257610149600435602435604435600160a060020a0383166000908152600460205260408120548290106101675750600160a060020a0380841660009081526004602052604080822080548590039055918416815220805482019055600161016b565b60408051918252519081900360200190f35b604080519115158252519081900360200190f35b5060005b92915050565b5060005b939250505056
+</pre></div>
+</div>
+<p>假设您的智能合约文件名为<code class="docutils literal notranslate"><span class="pre">sample2.sol</span></code>,
+您可以通过以下命令获得合约字节码：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>solc --bin sample2.sol
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>部署合约<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>HyperCli提供了一个合约部署的功能，以下是该功能的参数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli contract deploy --help
+
+NAME:
+   hypercli contract deploy - Deploy a contract
+
+USAGE:
+   hypercli contract deploy <span class="o">[</span><span class="nb">command</span> options<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span>
+
+OPTIONS:
+   --namespace value, -n value  specify the namespace, default to global <span class="o">(</span>default: <span class="s2">&quot;global&quot;</span><span class="o">)</span>
+   --from value, -f value       specify the account <span class="o">(</span>default: <span class="s2">&quot;000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="o">)</span>
+   --payload value, -p value    specify the contract payload
+   --extra value, -e value      specify the extra information
+   --simulate, -s               simulate execute or not, default to <span class="nb">false</span>
+   --directory value, -d value  specify the contract file directory
+</pre></div>
+</div>
+<p>您可以将合约的字节码作为<code class="docutils literal notranslate"><span class="pre">--payload</span></code>
+选项的值，使用以下的命令来部署合约：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli contract deploy --from 000f1a7a08ccc48e5d30f80850cf1cf283aa3abd --payload 0x606060405260405160608061020083395060c06040525160805160a05160018390556002829055600380547f01000000000000000000000000000000000000000000000000000000000000008084020460ff19909116179055600080546c0100000000000000000000000033810204600160a060020a03199091161790555050506101728061008e6000396000f3606060405260e060020a60003504635e5c06e2811461003f578063867904b41461005c57806393423e9c146100a8578063beabacc8146100d1575b610002565b346100025761013760043560046020526000908152604090205481565b34610002576101496004356024356000805433600160a060020a039081169116141561015d5750600160a060020a03821660009081526004602052604090208054820190556001610161565b3461000257610137600435600160a060020a038116600090815260046020526040902054919050565b3461000257610149600435602435604435600160a060020a0383166000908152600460205260408120548290106101675750600160a060020a0380841660009081526004602052604080822080548590039055918416815220805482019055600161016b565b60408051918252519081900360200190f35b604080519115158252519081900360200190f35b5060005b92915050565b5060005b939250505056
+</pre></div>
+</div>
+<p>该命令的意思是HyperCli使用地址为000f1a7a08ccc48e5d30f80850cf1cf283aa3abd的账户来部署合约。</p>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span><span class="nt">&quot;txHash&quot;</span><span class="p">:</span><span class="s2">&quot;0x6790126ca4c072f53d1684dff9e080098db931358d8eca04c833373ae580ed9e&quot;</span><span class="p">,</span><span class="nt">&quot;vmType&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="s2">&quot;0xbbe2b6412ccf633222374de8958f2acc76cda9c9&quot;</span><span class="p">,</span><span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">109363</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;0x606060405260e060020a60003504635e5c06e2811461003f578063867904b41461005c57806393423e9c146100a8578063beabacc8146100d1575b610002565b346100025761013760043560046020526000908152604090205481565b34610002576101496004356024356000805433600160a060020a039081169116141561015d5750600160a060020a03821660009081526004602052604090208054820190556001610161565b3461000257610137600435600160a060020a038116600090815260046020526040902054919050565b3461000257610149600435602435604435600160a060020a0383166000908152600460205260408120548290106101675750600160a060020a0380841660009081526004602052604080822080548590039055918416815220805482019055600161016b565b60408051918252519081900360200190f35b604080519115158252519081900360200190f35b5060005b92915050565b5060005b939250505056&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+<p>从结果中可以得到部署后的合约地址，在这个例子中，合约地址为：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x1e548137be17e1a11f0642c9e22dfda64e61fe6d
+</pre></div>
+</div>
+<p>之后它将会被用于合约调用的操作中。</p>
+</div>
+<div class="section" id="id7">
+<h3>调用合约<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>HyperCli提供了一个合约调用的功能，以下是该功能的参数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli contract invoke --help
+
+NAME:
+   hypercli contract invoke - Invoke a contract
+
+USAGE:
+   hypercli contract invoke <span class="o">[</span><span class="nb">command</span> options<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span>
+
+OPTIONS:
+   --namespace value, -n value  specify the namespace, default to global <span class="o">(</span>default: <span class="s2">&quot;global&quot;</span><span class="o">)</span>
+   --from value, -f value       specify the account <span class="o">(</span>default: <span class="s2">&quot;000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="o">)</span>
+   --payload value, -p value    specify the contract payload
+   --to value, -t value         specify the contract address
+   --extra value, -e value      specify the extra information
+   --simulate, -s               simulate execute or not, default to <span class="nb">false</span>
+   --args value, -a value       specify the args of invoke contract
+</pre></div>
+</div>
+<p>在本例中，您至少需要指定两个参数的值，才能调用合约中的函数：</p>
+<ul class="simple">
+<li><p>payload选项: 函数调用的字节码</p></li>
+<li><p>to选项: 合约地址</p></li>
+</ul>
+<p>我们提供了一些函数调用的字节码，您可以直接使用它们。</p>
+</div>
+<div class="section" id="id8">
+<h3>发布资产<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>调用issue函数，给账户0x1234567发布资产1,000,000,000，以下是该调用的字节码：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x867904b40000000000000000000000000000000000000000000000000000000001234567000000000000000000000000000000000000000000000000000000003b9aca00
+</pre></div>
+</div>
+<p>以下是该合约的地址：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x1e548137be17e1a11f0642c9e22dfda64e61fe6d
+</pre></div>
+</div>
+<p>您可以通过以下命令调用合约：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli contract invoke --from 000f1a7a08ccc48e5d30f80850cf1cf283aa3abd --payload 0x867904b40000000000000000000000000000000000000000000000000000000001234567000000000000000000000000000000000000000000000000000000003b9aca00 --to 0x1e548137be17e1a11f0642c9e22dfda64e61fe6d
+</pre></div>
+</div>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span><span class="nt">&quot;txHash&quot;</span><span class="p">:</span><span class="s2">&quot;0x9f602fc0c4ac12d383cf765e2931978a0e5daaec666888e242485bd6314e17f9&quot;</span><span class="p">,</span><span class="nt">&quot;vmType&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="p">,</span><span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">20498</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000000000000000000000000001&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>交易资产<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>调用transfer函数，从账户0x1234567向账户0x2345678转移1个资产，以下是该调用的字节码：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0xbeabacc8000000000000000000000000000000000000000000000000000000000123456700000000000000000000000000000000000000000000000000000000023456780000000000000000000000000000000000000000000000000000000000000001
+</pre></div>
+</div>
+<p>以下是该合约的地址：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x1e548137be17e1a11f0642c9e22dfda64e61fe6d
+</pre></div>
+</div>
+<p>您可以通过以下命令调用合约：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli contract invoke --from 000f1a7a08ccc48e5d30f80850cf1cf283aa3abd --payload 0xbeabacc8000000000000000000000000000000000000000000000000000000000123456700000000000000000000000000000000000000000000000000000000023456780000000000000000000000000000000000000000000000000000000000000001 --to 0x1e548137be17e1a11f0642c9e22dfda64e61fe6d
+</pre></div>
+</div>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span><span class="nt">&quot;txHash&quot;</span><span class="p">:</span><span class="s2">&quot;0x2d779df9db29541102e98ed9996263db42da6c13a2a6ac5c7ba9c606acecba28&quot;</span><span class="p">,</span><span class="nt">&quot;vmType&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="p">,</span><span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">25733</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000000000000000000000000001&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>查询资产<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>调用getAccountBalance函数，查询账户0x1234567的资产，以下是该调用的字节码：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x93423e9c0000000000000000000000000000000000000000000000000000000001234567
+</pre></div>
+</div>
+<p>以下是该合约的地址：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x1e548137be17e1a11f0642c9e22dfda64e61fe6d
+</pre></div>
+</div>
+<p>您可以通过以下命令调用合约：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli contract invoke --from 000f1a7a08ccc48e5d30f80850cf1cf283aa3abd --payload 0x93423e9c0000000000000000000000000000000000000000000000000000000001234567 --to 0x1e548137be17e1a11f0642c9e22dfda64e61fe6d
+</pre></div>
+</div>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span><span class="nt">&quot;txHash&quot;</span><span class="p">:</span><span class="s2">&quot;0xcca7b19dde84bf174243398de4107ee0b783b6e243176e162a2239bae1f475f7&quot;</span><span class="p">,</span><span class="nt">&quot;vmType&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="p">,</span><span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">353</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;0x000000000000000000000000000000000000000000000000000000003b9ac9ff&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+<p>调用getAccountBalance函数，查询账户0x2345678的资产，以下是该调用的字节码：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x93423e9c0000000000000000000000000000000000000000000000000000000002345678
+</pre></div>
+</div>
+<p>以下是该合约的地址：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0x1e548137be17e1a11f0642c9e22dfda64e61fe6d
+</pre></div>
+</div>
+<p>您可以通过以下命令调用合约：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli contract invoke --from 000f1a7a08ccc48e5d30f80850cf1cf283aa3abd --payload 0x93423e9c0000000000000000000000000000000000000000000000000000000002345678 --to 0x1e548137be17e1a11f0642c9e22dfda64e61fe6d
+</pre></div>
+</div>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span><span class="nt">&quot;txHash&quot;</span><span class="p">:</span><span class="s2">&quot;0x04b82a4fcdadcf102d559b4eb6a29030f7ef29195f40a5f9b986021b48b48552&quot;</span><span class="p">,</span><span class="nt">&quot;vmType&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="p">,</span><span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">353</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000000000000000000000000001&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>交易处理<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>HyperCli提供了交易处理相关的功能，以下是该功能的参数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli tx --help
+NAME:
+   hypercli tx - transaction related commands
+
+USAGE:
+   hypercli tx <span class="nb">command</span> <span class="o">[</span><span class="nb">command</span> options<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span>
+
+COMMANDS:
+     send     send normal transactions
+     info     query the transaction info by <span class="nb">hash</span>
+     receipt  query the transaction receipt by <span class="nb">hash</span>
+
+OPTIONS:
+   --help, -h  show <span class="nb">help</span>
+</pre></div>
+</div>
+<p>可以看到tx命令有三个子命令，下面我们将介绍这三个命令。</p>
+</div>
+<div class="section" id="id12">
+<h3>发送交易<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>send命令可以用来发送普通的交易，以下是它的参数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli tx send --help
+NAME:
+   hypercli tx send - send normal transactions
+
+USAGE:
+   hypercli tx send <span class="o">[</span><span class="nb">command</span> options<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span>
+
+OPTIONS:
+   --count value, -c value      send how many transactions <span class="o">(</span>default: <span class="m">1</span><span class="o">)</span>
+   --namespace value, -n value  specify the namespace to send transactions to <span class="o">(</span>default: <span class="s2">&quot;global&quot;</span><span class="o">)</span>
+   --from value, -f value       specify the account <span class="o">(</span>default: <span class="s2">&quot;000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="o">)</span>
+   --to value, -t value         specify the contract address
+   --password value, -p value   specify the password used to generate signature <span class="o">(</span>default: <span class="s2">&quot;123&quot;</span><span class="o">)</span>
+   --amount value, -a value     specify the amount to transfer <span class="o">(</span>default: <span class="m">0</span><span class="o">)</span>
+   --extra value, -e value      specify the extra information
+   --snapshot value, -s value   specify the snapshot ID
+   --simulate                   simulate execute or not
+</pre></div>
+</div>
+<p>您可以用以下命令发送交易，它的意思是连续发送10笔交易：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli tx send -c <span class="m">10</span>
+</pre></div>
+</div>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;namespace&quot;:&quot;global&quot;,&quot;id&quot;:1,&quot;code&quot;:0,&quot;message&quot;:&quot;SUCCESS&quot;,&quot;result&quot;:{&quot;version&quot;:&quot;1.3&quot;,&quot;txHash&quot;:&quot;0xefbc9f9b5048337fbaf64047ad5eff03c40c1c76991b0364686ba3620e2c5ea3&quot;,&quot;vmType&quot;:&quot;EVM&quot;,&quot;contractAddress&quot;:&quot;0x0000000000000000000000000000000000000000&quot;,&quot;gasUsed&quot;:0,&quot;ret&quot;:&quot;0x0&quot;,&quot;log&quot;:[]}}
+
+...
+...
+
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;namespace&quot;:&quot;global&quot;,&quot;id&quot;:1,&quot;code&quot;:0,&quot;message&quot;:&quot;SUCCESS&quot;,&quot;result&quot;:{&quot;version&quot;:&quot;1.3&quot;,&quot;txHash&quot;:&quot;0xc47b64ddad2be542bfdc5164d447317f5152142ac7961c88332b25f04b31783d&quot;,&quot;vmType&quot;:&quot;EVM&quot;,&quot;contractAddress&quot;:&quot;0x0000000000000000000000000000000000000000&quot;,&quot;gasUsed&quot;:0,&quot;ret&quot;:&quot;0x0&quot;,&quot;log&quot;:[]}}
+</pre></div>
+</div>
+<p>选取结果中的一条txHash，它之后将被用于查看交易的信息和回执。在这个例子中，我们选取这一个txHash：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>0xc47b64ddad2be542bfdc5164d447317f5152142ac7961c88332b25f04b31783d
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>交易信息<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>info命令可以用来获取交易的信息，以下是它的参数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli tx info --help
+NAME:
+   hypercli tx info - query the transaction info by <span class="nb">hash</span>
+
+USAGE:
+   hypercli tx info <span class="o">[</span><span class="nb">command</span> options<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span>
+
+OPTIONS:
+   --hash value                 specify the tx <span class="nb">hash</span> used to query the detailed information
+   --namespace value, -n value  specify the namespace to query transaction information <span class="o">(</span>default: <span class="s2">&quot;global&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>您可以用以下命令获取交易信息，它的意思是获取某一笔指定txHash的交易信息：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli tx info --hash 0xc47b64ddad2be542bfdc5164d447317f5152142ac7961c88332b25f04b31783d
+</pre></div>
+</div>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s2">&quot;jsonrpc&quot;</span>:<span class="s2">&quot;2.0&quot;</span>,<span class="s2">&quot;namespace&quot;</span>:<span class="s2">&quot;global&quot;</span>,<span class="s2">&quot;id&quot;</span>:1,<span class="s2">&quot;code&quot;</span>:0,<span class="s2">&quot;message&quot;</span>:<span class="s2">&quot;SUCCESS&quot;</span>,<span class="s2">&quot;result&quot;</span>:<span class="o">{</span><span class="s2">&quot;version&quot;</span>:<span class="s2">&quot;1.3&quot;</span>,<span class="s2">&quot;hash&quot;</span>:<span class="s2">&quot;0xc47b64ddad2be542bfdc5164d447317f5152142ac7961c88332b25f04b31783d&quot;</span>,<span class="s2">&quot;blockNumber&quot;</span>:<span class="s2">&quot;0xf&quot;</span>,<span class="s2">&quot;blockHash&quot;</span>:<span class="s2">&quot;0x2592e0f3e1f156effe93325a60b1190533be2053aa102eb182bd64f95b28080a&quot;</span>,<span class="s2">&quot;txIndex&quot;</span>:<span class="s2">&quot;0x0&quot;</span>,<span class="s2">&quot;from&quot;</span>:<span class="s2">&quot;0x000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span>,<span class="s2">&quot;to&quot;</span>:<span class="s2">&quot;0x6201cb0448964ac597faf6fdf1f472edf2a22b89&quot;</span>,<span class="s2">&quot;amount&quot;</span>:<span class="s2">&quot;0x8&quot;</span>,<span class="s2">&quot;timestamp&quot;</span>:1512022032747286761,<span class="s2">&quot;nonce&quot;</span>:5475154203949975728,<span class="s2">&quot;extra&quot;</span>:<span class="s2">&quot;&quot;</span>,<span class="s2">&quot;executeTime&quot;</span>:<span class="s2">&quot;0x5&quot;</span>,<span class="s2">&quot;payload&quot;</span>:<span class="s2">&quot;0x0&quot;</span><span class="o">}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>交易回执<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>receipt命令可以用来获取交易的回执，以下是它的参数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./hypercli tx receipt --help
+NAME:
+   hypercli tx receipt - query the transaction receipt by <span class="nb">hash</span>
+
+USAGE:
+   hypercli tx receipt <span class="o">[</span><span class="nb">command</span> options<span class="o">]</span> <span class="o">[</span>arguments...<span class="o">]</span>
+
+OPTIONS:
+   --hash value                 specify the tx <span class="nb">hash</span> used to query the transaction receipt
+   --namespace value, -n value  specify the namespace to query transaction receipt <span class="o">(</span>default: <span class="s2">&quot;global&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>您可以用以下命令获取交易回执，它的意思是获取某一笔指定txHash的交易回执：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./hypercli tx receipt --hash 0xc47b64ddad2be542bfdc5164d447317f5152142ac7961c88332b25f04b31783d
+</pre></div>
+</div>
+<p>如果命令执行正确，您将看到以下输出结果：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="nt">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span><span class="nt">&quot;result&quot;</span><span class="p">:{</span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;1.3&quot;</span><span class="p">,</span><span class="nt">&quot;txHash&quot;</span><span class="p">:</span><span class="s2">&quot;0xc47b64ddad2be542bfdc5164d447317f5152142ac7961c88332b25f04b31783d&quot;</span><span class="p">,</span><span class="nt">&quot;vmType&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="s2">&quot;0x0000000000000000000000000000000000000000&quot;</span><span class="p">,</span><span class="nt">&quot;gasUsed&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;ret&quot;</span><span class="p">:</span><span class="s2">&quot;0x0&quot;</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="consensus%20mechanism.html" class="btn btn-neutral float-right" title="共识机制" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="快速入门" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
