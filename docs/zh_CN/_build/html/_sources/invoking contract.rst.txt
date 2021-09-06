@@ -159,7 +159,7 @@
 
 下文将阐述如何对该合约进行编译、部署和调用。
 
-开始前，您需要先将合约SBank.java、ISBank.java打成一个jar包，在`pom.xml`文件中配置`Main-Class`为SBank.java（合约主体类），再jar包放到`resources`文件夹中（也可放入其他路径）。
+开始前，您需要先将合约SBank.java、ISBank.java打成一个jar包，在 `pom.xml` 文件中配置 `Main-Class` 为SBank.java（合约主体类），再jar包放到 `resources` 文件夹中（也可放入其他路径）。
 
 首先创建一个HttpProvider的实例，然后创建账户，接着使用该实例去进行合约的编译、部署和调用。合约部署之后只能返回一个交易哈希，需要通过该哈希去查询交易结果，获得合约地址。合约地址是调用合约的一个必须选项。此外在进行方法调用之前需要将调用的方法及其参数进行编码，最后通过invoke方法进行具体的合约调用。
 

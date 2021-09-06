@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>P2P &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Digital Certificate" href="ca_manager.html" />
+    <link rel="prev" title="Smart Contract" href="smart_contract.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Get Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Pre-requisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain Samples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="txflow.html">Transaction Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ledger.html">Ledger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bucket_tree.html">Bucket tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smart_contract.html">Smart Contract</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">P2P</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hypernet">2. Hypernet</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#server">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tls">TLS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#p2pmanager">3. P2PManager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#peermanager">PeerManager</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#peer">Peer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#node">Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-transmission-encryption">Data transmission encryption</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Privacy &amp;&amp; Security:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ca_manager.html">Digital Certificate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">Cryptography Algorithm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User manual:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual.html">JSON-RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_op.html">Node Operation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Developers’ Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Hyperchain Roadmap</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>P2P</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/p2p_introduce.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="p2p">
+<h1>P2P<a class="headerlink" href="#p2p" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The P2P module is the underlying Hyperchain network communication
+module. It guarantees the data transmission security of the
+communication link. The user can configure whether to enable TLS
+security and enable data transmission encryption (or replace the data
+encryption algorithm) through the configuration file. In this module,
+the physical connection (Network layer) is separated from the logical
+connection. The overall architecture of the module is as follows:</p>
+<div class="figure align-default">
+<img alt="p2p_architecture.001" src="../../images/p2p_architecture.001.jpeg" />
+</div>
+</div>
+<div class="section" id="hypernet">
+<h2>2. Hypernet<a class="headerlink" href="#hypernet" title="Permalink to this headline">¶</a></h2>
+<p>As the underlying communication infrastructure of Hyperchain, Hypernet
+provides network communication services to the upper layer by
+registering slots. Its main functions include establishment of
+communication links, data transmission, link security, and link activity
+control. It has two important members <code class="docutils literal notranslate"><span class="pre">Server</span></code> and <code class="docutils literal notranslate"><span class="pre">Client</span></code>. The
+overall structure is as follows:</p>
+<div class="figure align-default">
+<img alt="hypernet.001" src="../../images/hypernet.001.jpeg" />
+</div>
+<div class="section" id="server">
+<h3>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h3>
+<p>In Hypernet, the Server is responsible for registering network slots,
+listening for services, and distributing various types of messages from
+the Client.</p>
+<p><strong>Network Slot</strong></p>
+<p>As the main mechanism of Hypernet to communicate with the upper layer,
+the slot is actually a multi-dimensional thread-safe map, which maps the
+relevant methods to different message processors for processing.</p>
+<p>Slots as server members, with a set of slot that correspond to different
+namespaces, process messages from different namespaces, respectively.</p>
+</div>
+<div class="section" id="client">
+<h3>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h3>
+<p>Client corresponds with the Server, mainly used to handle different
+message sending requests. Usually a Client corresponds to several
+different remote Server (because a node will be connected to multiple
+remote peer), and communicates with different servers which will
+distribute message to different namespace slot to deal with.</p>
+</div>
+<div class="section" id="tls">
+<h3>TLS<a class="headerlink" href="#tls" title="Permalink to this headline">¶</a></h3>
+<p>Transport layer security of Hyperchain, default enable, which USES the
+TLSCA certificate issued by the Hyperchain to carry out secure
+communication, which guarantees the security of information and
+communications from the transport layer. Further, this option is
+optional.</p>
+<p>TLS guarantees the security of information transmission at the transport
+layer. It is the most common implementation standard for network
+transmission and is adopted in almost all network security transmission.</p>
+</div>
+</div>
+<div class="section" id="p2pmanager">
+<h2>3. P2PManager<a class="headerlink" href="#p2pmanager" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">P2PManager</span></code> is used to allocate <code class="docutils literal notranslate"><span class="pre">PeerManager</span></code> in different
+namespaces, it has only one global instance.</p>
+<div class="section" id="peermanager">
+<h3>PeerManager<a class="headerlink" href="#peermanager" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">PeerManager</span></code> is mainly responsible for the following sections:</p>
+<ul class="simple">
+<li><p>Provide different external message sending service interfaces;</p></li>
+<li><p>Post message to Hyperchain message middleware<code class="docutils literal notranslate"><span class="pre">eventhub</span></code>;</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">PeerManagerEventHub</span></code> message middleware distributes and
+manages the control messages of <code class="docutils literal notranslate"><span class="pre">PeerManager</span></code> to maintain the state
+of the entire logical network and process more complicated message
+logic.</p></li>
+</ul>
+<p>In the entire network, the node can be called <code class="docutils literal notranslate"><span class="pre">Node</span></code> or <code class="docutils literal notranslate"><span class="pre">Peer</span></code>, the
+following look at the difference between the two.</p>
+<div class="section" id="peer">
+<h4>Peer<a class="headerlink" href="#peer" title="Permalink to this headline">¶</a></h4>
+<p>All logical remote nodes are called peer, a remote node corresponds to a
+peer, the peer is mainly used for processing the logically message
+sending request. Its main function is to encrypt the message, and then
+call the corresponding message sending method of Hypernet Client, and
+the message needs to be attached namespace information.</p>
+</div>
+<div class="section" id="node">
+<h4>Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h4>
+<p>Node that is the local node, which is also a logical server, is mainly
+responsible for logically message processing of node, decryption of the
+message received from the network and then posts decrypted message to
+Hyperchain message middleware <code class="docutils literal notranslate"><span class="pre">eventhub</span></code>. Finally, the message
+middleware identifies this type of message should be post to which
+module to process, such as consensus module, executor module.</p>
+</div>
+</div>
+<div class="section" id="data-transmission-encryption">
+<h3>Data transmission encryption<a class="headerlink" href="#data-transmission-encryption" title="Permalink to this headline">¶</a></h3>
+<p>Data Transfer Encryption refers to the encryption of transaction
+information and communication messages transmitted over the network.
+According to user requirements, all information transmitted on
+Hyperchain network can be encrypted. The encryption scheme is similar to
+TLS, firstly the node use the ECDH algorithm to negotiate the
+corresponding session key, and then the session key is used to encrypt
+the service information which is decrypted by the peer. All the
+communication between nodes will be encrypted with different session
+keys. This is a supplement to the security of the transport layer.
+Currently, hyperchain messages can use Symmetric Encryption through
+configuration, and can be handled in this way if there is a more
+sophisticated message encryption requirement.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ca_manager.html" class="btn btn-neutral float-right" title="Digital Certificate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smart_contract.html" class="btn btn-neutral float-left" title="Smart Contract" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Node Operation &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Developers’ Guide" href="contributing.html" />
+    <link rel="prev" title="JSON-RPC API" href="JSON-RPC_manual.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Get Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Pre-requisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain Samples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="txflow.html">Transaction Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ledger.html">Ledger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bucket_tree.html">Bucket tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smart_contract.html">Smart Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p_introduce.html">P2P</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Privacy &amp;&amp; Security:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ca_manager.html">Digital Certificate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">Cryptography Algorithm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User manual:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual.html">JSON-RPC API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Node Operation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-node">1. Add Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example1-on-the-basis-of-four-vp-nodes-add-the-fifth-vp-node">Example1: On the basis of four VP nodes, add the fifth VP node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example2-on-the-basis-of-four-vp-nodes-add-a-nvp-node">Example2: On the basis of four VP nodes, add a NVP node</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#delete-node">2. Delete Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example1-vp-disconnects-from-one-vp">Example1: VP disconnects from one VP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example2-vp-disconnects-from-a-nvp">Example2: VP disconnects from a NVP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example3-nvp-disconnects-from-a-vp">Example3: NVP disconnects from a VP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Developers’ Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Hyperchain Roadmap</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Node Operation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/node_op.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="node-operation">
+<h1>Node Operation<a class="headerlink" href="#node-operation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="add-node">
+<h2>1. Add Node<a class="headerlink" href="#add-node" title="Permalink to this headline">¶</a></h2>
+<p>Adding nodes requires the configuration of the following three files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">peerconfig.toml</span></code>: Peer profile, used to configure connection
+information of logical peer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hosts.toml</span></code>: Host profile, used to configure information of
+physical peer, including the mapping between the hostname of node and
+the IP address.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">addr.toml</span></code>: Address profile, used to configure physical
+interconnection address information, including the mapping of domain
+name and IP address. This file configuration is required when the
+peer connects in reverse to local node.</p></li>
+</ul>
+<div class="section" id="example1-on-the-basis-of-four-vp-nodes-add-the-fifth-vp-node">
+<h3>Example1: On the basis of four VP nodes, add the fifth VP node<a class="headerlink" href="#example1-on-the-basis-of-four-vp-nodes-add-the-fifth-vp-node" title="Permalink to this headline">¶</a></h3>
+<p>The new VP node needs to be configured with the following configuration
+files before it starts:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">peerconfig.toml</span></code></p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[[</span><span class="nv">nodes</span><span class="p p-Indicator">]]</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node1&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 1</span>
+  <span class="l l-Scalar l-Scalar-Plain">static = true</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[[nodes]]</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node2&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 2</span>
+  <span class="l l-Scalar l-Scalar-Plain">static = true</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[[nodes]]</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node3&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 3</span>
+  <span class="l l-Scalar l-Scalar-Plain">static = true</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[[nodes]]</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node4&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 4</span>
+  <span class="l l-Scalar l-Scalar-Plain">static = true</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[[nodes]]</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node5&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 5</span>
+  <span class="l l-Scalar l-Scalar-Plain">static = true</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[self]</span>
+  <span class="l l-Scalar l-Scalar-Plain">caconf = &quot;config/namespace.toml&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node5&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 5</span>        <span class="c1"># The node ID</span>
+  <span class="l l-Scalar l-Scalar-Plain">n = 5</span>         <span class="c1"># The number of VP to connect to</span>
+  <span class="l l-Scalar l-Scalar-Plain">new = true</span>    <span class="c1"># Whether this is a new node to attend or not</span>
+  <span class="l l-Scalar l-Scalar-Plain">org = false</span>   <span class="c1"># Whether this is a original node or not</span>
+  <span class="l l-Scalar l-Scalar-Plain">rec = false</span>   <span class="c1"># Whether this node needs to be reconnected</span>
+  <span class="l l-Scalar l-Scalar-Plain">vp = true</span>     <span class="c1"># Whether this is a primary node or not</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">hosts.toml</span></code></p></li>
+</ol>
+<p>This file needs to configure <strong>the physical addresses of all the nodes
+to be connected</strong>. The hyperchain nodes communicate with each other
+through the hostname, so the hostname can be configured as an arbitrary
+node address.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">hosts = [</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node1 127.0.0.1:50011&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node2 127.0.0.1:50012&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node3 127.0.0.1:50013&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node4 127.0.0.1:50014&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node5 127.0.0.1:50015&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">addr.toml</span></code></p></li>
+</ol>
+<p>addr is declared in the form of a domain. For example, if two nodes with
+hostname of <code class="docutils literal notranslate"><span class="pre">node1</span></code> and <code class="docutils literal notranslate"><span class="pre">node5</span></code> belong to <code class="docutils literal notranslate"><span class="pre">domain1</span></code> and all other
+nodes belong to different domains, the configuration file should be
+configured as follows (this configuration file is <code class="docutils literal notranslate"><span class="pre">addr.toml</span></code> of
+<code class="docutils literal notranslate"><span class="pre">node5</span></code>):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">addrs = [</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;domain1 127.0.0.1:50015&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;domain2 192.168.100.20:50015&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;domain3 202.110.20.13:50015&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;domain4 127.0.0.1:50015&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">]</span>
+<span class="l l-Scalar l-Scalar-Plain">domain = &quot;domain1&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To reiterate, <code class="docutils literal notranslate"><span class="pre">addr.toml</span></code> is a configuration to let other peer know the node domain and nodes in different domains are interconnected by different network address, which allows nodes to connect between complex network segments.</p>
+</div>
+</div>
+<div class="section" id="example2-on-the-basis-of-four-vp-nodes-add-a-nvp-node">
+<h3>Example2: On the basis of four VP nodes, add a NVP node<a class="headerlink" href="#example2-on-the-basis-of-four-vp-nodes-add-a-nvp-node" title="Permalink to this headline">¶</a></h3>
+<p>The new NVP node needs to be configured with the following configuration
+files before it starts:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">peerconfig.toml</span></code></p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">[[</span><span class="nv">nodes</span><span class="p p-Indicator">]]</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node1&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 1</span>
+  <span class="l l-Scalar l-Scalar-Plain">static = true</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[[nodes]]</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node2&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 2</span>
+  <span class="l l-Scalar l-Scalar-Plain">static = true</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[[nodes]]</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node3&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 3</span>
+  <span class="l l-Scalar l-Scalar-Plain">static = true</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[[nodes]]</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node4&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 4</span>
+  <span class="l l-Scalar l-Scalar-Plain">static = true</span>
+
+<span class="l l-Scalar l-Scalar-Plain">[self]</span>
+  <span class="l l-Scalar l-Scalar-Plain">caconf = &quot;config/namespace.toml&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">hostname = &quot;node5&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">id = 0</span>         <span class="c1"># This value must be 0 for NVP node</span>
+  <span class="l l-Scalar l-Scalar-Plain">n = 4</span>         <span class="c1"># The number of VP to connect to</span>
+  <span class="l l-Scalar l-Scalar-Plain">new = true</span>    <span class="c1"># Whether this is a new node to attend or not</span>
+  <span class="l l-Scalar l-Scalar-Plain">org = false</span>   <span class="c1"># Whether this is a original node or not</span>
+  <span class="l l-Scalar l-Scalar-Plain">rec = false</span>   <span class="c1"># Whether this node needs to be reconnected</span>
+  <span class="l l-Scalar l-Scalar-Plain">vp = false</span>    <span class="c1"># Whether this is a primary node or not</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">hosts.toml</span></code></p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">hosts = [</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node1 127.0.0.1:50011&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node2 127.0.0.1:50012&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node3 127.0.0.1:50013&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node4 127.0.0.1:50014&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;node5 127.0.0.1:50015&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><code class="docutils literal notranslate"><span class="pre">addr.toml</span></code></p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">addrs = [</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;domain1 127.0.0.1:50015&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;domain2 127.0.0.1:50015&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;domain3 127.0.0.1:50015&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;domain4 127.0.0.1:50015&quot;,</span>
+<span class="l l-Scalar l-Scalar-Plain">&quot;domain5 127.0.0.1:50015&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">]</span>
+<span class="l l-Scalar l-Scalar-Plain">domain = &quot;domain5&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="delete-node">
+<h2>2. Delete Node<a class="headerlink" href="#delete-node" title="Permalink to this headline">¶</a></h2>
+<p>We divide deleting nodes into three cases:</p>
+<ol class="arabic simple">
+<li><p>VP disconnects from one VP;</p></li>
+<li><p>VP proactively disconnects from one NVP;</p></li>
+<li><p>NVP proactively disconnects from one VP;</p></li>
+</ol>
+<p>The second and third results are the same, so that the NVP can no longer
+synchronize the VP data and the NVP no longer forwards the transaction
+to the VP.</p>
+<p>In the following example, we assume that each node’s JSON-RPC API
+service port mapping is as follows:</p>
+<ul class="simple">
+<li><p>Node 1：<code class="docutils literal notranslate"><span class="pre">8081</span></code></p></li>
+<li><p>Node 2：<code class="docutils literal notranslate"><span class="pre">8082</span></code></p></li>
+<li><p>Node 3：<code class="docutils literal notranslate"><span class="pre">8083</span></code></p></li>
+<li><p>Node 4：<code class="docutils literal notranslate"><span class="pre">8084</span></code></p></li>
+<li><p>Node 5：<code class="docutils literal notranslate"><span class="pre">8085</span></code></p></li>
+</ul>
+<div class="section" id="example1-vp-disconnects-from-one-vp">
+<h3>Example1: VP disconnects from one VP<a class="headerlink" href="#example1-vp-disconnects-from-one-vp" title="Permalink to this headline">¶</a></h3>
+<p>For example, there are currently five VP nodes and now delete VP node 5.</p>
+<p>Firstly, get the hash of the VP node 5 to be deleted.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request</span>
+curl -X POST -d <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;node_getNodeHash&quot;,&quot;params&quot;:[],&quot;id&quot;:1, &quot;namespace&quot;:&quot;global&quot;}&#39;</span> localhost:8085
+
+<span class="c1"># Response</span>
+<span class="o">{</span>
+  <span class="s2">&quot;jsonrpc&quot;</span>: <span class="s2">&quot;2.0&quot;</span>,
+  <span class="s2">&quot;namespace&quot;</span>: <span class="s2">&quot;global&quot;</span>,
+  <span class="s2">&quot;id&quot;</span>: <span class="m">1</span>,
+  <span class="s2">&quot;code&quot;</span>: <span class="m">0</span>,
+  <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;SUCCESS&quot;</span>,
+  <span class="s2">&quot;result&quot;</span>: <span class="s2">&quot;55d3c05f2c24c232a47a1f1963ace172b21d3a2ec0ac83ea075da2d2427603bc&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Then, the request of deleting node is sent to VP node 1, 2, 3, 4 and 5
+respectively.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request</span>
+curl -X POST -d <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;node_deleteVP&quot;,&quot;params&quot;:[{&quot;nodehash&quot;:&quot;55d3c05f2c24c232a47a1f1963ace172b21d3a2ec0ac83ea075da2d2427603bc&quot;}],&quot;id&quot;:1, &quot;namespace&quot;:&quot;global&quot;}&#39;</span> localhost:8081/8082/8083/8084/8085
+
+<span class="c1"># Response</span>
+<span class="o">{</span>
+  <span class="s2">&quot;jsonrpc&quot;</span>: <span class="s2">&quot;2.0&quot;</span>,
+  <span class="s2">&quot;namespace&quot;</span>: <span class="s2">&quot;global&quot;</span>,
+  <span class="s2">&quot;id&quot;</span>: <span class="m">1</span>,
+  <span class="s2">&quot;code&quot;</span>: <span class="m">0</span>,
+  <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;SUCCESS&quot;</span>,
+  <span class="s2">&quot;result&quot;</span>: <span class="s2">&quot;successful request to delete vp node, hash 55d3c05f2c24c232a47a1f1963ace172b21d3a2ec0ac83ea075da2d2427603bc&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>When you see the following logs on the terminal, the VP node is deleted
+successfully.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>global::p2p <span class="m">12</span>:33:17.709 DELETE NODE 55d3c05f2c24c232a47a1f1963ace172b21d3a2ec0ac83ea075da2d2427603bc
+global::p2p <span class="m">12</span>:33:17.709 delete validate peer <span class="m">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example2-vp-disconnects-from-a-nvp">
+<h3>Example2: VP disconnects from a NVP<a class="headerlink" href="#example2-vp-disconnects-from-a-nvp" title="Permalink to this headline">¶</a></h3>
+<p>For example, there are currently four VP nodes and one NVP node which is
+connected to VP node 1.</p>
+<p>Firstly, get the hash of the NVP node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request</span>
+curl -X POST -d <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;node_getNodeHash&quot;,&quot;params&quot;:[],&quot;id&quot;:1, &quot;namespace&quot;:&quot;global&quot;}&#39;</span> localhost:8085
+
+<span class="c1"># Response</span>
+<span class="o">{</span>
+  <span class="s2">&quot;jsonrpc&quot;</span>: <span class="s2">&quot;2.0&quot;</span>,
+  <span class="s2">&quot;namespace&quot;</span>: <span class="s2">&quot;global&quot;</span>,
+  <span class="s2">&quot;id&quot;</span>: <span class="m">1</span>,
+  <span class="s2">&quot;code&quot;</span>: <span class="m">0</span>,
+  <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;SUCCESS&quot;</span>,
+  <span class="s2">&quot;result&quot;</span>: <span class="s2">&quot;4886947d8191b62a1141dbc3250a0cc61a436ca28829f40cb5a690c7449825ad&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Then, send a request of deleting NVP to VP node 1.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request</span>
+curl -X POST -d <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;node_deleteNVP&quot;,&quot;params&quot;:[{&quot;nodehash&quot;:&quot;4886947d8191b62a1141dbc3250a0cc61a436ca28829f40cb5a690c7449825ad&quot;}],&quot;id&quot;:1, &quot;namespace&quot;:&quot;global&quot;}&#39;</span> localhost:8081
+
+<span class="c1"># Response</span>
+<span class="o">{</span>
+  <span class="s2">&quot;jsonrpc&quot;</span>: <span class="s2">&quot;2.0&quot;</span>,
+  <span class="s2">&quot;namespace&quot;</span>: <span class="s2">&quot;global&quot;</span>,
+  <span class="s2">&quot;id&quot;</span>: <span class="m">1</span>,
+  <span class="s2">&quot;code&quot;</span>: <span class="m">0</span>,
+  <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;SUCCESS&quot;</span>,
+  <span class="s2">&quot;result&quot;</span>: <span class="s2">&quot;successful request to delete nvp node, hash 4886947d8191b62a1141dbc3250a0cc61a436ca28829f40cb5a690c7449825ad&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The following logs are seen at the terminal of the VP node 1,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>global::p2p <span class="m">13</span>:28:02.857 delete NVP peer, <span class="nb">hash</span> 4886947d8191b62a1141dbc3250a0cc61a436ca28829f40cb5a690c7449825ad, vp pool size<span class="o">(</span><span class="m">4</span><span class="o">)</span> nvp pool size<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>At the same time, the NVP node also prints the following log notes that
+the VP node 1 has been disconnected.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>global::p2p <span class="m">13</span>:28:02.858 peers_pool.go:244 delete validate peer <span class="m">1</span>
+</pre></div>
+</div>
+<p>The NVP node is deleted successfully.</p>
+</div>
+<div class="section" id="example3-nvp-disconnects-from-a-vp">
+<h3>Example3: NVP disconnects from a VP<a class="headerlink" href="#example3-nvp-disconnects-from-a-vp" title="Permalink to this headline">¶</a></h3>
+<p>The situation is similar to that of Example2, except that we send a
+request for deleting a node to the NVP node this time.</p>
+<p>For example, there are currently four VP nodes and one NVP node which is
+connected to VP node 1.</p>
+<p>Firstly, get the hash of the VP node 1.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request</span>
+curl -X POST -d <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;node_getNodeHash&quot;,&quot;params&quot;:[],&quot;id&quot;:1, &quot;namespace&quot;:&quot;global&quot;}&#39;</span> localhost:8081
+
+<span class="c1"># Response</span>
+<span class="o">{</span>
+    <span class="s2">&quot;jsonrpc&quot;</span>: <span class="s2">&quot;2.0&quot;</span>,
+    <span class="s2">&quot;namespace&quot;</span>: <span class="s2">&quot;global&quot;</span>,
+    <span class="s2">&quot;id&quot;</span>: <span class="m">1</span>,
+    <span class="s2">&quot;code&quot;</span>: <span class="m">0</span>,
+    <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;SUCCESS&quot;</span>,
+    <span class="s2">&quot;result&quot;</span>: <span class="s2">&quot;fa34664ec14727c34943045bcaba9ef05d2c48e06d294c15effc900a5b4b663a&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Then, send a request of deleting VP to NVP node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Request</span>
+curl -X POST -d <span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;node_deleteVP&quot;,&quot;params&quot;:[{&quot;nodehash&quot;:&quot;fa34664ec14727c34943045bcaba9ef05d2c48e06d294c15effc900a5b4b663a&quot;}],&quot;id&quot;:1, &quot;namespace&quot;:&quot;global&quot;}&#39;</span> localhost:8085
+
+<span class="c1"># Response</span>
+<span class="o">{</span>
+    <span class="s2">&quot;jsonrpc&quot;</span>: <span class="s2">&quot;2.0&quot;</span>,
+    <span class="s2">&quot;namespace&quot;</span>: <span class="s2">&quot;global&quot;</span>,
+    <span class="s2">&quot;id&quot;</span>: <span class="m">1</span>,
+    <span class="s2">&quot;code&quot;</span>: <span class="m">0</span>,
+    <span class="s2">&quot;message&quot;</span>: <span class="s2">&quot;SUCCESS&quot;</span>,
+    <span class="s2">&quot;result&quot;</span>: <span class="s2">&quot;successful request to delete vp node, hash fa34664ec14727c34943045bcaba9ef05d2c48e06d294c15effc900a5b4b663a&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The following logs are seen at the terminal of the NVP node,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>global::p2p <span class="m">13</span>:47:17.744 delete validate peer <span class="m">1</span>
+</pre></div>
+</div>
+<p>At the same time, the VP node 1 also prints the following log,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>global::p2p <span class="m">13</span>:47:17.744 delete NVP peer, <span class="nb">hash</span> 4886947d8191b62a1141dbc3250a0cc61a436ca28829f40cb5a690c7449825ad, vp pool size<span class="o">(</span><span class="m">4</span><span class="o">)</span> nvp pool size<span class="o">(</span><span class="m">0</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>The VP node is deleted successfully.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Developers’ Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="JSON-RPC_manual.html" class="btn btn-neutral float-left" title="JSON-RPC API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -90,11 +90,14 @@
               <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
@@ -107,7 +110,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">大规模组网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">治理与审计</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">身份认证/准入机制</a><ul>
@@ -122,11 +125,34 @@
 <li class="toctree-l2"><a class="reference internal" href="#id5">多级权限管理</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#caf">联盟自治框架CAF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id6">安全审计服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">证书链上吊销</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
 </ul>
 
             
@@ -199,6 +225,37 @@
 <div class="section" id="id2">
 <h2>身份认证/准入机制<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>平台使用CA证书体系进行联盟成员的准入控制。主要分为集中式CA认证体系、分布式CA认证体系两种方式。根据业务需求，任一节点可能参与一个或多个业务分区，所有在同一个分区中的节点都处于同一条链上，不同的分区处于不同的链上。不同的分区将拥有各自的证书体系，分区间不共享证书体系。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>证书</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Root.ca</p></td>
+<td><p>CA体系的信任锚持有根证书Root.ca，具有签发各类证书的权限。在节点连接时，若节点的信任锚与其他链上节点的信任锚不同，则无法与其他节点成功建立连接。</p></td>
+</tr>
+<tr class="row-odd"><td><p>ECert</p></td>
+<td><p>ECert是节点准入证书，持有ECert的节点为共识节点，可以同链上其他节点同步数据并参与共识。在节点连接时，若节点的ECert无法通过证书合法性校验，则无法与其他节点成功建立连接。</p></td>
+</tr>
+<tr class="row-even"><td><p>RCert</p></td>
+<td><p>RCert主要是用于证明该节点是受信任的准入节点，该节点为非共识节点（NVP），不可参与共识验证，仅允许向特定共识节点同步账本数据。在节点连接时，若节点的RCert无法通过证书合法性校验，则无法与其他节点成功建立连接。</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDKCert</p></td>
+<td><p>SDKCert 为客户端的准入证书，用于证明客户端的合法性，非法的客户端将无法向节点发出请求。每一个SDKCert将对应连接一个节点。若一个客户端需要连接多个节点，则该客户端连接每个节点都需要一个SDKCert。在交易发送时，若客户端的SDKCert无法通过证书合法性校验，则交易将无法被节点接收。</p></td>
+</tr>
+<tr class="row-even"><td><p>IDCert</p></td>
+<td><p>IDCert为账户证书，用于维持账户地址与账户密钥间的映射关系。依此证书，账户将获得注册、冻结/解冻、密钥重置、注销的账户生命周期管理功能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>TLSCert</p></td>
+<td><p>TLSCert(Transport Layer Security Cert) 为安全传输层协议证书。TlsCert 用于传输层安全协议证书，即在传输网络传输过程中需要验证传输层安全协议证书的安全性，验证通过即可以进行正常网络通信，反之则无法进行网络通信。</p></td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="ca">
 <h3>中心化CA<a class="headerlink" href="#ca" title="Permalink to this headline">¶</a></h3>
 <p>中心化CA认证体系可以由可信机构提供，也可通过自建CA体系实现。平台已通过集成CFCA（China Financial Certification Authority）实现数字证书管理功能，适用于对于证书系统安全性与权威性有较高要求的银行或金融机构；自建CA体系需要建设独立的PKI／CA系统，并且建立完整的运营管理体系。中心化CA证书体系的证书类型与签发关系如下图所示：</p>
@@ -247,19 +304,19 @@
 <p>联盟链的准入机制虽然能一定程度上保障安全性，但缺乏针对不同角色的细粒度的权限管理。因此，为了支撑更丰富复杂的商业应用场景需求，平台建立了多层级权限管理体系，进一步保障商业隐私和安全。</p>
 <p>目前，平台设有系统管理员、审计管理员、节点管理员、合约操作员以及用户五个主要账户角色：</p>
 <ul class="simple">
-<li><p>系统管理员 :参与区块链级别的权限管理，包括节点管理、系统升级、合约升级的权限控制，往往是各联盟机构指定的内部超级管理员。节点准入、系统升级这种链级别的操作权限需由系统管理员代表联盟各机构投票决定。链级权限管理需要借助联盟自治框架进行提案发起与提案投票，详见章节联盟自治CAF。</p></li>
-<li><p>节点管理员 :往往是各联盟机构指定的运维管理员，参与节点级别的访问权限管理。节点管理员责任包括：向受节点信任的客户端颁发SDK证书，配置用户权限表，分配用户访问SDK的权限，比如访问调用合约的权限、获取区块权限等。</p></li>
-<li><p>合约管理员 :负责对链上已部署的智能合约进行运维管理。平台支持合约管理员或合约部署者对智能合约发起合约升级、合约冻结、合约解冻、合约禁用、合约访问权限的操作提案。合约管理员需借助联盟自治框架对上述提案进行发起与投票，投票通过的提案由平台执行提案。</p></li>
-<li><p>用户 :普通用户，可按规则参与链上交易，可被赋予上述管理员角色。</p></li>
+<li><p><strong>系统管理员</strong> :参与区块链级别的权限管理，包括节点管理、系统升级、合约升级的权限控制，往往是各联盟机构指定的内部超级管理员。节点准入、系统升级这种链级别的操作权限需由系统管理员代表联盟各机构投票决定。链级权限管理需要借助联盟自治框架进行提案发起与提案投票，详见章节联盟自治CAF。</p></li>
+<li><p><strong>节点管理员</strong> :往往是各联盟机构指定的运维管理员，参与节点级别的访问权限管理。节点管理员责任包括：向受节点信任的客户端颁发SDK证书，配置用户权限表，分配用户访问SDK的权限，比如访问调用合约的权限、获取区块权限等。</p></li>
+<li><p><strong>合约管理员</strong> :负责对链上已部署的智能合约进行运维管理。平台支持合约管理员或合约部署者对智能合约发起合约升级、合约冻结、合约解冻、合约禁用、合约访问权限的操作提案。合约管理员需借助联盟自治框架对上述提案进行发起与投票，投票通过的提案由平台执行提案。</p></li>
+<li><p><strong>用户</strong> :普通用户，可按规则参与链上交易，可被赋予上述管理员角色。</p></li>
 </ul>
 </div>
 <div class="section" id="caf">
 <h2>联盟自治框架CAF<a class="headerlink" href="#caf" title="Permalink to this headline">¶</a></h2>
 <p>为了满足灵活多变、迭代更替的业务规则，平台提出了一种具备联盟协商、迭代升级的联盟自治框架CAF（Consortium Autonomous Framework），由管理员共同形成“联盟自治成员组织”，以联盟协商的形式管理联盟链。该框架适用于一切链级的变更，如节点增删、合约升级等。</p>
-<ol class="arabic simple">
-<li><p>系统管理委员会：由系统管理员组成，负责系统级提案及节点增删提案的商议与投票。</p></li>
-<li><p>合约管理委员会：由合约管理员组成，负责合约管理与合约升级等提案的商议与投票。</p></li>
-</ol>
+<ul class="simple">
+<li><p><strong>系统管理委员会</strong>：由系统管理员组成，负责系统级提案及节点增删提案的商议与投票。</p></li>
+<li><p><strong>合约管理委员会</strong>：由合约管理员组成，负责合约管理与合约升级等提案的商议与投票。</p></li>
+</ul>
 <p><img alt="image2" src="_images/safe1.png" /></p>
 <p>提案从创建到执行的整个流程，具体如下：</p>
 <ol class="arabic simple">
@@ -286,6 +343,20 @@
 <p>安全审计服务的使用十分便捷，用户只需要在启动平台之前修改配置文件开启审计即可。平台现已适配GaryLog和ELK两种常用日志分析系统，用户可根据实际需求进行选择。</p>
 <p>除了符合《金融分布式账本技术安全规范》以及《区块链技术金融应用评估规则》的要求，该功能可在供应链金融等多个领域发挥潜在价值。以区块链供应链金融服务平台为例，借助安全审计平台，一方面可以帮助用户及时识别节点异常、数据一致性校验失败等威胁系统正常运行的特征事件，避免风险进一步扩大导致服务中断；另一方面，事后能快速追踪链上数字资产的异常变更和访问操作，为虚拟交易、非法融资等提供便捷的追责功能。</p>
 <p><img alt="image4" src="_images/governonce1.png" /></p>
+</div>
+<div class="section" id="id7">
+<h2>证书链上吊销<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>证书是节点加入网络、客户端连接节点的合法性凭证，证书的签发者为CA。CA并不诞生或注册在链上，区块链仅以配置的方式记录受信任的CA，以此判断未来需验证的证书是否来源于受信任的CA。然而证书的吊销如今并非在链上完成的，具有两大缺点：</p>
+<ul class="simple">
+<li><p><strong>时效性</strong> ：CA吊销证书到通知区块链各节点可能存在较长时间的时间差。</p></li>
+<li><p><strong>原子性</strong> ：CA吊销节点证书或客户端证书后，理论上该节点/客户端应在证书吊销生效的同时不再被网络所信任，但如今无法实现这样的效果。</p></li>
+</ul>
+<p>针对上述缺点，结合CA证书体系和区块链的关系，平台设计了证书链上吊销功能，以实现：证书吊销操作以交易的形式在链上被执行，执行后，证书失效，相关逻辑连接断开；链上将记录失效证书；将证书生效后的管理能力与区块链交易结合，实现链上证书管理。</p>
+<p>链上证书吊销分为节点证书吊销、sdk证书吊销，详述如下：</p>
+<ul class="simple">
+<li><p><strong>节点证书吊销</strong> ：节点证书的吊销不提供单独的用户接口，但将作为节点删除的附加操作，即当执行删除节点的操作时，被删节点的证书也将自动转为吊销状态。该被删节点如需重新启动，应更换节点目录下的相关证书。</p></li>
+<li><p><strong>sdk证书吊销</strong> ：使用sdk接口发起一笔调用bvm合约的普通交易，完成证书的吊销操作。当发起操作的角色为管理员时，无需提供sdk证书私钥的签名；若为普通角色则需要通过验签证明自己为该证书私钥的所有者。</p></li>
+</ul>
 </div>
 </div>
 

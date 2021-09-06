@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>节点增删管理 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>节点增删管理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Node Management.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="node-manage">
+<span id="id1"></span><h1>节点增删管理<a class="headerlink" href="#node-manage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>节点管理<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>节点管理是基于 <a class="reference internal" href="Chain%20Role%20Management.html#chain-role-manage"><span class="std std-ref">链级角色管理</span></a> 及 <a class="reference internal" href="Chain%20Configuration%20Management.html#chain-conf-manage"><span class="std std-ref">链级配置管理</span></a>，链级管理员通过提案投票的方式进行节点管理。</p>
+<p>节点管理包括增加节点和删除节点。增加节点分为组网和加入共识两步。删除节点时直接从共识删除节点即可。共识部分删除节点之后，会向eventhub发送一个删除节点的事件，<a href="#id3"><span class="problematic" id="id4">`</span></a>eventhub`会处理这个事件，调用`p2p`断开与此节点的逻辑连接。</p>
+<p>节点的操作分为以下几种：</p>
+<ol class="arabic simple">
+<li><p>AddNode，增加建立逻辑连接的节点，即将节点加到hosts中（此时没有加入共识）；</p></li>
+<li><p>AddVP，增加VP节点，即将节点加入共识；</p></li>
+<li><p>RemoveVP，删除共识VP节点，同时断开此节点与对应namespace中其他节点建立的逻辑连接，如果节点没有加入其他namespace，则将节点停掉。</p></li>
+</ol>
+<div class="section" id="id5">
+<h3>增加节点<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ca">
+<h4>依赖分布式ca增加节点<a class="headerlink" href="#ca" title="Permalink to this headline">¶</a></h4>
+<p>依赖分布式ca增加节点组网和加入共识这两个流程是分开进行的，分别使用两个提案，提案投票通过后在执行的时候分别完成组网交换证书和加入共识的操作。</p>
+<ol class="arabic simple">
+<li><p>组网</p></li>
+</ol>
+<p>新节点要加入某个已有的区块链网络，需要先与网络中的各个节点建立逻辑连接，这一步称之为组网。</p>
+<ul class="simple">
+<li><p>创建提案（自动发交易）</p></li>
+</ul>
+<p>新节点启动后与网络中已有节点建立物理连接，之后在建立逻辑连接之前，向已有节点发送准入请求，已有节点收到后会用当前节点的公私钥构造交易，自动发送创建提案的交易。</p>
+<ul class="simple">
+<li><p>投票（手动发交易）</p></li>
+</ul>
+<p>管理员收到创建提案的消息推送后对当前提案进行投票。</p>
+<ul class="simple">
+<li><p>执行提案（自动发交易</p></li>
+</ul>
+<p>发送创建提案交易的节点检测到提案投票通过后，会自动发送执行提案的交易。</p>
+<ol class="arabic simple" start="2">
+<li><p>加入共识</p></li>
+</ol>
+<p>新节点与网络中的各个节点建立好逻辑连接之后，此时节点还没有加入共识，如果需要加入共识，需要由管理员发送创建提案的交易，请求加入共识。其他管理员收到创建提案的消息推送后对当前提案进行投票。当投票通过后再由创建提案的管理员发送执行提案的交易，在执行提案的过程中，将新节点加入共识。</p>
+<p>加入共识的所有操作都需要管理员手动进行。</p>
+</div>
+<div class="section" id="id6">
+<h4>不依赖分布ca增加节点<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<p>不依赖分布式ca增加节点表示新加入的节点事先在通过其他方式已经与已有的节点交换了证书，可以直接启动新节点组网，这时只需要通过一个提案完成加入共识的流程即可。由于新节点不是通过线上的方式与其他节点组网，因此账本上的节点状态没有加入新节点，在创建提案将新节点加入共识的时候，需要在加入共识的操作前加上将节点加入hosts的操作，这些操作可以在一个提案里完成，其操作流程如下：</p>
+<ol class="arabic simple">
+<li><p>新节点拿到证书后，启动新节点，新节点与其他节点建立连接</p></li>
+<li><p>使用管理账户发送创建提案的交易，提案中包含两个操作：</p>
+<ol class="arabic simple">
+<li><p>新节点加入Hosts</p></li>
+<li><p>新节点加入VSet，即加入共识</p></li>
+</ol>
+</li>
+<li><p>其他管理员对此提案进行投票</p></li>
+<li><p>投票通过后，提案创建者发送交易执行提案，在提案执行的过程中完成新节点状态维护到账本以及加入共识的操作。</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>删除节点<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h4>共识删除节点<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<p>网络中已有节点要退出网络时，首先是退出共识，即从共识中删除节点。一旦从共识中删除节点，节点要再次加入共识需要重新走一遍加入共识的流程。</p>
+<p>从共识中删除节点，首先需要一个管理员发起创建提案的交易，这个提案的内容是从共识中删除节点。其他管理员收到创建提案的消息推送后对当前提案进行投票。当投票通过后再由创建提案的管理员发送执行提案的交易，在执行提案的过程中，从共识中删除节点。</p>
+<p>当共识删除节点完成之后，会向 <cite>eventhub</cite> 抛出一个 <cite>UpdateRotingTableEvent</cite> ， <cite>eventhub</cite> 收到之后会根据事件的内容，调用网络层与此节点断开连接的操作。</p>
+<p>共识删除节点的所有操作都需要管理员手动进行。</p>
+</div>
+</div>
+<div class="section" id="litesdk">
+<h3>litesdk接口说明<a class="headerlink" href="#litesdk" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h4>节点管理接口<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>litesdk提供了 <cite>ProposalBuilder</cite> 构造器用于构造提案的操作 <cite>ProposalOperation</cite> ，在 <cite>ProposalBuilder</cite> 中提供了 <cite>createForNode</cite> 、 <cite>vote</cite> 、 <cite>cancel</cite> 和 <cite>execute</cite> 方法分别用于创建节点类(即节点管理)提案、提案投票、取消提案和执行提案的提案操作，其定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="k">class</span> <span class="nc">ProposalBuilder</span> <span class="n">extends</span> <span class="n">BuiltinOperationBuilder</span> <span class="p">{</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">creat</span> <span class="n">ProposalOperation</span> <span class="k">for</span> <span class="n">node</span> <span class="n">to</span> <span class="n">create</span> <span class="n">node</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">opts</span> <span class="n">node</span> <span class="n">operations</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">createForNode</span><span class="p">(</span><span class="n">NodeOperation</span><span class="o">...</span> <span class="n">opts</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">vote</span> <span class="n">ProposalOperation</span> <span class="n">to</span> <span class="n">vote</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">proposalID</span> <span class="n">proposal</span> <span class="nb">id</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">vote</span>       <span class="n">vote</span> <span class="n">value</span><span class="p">,</span> <span class="n">true</span> <span class="n">means</span> <span class="n">agree</span><span class="p">;</span> <span class="n">false</span> <span class="n">means</span> <span class="n">refuse</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">vote</span><span class="p">(</span><span class="nb">int</span> <span class="n">proposalID</span><span class="p">,</span> <span class="n">boolean</span> <span class="n">vote</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">cancel</span> <span class="n">ProposalOperation</span> <span class="n">to</span> <span class="n">cancel</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">proposalID</span> <span class="n">proposal</span> <span class="nb">id</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">cancel</span><span class="p">(</span><span class="nb">int</span> <span class="n">proposalID</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">execute</span> <span class="n">ProposalOperation</span> <span class="n">to</span> <span class="n">cancel</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">proposalID</span> <span class="n">proposal</span> <span class="nb">id</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">execute</span><span class="p">(</span><span class="nb">int</span> <span class="n">proposalID</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在创建节点类提案时，根据提案内容中需要对节点管理的操作，接收对应的节点类操作即可。litesdk为节点类操作 <cite>NodeOperation</cite> 提供了构造器 <cite>NodeBuilder</cite> ，构造器中提供了 <cite>addNode</cite> 、 <cite>addVP</cite> 、 <cite>removeVP</cite> 以及 <cite>build</cite> 方法，其定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="k">class</span> <span class="nc">NodeBuilder</span> <span class="p">{</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">NodeBuilder</span> <span class="n">to</span> <span class="n">add</span> <span class="n">node</span> <span class="k">with</span> <span class="n">give</span> <span class="n">params</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">pub</span>       <span class="n">public</span> <span class="n">key</span> <span class="n">of</span> <span class="n">new</span> <span class="n">node</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">hostname</span>  <span class="n">host</span> <span class="n">name</span> <span class="n">of</span> <span class="n">new</span> <span class="n">node</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">role</span>      <span class="n">node</span> <span class="n">role</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">namespace</span> <span class="n">namespace</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">NodeBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">NodeBuilder</span> <span class="n">addNode</span><span class="p">(</span><span class="n">byte</span><span class="p">[]</span> <span class="n">pub</span><span class="p">,</span> <span class="n">String</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">String</span> <span class="n">role</span><span class="p">,</span> <span class="n">String</span> <span class="n">namespace</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">NodeBuilder</span> <span class="n">to</span> <span class="n">add</span> <span class="n">vp</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">hostname</span>  <span class="n">host</span> <span class="n">name</span> <span class="n">of</span> <span class="n">new</span> <span class="n">node</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">namespace</span> <span class="n">namespace</span> <span class="n">the</span> <span class="n">new</span> <span class="n">node</span> <span class="n">will</span> <span class="n">add</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">NodeBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">NodeBuilder</span> <span class="n">addVP</span><span class="p">(</span><span class="n">String</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">String</span> <span class="n">namespace</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">NodeBuilder</span> <span class="n">to</span> <span class="n">remove</span> <span class="n">vp</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">hostname</span>  <span class="n">host</span> <span class="n">name</span> <span class="n">of</span> <span class="n">remove</span> <span class="n">node</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">namespace</span> <span class="n">namespace</span> <span class="n">the</span> <span class="n">node</span> <span class="n">will</span> <span class="n">be</span> <span class="n">removed</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">NodeBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">NodeBuilder</span> <span class="n">removeVP</span><span class="p">(</span><span class="n">String</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">String</span> <span class="n">namespace</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="k">return</span> <span class="n">build</span> <span class="n">NodeOperation</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">NodeOperation</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">NodeOperation</span> <span class="n">build</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>节点管理的操作构造好后，用ProposalBuild构造器构造提案相关的操作，创建好之后，使用 <cite>BVMBuilder</cite> 提供的 <cite>invoke</cite> 方法构造bvm的交易体，使用 <cite>build</cite> 方法构造出交易 <cite>transaction</cite> ，并为交易设置 <cite>txVersion</cite> 并使用 <cite>sign</cite> 方法签名，得到最终可以发送执行的交易体。</p>
+</div>
+<div class="section" id="id10">
+<h4>节点查询接口<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>查询连接的节点信息（getHosts）</p></li>
+</ol>
+<p>参数：</p>
+<ul class="simple">
+<li><p>role 节点角色（目前只支持查询vp节点）</p></li>
+<li><p>nodeIds 请求向哪些节点发送</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="o">&lt;</span><span class="n">HostsResponse</span><span class="o">&gt;</span> <span class="n">getHosts</span><span class="p">(</span><span class="n">String</span> <span class="n">role</span><span class="p">,</span> <span class="nb">int</span><span class="o">...</span> <span class="n">nodeIds</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>拿到 <cite>HostsResponse</cite> 后，通过 <cite>getHosts</cite> 方法拿到节点信息。 <cite>getHosts</cite> 方法返回的是key为节点名，value为节点公钥的map。</p>
+<ol class="arabic simple" start="2">
+<li><p>查询参与共识的节点信息（getVSet）</p></li>
+</ol>
+<p>参数：</p>
+<ul class="simple">
+<li><p>nodeIds 请求向哪些节点发送</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="o">&lt;</span><span class="n">VSetResponse</span><span class="o">&gt;</span> <span class="n">getVSet</span><span class="p">(</span><span class="nb">int</span><span class="o">...</span> <span class="n">nodeIds</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>拿到 <cite>VSetResponse</cite> 后，通过 <cite>getVSet</cite> 拿到共识的节点信息。 <cite>getVSet</cite> 方法返回的是所有参与共识的节点列表。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>操作流程<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h3>启动节点并初始化<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>目前只有rbft共识算法支持动态增删节点。因此，需要预先启动至少四个节点。由于预先启动的节点的证书是通过线下颁发的，且作为创世节点，不是通过提案投票的形式，因此在节点启动完成后需要通过提案完成节点初始化的流程。</p>
+<p>另外，在新节点加入时，老节点通过节点的公私钥发送交易创建提案。也需要预先拿到每个节点的地址（可使用certgen获取节点公钥地址），为节点地址授予 <cite>nodeOfVP</cite> 角色，以便有权创建执行提案（此角色的权重为0，即创建或投票的操作有权进行，但是不占权重，需要其他 <cite>admin</cite> 角色的管理员投票才有权重）。</p>
+<div class="section" id="id13">
+<h4>节点初始化<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>对于节点类型的提案与权限类型的提案相似，都支持列表操作（只是目前增删节点一次只支持增删一个节点）。节点类型的提案在创建时用node表示。</p>
+<p>节点初始化流程：</p>
+<ol class="arabic simple">
+<li><p>创建一个节点类型的提案，提案中包含将初始节点加入hosts和vset的操作。加入hosts使用AddNode，加入vset使用AddVP。每一个节点加入vset之前要先将其加入hosts。</p></li>
+<li><p>对提案进行投票</p></li>
+<li><p>创建提案的用户执行提案</p></li>
+</ol>
+</div>
+<div class="section" id="id14">
+<h4>节点账户授权（可选）<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>当依赖分布式ca进行增加节点时，有节点自动发交易创建提案对操作，因此需要为节点账户授权。</p>
+<p>节点账户授权流程如下：</p>
+<ol class="arabic simple">
+<li><p>创建一个权限类型的提案，提案中包含给所有节点账户（节点账户可根据节点公钥即ecert获得）授予nodeOfVP角色的操作。</p></li>
+<li><p>对提案进行投票</p></li>
+<li><p>创建提案的用户执行提案</p></li>
+</ol>
+</div>
+<div class="section" id="id15">
+<h4>litesdk初始化使用示例<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>预先启动了四个节点，四个节点启动后已达成共识，然后进行初始化。四个节点的hostname分别为node1、node2、node3、node4，四个节点的公钥(ecert)文件分别命名为node1.cert、node2.cert、node3.cert、node4.cert，四个节点的公钥地址分别为address1、address2、address3、address4。使用litesdk完成四个节点的初始化并为节点账户授权，其代码如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">testInit</span><span class="p">()</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">init</span> <span class="n">node</span>
+    <span class="n">String</span> <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;nodeOfVP&quot;</span><span class="p">;</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">NodeOperation</span><span class="o">&gt;</span> <span class="n">nodeOpts</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getContextClassLoader</span><span class="p">()</span><span class="o">.</span><span class="n">getResourceAsStream</span><span class="p">(</span><span class="s2">&quot;node&quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s2">&quot;.cert&quot;</span><span class="p">);</span>
+        <span class="n">byte</span><span class="p">[]</span> <span class="n">resource</span> <span class="o">=</span> <span class="n">FileUtil</span><span class="o">.</span><span class="n">readFileAsBytes</span><span class="p">(</span><span class="n">inputStream</span><span class="p">);</span>
+        <span class="n">nodeOpts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new</span> <span class="n">NodeOperation</span><span class="o">.</span><span class="n">NodeBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;vp&quot;</span><span class="p">,</span> <span class="s2">&quot;global&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">());</span>
+        <span class="n">nodeOpts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new</span> <span class="n">NodeOperation</span><span class="o">.</span><span class="n">NodeBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">addVP</span><span class="p">(</span><span class="s2">&quot;node&quot;</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;global&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="n">completeProposal</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">createForNode</span><span class="p">(</span><span class="n">nodeOpts</span><span class="o">.</span><span class="n">toArray</span><span class="p">(</span><span class="n">new</span> <span class="n">NodeOperation</span><span class="p">[</span><span class="n">nodeOpts</span><span class="o">.</span><span class="n">size</span><span class="p">()]))</span><span class="o">.</span><span class="n">build</span><span class="p">());</span>
+
+    <span class="o">//</span> <span class="n">init</span> <span class="n">node</span> <span class="n">account</span>
+    <span class="n">completeProposal</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">createForPermission</span><span class="p">(</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">grant</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">address1</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">grant</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">address2</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">grant</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">address3</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">grant</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">address3</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">grant</span><span class="p">(</span><span class="n">role</span><span class="p">,</span> <span class="n">address4</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">String</span> <span class="n">completeProposal</span><span class="p">(</span><span class="n">BuiltinOperation</span> <span class="n">opt</span><span class="p">)</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">create</span>
+    <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+
+    <span class="n">Request</span><span class="o">&lt;</span><span class="n">ProposalResponse</span><span class="o">&gt;</span> <span class="n">proposal</span> <span class="o">=</span> <span class="n">configService</span><span class="o">.</span><span class="n">getProposal</span><span class="p">();</span>
+    <span class="n">ProposalResponse</span> <span class="n">proposalResponse</span> <span class="o">=</span> <span class="n">proposal</span><span class="o">.</span><span class="n">send</span><span class="p">();</span>
+    <span class="n">ProposalResponse</span><span class="o">.</span><span class="n">Proposal</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">proposalResponse</span><span class="o">.</span><span class="n">getProposal</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">vote</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">vote</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">getId</span><span class="p">(),</span> <span class="n">true</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">execute</span>
+    <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">getId</span><span class="p">())</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">getErr</span><span class="p">());</span>
+
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">OperationResult</span><span class="o">&gt;</span> <span class="n">resultList</span> <span class="o">=</span> <span class="n">Decoder</span><span class="o">.</span><span class="n">decodeBVMResult</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">OperationResult</span> <span class="ow">or</span> <span class="p">:</span> <span class="n">resultList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SuccessCode</span><span class="o">.</span><span class="n">getCode</span><span class="p">(),</span> <span class="ow">or</span><span class="o">.</span><span class="n">getCode</span><span class="p">());</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SuccessCode</span><span class="o">.</span><span class="n">getCode</span><span class="p">(),</span> <span class="ow">or</span><span class="o">.</span><span class="n">getCode</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">resultList</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">resultList</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">getMsg</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">null</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">Result</span> <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">BuiltinOperation</span> <span class="n">opt</span><span class="p">,</span> <span class="n">Account</span> <span class="n">acc</span><span class="p">)</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="n">Transaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Transaction</span><span class="o">.</span>
+            <span class="n">BVMBuilder</span><span class="p">(</span><span class="n">acc</span><span class="o">.</span><span class="n">getAddress</span><span class="p">())</span><span class="o">.</span>
+            <span class="n">invoke</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span><span class="o">.</span>
+            <span class="n">build</span><span class="p">();</span>
+    <span class="n">transaction</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span>
+
+    <span class="n">ReceiptResponse</span> <span class="n">receiptResponse</span> <span class="o">=</span> <span class="n">contractService</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">()</span><span class="o">.</span><span class="n">polling</span><span class="p">();</span>
+    <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Decoder</span><span class="o">.</span><span class="n">decodeBVM</span><span class="p">(</span><span class="n">receiptResponse</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>新增节点<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id17">
+<h4>依赖分布式ca新增节点<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>组网</p>
+<ol class="arabic simple">
+<li><p>启动新节点</p></li>
+<li><p>管理员对新节点加入对提案进行投票</p></li>
+<li><p>等待投票通过后进行证书交换组网成功</p></li>
+</ol>
+</li>
+<li><p>加入共识</p>
+<ol class="arabic simple">
+<li><p>管理员创建节点类型的提案，提案中包含将新节点加入共识的操作，即AddVP</p></li>
+<li><p>管理员投票</p></li>
+<li><p>管理员执行提案</p></li>
+<li><p>等待达成共识</p></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="id18">
+<h4>不依赖分布式ca新增节点<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>启动新节点</p></li>
+<li><p>管理员创建节点类型的提案，提案中包含将新节点加入hosts的操作（AddNode）和加入共识的操作（AddVP）</p></li>
+<li><p>管理员投票</p></li>
+<li><p>管理员执行提案</p></li>
+<li><p>等待达成共识</p></li>
+</ol>
+</div>
+<div class="section" id="id19">
+<h4>litesdk使用示例<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<p>依赖分布式ca新增节点node5（新增节点之前完成了节点初始化和节点账户初始化）到名为global的namespace中，使用litesdk完成分布式ca新增节点，其代码如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>public void testAdd() throws RequestException {
+
+    // start node5, and node5 already connect other nodes
+
+    // use admin account vote for node5&#39;s addNode proposal
+    Request&lt;ProposalResponse&gt; proposal = configService.getProposal();
+    ProposalResponse proposalResponse = proposal.send();
+    ProposalResponse.Proposal prop = proposalResponse.getProposal();
+    for (int i=0; i&lt; prop.getThreshold(); i++){
+        invokeBVMContract(new ProposalOperation.ProposalBuilder().vote(prop.getId(), true).build(), accountService.fromAccountJson(accountJsons[i]));
+    }
+
+    // wait node5&#39;s addNode proposal execute
+
+    // create、vote and execute proposal for node5 addVP
+    completeProposal(new ProposalOperation.ProposalBuilder().createForNode(new NodeOperation.NodeBuilder().addVP(&quot;node5&quot;,&quot;global&quot;).build()).build());
+}
+
+public String completeProposal(BuiltinOperation opt) throws RequestException {
+    // create
+    invokeBVMContract(opt, accountService.fromAccountJson(accountJsons[0]));
+
+    Request&lt;ProposalResponse&gt; proposal = configService.getProposal();
+    ProposalResponse proposalResponse = proposal.send();
+    ProposalResponse.Proposal prop = proposalResponse.getProposal();
+
+    // vote
+    for (int i = 1; i &lt; 6; i++) {
+        invokeBVMContract(new ProposalOperation.ProposalBuilder().vote(prop.getId(), true).build(), accountService.fromAccountJson(accountJsons[i]));
+    }
+
+    // execute
+    Result result = invokeBVMContract(new ProposalOperation.ProposalBuilder().execute(prop.getId()).build(), accountService.fromAccountJson(accountJsons[0]));
+    Assert.assertEquals(&quot;&quot;, result.getErr());
+
+    System.out.println(result.getRet());
+    List&lt;OperationResult&gt; resultList = Decoder.decodeBVMResult(result.getRet());
+    for (OperationResult or : resultList) {
+        Assert.assertEquals(SuccessCode.getCode(), or.getCode());
+        Assert.assertEquals(SuccessCode.getCode(), or.getCode());
+    }
+    if (resultList.size() &gt; 0) {
+        return resultList.get(0).getMsg();
+    }
+    return null;
+}
+
+public Result invokeBVMContract(BuiltinOperation opt, Account acc) throws RequestException {
+    Transaction transaction = new Transaction.
+            BVMBuilder(acc.getAddress()).
+            invoke(opt).
+            build();
+    transaction.sign(acc);
+
+    ReceiptResponse receiptResponse = contractService.invoke(transaction).send().polling();
+    Result result = Decoder.decodeBVM(receiptResponse.getRet());
+    System.out.println(result);
+    return result;
+}
+</pre></div>
+</div>
+<p>不依赖分布式ca新增节点node5到名为global的namespace中（新增节点之前完成了节点初始化和节点账户初始化），使用litesdk完成非分布式ca新增节点，node5的公钥(ecert)文件名为node5.cert，其代码如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>public void testAdd() throws RequestException {
+
+    // start node5, and node5 already connect other nodes
+
+    // create、vote and execute proposal for node5 addVP
+    InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(&quot;node5.cert&quot;);
+    byte[] pub = FileUtil.readFileAsBytes(inputStream);
+    completeProposal(new ProposalOperation.ProposalBuilder().createForNode(
+            new NodeOperation.NodeBuilder().addNode(pub, &quot;node5&quot;,&quot;vp&quot;, &quot;global&quot;).build(),
+            new NodeOperation.NodeBuilder().addVP(&quot;node5&quot;,&quot;global&quot;).build()
+    ).build());
+}
+
+public String completeProposal(BuiltinOperation opt) throws RequestException {
+    // create
+    invokeBVMContract(opt, accountService.fromAccountJson(accountJsons[0]));
+
+    Request&lt;ProposalResponse&gt; proposal = configService.getProposal();
+    ProposalResponse proposalResponse = proposal.send();
+    ProposalResponse.Proposal prop = proposalResponse.getProposal();
+
+    // vote
+    for (int i = 1; i &lt; 6; i++) {
+        invokeBVMContract(new ProposalOperation.ProposalBuilder().vote(prop.getId(), true).build(), accountService.fromAccountJson(accountJsons[i]));
+    }
+
+    // execute
+    Result result = invokeBVMContract(new ProposalOperation.ProposalBuilder().execute(prop.getId()).build(), accountService.fromAccountJson(accountJsons[0]));
+    Assert.assertEquals(&quot;&quot;, result.getErr());
+
+    System.out.println(result.getRet());
+    List&lt;OperationResult&gt; resultList = Decoder.decodeBVMResult(result.getRet());
+    for (OperationResult or : resultList) {
+        Assert.assertEquals(SuccessCode.getCode(), or.getCode());
+        Assert.assertEquals(SuccessCode.getCode(), or.getCode());
+    }
+    if (resultList.size() &gt; 0) {
+        return resultList.get(0).getMsg();
+    }
+    return null;
+}
+
+public Result invokeBVMContract(BuiltinOperation opt, Account acc) throws RequestException {
+    Transaction transaction = new Transaction.
+            BVMBuilder(acc.getAddress()).
+            invoke(opt).
+            build();
+    transaction.sign(acc);
+
+    ReceiptResponse receiptResponse = contractService.invoke(transaction).send().polling();
+    Result result = Decoder.decodeBVM(receiptResponse.getRet());
+    System.out.println(result);
+    return result;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>删除节点<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id21">
+<h4>删除节点流程<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>管理员创建节点类型的提案，提案中包含删除节点的操作</p></li>
+<li><p>管理员投票</p></li>
+<li><p>管理员执行提案</p></li>
+<li><p>等待达成共识</p></li>
+</ol>
+</div>
+<div class="section" id="id22">
+<h4>litesdk使用示例<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<p>从名为global的namespace中删除vp节点node5，其代码如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">testRemoveVP</span><span class="p">()</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="n">BuiltinOperation</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">createForNode</span><span class="p">(</span><span class="n">new</span> <span class="n">NodeOperation</span><span class="o">.</span><span class="n">NodeBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">removeVP</span><span class="p">(</span><span class="s2">&quot;node5&quot;</span><span class="p">,</span> <span class="s2">&quot;global&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">())</span><span class="o">.</span><span class="n">build</span><span class="p">();</span>
+    <span class="o">//</span> <span class="n">create</span> <span class="n">proposal</span> <span class="k">for</span> <span class="n">removeVP</span> <span class="n">node5</span>
+    <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+
+    <span class="n">Request</span><span class="o">&lt;</span><span class="n">ProposalResponse</span><span class="o">&gt;</span> <span class="n">proposal</span> <span class="o">=</span> <span class="n">configService</span><span class="o">.</span><span class="n">getProposal</span><span class="p">();</span>
+    <span class="n">ProposalResponse</span> <span class="n">proposalResponse</span> <span class="o">=</span> <span class="n">proposal</span><span class="o">.</span><span class="n">send</span><span class="p">();</span>
+    <span class="n">ProposalResponse</span><span class="o">.</span><span class="n">Proposal</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">proposalResponse</span><span class="o">.</span><span class="n">getProposal</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">vote</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">vote</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">getId</span><span class="p">(),</span> <span class="n">true</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">execute</span>
+    <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">getId</span><span class="p">())</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">getErr</span><span class="p">());</span>
+
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">OperationResult</span><span class="o">&gt;</span> <span class="n">resultList</span> <span class="o">=</span> <span class="n">Decoder</span><span class="o">.</span><span class="n">decodeBVMResult</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">OperationResult</span> <span class="ow">or</span> <span class="p">:</span> <span class="n">resultList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SuccessCode</span><span class="o">.</span><span class="n">getCode</span><span class="p">(),</span> <span class="ow">or</span><span class="o">.</span><span class="n">getCode</span><span class="p">());</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SuccessCode</span><span class="o">.</span><span class="n">getCode</span><span class="p">(),</span> <span class="ow">or</span><span class="o">.</span><span class="n">getCode</span><span class="p">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="ow">or</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">Result</span> <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">BuiltinOperation</span> <span class="n">opt</span><span class="p">,</span> <span class="n">Account</span> <span class="n">acc</span><span class="p">)</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="n">Transaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Transaction</span><span class="o">.</span>
+            <span class="n">BVMBuilder</span><span class="p">(</span><span class="n">acc</span><span class="o">.</span><span class="n">getAddress</span><span class="p">())</span><span class="o">.</span>
+            <span class="n">invoke</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span><span class="o">.</span>
+            <span class="n">build</span><span class="p">();</span>
+    <span class="n">transaction</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span>
+
+    <span class="n">ReceiptResponse</span> <span class="n">receiptResponse</span> <span class="o">=</span> <span class="n">contractService</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">()</span><span class="o">.</span><span class="n">polling</span><span class="p">();</span>
+    <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Decoder</span><span class="o">.</span><span class="n">decodeBVM</span><span class="p">(</span><span class="n">receiptResponse</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

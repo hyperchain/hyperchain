@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Digital Certificate &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Namespace" href="namespace.html" />
+    <link rel="prev" title="P2P" href="p2p_introduce.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Get Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Pre-requisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain Samples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="txflow.html">Transaction Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ledger.html">Ledger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bucket_tree.html">Bucket tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smart_contract.html">Smart Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p_introduce.html">P2P</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Privacy &amp;&amp; Security:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Digital Certificate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">1.Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#certificate-introduction">2.Certificate Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ca-configuration">3.CA Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#certificate-acquisition-and-verification-process">4.Certificate acquisition and verification process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ecert-and-rcert">4.1 ECert and RCert</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#acquisition">4.1.1 Acquisition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verification">4.1.2 Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tcert">4.2 TCert</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">4.2.1 Acquisition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">4.2.2 Verification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">Cryptography Algorithm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User manual:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual.html">JSON-RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_op.html">Node Operation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Developers’ Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Hyperchain Roadmap</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Digital Certificate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/ca_manager.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="digital-certificate">
+<h1>Digital Certificate<a class="headerlink" href="#digital-certificate" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>1.Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Hyperchain is a consortium blockchain service platform with granular
+granularity of permission control.It requires multi-level CA
+certificates for permission control. Access control is divided into two
+aspects:</p>
+<ul class="simple">
+<li><p>Node access control</p></li>
+<li><p>Trading authority control</p></li>
+</ul>
+<p>First of all, we need to know is that the permissions control is the
+Namespace level, that is, each Namespace will have a corresponding
+CaManager for CA certificate management and Namespace level permission
+control. The following is our PKI system (certificate system) map:</p>
+<p><img alt="image0" src="../../images/ca.png" /></p>
+<ul class="simple">
+<li><p>root.ca (root certification authority): It represents the trust
+anchor in the PKI architecture. Verification of digital certificates
+follows the chain of trust. The root CA is the top-level CA in the
+PKI hierarchy and is used to issue enrollment certificate authorities
+and role certificate authorities.</p></li>
+<li><p>eca.ca (enrollment certificate authority): Used to issue nodes node
+Enrollment certificates (ecert) and sdk certificates (sdkcert).</p></li>
+<li><p>rca.ca (role certificate authority): Used to issue a role certificate
+(rcert) to a node.</p></li>
+<li><p>ecert.cert (enrollment certificate): An enrollment certificate is a
+long-term certificate issued to a node for access to the node. If no
+enrollment certificate is available, the node can not join the
+Namespace and the enrollment certificate is also used as a
+transaction The issuer of the certificate is used to issue the
+transaction certificate.</p></li>
+<li><p>rcert.cert (role certificate): A role certificate is a long-term
+certificate that is issued to a node for authentication of the role
+of the node. If there is no role certificate, this node is an NVP and
+can not participate in the consensus. Otherwise, it is a VP node.</p></li>
+<li><p>sdkcert.cert (sdk certificate): The SDK certificate is issued to the
+SDK to determine the basis of the (Tcert) used to authenticate the
+SDK and obtain the transaction certificate when receiving the SDK
+certificate.</p></li>
+<li><p>tcert.cert (transaction certificate): The SDK needs to send the
+transaction with the transaction certificate. If there is no
+transaction certificate or the certificate verification fails, the
+transaction is abandoned.</p></li>
+</ul>
+</div>
+<div class="section" id="certificate-introduction">
+<h2>2.Certificate Introduction<a class="headerlink" href="#certificate-introduction" title="Permalink to this headline">¶</a></h2>
+<p>Hyperchian blockchain platform certificates are in line with ITU-T X.509
+international standards, it only contains the public key information
+without private key information, is publicly available, so X.509
+certificate object generally do not need to be encrypted. The format of
+the X.509 certificate is usually as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>---BEGIN CERTIFICATE---
+……PEM encoded X.509 certificate content (omitted)……
+---END CERTIFICATE---
+</pre></div>
+</div>
+<p>The full name of PEM encoding is Privacy Enhanced Mail, which is a
+coding standard for confidential email. In general, the process of
+encoding information is basically as follows：</p>
+<ul class="simple">
+<li><p>The information is converted to ASCII or other encoding, such as
+using DER encoding.</p></li>
+<li><p>Use symmetric encryption algorithm to encrypt the encoded
+information.</p></li>
+<li><p>Use BASE64 to encode the encrypted information.</p></li>
+<li><p>The use of some header definitions to encapsulate the information,
+mainly contains the necessary information for the correct decoding.</p></li>
+</ul>
+<p>In addition, the Hyperchain blockchain platform certificate specifically
+includes the following information:</p>
+<ol class="arabic simple">
+<li><p>X.509 version number: Pointed out that the certificate which version
+of the X.509 standard version number will affect some specific
+information in the certificate. The current version is 3.</p></li>
+<li><p>Certificate holder’s public key: includes the certificate holder’s
+public key, the identifier of the algorithm (indicating which
+cryptographic system the key belongs to) and other relevant key
+parameters.</p></li>
+<li><p>the serial number of the certificate: given by the CA assigned to
+each certificate a unique number, when the certificate is canceled,
+the certificate is actually the serial number of the certificate
+issued by the CA CRL (Certificate Revocation List certificate
+revocation list, Or certificate black list). This is also the only
+reason for the serial number.</p></li>
+<li><p>Topic information: The unique identifier of the certificate holder
+(or DN-distinguished name) This name should be unique on the
+Internet. The DN consists of many parts that look like this:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CN</span><span class="o">=</span><span class="n">Bob</span> <span class="n">Allen</span><span class="p">,</span> <span class="n">OU</span><span class="o">=</span><span class="n">Total</span> <span class="n">Network</span> <span class="n">Security</span> <span class="n">Division</span>
+<span class="n">O</span><span class="o">=</span><span class="n">Network</span> <span class="n">Associates</span><span class="p">,</span> <span class="n">Inc</span><span class="o">.</span>
+<span class="n">C</span><span class="o">=</span><span class="n">US</span>
+</pre></div>
+</div>
+<p>​ The information indicates the common name of the subject, the name of
+the organizational unit, organization and country or certificate holder,
+and the location of the service.</p>
+<ol class="arabic simple" start="5">
+<li><p>the validity of the certificate: the certificate start date and time
+and the date and time of termination; specified certificate valid for
+these two periods.</p></li>
+<li><p>Certification body: The certificate issuer, which is the X.509 name
+of the only CA that issued the certificate. Using this certificate
+means trusting the entity that issued the certificate. (Note: In some
+cases, such as a root or top-level CA certificate, the publisher
+itself issues a certificate)</p></li>
+<li><p>Digital signature of the publisher: This is a signature generated
+using the publisher’s private key to ensure that the certificate has
+not been redirected since it was released.</p></li>
+<li><p>Signature algorithm identifier: used to specify the signature
+algorithm used by the CA to sign the certificate. The algorithm
+identifier is used to specify the public key algorithm and hash
+algorithm used by the CA when issuing a certificate.</p></li>
+</ol>
+</div>
+<div class="section" id="ca-configuration">
+<h2>3.CA Configuration<a class="headerlink" href="#ca-configuration" title="Permalink to this headline">¶</a></h2>
+<p>CA configuration required in the namespace.toml configuration file, the
+specific parameters are as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">encryption</span><span class="p">]</span>
+<span class="p">[</span><span class="n">encryption</span><span class="o">.</span><span class="n">ecert</span><span class="p">]</span>
+ <span class="n">eca</span>    <span class="o">=</span> <span class="s2">&quot;config/certs/eca.cert&quot;</span>
+ <span class="n">ecert</span>  <span class="o">=</span> <span class="s2">&quot;config/certs/ecert.cert&quot;</span>
+ <span class="n">priv</span>   <span class="o">=</span> <span class="s2">&quot;config/certs/ecert.priv&quot;</span>
+
+<span class="p">[</span><span class="n">encryption</span><span class="o">.</span><span class="n">rcert</span><span class="p">]</span>
+ <span class="c1">#if you do not have rcert, leave this item blank</span>
+ <span class="n">rca</span>    <span class="o">=</span> <span class="s2">&quot;config/certs/rca.cert&quot;</span>
+ <span class="n">rcert</span>  <span class="o">=</span> <span class="s2">&quot;config/certs/rcert.cert&quot;</span>
+ <span class="n">priv</span>   <span class="o">=</span> <span class="s2">&quot;config/certs/rcert.priv&quot;</span>
+
+<span class="p">[</span><span class="n">encryption</span><span class="o">.</span><span class="n">tcert</span><span class="p">]</span>
+ <span class="c1">#Tcert whitelist configuration.</span>
+ <span class="n">whiteList</span> <span class="o">=</span> <span class="n">false</span>
+ <span class="n">listDir</span>  <span class="o">=</span> <span class="s2">&quot;config/certs/tcerts&quot;</span>
+
+<span class="p">[</span><span class="n">encryption</span><span class="o">.</span><span class="n">check</span><span class="p">]</span>
+ <span class="n">enable</span>     <span class="o">=</span> <span class="n">true</span>  <span class="c1">#enable ERCert</span>
+ <span class="n">enableT</span>    <span class="o">=</span> <span class="n">false</span>  <span class="c1">#enable TCert</span>
+</pre></div>
+</div>
+<p>First of all, the first six parameters are related to the configuration
+change Namespace certificate path, namely eca, ecert and ecert
+corresponding private key, rcar, rcert and rcert corresponding private
+key.</p>
+<p>And the TCert configuration, the platform supports the TCert whitelist
+policy, that is, when the <code class="docutils literal notranslate"><span class="pre">whiteList</span> <span class="pre">=</span> <span class="pre">true</span></code>, the TCert whitelist
+policy is enabled, and the TCert certificate under the listDir parameter
+configuration is an immediately available transaction certificate. On
+the other hand, when the <code class="docutils literal notranslate"><span class="pre">whiteList</span></code> is false, the whitelist policy is
+not enabled. Only when the validity of the transaction certificate is
+verified and the transaction certificate is determined to be the node
+and the transaction certificate promulgated under the Namespace can the
+verification be fully verified.</p>
+<p>The last two parameters are configured switch parameters, <code class="docutils literal notranslate"><span class="pre">enable</span></code> is
+used to open the enrollment certificate and the role of the certificate
+check switch. <code class="docutils literal notranslate"><span class="pre">EnableT</span></code> is uesd to open the transaction certificate
+verification switch configuration, only when the parameter is set to
+true Before the transaction certificate verification. The dynamic switch
+configuration also makes the block chain more flexible.</p>
+</div>
+<div class="section" id="certificate-acquisition-and-verification-process">
+<h2>4.Certificate acquisition and verification process<a class="headerlink" href="#certificate-acquisition-and-verification-process" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ecert-and-rcert">
+<h3>4.1 ECert and RCert<a class="headerlink" href="#ecert-and-rcert" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="acquisition">
+<h4>4.1.1 Acquisition<a class="headerlink" href="#acquisition" title="Permalink to this headline">¶</a></h4>
+<p>Enrollment certificates and role certificates are mainly issued under
+the control of the line, a Certgen certificate issuance tool for
+certificate generation.</p>
+</div>
+<div class="section" id="verification">
+<h4>4.1.2 Verification<a class="headerlink" href="#verification" title="Permalink to this headline">¶</a></h4>
+<p>If the ECert and RCert check switches are turned on, the specific
+verification flow is as follows:</p>
+<p><img alt="image1" src="../../images/ercert.png" /></p>
+<p>ECert and RCert exchanged certificates and authenticated the certificate
+when the node handshake the connection for the first time to determine
+whether the node is allowed to enter the chain and the role information
+of the connected node.</p>
+</div>
+</div>
+<div class="section" id="tcert">
+<h3>4.2 TCert<a class="headerlink" href="#tcert" title="Permalink to this headline">¶</a></h3>
+<p>TCert acquisition and verification of the flow chart as shown below:</p>
+<p><img alt="image2" src="../../images/tcert.png" /></p>
+<div class="section" id="id1">
+<h4>4.2.1 Acquisition<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>First, the SDK or the external application needs to send a GetTcert
+message to the connected node. The message needs to carry the SDKCert to
+authenticate the SDK or the external application. After the
+authentication is passed, the TCert certificate is generated and
+promulgated.</p>
+</div>
+<div class="section" id="id2">
+<h4>4.2.2 Verification<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>If the SDK or the external application acquires the TCert successfully,
+the following transaction needs to carry the relevant transaction
+certificate to the relevant node for verification. Only after the
+transaction certificate is verified, the next transaction execution will
+be performed.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="namespace.html" class="btn btn-neutral float-right" title="Namespace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="p2p_introduce.html" class="btn btn-neutral float-left" title="P2P" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

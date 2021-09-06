@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>合约生命周期管理 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>合约生命周期管理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Contract Life Management.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contract-life-manage">
+<span id="id1"></span><h1>合约生命周期管理<a class="headerlink" href="#contract-life-manage" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>合约生命周期管理<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>合约生命周期管理概述<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>合约生命周期管理包括合约的部署、升级、冻结、解冻以及销毁操作。现合约生命周期可通过两种方式进行管理，一种是不投票的方式，使用默认对方式管理合约；一种是投票对方式，需要提出申请，合约管理员审核通过后才能进行合约管理操作。</p>
+<p>当前使用投票方式管理合约还是不投票的方式管理合约取决于配置项 <cite>proposal.contract.vote.enable</cite> 的值，当值为true时只能使用投票管理合约，当值为false时只能使用不投票的方式管理合约（默认方式）。如果采用投票的方式管理合约，需要多少赞同票才通过则通过配置项 <cite>proposal.contract.vote.threshold</cite> 的值确定。这两个配置项的修改和查询方式参考 <a class="reference internal" href="Chain%20Configuration%20Management.html#chain-conf-manage"><span class="std std-ref">链级配置管理</span></a>。</p>
+<p><strong>本文后续提到的合约生命周期管理都是通过投票的方式来管理合约</strong>，本文描述的也是如何通过投票的方式来管理合约。</p>
+<p>合约生命周期管理也是通过提案的方式来进行修改，提案的状态迁移如下：</p>
+<p><img alt="image1" src="_images/ContractLifeManage1.png" /></p>
+<p>通过提案管理合约生命周期的流程如下：（关于合约管理员的相关使用说明参考 <a class="reference internal" href="Chain%20Role%20Management.html#chain-role-manage"><span class="std std-ref">链级角色管理</span></a>，关于提案的总体介绍参考 <a class="reference internal" href="Chain%20Authority%20Management.html#chain-auth-manage"><span class="std std-ref">链级权限管理</span></a>）</p>
+<ol class="arabic simple">
+<li><p>由用户发送交易创建提案，提案中包含对合约的操作；</p></li>
+<li><p>由合约管理员发送交易对提案进行投票，交易中携带有投票的提案编号和是否赞同提案中携带的内容；</p></li>
+<li><p>当提案投票通过后，由提案创建者发送交易执行提案，交易中携带由执行的提案编号。</p></li>
+</ol>
+<p>合约生命周期管理包含的操作如下：</p>
+<ol class="arabic simple">
+<li><p>部署合约，即将合约部署到区块链上以供使用。返回值为部署是否成功以及相应的合约地址</p></li>
+<li><p>升级合约，即对已有的合约进行升级</p></li>
+<li><p>维护合约，即对已有的合约进行冻结、解冻和销毁操作</p></li>
+</ol>
+</div>
+<div class="section" id="litesdk">
+<h3>litesdk接口说明<a class="headerlink" href="#litesdk" title="Permalink to this headline">¶</a></h3>
+<p>litesdk提供了 <cite>ProposalBuilder</cite> 构造器用于构造提案的操作，在 <cite>ProposalBuilder</cite> 中提供了 <cite>createForContract</cite> 、 <cite>vote</cite> 、 <cite>cancel</cite> 和 <cite>execute</cite> 方法分别用于创建合约管理类提案、提案投票、取消提案和执行提案的提案操作，其定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="k">class</span> <span class="nc">ProposalBuilder</span> <span class="n">extends</span> <span class="n">BuiltinOperationBuilder</span> <span class="p">{</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">creat</span> <span class="n">ProposalOperation</span> <span class="k">for</span> <span class="n">contract</span> <span class="n">to</span> <span class="n">create</span> <span class="n">contract</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">opts</span> <span class="n">contract</span> <span class="n">operations</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">createForContract</span><span class="p">(</span><span class="n">ContractOperation</span><span class="o">...</span> <span class="n">opts</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">vote</span> <span class="n">ProposalOperation</span> <span class="n">to</span> <span class="n">vote</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">proposalID</span> <span class="n">proposal</span> <span class="nb">id</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">vote</span>       <span class="n">vote</span> <span class="n">value</span><span class="p">,</span> <span class="n">true</span> <span class="n">means</span> <span class="n">agree</span><span class="p">;</span> <span class="n">false</span> <span class="n">means</span> <span class="n">refuse</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">vote</span><span class="p">(</span><span class="nb">int</span> <span class="n">proposalID</span><span class="p">,</span> <span class="n">boolean</span> <span class="n">vote</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">cancel</span> <span class="n">ProposalOperation</span> <span class="n">to</span> <span class="n">cancel</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">proposalID</span> <span class="n">proposal</span> <span class="nb">id</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">cancel</span><span class="p">(</span><span class="nb">int</span> <span class="n">proposalID</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">execute</span> <span class="n">ProposalOperation</span> <span class="n">to</span> <span class="n">cancel</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">proposalID</span> <span class="n">proposal</span> <span class="nb">id</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">execute</span><span class="p">(</span><span class="nb">int</span> <span class="n">proposalID</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在创建合约管理类提案操作时，根据提案内容中需要对合约的操作不同，接收的合约管理类操作不同。litesdk为合约管理类操作 <cite>ContractOperation</cite> 提供了构造器 <cite>ContractBuilder</cite>，里面提供了 <cite>deploy</cite> 、 <cite>upgrade</cite> 、 <cite>upgradeByName</cite> 、 <cite>maintain</cite> 、 <cite>maintainByName</cite> 以及 <cite>build</cite> 方法，其定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="k">class</span> <span class="nc">ContractBuilder</span> <span class="p">{</span>
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">ContractOperation</span> <span class="n">to</span> <span class="n">deploy</span> <span class="n">contract</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">source</span>     <span class="n">contract</span> <span class="n">source</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="nb">bin</span>        <span class="n">contract</span> <span class="nb">bin</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">vmType</span>     <span class="n">vm</span> <span class="nb">type</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">compileOpt</span> <span class="n">contract</span> <span class="nb">compile</span> <span class="n">option</span><span class="p">(</span><span class="n">the</span> <span class="nb">compile</span> <span class="n">option</span> <span class="n">to</span> <span class="nb">compile</span> <span class="n">source</span> <span class="n">to</span> <span class="nb">bin</span><span class="p">)</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ContractBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ContractBuilder</span> <span class="n">deploy</span><span class="p">(</span><span class="n">String</span> <span class="n">source</span><span class="p">,</span> <span class="n">String</span> <span class="nb">bin</span><span class="p">,</span> <span class="n">VMType</span> <span class="n">vmType</span><span class="p">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">compileOpt</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">ContractOperation</span> <span class="n">to</span> <span class="n">upgrade</span> <span class="n">contract</span> <span class="n">by</span> <span class="n">contract</span> <span class="n">address</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">source</span>     <span class="n">contract</span> <span class="n">source</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="nb">bin</span>        <span class="n">contract</span> <span class="nb">bin</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">vmType</span>     <span class="n">vm</span> <span class="nb">type</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">addr</span>       <span class="n">contract</span> <span class="n">address</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">compileOpt</span> <span class="n">contract</span> <span class="nb">compile</span> <span class="n">option</span><span class="p">(</span><span class="n">the</span> <span class="nb">compile</span> <span class="n">option</span> <span class="n">to</span> <span class="nb">compile</span> <span class="n">source</span> <span class="n">to</span> <span class="nb">bin</span><span class="p">)</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ContractBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ContractBuilder</span> <span class="n">upgrade</span><span class="p">(</span><span class="n">String</span> <span class="n">source</span><span class="p">,</span> <span class="n">String</span> <span class="nb">bin</span><span class="p">,</span> <span class="n">VMType</span> <span class="n">vmType</span><span class="p">,</span> <span class="n">String</span> <span class="n">addr</span><span class="p">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">compileOpt</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">ContractOperation</span> <span class="n">to</span> <span class="n">upgrade</span> <span class="n">contract</span> <span class="n">by</span> <span class="n">contract</span> <span class="n">name</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">source</span>     <span class="n">contract</span> <span class="n">source</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="nb">bin</span>        <span class="n">contract</span> <span class="nb">bin</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">vmType</span>     <span class="n">vm</span> <span class="nb">type</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">name</span>       <span class="n">contract</span> <span class="n">name</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">compileOpt</span> <span class="n">contract</span> <span class="nb">compile</span> <span class="n">option</span><span class="p">(</span><span class="n">the</span> <span class="nb">compile</span> <span class="n">option</span> <span class="n">to</span> <span class="nb">compile</span> <span class="n">source</span> <span class="n">to</span> <span class="nb">bin</span><span class="p">)</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ContractBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ContractBuilder</span> <span class="n">upgradeByName</span><span class="p">(</span><span class="n">String</span> <span class="n">source</span><span class="p">,</span> <span class="n">String</span> <span class="nb">bin</span><span class="p">,</span> <span class="n">VMType</span> <span class="n">vmType</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">compileOpt</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">ContractOperation</span> <span class="n">to</span> <span class="n">maintain</span> <span class="n">contract</span> <span class="n">by</span> <span class="n">contract</span> <span class="n">address</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">vmType</span> <span class="n">vm</span> <span class="nb">type</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">addr</span>   <span class="n">contract</span> <span class="n">address</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">opCode</span> <span class="n">operation</span> <span class="n">code</span><span class="p">,</span> <span class="mi">2</span> <span class="n">means</span> <span class="n">freeze</span><span class="p">,</span> <span class="mi">3</span> <span class="n">means</span> <span class="n">unfreeze</span><span class="p">,</span> <span class="mi">5</span> <span class="n">means</span> <span class="n">destroy</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ContractBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ContractBuilder</span> <span class="n">maintain</span><span class="p">(</span><span class="n">VMType</span> <span class="n">vmType</span><span class="p">,</span> <span class="n">String</span> <span class="n">addr</span><span class="p">,</span> <span class="nb">int</span> <span class="n">opCode</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">ContractOperation</span> <span class="n">to</span> <span class="n">maintain</span> <span class="n">contract</span> <span class="n">by</span> <span class="n">contract</span> <span class="n">name</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">vmType</span> <span class="n">vm</span> <span class="nb">type</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">name</span>   <span class="n">contract</span> <span class="n">address</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">opCode</span> <span class="n">operation</span> <span class="n">code</span><span class="p">,</span> <span class="mi">2</span> <span class="n">means</span> <span class="n">freeze</span><span class="p">,</span> <span class="mi">3</span> <span class="n">means</span> <span class="n">unfreeze</span><span class="p">,</span> <span class="mi">5</span> <span class="n">means</span> <span class="n">destroy</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ContractBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ContractBuilder</span> <span class="n">maintainByName</span><span class="p">(</span><span class="n">VMType</span> <span class="n">vmType</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="nb">int</span> <span class="n">opCode</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="k">return</span> <span class="n">build</span> <span class="n">ContractOperation</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ContractOperation</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ContractOperation</span> <span class="n">build</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>合约生命周期管理的操作构造好后，用ProposalBuild构造器构造提案相关的操作，创建好之后，使用 <cite>BVMBuilder</cite> 提供的 <cite>invoke</cite> 方法构造bvm的交易体，使用 <cite>build</cite> 方法构造出交易 <cite>transaction</cite> ，并为交易设置 <cite>txVersion</cite> 并使用 <cite>sign</cite> 方法签名，得到最终可以发送执行的交易体。</p>
+</div>
+<div class="section" id="id4">
+<h3>litesdk使用示例<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>使用litesdk部署合约、升级合约、冻结合约，其代码如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">testContractOperation</span><span class="p">()</span> <span class="n">throws</span> <span class="n">RequestException</span><span class="p">,</span> <span class="n">IOException</span> <span class="p">{</span>
+    <span class="n">InputStream</span> <span class="n">inputStream1</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getContextClassLoader</span><span class="p">()</span><span class="o">.</span><span class="n">getResourceAsStream</span><span class="p">(</span><span class="s2">&quot;solidity/sol2/TestContract_sol_TypeTestContract.bin&quot;</span><span class="p">);</span>
+    <span class="n">String</span> <span class="nb">bin</span> <span class="o">=</span> <span class="n">FileUtil</span><span class="o">.</span><span class="n">readFile</span><span class="p">(</span><span class="n">inputStream1</span><span class="p">);</span>
+    <span class="n">InputStream</span> <span class="n">inputStream2</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="n">currentThread</span><span class="p">()</span><span class="o">.</span><span class="n">getContextClassLoader</span><span class="p">()</span><span class="o">.</span><span class="n">getResourceAsStream</span><span class="p">(</span><span class="s2">&quot;solidity/sol2/TestContract_sol_TypeTestContract.sol&quot;</span><span class="p">);</span>
+    <span class="n">String</span> <span class="n">source</span> <span class="o">=</span> <span class="n">FileUtil</span><span class="o">.</span><span class="n">readFile</span><span class="p">(</span><span class="n">inputStream2</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">deploy</span>
+    <span class="n">String</span> <span class="n">address</span> <span class="o">=</span> <span class="n">completeManageContractByVote</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">createForContract</span><span class="p">(</span>
+            <span class="n">new</span> <span class="n">ContractOperation</span><span class="o">.</span><span class="n">ContractBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">bin</span><span class="p">,</span> <span class="n">VMType</span><span class="o">.</span><span class="n">EVM</span><span class="p">,</span> <span class="n">null</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">());</span>
+
+    <span class="o">//</span> <span class="n">upgrade</span> <span class="ow">and</span> <span class="n">freeze</span>
+    <span class="n">completeManageContractByVote</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">createForContract</span><span class="p">(</span>
+            <span class="n">new</span> <span class="n">ContractOperation</span><span class="o">.</span><span class="n">ContractBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">upgrade</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">bin</span><span class="p">,</span> <span class="n">VMType</span><span class="o">.</span><span class="n">EVM</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">null</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
+            <span class="n">new</span> <span class="n">ContractOperation</span><span class="o">.</span><span class="n">ContractBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">maintain</span><span class="p">(</span><span class="n">VMType</span><span class="o">.</span><span class="n">EVM</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">String</span> <span class="n">completeManageContractByVote</span><span class="p">(</span><span class="n">BuiltinOperation</span> <span class="n">opt</span><span class="p">)</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="n">Account</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="n">Transaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Transaction</span><span class="o">.</span>
+            <span class="n">BVMBuilder</span><span class="p">(</span><span class="n">acc</span><span class="o">.</span><span class="n">getAddress</span><span class="p">())</span><span class="o">.</span>
+            <span class="n">invoke</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span><span class="o">.</span>
+            <span class="n">build</span><span class="p">();</span>
+    <span class="n">transaction</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span>
+
+    <span class="n">ReceiptResponse</span> <span class="n">receiptResponse</span> <span class="o">=</span> <span class="n">contractService</span><span class="o">.</span><span class="n">manageContractByVote</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">()</span><span class="o">.</span><span class="n">polling</span><span class="p">();</span>
+    <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Decoder</span><span class="o">.</span><span class="n">decodeBVM</span><span class="p">(</span><span class="n">receiptResponse</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">isSuccess</span><span class="p">());</span>
+
+    <span class="n">Request</span><span class="o">&lt;</span><span class="n">ProposalResponse</span><span class="o">&gt;</span> <span class="n">proposal</span> <span class="o">=</span> <span class="n">configService</span><span class="o">.</span><span class="n">getProposal</span><span class="p">();</span>
+    <span class="n">ProposalResponse</span> <span class="n">proposalResponse</span> <span class="o">=</span> <span class="n">proposal</span><span class="o">.</span><span class="n">send</span><span class="p">();</span>
+    <span class="n">ProposalResponse</span><span class="o">.</span><span class="n">Proposal</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">proposalResponse</span><span class="o">.</span><span class="n">getProposal</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">vote</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">vote</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">getId</span><span class="p">(),</span> <span class="n">true</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">execute</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">getId</span><span class="p">())</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">getErr</span><span class="p">());</span>
+
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">OperationResult</span><span class="o">&gt;</span> <span class="n">resultList</span> <span class="o">=</span> <span class="n">Decoder</span><span class="o">.</span><span class="n">decodeBVMResult</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">OperationResult</span> <span class="ow">or</span> <span class="p">:</span> <span class="n">resultList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SuccessCode</span><span class="o">.</span><span class="n">getCode</span><span class="p">(),</span> <span class="ow">or</span><span class="o">.</span><span class="n">getCode</span><span class="p">());</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SuccessCode</span><span class="o">.</span><span class="n">getCode</span><span class="p">(),</span> <span class="ow">or</span><span class="o">.</span><span class="n">getCode</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">resultList</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">resultList</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">getMsg</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">null</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">Result</span> <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">BuiltinOperation</span> <span class="n">opt</span><span class="p">,</span> <span class="n">Account</span> <span class="n">acc</span><span class="p">)</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="n">Transaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Transaction</span><span class="o">.</span>
+            <span class="n">BVMBuilder</span><span class="p">(</span><span class="n">acc</span><span class="o">.</span><span class="n">getAddress</span><span class="p">())</span><span class="o">.</span>
+            <span class="n">invoke</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span><span class="o">.</span>
+            <span class="n">build</span><span class="p">();</span>
+    <span class="n">transaction</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span>
+
+    <span class="n">ReceiptResponse</span> <span class="n">receiptResponse</span> <span class="o">=</span> <span class="n">contractService</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">()</span><span class="o">.</span><span class="n">polling</span><span class="p">();</span>
+    <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Decoder</span><span class="o">.</span><span class="n">decodeBVM</span><span class="p">(</span><span class="n">receiptResponse</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

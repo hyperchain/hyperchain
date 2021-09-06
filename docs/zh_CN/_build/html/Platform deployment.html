@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>平台部署 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>平台部署</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Platform deployment.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>平台部署<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>前言<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>该文档将介绍如何部署一个拥有4个节点的Flato集群，操作步骤会较其他系统的部署稍繁琐一些，用户需要 <strong>分别登录到4台服务器</strong> 上进行操作。</p>
+<p>这里假设4台服务器的IP分别为 <cite>node1</cite> 、 <cite>node2</cite> 、 <cite>node3</cite> 和 <cite>node4</cite> ，操作用户都是 <cite>flato</cite> 。</p>
+<p><strong>该部署文档是为模拟平台上线部署的场景而编写的，所有的操作都只有普通用户权限，因此不涉及任何sudo权限的操作。不推荐使用root用户部署平台，容易养成不好的操作习惯，也不利于发现操作步骤中的错误。</strong></p>
+</div>
+<div class="section" id="id3">
+<h2>第一章 获取安装包以及用户登录<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>1.1 获取安装包<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>如果您已通过其他方式获取安装包请忽略此步骤。</p>
+<p>【线下获取】对接趣链科技相关人员</p>
+<p>【公司外部】登录服务平台官方资源库下载</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://baas.hyperchain.cn">https://baas.hyperchain.cn</a></p></li>
+</ul>
+<p>【公司内部】登录OA：[__https://<a href="#id31"><span class="problematic" id="id32">moffi.hyperchain.cn__</span></a>](<a class="reference external" href="https://moffi.hyperchain.cn/">https://moffi.hyperchain.cn/</a>)</p>
+<ul class="simple">
+<li><p>点击签发-&gt;平台组件-&gt;组件列表-&gt;flato-&gt;下载，选择使用您平台的flato版本下载</p></li>
+<li><p>点击签发-&gt;证书-&gt;创建证书，选择V1.7+证书体系，按步骤点击后下载得到证书zip文件</p></li>
+<li><p>点击签发-&gt;许可-&gt;我的许可，申请适合您需求的LICENSE，审批通过后在许可状态中下载LICENSE文件</p></li>
+</ul>
+<p>至此，您已经获得了所有需要的安装包，注意：<strong>证书和LICENSE文件将在flato部署完成时用到，详见3.2节</strong>。</p>
+<p>## 1.2 创建使用用户及文件权限</p>
+<p>创建平台部署所需的用户，例如创建如下用户：</p>
+<dl class="simple">
+<dt><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a>bash</dt><dd><p>用户名：flato
+密码：flato</p>
+</dd>
+</dl>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a></p>
+<p>可用如下命令创建新用户：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">s</span>
+<span class="pre">sudo</span> <span class="pre">passwd</span> <span class="pre">flato</span>
+<span class="pre">`</span></code></p>
+<p>修改部署路径及数据存放路径的目录权限，例如`/opt/flato`及`/data/hype`</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">flato:</span> <span class="pre">/data/flato</span>
+<span class="pre">`</span></code></p>
+<p>## 1.3 上传安装包</p>
+<p>登录服务器前需要上传Flato安装包和另外的小工具。</p>
+<p>以服务器地址`node1`，用户名`flato`为例，操作步骤如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#上传Flato安装包</span>
+<span class="pre">#具体操作时将flato-install.tar.gz换成实际安装包名，将node1换成实际服务器IP地址</span>
+<span class="pre">scp</span> <span class="pre">flato-installer.tar.gz</span> <span class="pre">flato&#64;node1:~</span>
+<span class="pre">#上传nt工具包</span>
+<span class="pre">#具体操作时将node1换成实际服务器IP地址</span>
+<span class="pre">scp</span> <span class="pre">nt-linux64.tar.gz</span> <span class="pre">flato&#64;node1:~</span>
+<span class="pre">`</span></code></p>
+<p>## 1.4 登录操作用户</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#具体操作时将node1换成服务器IP地址</span>
+<span class="pre">ssh</span> <span class="pre">flato&#64;node1</span>
+<span class="pre">Password:</span>
+<span class="pre">#输入登录密码</span>
+<span class="pre">`</span></code></p>
+<p>## 1.5 重复操作</p>
+<p>请按照**1.2~1.3**中的步骤，再分别登录到`node2~node4`上，以继续之后的操作。</p>
+<p># 第二章 检查系统环境</p>
+<p>首先以`node1`服务器为例，完成以下的检查步骤。</p>
+<p>## 2.1 检查服务器时间</p>
+<p>检查Flato节点所在服务器的时间是否与标准时间同步，如果不同步请联络系管理员同步系统时钟。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#查看服务器时间命令</span>
+<span class="pre">date</span>
+<span class="pre">`</span></code></p>
+<p>## 2.2 检查服务器配置</p>
+<p>检查服务器配置是否与预期的配置一致，如果不一致请联系系统管理调整配置。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#查看CPU主频</span>
+<span class="pre">cat</span> <span class="pre">/proc/cpuinfo</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">'model</span> <span class="pre">name'</span> <span class="pre">|</span> <span class="pre">uniq</span>
+<span class="pre">#查看CPU核数</span>
+<span class="pre">cat</span> <span class="pre">/proc/cpuinfo</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">'model</span> <span class="pre">name'</span> <span class="pre">|</span> <span class="pre">wc</span> <span class="pre">-l</span>
+<span class="pre">#查看内存大小</span>
+<span class="pre">#如果free</span> <span class="pre">-h执行失败，可以直接调用free查看</span>
+<span class="pre">q</span>
+<span class="pre">#查看挂载的文件系统大小</span>
+<span class="pre">df</span> <span class="pre">-h</span>
+<span class="pre">`</span></code></p>
+<p>## 2.3 检查端口占用情况</p>
+<p>检查Flato节点所需的端口是否被其他进程占用，如已被占用请联络系统管理员进行调整。</p>
+<p>/检查端口是否被监听，以查看8001端口为例：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#查看端口是否被占用的命令</span>
+<span class="pre">netstat</span> <span class="pre">-nap</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">8001</span>
+<span class="pre">`</span></code></p>
+<p>如果存在被占用的情况，上述命令会打印出以下类似信息：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">(Not</span> <span class="pre">all</span> <span class="pre">processes</span> <span class="pre">could</span> <span class="pre">be</span> <span class="pre">identified,</span> <span class="pre">non-owned</span> <span class="pre">process</span> <span class="pre">info</span> <span class="pre">will</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">shown,</span> <span class="pre">you</span> <span class="pre">would</span> <span class="pre">have</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">root</span> <span class="pre">to</span> <span class="pre">see</span> <span class="pre">it</span> <span class="pre">all.)tcp6</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">:::8001</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">:::*</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">LISTEN</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">30207/./process1</span>
+<span class="pre">`</span></code></p>
+<p>## 2.4 检查网络连通性</p>
+<p>检查网络连通性的目的，就是为了检查Flato节点所监听的端口能否被其他节点访问到，如果其他节点访问不到请联络系统管理做处理。</p>
+<p>可以使用以下三种方法检查网络连通性，<cite>选择任意一种即可</cite>。</p>
+<ul class="simple">
+<li><p>nt工具</p></li>
+<li><p>nc命令</p></li>
+<li><p>Python HTTP模块</p></li>
+</ul>
+<p>### 2.4.1 使用nt工具测试连通性</p>
+<p>nt是一个专门用于测试网络连通性的工具。</p>
+<p>假设Flato节点IP地址node1~node4，需要验证node2~node4与node1上8001端口的连通性，使用方法如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#登录node1#具体操作时将node1换成服务器IP地址ssh</span> <span class="pre">flato&#64;node1#解压nt工具包tar</span> <span class="pre">xvf</span> <span class="pre">nt-linux64.tar.gzcd</span> <span class="pre">nt-linux64#启动nt监听./nt</span> <span class="pre">server</span> <span class="pre">-l</span> <span class="pre">0.0.0.0:8001#登录node2#具体操作时将node2换成服务器IP地址ssh</span> <span class="pre">flato&#64;node2#解压nt工具包tar</span> <span class="pre">xvf</span> <span class="pre">nt-linux64.tar.gz#编辑servers.txt，向servers.txt中加入需要检测的IP:Port，本例中填入一下内容#具体操作时将node1换成服务器IP地址echo</span> <span class="pre">'node1:8001'</span> <span class="pre">&gt;</span> <span class="pre">servers.txt#检查servers.txt内容是否符合预期cat</span> <span class="pre">servers.txt#启动客户端测试./nt</span> <span class="pre">client#看到类似如下带SUCCESS字样的输出，即表明测试成功[CLIENT]</span> <span class="pre">TEST</span> <span class="pre">node1:8001</span>&#160;&#160;&#160; <span class="pre">[SUCCESS]</span> <span class="pre">RESP:</span> <span class="pre">s:</span> <span class="pre">server_resp</span> <span class="pre">[0.0.0.0:8001],</span> <span class="pre">C-&gt;S:</span> <span class="pre">0</span> <span class="pre">ms,</span> <span class="pre">RTT:</span> <span class="pre">0</span> <span class="pre">ms#在node3、node4上重复在node2上操作即可#测试完之后返回到node1#按</span> <span class="pre">CTRL-C</span> <span class="pre">结束server监听CTRL-C</span>
+<span class="pre">`</span></code></p>
+<p><strong>nt工具支持同时检查多个IP:Port的连通性，只要在servers.txt中以每行一个IP:Port的格式填写即可。</strong></p>
+<p>### 2.4.2 使用nc命令测试连通性</p>
+<p>还可以用nc命令测试连通性，此方法的优点是操作步骤简单，但缺点是有些系统不会自带安装nc命令。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`text</span>
+<span class="pre">#安装nc命令如下：sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">nc</span>
+<span class="pre">`</span></code></p>
+<p>假设Flato节点IP地址node1~node4，需要验证node2~node4与node1上8001端口的连通性，使用方法如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#登录node1#具体操作时将node1换成服务器IP地址ssh</span> <span class="pre">flato&#64;node1#启动nc监听,</span> <span class="pre">-l设置开启监听模式，-k开启支持多客户端同时连接模式，-p指定监听端口nc</span> <span class="pre">-l</span> <span class="pre">-k</span> <span class="pre">-p</span> <span class="pre">8001#登录node2#具体操作时将node2换成服务器IP地址ssh</span> <span class="pre">flato&#64;node2#使用nc命令测试连通性，-w选项设置3秒等待时间,-i选项设置连接成功后空闲等待时间(空闲超3秒即退出)#具体操作时将node1换成服务器IP地址nc</span> <span class="pre">-w</span> <span class="pre">3</span> <span class="pre">-i</span> <span class="pre">3</span> <span class="pre">-v</span> <span class="pre">node1</span> <span class="pre">8001#如果出现以下带Connected字样的输出，表示测试成功。Ncat:</span> <span class="pre">Connected</span> <span class="pre">to</span> <span class="pre">node1:8001.Ncat:</span> <span class="pre">Idle</span> <span class="pre">timeout</span> <span class="pre">expired</span> <span class="pre">(3000</span> <span class="pre">ms).#在node3、node4上重复在node2上操作即可#测试完之后返回到node1#按</span> <span class="pre">CTRL-C</span> <span class="pre">结束nc监听CTRL-C</span>
+<span class="pre">`</span></code></p>
+<p>### 2.4.3 使用Python的HTTP模块测试连通性</p>
+<p>使用Python自带的HTTP模块也能快速开启对一个端口的监听，如果在使用上述两种方法时遇到问题，可以考虑使用此方法快速测试网络连通性。</p>
+<p>假设Flato节点IP地址node1~node4，需要验证node2~node4与node1上8001端口的连通性，使用方法如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#登录node1#具体操作时将node1换成服务器IP地址ssh</span> <span class="pre">flato&#64;node1#启动Python</span> <span class="pre">HTTP模块监听，命令如下(注意大小写)python</span> <span class="pre">-m</span> <span class="pre">SimpleHTTPServer</span> <span class="pre">8001#登录node2#具体操作时将node2换成服务器IP地址ssh</span> <span class="pre">flato&#64;node2#使用curl命令测试连通性#具体操作时将node1换成服务器IP地址curl</span> <span class="pre">node1:8001</span> <span class="pre">&gt;&amp;</span> <span class="pre">/dev/null</span> <span class="pre">&amp;&amp;</span> <span class="pre">echo</span> <span class="pre">yes</span> <span class="pre">||</span> <span class="pre">echo</span> <span class="pre">no#如果测试成功就打印yes，否则打印no#在node3、node4上重复在node2上操作即可#测试完之后返回到node1#按</span> <span class="pre">CTRL-C</span> <span class="pre">结束Python监听CTRL-C</span>
+<span class="pre">`</span></code></p>
+<p>## 2.5 检查系统字符集</p>
+<p><cite>flato`节点默认使用的字符集为`UTF-8</cite> ，请检查`SDK`或者应用服务器的默认字符集是否为`UTF-8`，如果不是，有可能造成签名非法。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">Linux系统字符集查看echo</span> <span class="pre">$LANGLinux修改字符集vim</span> <span class="pre">/etc/sysconfig/i18nLANG=&quot;zh_CN.UTF-8&quot;修改文件保存退出之后要生效要执行如下命令才可生效source</span> <span class="pre">/etc/sysconfig/i18n</span>
+<span class="pre">`</span></code></p>
+<p>## 2.6 检查最大文件句柄数</p>
+<p>启动flato之前，需要保证文件句柄数至少为65535，否则有可能会由于文件句柄数不足引发系统宕机。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">&gt;</span> <span class="pre">ulimit</span> <span class="pre">-n65535</span>
+<span class="pre">`</span></code></p>
+<p>查询到的数值应至少为65535，否则，建议联系当前服务器的管理员进行修改。</p>
+<p>## 2.7 重复操作</p>
+<p>在完成以上步骤后，<a href="#id13"><span class="problematic" id="id14">`</span></a>node1`服务器的系统环境就检查完毕了。请按照**2.1~2.5**中的步骤，再分别登录到`node2~node4`上做一次检查。</p>
+<p># 第三章 安装节点</p>
+<p>首先以node1服务器为例，完成以下的安装步骤。</p>
+<p>## 3.1 备份数据</p>
+<p>在做安装操作之前，需要先检查目标目录是否有数据，如果不是首次安装，请先备份一下历史数据。</p>
+<p>## 3.2 安装节点</p>
+<p>以下步骤以安装node1上的Flato为例</p>
+<p>首先解压安装包</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#回到用户主目录，解压安装包cd#根据实际情况修改flato-install.tar.gztar</span> <span class="pre">xvf</span> <span class="pre">flato-installer.tar.gz#根据实际情况修改flato-abcdefcd</span> <span class="pre">flato-abcdef</span>
+<span class="pre">`</span></code></p>
+<p>假设目标安装目录是`/opt/flato`, 请先对照操作步骤**2.2**中的文件系统检查结果，再次确认目标目录的大小满足需求。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">df</span> <span class="pre">-h</span>
+<span class="pre">`</span></code></p>
+<p>若安装目录尚不存在，且登陆用户为非root用户，则需要使用sudo命令获取管理员权限后新建安装目录</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">sudo</span> <span class="pre">mkdir</span> <span class="pre">/opt/flato</span>
+<span class="pre">`</span></code></p>
+<p><strong>注意，在安装之前，一定要确认好目标目录的大小，这点经常会被忽略。请务必仔细检查，以避免不必要的麻烦。</strong></p>
+<p>倘若检查结果没有问题，请执行以下命令完成安装：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">./deploy-local.sh</span> <span class="pre">-d</span> <span class="pre">/opt/flato#如果想直接安装到当前目录，执行以下命令：#./deploy-local.sh</span> <span class="pre">-d</span> <span class="pre">./</span>
+<span class="pre">`</span></code></p>
+<p><strong>注意：确保操作用户对-d指定的安装目录具有可写权限，否则安装将会出错。</strong></p>
+<p>部署完成可看到如下信息：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">flato</span> <span class="pre">has</span> <span class="pre">been</span> <span class="pre">successfully</span> <span class="pre">installed</span> <span class="pre">in:</span> <span class="pre">/opt/flatoPlease</span> <span class="pre">run</span> <span class="pre">these</span> <span class="pre">commands</span> <span class="pre">to</span> <span class="pre">start</span> <span class="pre">flato</span> <span class="pre">process:cd</span> <span class="pre">/opt/flato./start.sh</span>
+<span class="pre">`</span></code></p>
+<p>然后把之前申请的证书和license文件从本地机器复制到该节点的安装目录下（需要**先退出用户登录在本地终端执行该命令**，执行完毕后再登录）：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#在本地解压证书文件#根据具体情况替换证书文件名字unzip</span> <span class="pre">2019-10-31_06_43_59_allcerts.zip</span>
+<span class="pre">`</span></code></p>
+<p>解压后的2019-10-31_06_43_59_allcerts文件夹里包含了一个README文件，请先仔细阅读该文件，并按照文件内容进行操作。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#上传LICENSE文件#根据具体情况替换LICENSE文件的名字scp</span> <span class="pre">license.zip</span> <span class="pre">flato&#64;node1:/opt/flato#解压license文件unzip</span> <span class="pre">xvf</span> <span class="pre">license.zip#解压出的license文件名可能不是LICENSE，需要重命名#根据实际情况替换LICENSE_20191031文件的名字mv</span> <span class="pre">LICENSE_20191031</span> <span class="pre">LICENSE</span>
+<span class="pre">`</span></code></p>
+<p>最后，再执行以下命令，完成Flato节点的安装：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">source</span> <span class="pre">~/.bashrc</span>
+<span class="pre">`</span></code></p>
+<p>## 3.3 验证安装是否成功</p>
+<p>在执行完步骤3.2后，需要验证一下节点是否已经正确安装。请执行以下命令做测试：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#/opt/flato为Flato的目标安装目录，可根据实际情况做修改cd</span> <span class="pre">/opt/flato/./flato</span> <span class="pre">--version</span>
+<span class="pre">`</span></code></p>
+<p>假如显示正确的版本信息，说明节点安装成功，示例如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">$</span> <span class="pre">./flato</span> <span class="pre">--versionFlato</span> <span class="pre">Commercial</span> <span class="pre">Version:</span> <span class="pre">0.1</span>
+<span class="pre">`</span></code></p>
+<p>如果出现了以下报错信息，说明openssl的动态链接库没有安装成功</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">error</span> <span class="pre">while</span> <span class="pre">loading</span> <span class="pre">shared</span> <span class="pre">libraries:</span> <span class="pre">libxxx.</span> <span class="pre">so:</span> <span class="pre">cannot</span> <span class="pre">open</span> <span class="pre">shared</span> <span class="pre">object</span> <span class="pre">file:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span>
+<span class="pre">`</span></code></p>
+<p>需要向用户目录下的`.bashrc`文件添加一行：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#添加一个环境变量LD_LIBRARY_PATH，根据实际情况修改/opt/flato路径echo</span> <span class="pre">'export</span> <span class="pre">LD_LIBRARY_PATH=/opt/flato/tools/lib/'</span> <span class="pre">&gt;&gt;</span> <span class="pre">~/.bashrc#导出环境变量source</span> <span class="pre">~/.bashrc</span>
+<span class="pre">`</span></code></p>
+<p>在完成以上操作之后，再执行一次`./flato –version`，应该就可以输出正常的版本信息了。</p>
+<p>至此，node1服务器上的Flato节点就算完成了。</p>
+<p># 第四章 检查、修改配置文件</p>
+<p>在1.0.8版本及以后的安装包中的配置文件只包含了最精简化的配置，<strong>安装包中的配置文件已经足够满足flato的正常使用</strong>。若您是第一次使用flato，且希望更深入地使用flato时，可以查阅相关功能的使用手册从而知晓配置文件的修改方法；若您以前已经部署过flato，那么仍可以沿用原先的全量配置文件，只不过需要参考《配置变更》对一些配置上的变化进行确认。</p>
+<p><strong>注意，以下操作都是在Flato的目标安装目录操作的，不是在原先未安装前的目录下操作。本例中，是在/opt/flato路径下检查、修改配置文件。</strong></p>
+<p>安装包中的文件内容包括：</p>
+<p>![](<a class="reference external" href="http://teambitiondoc.hyperchain.cn:8099/storage/012640d76a6a90aef09202ca9b19e1fb4070?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMjY0MGQ3NmE2YTkwYWVmMDkyMDJjYTliMTllMWZiNDA3MCJ9._ukG-fkZ1t6fq-1iA7VWkBGZAK1CrBhDSKeOQRmYdT0&amp;download=image.png">http://teambitiondoc.hyperchain.cn:8099/storage/012640d76a6a90aef09202ca9b19e1fb4070?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMjY0MGQ3NmE2YTkwYWVmMDkyMDJjYTliMTllMWZiNDA3MCJ9._ukG-fkZ1t6fq-1iA7VWkBGZAK1CrBhDSKeOQRmYdT0&amp;download=image.png</a> “”)</p>
+<p>## 4.1 检查LICENSE文件</p>
+<p>由于LINCESE文件和Flato安装包不是一起打包分发的，所以在启动节点前，需要检查一下LICENSE文件是否已经更新到正确版本。</p>
+<p>LICENSE文件位于Flato节点的根录下，文件名即LICENSE，如果不确定是否是最新版本，可以用原始的LICENSE文件再覆盖一遍。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#解压缩cd</span> <span class="pre">~tar</span> <span class="pre">xvf</span> <span class="pre">LICENSE-20180701.tar.gz</span> <span class="pre">#解压出来后，LICENSE文件夹的名字可能是License-20180701#更新所有节点的LICENSE#根据实际情况修改License-20180701/LICENSE-abcdef和/opt/flato#拷贝命令的目标文件名，一定是LICENSEcp</span> <span class="pre">License-20180701/LICENSE-abcdef</span> <span class="pre">/opt/flato/LICENSE</span>
+<span class="pre">`</span></code></p>
+<p><strong>请依次检查4个节点的LICENSE文件。</strong></p>
+<p>## 4.2 vi编辑器使用方法</p>
+<p>下面的配置文件的编辑需要使用到vi文本编辑器，在此介绍vi的使用方法</p>
+<p>1、使用vi命令加文件名对某个文件进行编辑，进入vi编辑文件的界面</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">vi</span> <span class="pre">anyFile.txtna</span>
+<span class="pre">`</span></code></p>
+<p>2、按下i键进入编辑模式，方向键控制光标移动</p>
+<p>3、编辑完成后，按下Esc键进入命令模式，输入:wq保存修改并退出vi</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">:wq</span>
+<span class="pre">`</span></code></p>
+<p>4、若要放弃本次编辑，按下Esc键进入命令模式,输入:q!放弃修改并退出vi</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">:q!</span>
+<span class="pre">`</span></code></p>
+<p>## 4.3 修改配置文件</p>
+<p>### <a href="#id15"><span class="problematic" id="id16">**</span></a>4.3.1 dynamic.toml **</p>
+<p>编辑 <cite>dynamic.toml</cite></p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">vi</span> <span class="pre">configuration/dynamic.toml</span>
+<span class="pre">`</span></code></p>
+<p>其内容如下</p>
+<p><code class="docutils literal notranslate"><span class="pre">`yaml</span>
+<span class="pre">self</span> <span class="pre">=</span> <span class="pre">&quot;node1&quot;[port]jsonrpc</span>&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">8081grpc</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">50011</span> <span class="pre">[p2p]</span> <span class="pre">[p2p.ip.self]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">domain</span> <span class="pre">用于指定本地节点目前处在的网络域名称，比如本地节点目前</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">所处的域名称为“domain1”</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">domain</span> <span class="pre">=</span> <span class="pre">&quot;domain1&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">addrs</span> <span class="pre">用于指定本地节点网络可互通的网络域有哪些，并且指定了这些域</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">下的节点应该使用哪个</span> <span class="pre">IP</span> <span class="pre">地址来连自己（即本地节点），这个</span> <span class="pre">IP</span> <span class="pre">地址可能为本地</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">节点的</span> <span class="pre">IP</span> <span class="pre">地址，也可能是代理设备的地址</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">addrs</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;domain1</span> <span class="pre">127.0.0.1:50011&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;domain2</span> <span class="pre">127.0.0.1:50011&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;domain3</span> <span class="pre">127.0.0.1:50011&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;domain4</span> <span class="pre">127.0.0.1:50011&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">][[namespace]]</span>&#160;&#160;&#160; <span class="pre">name</span> <span class="pre">=</span> <span class="pre">&quot;global&quot;</span>&#160;&#160;&#160; <span class="pre">start</span> <span class="pre">=</span> <span class="pre">true</span>
+<span class="pre">`</span></code></p>
+<ul class="simple">
+<li><p><strong>修改port配置</strong></p></li>
+</ul>
+<p>内容为：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[port]jsonrpc</span>&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">8081grpc</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">50011</span>
+<span class="pre">`</span></code></p>
+<p><strong>因为我们选择单服务器单节点模式，实际上每个节点可以使用默认的port配置，但是为了介绍如何正确修改节点配置，这里还是区别一下各节点的端口，即1~4号节点分别使用为**`**xxxx1~xxxx4**`**号端口</strong></p>
+<p>以2号节点为例，它的port内容如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[port]jsonrpc</span>&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">8082grpc</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">50012</span> <span class="pre">#</span> <span class="pre">p2p</span>
+<span class="pre">`</span></code></p>
+<p>需要注意的是，在默认配置中除了1号节点不需要修改port配置，其他节点都要修改port配置。请依次配置剩余节点的port配置。</p>
+<ul class="simple">
+<li><p><strong>修改域配置</strong></p></li>
+</ul>
+<p>以下是详细的配置说明：</p>
+<dl class="simple">
+<dt><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a>javascript</dt><dd><p>[p2p.ip.self]        # 本节点所在域名的域名           domain = “domain1”          # 本节点在不同的域中的地址          # 举例来说，如果节点2属于域`domain2`，那么节点2访问节点1时需要用节点1声明的在`domain2`域中对外暴露的地址，换句话说，节点2访问本节点时用的地址是`127.0.0.1:50012`。      addrs = [        “domain1 127.0.0.1:50012”,      “domain2 127.0.0.1:50012”,      “domain3 127.0.0.1:50012”,      “domain4 127.0.0.1:50012”,     ]</p>
+</dd>
+</dl>
+<p><a href="#id21"><span class="problematic" id="id22">``</span></a><a href="#id23"><span class="problematic" id="id24">`</span></a></p>
+<p>这里是配置是比较容易出错的地方，最简单的配置方式就是：</p>
+<ul class="simple">
+<li><p>所有节点都在一个domain里：所有节点都在同一个内网环境，只要配置一个domain和该节点在这个domain里的IP地址</p></li>
+</ul>
+<p><strong>请按照上述内容格式，依次更新剩余节点的域配置。</strong></p>
+<p><strong>更复杂的网络环境下：</strong></p>
+<p>在一些加入了类似Nginx代理的网络环境中，这个文件的配置极其容易出错，一般可以这样理解，服务器node1在domain1中有自己的`node1_domain1_ip`；但是在domain2中它的`node1_domain2_ip`，是它在domain2中`最内层的一个Nginx代理上，所分配的服务器node1转发地址`，domain2中其他的服务器node2、node3是通过连接最内层的Nginx上的`node1_domain2_ip`访问处于外部的node1服务器的。所以domain2中最内层Nginx上的`node1_domain2_ip`，就是node1服务器addr.toml中，该填的`domain2 node1_domain2_ip`地址。</p>
+<ul class="simple">
+<li><p><strong>修改host配置</strong></p></li>
+</ul>
+<p>内容为：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[p2p.ip.remote]hosts</span> <span class="pre">=</span> <span class="pre">[</span> <span class="pre">&quot;node1</span> <span class="pre">127.0.0.1:50011&quot;,</span> <span class="pre">&quot;node2</span> <span class="pre">127.0.0.1:50012&quot;,</span> <span class="pre">&quot;node3</span> <span class="pre">127.0.0.1:50013&quot;,</span> <span class="pre">&quot;node4</span> <span class="pre">127.0.0.1:50014&quot;,</span>&#160; <span class="pre">]</span>
+<span class="pre">`</span></code></p>
+<p>配置规则很简单：<a href="#id25"><span class="problematic" id="id26">`</span></a>hostname ip_address:port`将所有的节点的节点名称和IP地址端口配置好即可（port为节点间通讯的端口）。</p>
+<p>修改方法为：</p>
+<ul class="simple">
+<li><p>将每行的`127.0.0.1`替换为4台服务器各自的IP地址</p></li>
+<li><p>将每行的`5001x`端口换成每个Flato节点自己的grpc端口</p></li>
+</ul>
+<p><a href="#id27"><span class="problematic" id="id28">**</span></a>因为我们选择单服务器单节点模式，实际上每个节点可以使用默认的50011端口，但是为了介绍如何正确修改节点配置，这里还是将grpc端口定为**`**50011~50014**`</p>
+<p>以服务器IP`10.10.10.1~10.10.10.4`为例，将hosts.toml文件修改为类似以下的内容：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">hosts</span> <span class="pre">=</span> <span class="pre">[&quot;node1</span> <span class="pre">10.10.10.1:50011&quot;,&quot;node2</span> <span class="pre">10.10.10.2:50012&quot;,&quot;node3</span> <span class="pre">10.10.10.3:50013&quot;,&quot;node4</span> <span class="pre">10.10.10.4:50014&quot;]</span>
+<span class="pre">`</span></code></p>
+<p>需要注意的是，4个节点的hosts配置都是一致的，请依次配置。</p>
+<p>### 4.3.2 ns_dynamic.toml</p>
+<p>编辑 <cite>ns_dynamic.toml</cite></p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">vi</span> <span class="pre">configuration/global/ns_dynamic.toml</span>
+<span class="pre">`</span></code></p>
+<p>其内容如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`yaml</span>
+<span class="pre">[consensus]algo</span> <span class="pre">=</span> <span class="pre">&quot;RBFT&quot;[self]n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">4</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">运行时修改。表示所连vp节点的个数，该值在网络中有节点加入或退出时会实时变化。hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node1&quot;</span>&#160;&#160; <span class="pre">#</span> <span class="pre">本地节点的hostnamenew</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">false</span>&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">运行时修改。新节点成功加入网络以后，该值会从true变为false。[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node1&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node2&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node3&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node4&quot;[p2p]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[p2p.ip.remote]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">hosts</span> <span class="pre">用于指定本地节点启动后要向哪些节点发起连接，并且指定了通往</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">这些节点的可连通地址，这个地址可能是对端节点的</span> <span class="pre">IP</span> <span class="pre">地址，也可能是</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">代理设备的地址。</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">如果该列表里指定了本地节点自己的hostname和地址，则自动忽略该项。</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">hosts</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node1</span> <span class="pre">127.0.0.1:50011&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node2</span> <span class="pre">127.0.0.1:50012&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node3</span> <span class="pre">127.0.0.1:50013&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node4</span> <span class="pre">127.0.0.1:50014&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">]</span>
+<span class="pre">`</span></code></p>
+<p>其中需要注意`[[nodes]]`配置，连接多少个VP节点，就加入多少个`[[nodes]]`部分：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[[nodes]]</span>&#160; <span class="pre">hostname</span> <span class="pre">=</span> <span class="pre">&quot;node4&quot;</span>
+<span class="pre">`</span></code></p>
+<p><strong>上面的**`**hostname**`**必须要与**`**dynamic.toml**`**文件中的host配置中保持一致；</strong></p>
+<p>在`self`**部分需要注意的几个配置项以及配置解释**：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[self]n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">4</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">运行时修改。表示所连vp节点的个数，该值在有节点加入或退出时实时变化。hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node1&quot;new</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">false</span>&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">运行时修改。新节点成功加入网络以后，该值会从true变为false。</span>
+<span class="pre">`</span></code></p>
+<p><strong>需要注意的是，本例中除了1号节点不需要修改ns_dynamic.toml，其他节点都要修改配置。请依次配置剩余节点的ns_dynamic.toml文件。</strong></p>
+<p>## 4.4 修改配置文件ns_static.toml</p>
+<p>在ns_static.toml的最上方有创世账户的默认配置，如下所示：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[genesis][genesis.alloc]&quot;000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span> <span class="pre">=</span> <span class="pre">&quot;1000000000&quot;&quot;e93b92f1da08f925bdee44e91e7768380ae83307&quot;</span> <span class="pre">=</span> <span class="pre">&quot;1000000000&quot;&quot;6201cb0448964ac597faf6fdf1f472edf2a22b89&quot;</span> <span class="pre">=</span> <span class="pre">&quot;1000000000&quot;&quot;b18c8575e3284e79b92100025a31378feb8100d6&quot;</span> <span class="pre">=</span> <span class="pre">&quot;1000000000&quot;&quot;856E2B9A5FA82FD1B031D1FF6863864DBAC7995D&quot;</span> <span class="pre">=</span> <span class="pre">&quot;1000000000&quot;&quot;fbca6a7e9e29728773b270d3f00153c75d04e1ad&quot;</span> <span class="pre">=</span> <span class="pre">&quot;1000000000&quot;</span>
+<span class="pre">`</span></code></p>
+<p>这些账户及其对应的余额会在区块链启动时被创建。<strong>需要注意的是，作为默认账户，它们的私钥并不会对外暴露，因此请您自行创建创世账户，填入所有创世节点的配置文件，并妥善保管账户私钥。</strong></p>
+<p>## 4.5 检查配置文件</p>
+<p>假设服务器IP地址为`10.10.10.1~10.10.10.4`，各自使用的端口是`xxxx1~xxxx4`，以下是配置文件更新后的样例。</p>
+<p>### 4.5.1 各节点dynamic.toml</p>
+<p>1号节点：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">self</span> <span class="pre">=</span> <span class="pre">&quot;node1&quot;[port]jsonrpc</span>&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">8081grpc</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">50011[p2p]</span>&#160; <span class="pre">[p2p.ip.self]</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">domain</span> <span class="pre">=</span> <span class="pre">&quot;domain1&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">addrs</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;domain1</span> <span class="pre">10.10.10.1:50011&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">][[namespace]]</span>&#160;&#160;&#160; <span class="pre">name</span> <span class="pre">=</span> <span class="pre">&quot;global&quot;</span>&#160;&#160; <span class="pre">start</span> <span class="pre">=</span> <span class="pre">true</span>
+<span class="pre">`</span></code></p>
+<p>2号节点：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">self</span> <span class="pre">=</span> <span class="pre">&quot;node2&quot;[port]jsonrpc</span>&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">8082grpc</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">50012[p2p]</span>&#160; <span class="pre">[p2p.ip.self]</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">domain</span> <span class="pre">=</span> <span class="pre">&quot;domain1&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">addrs</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;domain1</span> <span class="pre">10.10.10.2:50012&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">][[namespace]]</span>&#160;&#160;&#160; <span class="pre">name</span> <span class="pre">=</span> <span class="pre">&quot;global&quot;</span>&#160;&#160; <span class="pre">start</span> <span class="pre">=</span> <span class="pre">true</span>
+<span class="pre">`</span></code></p>
+<p>3号节点：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">self</span> <span class="pre">=</span> <span class="pre">&quot;node3&quot;[port]jsonrpc</span>&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">8083grpc</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">50013[p2p]</span>&#160; <span class="pre">[p2p.ip.self]</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">domain</span> <span class="pre">=</span> <span class="pre">&quot;domain1&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">addrs</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;domain1</span> <span class="pre">10.10.10.3:50013&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">][[namespace]]</span>&#160;&#160;&#160; <span class="pre">name</span> <span class="pre">=</span> <span class="pre">&quot;global&quot;</span>&#160;&#160; <span class="pre">start</span> <span class="pre">=</span> <span class="pre">true</span>
+<span class="pre">`</span></code></p>
+<p>4号节点：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">self</span> <span class="pre">=</span> <span class="pre">&quot;node4&quot;[port]jsonrpc</span>&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">8084grpc</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">50014[p2p]</span>&#160; <span class="pre">[p2p.ip.self]</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">domain</span> <span class="pre">=</span> <span class="pre">&quot;domain1&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">addrs</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;domain1</span> <span class="pre">10.10.10.4:50014&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">][[namespace]]</span>&#160;&#160;&#160; <span class="pre">name</span> <span class="pre">=</span> <span class="pre">&quot;global&quot;</span>&#160;&#160; <span class="pre">start</span> <span class="pre">=</span> <span class="pre">true</span>
+<span class="pre">`</span></code></p>
+<p>### 4.5.2 各节点ns_dynamic.toml</p>
+<p>1号节点：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[consensus]algo</span> <span class="pre">=</span> <span class="pre">&quot;RBFT&quot;[self]n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">4hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node1&quot;new</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">false[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node1&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node2&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node3&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node4&quot;[p2p]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[p2p.ip.remote]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">this</span> <span class="pre">node</span> <span class="pre">will</span> <span class="pre">connect</span> <span class="pre">to</span> <span class="pre">those</span> <span class="pre">peer,</span> <span class="pre">if</span> <span class="pre">here</span> <span class="pre">has</span> <span class="pre">self</span> <span class="pre">hostname,</span> <span class="pre">we</span> <span class="pre">will</span> <span class="pre">ignore</span> <span class="pre">it</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">hosts</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node2</span> <span class="pre">10.10.10.2:50012&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node3</span> <span class="pre">10.10.10.3:50013&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node4</span> <span class="pre">10.10.10.4:50014&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">]</span>
+<span class="pre">`</span></code></p>
+<p>2号节点：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[consensus]algo</span> <span class="pre">=</span> <span class="pre">&quot;RBFT&quot;[self]n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">4hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node2&quot;new</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">false[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node1&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node2&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node3&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node4&quot;[p2p]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[p2p.ip.remote]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">this</span> <span class="pre">node</span> <span class="pre">will</span> <span class="pre">connect</span> <span class="pre">to</span> <span class="pre">those</span> <span class="pre">peer,</span> <span class="pre">if</span> <span class="pre">here</span> <span class="pre">has</span> <span class="pre">self</span> <span class="pre">hostname,</span> <span class="pre">we</span> <span class="pre">will</span> <span class="pre">ignore</span> <span class="pre">it</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">hosts</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node1</span> <span class="pre">10.10.10.1:50011&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node3</span> <span class="pre">10.10.10.3:50013&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node4</span> <span class="pre">10.10.10.4:50014&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">]</span>
+<span class="pre">`</span></code></p>
+<p>3号节点：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[consensus]algo</span> <span class="pre">=</span> <span class="pre">&quot;RBFT&quot;[self]n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">4hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node3&quot;new</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">false[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node1&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node2&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node3&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node4&quot;[p2p]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[p2p.ip.remote]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">this</span> <span class="pre">node</span> <span class="pre">will</span> <span class="pre">connect</span> <span class="pre">to</span> <span class="pre">those</span> <span class="pre">peer,</span> <span class="pre">if</span> <span class="pre">here</span> <span class="pre">has</span> <span class="pre">self</span> <span class="pre">hostname,</span> <span class="pre">we</span> <span class="pre">will</span> <span class="pre">ignore</span> <span class="pre">it</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">hosts</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node1</span> <span class="pre">10.10.10.1:50011&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node2</span> <span class="pre">10.10.10.2:50012&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node4</span> <span class="pre">10.10.10.4:50014&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">]</span>
+<span class="pre">`</span></code></p>
+<p>4号节点：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">[consensus]algo</span> <span class="pre">=</span> <span class="pre">&quot;RBFT&quot;[self]n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">4hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node4&quot;new</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">false[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node1&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node2&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node3&quot;[[nodes]]hostname</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;node4&quot;[p2p]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[p2p.ip.remote]</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">this</span> <span class="pre">node</span> <span class="pre">will</span> <span class="pre">connect</span> <span class="pre">to</span> <span class="pre">those</span> <span class="pre">peer,</span> <span class="pre">if</span> <span class="pre">here</span> <span class="pre">has</span> <span class="pre">self</span> <span class="pre">hostname,</span> <span class="pre">we</span> <span class="pre">will</span> <span class="pre">ignore</span> <span class="pre">it</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">hosts</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node1</span> <span class="pre">10.10.10.1:50011&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node2</span> <span class="pre">10.10.10.2:50012&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;node3</span> <span class="pre">10.10.10.3:50013&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">]</span>
+<span class="pre">`</span></code></p>
+<p>## 4.6 检查证书配置</p>
+<p>### 4.6.1 非分布式CA证书配置</p>
+<p>flato在默认配置下都是以非分布式CA的方式进行启动。</p>
+<p>在INFO或者OA上下载的V1.7+证书套件解压后会看到ca、flato、hyperchain三个目录，详细使用可见README.md。<strong>注意下载时需要指明节点对应的节点名称（hostname），名称应该和稍后部署时填写的节点名称一致。</strong></p>
+<p>其中flato目录里的证书套件用来部署flato，打开flato目录后可以看到一系列node目录，如下图所示。</p>
+<p>![](<a class="reference external" href="http://teambitiondoc.hyperchain.cn:8099/storage/011wdc15e6755c5045267c28ebb6743a403a?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMXdkYzE1ZTY3NTVjNTA0NTI2N2MyOGViYjY3NDNhNDAzYSJ9.Sf71WT86VblDAF6rdnyU_M03B4CP4MAeMsGat2OD9TM&amp;download=image.png">http://teambitiondoc.hyperchain.cn:8099/storage/011wdc15e6755c5045267c28ebb6743a403a?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMXdkYzE1ZTY3NTVjNTA0NTI2N2MyOGViYjY3NDNhNDAzYSJ9.Sf71WT86VblDAF6rdnyU_M03B4CP4MAeMsGat2OD9TM&amp;download=image.png</a> “”)</p>
+<p>以节点1为例，部署时直接**将证书套件里node1目录下的CA、certs目录（如下图）放到./namespaces/global/certs/目录下**即可。将tls目录下的tlsca.ca 、tls_peer.cert、tls_peer.priv放到flato项目node1的./tls目录下即可。tls相关的配置在global.toml的p2p配置项下。</p>
+<p>![](<a class="reference external" href="http://teambitiondoc.hyperchain.cn:8099/storage/011w7c53f321114635e0bad0f981d88ae965?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMXc3YzUzZjMyMTExNDYzNWUwYmFkMGY5ODFkODhhZTk2NSJ9.PPkhkNqzHK6Reu3YPIPeSl0fEQ3iAJVxkI5g_QY6JCY&amp;download=image.png">http://teambitiondoc.hyperchain.cn:8099/storage/011w7c53f321114635e0bad0f981d88ae965?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMXc3YzUzZjMyMTExNDYzNWUwYmFkMGY5ODFkODhhZTk2NSJ9.PPkhkNqzHK6Reu3YPIPeSl0fEQ3iAJVxkI5g_QY6JCY&amp;download=image.png</a> “”)</p>
+<p>注意事项：</p>
+<ul class="simple">
+<li><p>如果发生找不到证书这类错误，请修改./configuration/global/ns_static.toml文件中的</p></li>
+</ul>
+<p>[encryption.]配置项，修改为 <cite>ca = “certs/CA”</cite></p>
+<p>[encryption.ecert]配置项，修改为 <cite>ecert = “certs/certs”</cite></p>
+<ul class="simple">
+<li><p>如果节点启动报错**”the searched certificate configuration item does not match hostname : need hostname1, but hostname2”<a href="#id29"><span class="problematic" id="id30">**</span></a>此类的错误，请查看证书生成时是否有误。在INFO或者OA上申请SDKCERT,ECERT时，节点名称（域名）一栏需要填写每个节点对应的hostname，如下图：</p></li>
+</ul>
+<p>![](<a class="reference external" href="http://teambitiondoc.hyperchain.cn:8099/storage/011vde077a93af963ac20b1d6ba4ba2db8d5?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMXZkZTA3N2E5M2FmOTYzYWMyMGIxZDZiYTRiYTJkYjhkNSJ9.2-HQ1GHngv3amzNDVAxjQ6irrwvQCpTz9EFBms3RC-k&amp;download=image.png">http://teambitiondoc.hyperchain.cn:8099/storage/011vde077a93af963ac20b1d6ba4ba2db8d5?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMXZkZTA3N2E5M2FmOTYzYWMyMGIxZDZiYTRiYTJkYjhkNSJ9.2-HQ1GHngv3amzNDVAxjQ6irrwvQCpTz9EFBms3RC-k&amp;download=image.png</a> “”)</p>
+<p>### 4.6.2 分布式CA证书配置</p>
+<p>目前分布式CA的证书能够通过certgen生成或INFO进行下载，证书放置路径和非分布式CA相同，但是需要修改./configuration/global/ns_static.toml文件中的</p>
+<p>[distributedCA]配置项，修改为 <cite>enable = true</cite></p>
+<p>通过INFO下载分布式CA证书需要选择“分布式CA”选项：</p>
+<p>![](<a class="reference external" href="http://teambitiondoc.hyperchain.cn:8099/storage/011v9ecbb85907fb4693915e8741ad99cea2?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMXY5ZWNiYjg1OTA3ZmI0NjkzOTE1ZTg3NDFhZDk5Y2VhMiJ9.9XJj4S12qexDWtQAMzE3XmF8jaSGGKLWCIJerW0vCQI&amp;download=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-07-17%20%E4%B8%8B%E5%8D%888.07.28.png">http://teambitiondoc.hyperchain.cn:8099/storage/011v9ecbb85907fb4693915e8741ad99cea2?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMXY5ZWNiYjg1OTA3ZmI0NjkzOTE1ZTg3NDFhZDk5Y2VhMiJ9.9XJj4S12qexDWtQAMzE3XmF8jaSGGKLWCIJerW0vCQI&amp;download=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-07-17%20%E4%B8%8B%E5%8D%888.07.28.png</a> “”)</p>
+<p>通过certgen生成的方式需要借助于如下脚本：</p>
+<p>下载完成后将其放到和可执行 certgen 二进制文件同一目录下，输入</p>
+<p><code class="docutils literal notranslate"><span class="pre">`text</span>
+<span class="pre">./gencert.sh</span>
+<span class="pre">`</span></code></p>
+<p>指令运行，按照提示输入相关内容即可完成证书的创建。</p>
+<p>该shell脚本是通过调用certgen相关指令来完成创建证书的操作的，能够让操作者选择生成分布式CA或者非分布式CA的证书。无论是分布式CA还是非分布式CA都会选择是否生成国密自签证书和国密公私钥，需要说明的是，选择了生成国密自签证书会自动生成国密公私钥对，选择生成非国密自签证书会生成非国密公私钥对，两者需要配套。</p>
+<p>对于分布式CA来说，该脚本默认生成4个CA，需要按照提示输入CA相关信息；并默认生成4个节点的证书，生成顺序为：</p>
+<ul class="simple">
+<li><p>node1需要生成node2.cert(root2颁发), node3.cert(root3颁发), node4.cert(root4颁发);</p></li>
+<li><p>node2需要生成node1.cert(root1颁发),node3.cert, node4.cert;</p></li>
+<li><p>node3需要生成node1.cert, node2.cert, node4.cert;</p></li>
+<li><p>node4需要生成node1.cert, node2.cert, node3.cert;</p></li>
+</ul>
+<p>其中CA1与node1对应按照提示输入信息即可。</p>
+<p>对于非分布式CA来说，默认生成一个CA，输入CA相关信息后会提示输入要生成的节点证书的数量，例如如果有5个节点需要生成证书，输入5，然后根据提示输入相关信息即可。</p>
+<p>### 4.6.3 SOLO模式的证书说明</p>
+<p>共识算法配置为solo的情况下启动flato时，flato单节点运行的模式称为solo模式。solo模式仅用于单节点功能的演示或者测试，不需要节点间的链接，因而我们不需要额外的证书配置。</p>
+<p>当ns_dynamic.toml的[consensus.algo]配置为“SOLO”时，节点工作于solo模式。节点不需要任何证书的配置。</p>
+<p>### 4.6.4不启用证书功能</p>
+<p>当用户对区块链安全有较高要求时（例如有信息安全等级保护要求时）可能选择使用外部的硬件SSL VPN网关来保证准入控制和链路安全，这时可以手动关闭准入控制功能。方法是手动将ns_static.toml中的**[encryption.check.enable]**和**[encryption.check.enableT]**设置为false。这种情况下节点不需要配置任何证书即可启动。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`text</span>
+<span class="pre">[encryption.check]enable</span>&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">false</span>&#160;&#160; <span class="pre">#enable</span> <span class="pre">RCertenableT</span>&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">false</span>&#160; <span class="pre">#enable</span> <span class="pre">TCert</span>
+<span class="pre">`</span></code></p>
+<p>这时节点关闭准入控制功能，但是仍然会启用链路加密。可以同将**[encryption.security. algo]**设置为pure关闭链路加密功能（默认为sm4加密保护）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`text</span>
+<span class="pre">[consensus]algo</span> <span class="pre">=</span> <span class="pre">&quot;SOLO&quot;</span>
+<span class="pre">`</span></code></p>
+<p>请**注意**这种情况下**请务必采取必要的外部措施保护区块链网络安全**。</p>
+<p># 第五章 启动节点</p>
+<p>## 5.1 保存配置</p>
+<p>在启动节点前，备份整个/opt/flato目录，主要是dynamic.toml和ns_dynamic.toml需要备份。</p>
+<p>备份方法如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#根据实际情况修改/opt/flatocd</span> <span class="pre">/opt/flato/.</span> <span class="pre">./tar</span> <span class="pre">zcvf</span> <span class="pre">~/flato-backup.tar.gz</span> <span class="pre">flato</span>
+<span class="pre">`</span></code></p>
+<p><strong>请依次备份4个节点的Flato目标安装目录，本例中就是**`</strong>/opt/flato**`**目录。**</p>
+<p>## 5.2 启动节点</p>
+<p>启动请再按照步骤`3.3`检查一次flato二进制程序能否正常执行。</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#根据实际情况修改/opt/flatocd</span> <span class="pre">/opt/flato/./flato</span> <span class="pre">--version</span>
+<span class="pre">`</span></code></p>
+<p>检查完毕后，使用`start.sh`启动flato进程:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">#根据实际情况修改/opt/flatocd</span> <span class="pre">/opt/flato./start.sh#或者如果上面命令失败，尝试下面这个命令#./flato</span> <span class="pre">start</span>
+<span class="pre">`</span></code></p>
+<p><strong>依次启动4台服务器上的Flato进程。</strong></p>
+<p>## 5.3 查看日志</p>
+<p>查看flato的日志，查看运行情况。</p>
+<p>System级别日志的路径默认为：</p>
+<p><cite>/opt/flato/system/logs</cite></p>
+<p>Namespace级别日志的路径默认(以global为例)：</p>
+<p><cite>/opt/flato/namespaces/global/data/logsls</cite></p>
+<p>若Namespace级别日志显示如下信息，即表示节点正常加入共识网络，flato平台部署启动完成。</p>
+<p>![](<a class="reference external" href="http://teambitiondoc.hyperchain.cn:8099/storage/011od45a6dc36dc1c4f1351155602c5fad69?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMW9kNDVhNmRjMzZkYzFjNGYxMzUxMTU1NjAyYzVmYWQ2OSJ9.TiYp98DECRcMM1GwfE7ACZ-pYqIS7FfZrR6zazq7SPo&amp;download=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-12-16%2019.10.06.png">http://teambitiondoc.hyperchain.cn:8099/storage/011od45a6dc36dc1c4f1351155602c5fad69?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTYzNjYwNTkzNywiaWF0IjoxNjM2MDAxMTM3LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMW9kNDVhNmRjMzZkYzFjNGYxMzUxMTU1NjAyYzVmYWQ2OSJ9.TiYp98DECRcMM1GwfE7ACZ-pYqIS7FfZrR6zazq7SPo&amp;download=%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-12-16%2019.10.06.png</a> “”)</p>
+<p><strong>请依次检查4台服务器上的Flato日志。</strong></p>
+<p>## 5.4 停止节点</p>
+<p>停止某个节点的flato，执行步骤如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">cd</span> <span class="pre">/opt/flato./stop.sh#或者如果上面命令失败，尝试下面这个命令#./flato</span> <span class="pre">stop</span>
+<span class="pre">`</span></code></p>
+<p>## 5.5 重启节点</p>
+<p>重启某个节点的flato，执行步骤如下：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">cd</span> <span class="pre">/opt/flato./restart.sh#或者如果上面命令失败，尝试下面这个命令#./flato</span> <span class="pre">restart</span>
+<span class="pre">`</span></code></p>
+<p>## 5.6 失败恢复</p>
+<p>若启动失败，需要使用5.1小节当中的备份进行失败恢复</p>
+<p>将/opt/flato中的dynamic.toml和ns_dynamic.toml两个配置文件替换为备份中的相应配置文件</p>
+<p><code class="docutils literal notranslate"><span class="pre">`javascript</span>
+<span class="pre">tar</span> <span class="pre">xvf</span> <span class="pre">~/flato-backup.tar.gz</span> <span class="pre">~/cp</span> <span class="pre">~/flato/configuration/dynamic.toml</span> <span class="pre">/opt/flato/configuration/dynamic.tomlcp</span> <span class="pre">~/flato/configuration/global/ns_dynamic.toml</span> <span class="pre">/opt/flato/configuration/global/ns_dynamic.toml</span>
+<span class="pre">`</span></code></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

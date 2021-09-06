@@ -1,0 +1,918 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>API文档 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>API文档</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Json-RPC.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>API文档<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>JSON-RPC是一个无状态且轻量级的远程过程调用(RPC)协议。它允许运行在基于socket、http等诸多不同消息传输环境的同一进程中，使用JSON作为数据格式。</p>
+<p>发送一个请求对象至服务端代表一个RPC调用，一个请求对象包含下列成员:</p>
+<dl class="simple">
+<dt>jsonrpc</dt><dd><p>指定JSON-RPC协议版本的字符，如果是2.0版本,则必须准确写为 “2.0”。</p>
+</dd>
+<dt>method</dt><dd><p>表示所要调用方法名称的字符串，以RPC开头的方法名,用英文句号(U+002E or ASCII 46)连接的为预留给RPC内部的方法名及扩展名,且不能在其他地方使用。</p>
+</dd>
+<dt>params</dt><dd><p>调用方法所需要的结构化参数值，该成员参数可以被省略。</p>
+</dd>
+<dt>id</dt><dd><p>已建立客户端的唯一标识id，该值必须包含一个字符串、数值或NULL值。如果不包含该成员则被认定为是一次通知调用。该值一般不为NULL,若为数值则应为整数。</p>
+</dd>
+</dl>
+<p>当发起一次rpc调用时，服务端都必须回复一个JSON对象作为响应，响应对象包含下列成员:</p>
+<dl class="simple">
+<dt>jsonrpc</dt><dd><p>指定JSON-RPC协议版本的字符串，如果是2.0版本，则必须准确写为“2.0”。</p>
+</dd>
+<dt>method</dt><dd><p>该成员在成功时必须包含，当调用方法失败时必须不包含该成员。服务端中的被调用方法决定了该成员的值。</p>
+</dd>
+<dt>error</dt><dd><p>该成员在失败时必须包含，当没有错误引起时，不包含该成员，若引起错误,则该成员对象将包含code和message两个属性。</p>
+</dd>
+<dt>id</dt><dd><p>该成员必须包含，该成员值必须与请求对象中的id成员值一致。若在检查请求对象id时错误(例如参数错误或无效请求)，则该值必须为空值（NULL）。</p>
+</dd>
+</dl>
+<div class="section" id="id1">
+<h2>API设计<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>接口类别<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>平台接口按照提供的功能服务不同，主要分为：</p>
+<p>区块服务(block)、节点服务(node) 、合约服务(contract) 、MQ服务(sub)、数据归档服务(archive) 、文件共享服务(fm)、链级权限服务(config、account) 、接口权限服务(auth)、simulate合约服务(simulate)。</p>
+</div>
+<div class="section" id="id3">
+<h3>请求参数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>接口设计遵循JSON-RPC 2.0规范，所有HTTP请求均为POST请求，请求参数包括：</p>
+<dl class="simple">
+<dt>jsonrpc</dt><dd><p>指定JSON-RPC协议版本的字符串，如果是2.0版本,则必须准确写为 “2.0”。</p>
+</dd>
+<dt>namespace</dt><dd><p>表示该条请求发送给哪个分区去处理。</p>
+</dd>
+<dt>method</dt><dd><p>表示所要调用方法名称的字符串，格式为：(服务前缀)_(方法名)。</p>
+</dd>
+<dt>params</dt><dd><p>调用方法所需要的结构化参数值，该成员参数可以被省略。</p>
+</dd>
+<dt>id</dt><dd><p>已建立客户端的唯一标识id，该值必须包含一个字符串、数值。</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span>  <span class="n">Request</span>
+
+<span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span>  <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;block_latestBlock&quot;</span><span class="p">,</span>
+<span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[],</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="s1">&#39;</span>
+<span class="n">localhost</span><span class="p">:</span><span class="mi">8081</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>返回参数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>返回参数包括:</p>
+<p><cite>jsonrpc</cite>: 指定JSON-RPC协议版本的字符串,如果是2.0版本,则必须准确写为 “2.0”。</p>
+<p><cite>namespace</cite>: 表示该条请求所属分区。</p>
+<p><cite>code</cite>: 状态码，若成功，则为0，其他状态码详见下表“code错误码”。</p>
+<p><cite>message</cite>: 错误信息，若成功，则为“SUCCESS”，否则为错误详细信息。</p>
+<p><cite>result</cite>: 请求返回的结果，下文接口描述的表格中返回值即表示这个字段返回的值。</p>
+<p><cite>id</cite>: 已建立客户端的唯一标识id,该值必须包含一个字符串、数值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span>  <span class="n">Result</span>
+<span class="p">{</span>
+  <span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span>  <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;namespace&quot;</span><span class="p">:</span>  <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;code&quot;</span><span class="p">:</span>  <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;message&quot;</span><span class="p">:</span>  <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span>  <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;number&quot;</span><span class="p">:</span>  <span class="s2">&quot;0x3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hash&quot;</span><span class="p">:</span>  <span class="s2">&quot;0x00acc3e13d8124fe799d55d7d2af06223148dc7bbc723718bb1a88fead34c914&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parentHash&quot;</span><span class="p">:</span>  <span class="s2">&quot;0x2b709670922de0dda68926f96cffbe48c980c4325d416dab62b4be27fd73cee9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;writeTime&quot;</span><span class="p">:</span>  <span class="mi">1481778653997475900</span><span class="p">,</span>
+    <span class="s2">&quot;avgTime&quot;</span><span class="p">:</span>  <span class="s2">&quot;0x2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;txcounts&quot;</span><span class="p">:</span>  <span class="s2">&quot;0x1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;merkleRoot&quot;</span><span class="p">:</span>  <span class="s2">&quot;0xc6fb0054aa90f3bfc78fe79cc459f7c7f268af7eef23bd4d8fc85204cb00ab6c&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;transactions&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hash&quot;</span><span class="p">:</span>  <span class="s2">&quot;0xf57a6443d08cda4a3dfb8083804b6334d17d7af51c94a5f98ed67179b59169ae&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;blockNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;0x3&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;blockHash&quot;</span><span class="p">:</span><span class="s2">&quot;0x00acc3e13d8124fe799d55d7d2af06223148dc7bbc723718bb1a88fead34c914&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="s2">&quot;0x0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;from&quot;</span><span class="p">:</span>  <span class="s2">&quot;0x17d806c92fa941b4b7a8ffffc58fa2f297a3bffc&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;to&quot;</span><span class="p">:</span>  <span class="s2">&quot;0xaeccd2fd1118334402c5de1cb014a9c192c498df&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;amount&quot;</span><span class="p">:</span>  <span class="s2">&quot;0x0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1481778652973000000</span><span class="p">,</span>
+        <span class="s2">&quot;nonce&quot;</span><span class="p">:</span>  <span class="mi">3573634504790373</span><span class="p">,</span>
+        <span class="s2">&quot;executeTime&quot;</span><span class="p">:</span> <span class="s2">&quot;0x2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;payload&quot;</span><span class="p">:</span>  <span class="s2">&quot;0x81053a70000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000c00000000000000000000000000000000000000000000000000000000000000003000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000005000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000001c8&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>例如，若接口调用成功，返回字段包括：jsonrpc、id、code、message、result，且code值为0，message值为“SUCCESS”，用户可通过这两个字段的值来判断接口调用是否成功；若调用失败，则code为非0值，message为错误信息。</p>
+</div>
+<div class="section" id="code">
+<h3>code错误码<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>-32700</dt><dd><p>服务端接收到无效的json。该错误发送于服务器尝试解析json文本</p>
+</dd>
+<dt>-32600</dt><dd><p>无效的请求（比如非法的JSON格式）</p>
+</dd>
+<dt>-32601</dt><dd><p>方法不存在或者无效</p>
+</dd>
+<dt>-32602</dt><dd><p>无效的方法参数</p>
+</dd>
+<dt>-32603</dt><dd><p>JSON-RPC内部错误</p>
+</dd>
+<dt>-32000</dt><dd><p>Hyperchain内部错误或者空指针或者节点未安装solidity环境</p>
+</dd>
+<dt>-32001</dt><dd><p>查询的数据不存在</p>
+</dd>
+<dt>-32002</dt><dd><p>余额不足</p>
+</dd>
+<dt>-32003</dt><dd><p>签名非法</p>
+</dd>
+<dt>-32004</dt><dd><p>合约部署出错</p>
+</dd>
+<dt>-32005</dt><dd><p>合约调用出错</p>
+</dd>
+<dt>-32006</dt><dd><p>系统繁忙</p>
+</dd>
+<dt>-32007</dt><dd><p>交易重复</p>
+</dd>
+<dt>-32008</dt><dd><p>合约操作权限不够</p>
+</dd>
+<dt>-32009</dt><dd><p>(合约)账户不存在</p>
+</dd>
+<dt>-32010</dt><dd><p>namespace不存在</p>
+</dd>
+<dt>-32011</dt><dd><p>账本上无区块产生，查询最新区块的时候可能抛出该错误</p>
+</dd>
+<dt>-32012</dt><dd><p>订阅不存在</p>
+</dd>
+<dt>-32013</dt><dd><p>数据归档、快照相关错误</p>
+</dd>
+</dl>
+<p><strong>下文将给出几个错误示例。</strong></p>
+<p><strong>Example1: 请求无效</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Request</span>
+<span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8081</span>
+<span class="o">//</span> <span class="n">Result</span>
+<span class="p">{</span>
+   <span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">32600</span><span class="p">,</span>
+   <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;EOF&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example2: 交易重复</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">//</span> <span class="n">Request</span>
+<span class="n">curl</span>  <span class="n">localhost</span><span class="p">:</span><span class="mi">8081</span> <span class="o">--</span><span class="n">data</span>  <span class="s1">&#39;{</span>
+ <span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;contract_deployContract&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;params&quot;</span><span class="p">:[{</span>
+  <span class="s2">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;0x000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;nonce&quot;</span><span class="p">:</span><span class="mi">1204154551977848</span><span class="p">,</span>
+  <span class="s2">&quot;payload&quot;</span><span class="p">:</span><span class="s2">&quot;0x60606040526000805463ffffffff19168155609e908190601e90396000f3606060405260e060020a60003504633ad14af381146030578063569c5f6d146056578063d09de08a14607c575b6002565b346002576000805463ffffffff8116600435016024350163ffffffff199091161790555b005b3460025760005463ffffffff166040805163ffffffff9092168252519081900360200190f35b3460025760546000805463ffffffff19811663ffffffff90911660010117905556&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;signature&quot;</span><span class="p">:</span><span class="s2">&quot;97501a6f16b00916298f93fb865d296074e2bcbbee87d276c3d968ebf5b4bdab5ed01b679d24dc918180840414d27fbfe3c21fc5f3534b866024f6995c330e0b00&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span><span class="mi">1486995057580182971</span>
+ <span class="p">}],</span>
+       <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">}</span><span class="s1">&#39;</span>
+
+ <span class="o">//</span> <span class="n">Result</span>
+<span class="p">{</span>
+  <span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">32007</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;repeated tx&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example3: 方法不存在</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span>  <span class="n">Request</span>
+<span class="n">curl</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8081</span> <span class="o">--</span><span class="n">data</span>  <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;tx_test&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[</span><span class="s2">&quot;0x0e0758305cde33c53f8c2b852e75bc9b670c14c547dd785d93cb48f661a2b36a  &quot;</span><span class="p">],</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+
+<span class="o">//</span> <span class="n">Result</span>
+<span class="p">{</span>
+  <span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span>
+  <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span>  <span class="o">-</span><span class="mi">32601</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;The method  tx_test does not exist/is not available&quot;</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>交易服务<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>tx_sendTransaction：发送交易</p></li>
+<li><p>tx_getTransactionByHash：根据交易哈希值查询交易详情</p></li>
+<li><p>tx_getTransactionByBlockHashAndIndex：根据区块哈希值查询交易详情</p></li>
+<li><p>tx_getTransactionByBlockNumberAndIndex：根据区块号查询交易详情</p></li>
+<li><p>tx_getTransactionsCount：查询链上所有交易量</p></li>
+<li><p>tx_getTxAvgTimeByBlockNumber：查询指定区块中交易平均处理时间</p></li>
+<li><p>tx_getTransactionReceipt：查询指定交易回执信息</p></li>
+<li><p>tx_getBlockTransactionCountByHash：根据区块哈希查询区块交易数量</p></li>
+<li><p>tx_getBlockTransactionCountByNumber：根据区块号查询区块交易数量</p></li>
+<li><p>tx_getTransactionsVersion：查询平台当前的交易版本号</p></li>
+<li><p>tx_getTransactionsWithLimit：查询指定区块区间的交易（可用于分页）</p></li>
+<li><p>tx_getTransactionsByTimeWithLimit：查询指定时间区间内的交易（可用于分页）</p></li>
+<li><p>tx_getTransactionsByExtraID：查询extraId为指定值的交易</p></li>
+<li><p>tx_getTransactionsByFilter：查询符合过滤条件的交易</p></li>
+</ol>
+<div class="section" id="id6">
+<h3>接口详情<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tx-sendtransaction">
+<h4>1. tx_sendTransaction(发送交易接口)<a class="headerlink" href="#tx-sendtransaction" title="Permalink to this headline">¶</a></h4>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>from：&lt;string&gt; 账户地址</p></li>
+<li><p>to：&lt;string&gt; 账户地址</p></li>
+<li><p>value：&lt;number&gt;转账值</p></li>
+<li><p>signature：&lt;string&gt; 交易签名</p></li>
+<li><p>timestamp：&lt;number&gt; 交易发生的unix时间戳(单位ns)</p></li>
+<li><p>simulate：&lt;bool&gt; [可选] true表示交易不走共识，false表示走共识，默认为false</p></li>
+<li><p>nonce：&lt;number&gt; 16位的随机数，该值必须为十进制整数</p></li>
+<li><p>type：&lt;string&gt; [可选] 指定合约执行引擎，默认为evm，如果合约代码由java语言编写，则需要设置该值为hvm</p></li>
+<li><p>extra：&lt;string&gt; [可选] 额外信息</p></li>
+<li><p>extraIdInt64：&lt;int64&gt; [可选] int64类型的extraId数组</p></li>
+<li><p>extraIdString：&lt;string&gt; [可选] string类型的extraId数组</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>transactionHash：&lt;string&gt; 交易的哈希值，32字节的十六进制字符串</p></li>
+</ul>
+<p>发送交易的时候用户可以自定义extraId字段的值，该值作为这笔交易的可索引信息，数组表示一笔交易可以有多个索引信息</p>
+<p>由于平台交易结构的extraId的值支持int64数组、string数组或者包含int64和string的数组，因此本接口针对这两种类型分别定义了 <strong>extraIdInt64</strong> 和 <strong>extraIdString</strong> 两个参数，分别用来接收不同数据类型的索引值。允许接收到的发送交易请求参数里不包含这两个字段、只包含extraIdInt64字段、只包含extraIdString字段或者同时包含这两个字段。如果同时包含这两个字段，则最终生成的交易结构的ExtraId值为这两个数组的拼接， <strong>数组拼接顺序为int64数组后面拼接string数组</strong>。</p>
+</div>
+<div class="section" id="tx-gettransactionsbyhash">
+<h4>2. tx_getTransactionsByHash(根据哈希查询交易接口)<a class="headerlink" href="#tx-gettransactionsbyhash" title="Permalink to this headline">¶</a></h4>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>transactionHash：&lt;string&gt; 交易的哈希值,32字节的十六进制字符串</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>&lt;TransactionResult&gt; 交易详情</p></li>
+</ul>
+<p>TransactionResult对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   version: &lt;string&gt; 平台版本号
+   hash: &lt;string&gt; 交易的哈希值,32字节的十六进制字符串
+   blockNumber: &lt;number&gt; 交易所在的区块高度
+   blockHash: &lt;string&gt; 交易所在区块哈希值
+   txIndex: &lt;number&gt; 交易在区块中的交易列表的位置
+   from: &lt;string&gt; 交易发送方的地址,20字节的十六进制字符串
+   to: &lt;string&gt; 交易接收方的地址,20字节的十六进制字符
+   cName: &lt;string&gt; 交易接收方的名称，合约的命名
+   amount: &lt;number&gt; 交易量
+   timestamp: &lt;number&gt; 交易发生的unix时间戳(单位 ns)
+   nonce: &lt;number&gt; 16位随机数
+   extra: &lt;string&gt; 交易的额外信息
+   executeTime: &lt;string&gt; 交易的处理时间(单位ms)
+   payload: &lt;string&gt; 部署合约与调用合约的时候才有这个值，可以通过这个值追溯到合约调用的方法以及调用传入的参数
+   signature: &lt;string&gt; 交易签名
+   invalid: &lt;boolean&gt; 交易是否不合法
+   invalidMsg: &lt;string&gt; 交易的不合法信息
+   blockTimestamp:&lt;number&gt; 交易打包时间
+   blockWriteTime:&lt;number&gt; 交易写块时间
+ }
+</pre></div>
+</div>
+<p>不合法的交易invalid值为true， invalidMsg可能为：</p>
+<ul class="simple">
+<li><p>合约部署失败DEPLOY_CONTRACT_FAILED</p></li>
+<li><p>合约方法调用失败INVOKE_CONTRACT_FAILED</p></li>
+<li><p>签名非法SIGFAILED</p></li>
+<li><p>余额不足OUTOFBALANCE</p></li>
+<li><p>合约操作权限不够INVALID_PERMISSION</p></li>
+</ul>
+</div>
+<div class="section" id="tx-gettransactionsbyblockhash">
+<h4>3. tx_getTransactionsByBlockHash(根据区块哈希查询交易接口)<a class="headerlink" href="#tx-gettransactionsbyblockhash" title="Permalink to this headline">¶</a></h4>
+<p><strong>RPC方法：</strong></p>
+<p>tx_getTransactionByBlockHashAndIndex</p>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>blockHash: &lt;string&gt; 区块的哈希值，32字节的十六进制字符串</p></li>
+<li><p>index: &lt;number&gt; 区块中的位置</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>&lt;TransactionResult&gt; 交易详情</p></li>
+</ul>
+<p>index可以是十进制整数或者进制字符串。</p>
+<p><strong>TransactionResult</strong> 对象结构请参见getTransactionsByHash接口。</p>
+</div>
+<div class="section" id="tx-gettransactionsbyblocknumber">
+<h4>4. tx_getTransactionsByBlockNumber(根据区块号查询交易接口)<a class="headerlink" href="#tx-gettransactionsbyblocknumber" title="Permalink to this headline">¶</a></h4>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getTransactionByBlockNumberAndIndex</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>blockNumber: &lt;blockNumber&gt; 区块的高度</p></li>
+<li><p>index: &lt;number&gt; 区块中的位置</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>&lt;TransactionResult&gt; 交易详情</p></li>
+</ul>
+<p>blockNumber可以是十进制整数或者进制字符串，可以是“latest”字符串表示最新的区块；index可以是十进制整数或者进制将字符串。</p>
+<p><strong>TransactionResult</strong> 对象结构请参见getTransactionsByHash接口。</p>
+</div>
+<div class="section" id="tx-gettransactionscount">
+<h4>5. tx_getTransactionsCount(查询链上所有交易量接口)<a class="headerlink" href="#tx-gettransactionscount" title="Permalink to this headline">¶</a></h4>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getTransactionsCount</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>count: &lt;number&gt; 交易数量</p></li>
+<li><p>timestamp: &lt;number&gt; 响应时间戳(单位ns)</p></li>
+</ul>
+</div>
+<div class="section" id="tx-gettxavgtime">
+<h4>6. tx_getTxAvgTime(根据指定的区块区间计算出每笔交易的平均处理时间接口)<a class="headerlink" href="#tx-gettxavgtime" title="Permalink to this headline">¶</a></h4>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getTxAvgTimeByBlockNumber</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>from: &lt;blockNumber&gt; 起始区块号</p></li>
+<li><p>to: &lt;blockNumber&gt; 终止区块号</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>time: &lt;number&gt; 交易的平均处理时间（单位ms）</p></li>
+</ul>
+<p>blockNumber可以是十进制整数或者进制字符串，可以是“latest”字符串表示最新的区块。</p>
+<p>from必须小于等于to，否则会返回error。如果 from 和 to 的值一样，则表示计算的是当前指定区块交易的平均处理时间。</p>
+</div>
+<div class="section" id="tx-gettransactionreceipt-hash">
+<h4>7. tx_getTransactionReceipt(根据交易hash返回交易回执信息接口)<a class="headerlink" href="#tx-gettransactionreceipt-hash" title="Permalink to this headline">¶</a></h4>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getTransactionReceipt</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>transactionHash: &lt;string&gt; 交易hash</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>&lt;Receipt&gt; 交易回执</p></li>
+</ul>
+<p>Receipt对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   version: &lt;string&gt; 版本号
+   txHash: &lt;string&gt; 交易哈希
+   vmType: &lt;string&gt; 该笔交易执行引擎类型，EVM或HVM、BVM
+   contractAddress: &lt;string&gt; 合约地址
+   contractName: &lt;string&gt; 合约命名
+   ret: &lt;string&gt; 合约执行的结果
+   log: &lt;[Log]&gt; 合约中的event log信息
+}
+</pre></div>
+</div>
+<p>Log对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   address: &lt;string&gt; 产生事件日志的合约地址
+   topics: &lt;[string]&gt; 一系列的topic，第一个topic是event的唯一标识
+   data: &lt;string&gt; 日志信息
+   blockNumber: &lt;int&gt; 所属区块的区块号
+   blockHash: &lt;string&gt; 所属区块的区块哈希
+   txHash: &lt;string&gt; 所属交易的交易哈希
+   txIndex: &lt;int&gt; 所属交易在当前区块交易列表中的偏移量
+   index: &lt;int&gt; 该日志在本条交易产生的所有日志中的偏移量
+}
+</pre></div>
+</div>
+<p>若调用这个方法得到错误码-32001，则表明这笔交易还没被确认，若返回了error，则可能是：</p>
+<ul class="simple">
+<li><p>余额不足OUTOFBALANCE，对应code是-32002;</p></li>
+<li><p>签名非法SIGFAILED，对应code是-32003；</p></li>
+<li><p>合约部署失败DEPLOY_CONTRACT_FAILED，对应code是-32004；</p></li>
+<li><p>合约方法调用失败INVOKE_CONTRACT_FAILED，对应code是-32005；</p></li>
+<li><p>合约操作权限不够INVALID_PERMISSION，对应code是-32008;</p></li>
+</ul>
+</div>
+<div class="section" id="tx-getblocktransactioncountbyhash-hash">
+<h4>8. tx_getBlockTransactionCountByHash(根据区块hash返回区块交易数量接口)<a class="headerlink" href="#tx-getblocktransactioncountbyhash-hash" title="Permalink to this headline">¶</a></h4>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getBlockTransactionCountByHash</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>blockHash: &lt;string&gt; 区块hash</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>count: &lt;number&gt; 交易数量</p></li>
+</ul>
+</div>
+<div class="section" id="tx-getblocktransactioncountbynumber-number">
+<h4>9. tx_getBlockTransactionCountByNumber(根据区块number返回区块交易数量接口)<a class="headerlink" href="#tx-getblocktransactioncountbynumber-number" title="Permalink to this headline">¶</a></h4>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getBlockTransactionCountByNumber</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>blockNumber: &lt;string&gt; 区块号</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>count: &lt;number&gt; 交易数量</p></li>
+</ul>
+</div>
+<div class="section" id="tx-gettransactionswithlimit">
+<h4>10. tx_getTransactionsWithLimit[查询指定区块区间的交易(可分页)]<a class="headerlink" href="#tx-gettransactionswithlimit" title="Permalink to this headline">¶</a></h4>
+<p><strong>注意：该接口最多返回5000条交易，返回值最大为8Mb。</strong></p>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getTransactionsWithLimit</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>from: &lt;blockNumber&gt; 起始区块号</p></li>
+<li><p>to: &lt;blockNumber&gt; 终止区块号</p></li>
+<li><p>metadata: &lt;Metadata&gt; [可选] 指定本次查询请求的元信息，定义见下文</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>hasmore: &lt;bool&gt; 表示是否有更多符合查询条件[from, to]的交易未被返回</p></li>
+<li><p>data: [&lt;TransactionResult&gt;] 交易详情数组</p></li>
+</ul>
+<p>blockNumber可以是十进制整数或者进制字符串，可以是“latest”字符串表示最新的区块。from必须小于等于to，否则会返回error。</p>
+<p>Metadata 对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   pagesize: &lt;int32&gt; [可选] 表示本次查询返回多少条交易。如果未指定，则pagesize默认值为5000，如果超过5000，则使用节点默认值5000。如果返回值的条数未达到pagesize时大小就超过了8Mb，则不再继续往下查询，直接返回，返回结果里hasmore置为true。
+   bookmark: &lt;Bookmark&gt; [可选] 表示本次查询的书签位置，即起始位置，返回的结果里不包含用户指定的书签所对应的交易。如果未指定且backward为false，则默认从最新区块开始向前遍历，如果未指定且backward为true，则默认从创世区块开始向后遍历。
+   backward: &lt;bool&gt; [可选] 表示本次查询的方向，false表示以起始位置为起点从高区块往低区块遍历，true表示以起始位置为起点从低区块往高区块遍历，默认查询方向为false。
+}
+</pre></div>
+</div>
+<p>Bookmark对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   blkNum: &lt;uint64&gt; 交易所在区块号
+   txIndex: &lt;int64&gt; 交易索引号，即交易在区块内的位置
+}
+</pre></div>
+</div>
+<p>客户端可以利用该接口实现区块链的“分页查询”，根据返回结果里的hasmore来判断是否要继续查询剩下的数据。下面对该接口的参数做进一步说明：</p>
+<ul class="simple">
+<li><p>如果查询条件未指定metadata，则 metadata.backward 默认为 false、书签位置默认为最新区块最后一条交易，从书签位置开始往前遍历，limit默认为5000条、8Mb。</p></li>
+<li><p>如果查询条件里未指定metadata.bookmark，若 metadata.backward 为 false，则默认书签位置为最新区块的最后一条交易，若metadata.backward 为 true，则默认书签位置为第一个区块的第一条交易。</p></li>
+<li><p>如果查询条件里指定的书签位置metadata.bookmark 位于区块区间 [1, latest] 里，则我们需要根据metadata.backward 的值来调整遍历的区块区间。如果 metadata.backward 为false，则区块区间调整为[1, metadata.bookmark.blkNum]；如果 metadata.backward 为true，则区块区间调整为[metadata.bookmark.blkNum, latest]。</p></li>
+<li><p>当backward 为 false 的时候，如果指定的书签位置在区块1之前，则接口返回error。当backward为 true 的时候，如果指定的书签位置在最新区块之后，则接口返回error。</p></li>
+</ul>
+<p>TransactionResult对象结构请参见getTransactionsByHash接口</p>
+</div>
+<div class="section" id="tx-gettransactionsbytimewithlimit">
+<h4>11. tx_getTransactionsByTimeWithLimit[查询指定时间区间内的所有交易（可用于分页）]<a class="headerlink" href="#tx-gettransactionsbytimewithlimit" title="Permalink to this headline">¶</a></h4>
+<p><strong>注意：该接口最多返回5000条交易，返回值最大为8Mb。</strong></p>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getTransactionsByTimeWithLimit</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>startTime: &lt;number&gt; 起始unix时间戳(单位ns)</p></li>
+<li><p>endTime: &lt;number&gt; 结束unix时间戳(单位ns)</p></li>
+<li><p>metadata: &lt;Metadata&gt; [可选] 指定本次查询请求的元信息，定义见下文</p></li>
+<li><p>filter: &lt;Filter&gt; [可选] 指定本次查询过滤条件，包括交易发送方地址、交易接收方地址和交易extraId,用于筛选符合时间条件的交易里又符合过滤条件的交易 hasmore: &lt;bool&gt; 表示是否有更多符合查询条件[from, to]的交易未被返回</p></li>
+<li><p>data: &lt;TransactionResult&gt; 交易详情数组</p></li>
+</ul>
+<p>Metadata 对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   pagesize: &lt;int32&gt; [可选] 表示本次查询返回多少条交易。如果未指定，则pagesize默认值为5000，如果超过5000，则使用节点默认值5000。如果返回值的条数未达到pagesize时大小就超过了8Mb，则不再继续往下查询，直接返回，返回结果里hasmore置为true。
+   bookmark: &lt;Bookmark&gt; [可选] 表示本次查询的书签位置，即起始位置，返回的结果里不包含用户指定的书签所对应的交易。如果未指定且backward为false，则默认从最新区块开始向前遍历，如果未指定且backward为true，则默认从创世区块开始向后遍历。
+   backward: &lt;bool&gt; [可选] 表示本次查询的方向，false表示以起始位置为起点从高区块往低区块遍历，true表示以起始位置为起点从低区块往高区块遍历，默认查询方向为false。
+}
+</pre></div>
+</div>
+<p>Bookmark对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   blkNum: &lt;uint64&gt; 交易所在区块号
+   txIndex: &lt;int64&gt; 交易索引号，即交易在区块内的位置
+}
+</pre></div>
+</div>
+<p>Filter对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="n">extraId</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">array</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">必选</span><span class="p">]</span> <span class="n">指定交易extraId的值</span>
+   <span class="n">txTo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">指定交易接收方的地址</span>
+   <span class="n">txName</span><span class="p">:</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">执行交易接收方的名字</span>
+   <span class="n">extraId</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">array</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">指定交易extraId的值</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>客户端可以利用该接口实现区块链的“分页查询”，根据返回结果里的hasmore来判断是否要继续查询剩下的数据。下面对该接口的参数做进一步说明：</p>
+<ul class="simple">
+<li><p>如果查询条件未指定metadata，则 metadata.backward 默认为 false、书签位置默认为最新区块最后一条交易，从书签位置开始往前遍历，limit默认为5000条、8Mb。</p></li>
+<li><p>如果查询条件里未指定metadata.bookmark，若 metadata.backward 为 false，则默认书签位置为最新区块的最后一条交易，若metadata.backward 为 true，则默认书签位置为第一个区块的第一条交易。</p></li>
+<li><p>如果查询条件里指定的书签位置metadata.bookmark 位于区块区间 [1, latest] 里，则我们需要根据metadata.backward 的值来调整遍历的区块区间。如果 metadata.backward 为false，则区块区间调整为[1, metadata.bookmark.blkNum]；如果 metadata.backward 为true，则区块区间调整为[metadata.bookmark.blkNum, latest]。</p></li>
+<li><p>当backward 为 false 的时候，如果指定的书签位置在区块1之前，则接口返回error。当backward为 true 的时候，如果指定的书签位置在最新区块之后，则接口返回error。</p></li>
+</ul>
+<p>TransactionResult对象结构请参见getTransactionsByHash接口</p>
+</div>
+<div class="section" id="tx-gettransactionsbyextraid-extraid">
+<h4>12. tx_getTransactionsByExtraID[查询指定extraId为指定值的所有交易（可分页）]<a class="headerlink" href="#tx-gettransactionsbyextraid-extraid" title="Permalink to this headline">¶</a></h4>
+<p>根据extraId 的值和交易接收方地址（可选）来查询符合条件的交易。该接口最多返回5000条交易。为了提供更加丰富的查询，该接口支持针对extraId的精确查询和模糊查询，详情见下表的mode入参。</p>
+<p>说明：只有当接收请求的节点开启数据索引（或者说开启索引数据库）功能时，该接口才可用。该接口必须要指定 extraId 的值，交易接收方地址为可选项。</p>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getTransactionsByExtraID</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>detail: &lt;bool&gt; [可选] 表示是否返回交易详情，默认为false;若为true，则返回的结果为交易详情[&lt;TransactionResult&gt;]，否则为交易摘要[&lt;TransactionSummary&gt;]</p></li>
+<li><p>mode: &lt;int&gt; [可选] 表示本次查询请求的查询模式，目前有0、1、2三个值可选，默认为0，0 表示按序精确查询模式，即筛选出的的交易 extraId 数组的数值和顺序都与查询条件完全一致；1 表示非按序精确查询模式，即筛选出的交易 extraId 数组包含查询条件里指定的全部数值，顺序无要求；2 表示非按序匹配查询模式，即筛选出的交易 extraId 数组包含部分或全部查询条件指定的值，且顺序无要求</p></li>
+<li><p>metadata: &lt;Metadata&gt; [可选] 指定本次查询的起始位置、查询方向以及返回的条数，若未指定，则默认从最新区块开始向前查询，默认返回条数上限是5000条</p></li>
+<li><p>filter: &lt;Filter&gt; [必选] 指定本次查询过滤条件，包括交易extraId和交易接收方地址</p></li>
+</ul>
+<p><strong>返回值：</strong>
+- hasmore: &lt;bool&gt; 表示是否有更多符合查询条件的交易未被返回
+- data: [&lt;TransactionResult&gt;] 交易详情数组或[&lt;TransactionSummary&gt;] 交易摘要数组</p>
+<p>Metadata 对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   pagesize: &lt;int32&gt; [可选] 表示本次查询返回多少条交易。如果未指定，则pagesize默认值为5000，如果超过5000，则使用节点默认值5000。如果符合条件的交易数量实际上超过pagesize，则返回结果里hasmore为true。
+   bookmark: &lt;Bookmark&gt; [可选] 表示本次查询的书签位置，即起始位置，返回的结果里不包含用户指定的书签所对应的交易。如果未指定且backward为false，则默认从最新区块开始向前遍历，如果未指定且backward为true，则默认从创世区块开始向后遍历。
+   backward: &lt;bool&gt; [可选] 表示本次查询的方向，false表示以起始位置为起点从高区块往低区块遍历，true表示以起始位置为起点从低区块往高区块遍历，默认查询方向为false。
+}
+</pre></div>
+</div>
+<p>Bookmark对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   blkNum: &lt;uint64&gt; 交易所在区块号
+   txIndex: &lt;int64&gt; 交易索引号，即交易在区块内的位置
+}
+</pre></div>
+</div>
+<p>Filter对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="n">extraId</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">array</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">必选</span><span class="p">]</span> <span class="n">指定交易extraId的值</span>
+   <span class="n">txTo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">指定交易接收方的地址</span>
+   <span class="n">txName</span><span class="p">:</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">执行交易接收方的名字</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>客户端可以利用该接口实现区块链的“分页查询”，根据返回结果里的hasmore来判断是否要继续查询剩下的数据。下面对该接口的参数做进一步说明：</p>
+<ul class="simple">
+<li><p>如果查询条件未指定metadata，则 metadata.backward 默认为 false、书签位置默认为最新区块最后一条交易，从书签位置开始往前遍历，limit默认为5000条。</p></li>
+<li><p>如果查询条件里未指定metadata.bookmark，若 metadata.backward 为 false，则默认书签位置为最新区块的最后一条交易，若metadata.backward 为 true，则默认书签位置为第一个区块的第一条交易。</p></li>
+<li><p>如果查询条件里指定的书签位置metadata.bookmark 位于区块区间 [1, latest] 里，则我们需要根据metadata.backward 的值来调整遍历的区块区间。如果 metadata.backward 为false，则区块区间调整为[1, metadata.bookmark.blkNum]，如果 metadata.backward 为true；则区块区间调整为[metadata.bookmark.blkNum, latest]。</p></li>
+<li><p>当backward 为 false 的时候，如果指定的书签位置在区块1之前，则接口返回error。当backward为 true 的时候，如果指定的书签位置在最新区块之后，则接口返回error。</p></li>
+</ul>
+<p>TransactionSummary对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="n">txHash</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">交易哈希值</span>
+   <span class="n">blkNum</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">uint64</span><span class="o">&gt;</span> <span class="n">交易所在区块号</span>
+   <span class="n">txIndex</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span> <span class="n">交易在区块里的索引值</span>
+   <span class="n">from</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">交易发送方地址</span>
+   <span class="n">to</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">交易接收方地址</span>
+   <span class="n">extraId</span><span class="p">:</span><span class="o">&lt;</span><span class="nb">any</span><span class="o">&gt;</span> <span class="n">交易的extraId值</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>TransactionResult对象结构请参见getTransactionsByHash接口。</p>
+</div>
+<div class="section" id="tx-gettransactionsbyfilter">
+<h4>13. tx_getTransactionsByFilter[查询符合过滤条件的所有交易（可分页）]<a class="headerlink" href="#tx-gettransactionsbyfilter" title="Permalink to this headline">¶</a></h4>
+<p>根据过滤条件来得到符合查询条件的交易。为了提供更加丰富的查询，该接口支持多条件与查询和多条件或查询，详情见下表的mode入参。</p>
+<p><strong>注意：只有当接收请求的节点开启数据索引（或者说开启索引数据库）功能时，该接口才可用。</strong></p>
+<p><strong>RPC方法：</strong></p>
+<ul class="simple">
+<li><p>tx_getTransactionsByFilter</p></li>
+</ul>
+<p><strong>参数：</strong></p>
+<ul class="simple">
+<li><p>detail: &lt;bool&gt; [可选] 表示是否返回交易详情，默认为false；若为true，则返回的结果为交易详情[ &lt;TransactionResult&gt;]，否则为交易摘要[&lt;TransactionSummary&gt;]</p></li>
+<li><p>mode: &lt;int&gt; [可选] 表示本次查询请求的查询模式，目前有 0、1 两个值可选，默认为0，0 表示多条件与查询模式，即交易对应字段的值与查询条件里所有指定的字段值都完全一致；1 表示多条件或询模式，即交易对应字段的值至少有一个等于查询条件里指定的字段值</p></li>
+<li><p>metadata: &lt;Metadata&gt; [可选] 指定本次查询的起始位置、查询方向以及返回的条数。若未指定，则默认从最新区块开始向前查询，默认返回条数上限是5000条</p></li>
+<li><p>filter: &lt;Filter&gt; [必选] 指定本次查询过滤条件</p></li>
+</ul>
+<p><strong>返回值：</strong></p>
+<ul class="simple">
+<li><p>hasmore: &lt;bool&gt; 表示是否有更多符合查询条件的交易未被返回</p></li>
+<li><p>data: [&lt;TransactionResult&gt;] 交易详情数组或者[&lt;TransactionSummary&gt;] 交易摘要数组</p></li>
+</ul>
+<p>Metadata对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   pagesize: &lt;int32&gt; [可选] 表示本次查询返回多少条交易。如果未指定，则pagesize默认值为5000，如果超过5000，则使用节点默认值5000。如果符合条件的交易数量实际上超过pagesize，则返回结果里hasmore为true
+   bookmark: &lt;Bookmark&gt; [可选] 表示本次查询的书签位置，即起始位置，返回的结果里不包含用户指定的书签所对应的交易。如果未指定且backward为false，则默认从最新区块开始向前遍历，如果未指定且backward为true，则默认从创世区块开始向后遍历
+   backward: &lt;bool&gt; [可选] 表示本次查询的方向，false表示以起始位置为起点从高区块往低区块遍历，true表示以起始位置为起点从低区块往高区块遍历，默认查询方向为false
+}
+</pre></div>
+</div>
+<p>Bookmark对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+   blkNum: &lt;uint64&gt; 交易所在区块
+   txIndex: &lt;int64&gt; 交易索引号，即交易在区块内的位置
+}
+</pre></div>
+</div>
+<p>Filter对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="n">txHash</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">指定交易的哈希值</span>
+   <span class="n">blkNumber</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">uint64</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">指定交易所在的区块号</span>
+   <span class="n">txIndex</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">指定交易在区块内的索引位置</span>
+   <span class="n">txFrom</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">指定交易发送方的地址</span>
+   <span class="n">txTo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">指定交易接收方的地</span>
+   <span class="n">txName</span><span class="p">:</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span><span class="n">执行交易接收方的名字</span>
+   <span class="n">extraId</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">array</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">可选</span><span class="p">]</span> <span class="n">指定交易extraId的值</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>客户端可以利用该接口实现区块链的“分页查询”，根据返回结果里的hasmore来判断是否要继续查询剩下的数据。下面对该接口的参数做进一步说明：</p>
+<ul class="simple">
+<li><p>如果查询条件未指定metadata，则 metadata.backward 默认为 false、书签位置默认为最新区块最后一条交易，从书签位置开始往前遍历，limit默认为5000条。</p></li>
+<li><p>如果查询条件里未指定metadata.bookmark，若 metadata.backward 为 false，则默认书签位置为最新区块的最后一条交易，若metadata.backward 为 true，则默认书签位置为第一个区块的第一条交易。</p></li>
+<li><p>如果查询条件里指定的书签位置metadata.bookmark 位于区块区间 [1, latest] 里，则我们需要根据metadata.backward 的值来调整遍历的区块区间。如果 metadata.backward 为false，则区块区间调整为[1, metadata.bookmark.blkNum]；如果 metadata.backward 为true，则区块区间调整为[metadata.bookmark.blkNum, latest]。</p></li>
+<li><p>当backward 为 false 的时候，如果指定的书签位置在区块1之前，则接口返回error。当backward为 true 的时候，如果指定的书签位置在最新区块之后，则接口返回error。</p></li>
+</ul>
+<p>TransactionSummary对象结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="n">txHash</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">交易哈希值</span>
+   <span class="n">blkNum</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">uint64</span><span class="o">&gt;</span> <span class="n">交易所在区块号</span>
+   <span class="n">txIndex</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span> <span class="n">交易在区块里的索引值</span>
+   <span class="n">from</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">交易发送方地址</span>
+   <span class="n">to</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">交易接收方地址</span>
+   <span class="n">extraId</span><span class="p">:</span><span class="o">&lt;</span><span class="nb">any</span><span class="o">&gt;</span> <span class="n">交易的extraId值</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>TransactionResult对象结构请参见getTransactionsByHash接口。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>区块服务<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>接口概览<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

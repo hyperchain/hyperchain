@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Transaction Flow &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Consensus" href="consensus.html" />
+    <link rel="prev" title="Hyperchain Samples" href="hyperchain_samples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Get Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Pre-requisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain Samples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Transaction Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ledger.html">Ledger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bucket_tree.html">Bucket tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smart_contract.html">Smart Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p_introduce.html">P2P</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Privacy &amp;&amp; Security:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ca_manager.html">Digital Certificate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">Cryptography Algorithm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User manual:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual.html">JSON-RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_op.html">Node Operation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Developers’ Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Hyperchain Roadmap</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Transaction Flow</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/txflow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="transaction-flow">
+<h1>Transaction Flow<a class="headerlink" href="#transaction-flow" title="Permalink to this headline">¶</a></h1>
+<p>This document outlines the transactional mechanism from a transaction
+initialized by client to final updated into the blockchain ledger. The
+scenario includes the client that initiating the transaction and the
+consensus peer A (also called validate peer, VP) directly connected to
+it. The client interacts with the blockchain ledger by sending
+transactions through the SDK (Java supported) with the VP-A; the VP-A
+fully connected with other VP B, C and D… , while VP-A has two backup
+nodes a1 and a2 (also called non-validate peer, NVP) . <img alt="image0" src="../../images/tx_flow.png" /></p>
+<p><strong>Assumption</strong></p>
+<p>This flow assumes that a channel is set up and running. The application
+user has registered and enrolled with the organization’s certificate
+authority (CA) and received back necessary cryptographic material
+(SDKCert) , which is used to authenticate to the blockchain network.</p>
+<p>The smart contract (including the initial state and all the related
+functions) has been deployed on the blockchain peers in the working
+namespace.</p>
+<p><strong>Client initiates a transaction</strong></p>
+<p>What’s happening? - Client is sending a transaction request (calling one
+of the methods in the smart contract). The request targets VP-A, through
+which it goes into blockchain network.</p>
+<p>The client initializes a <em>HyperchainAPI</em> object by calling the interface
+of the SDK. During initialization, the SDK requests the VP-A with the
+SDKCert and the public key to obtain the TCert needed for initiating the
+transaction. After that, client generates a transaction by calling the
+<em>Transaction</em> interface of the SDK. The SDK firstly signs the
+transaction with the private key specified by the client, then signs the
+message with the private key corresponding to the TCert after the
+transaction is encapsulated in the JSONRPC protocol. <em>HTTP/HTTPS</em>
+“short” connection and <em>WebSocket</em> “long” connection is supported during
+the SDK and representative peer. <img alt="image1" src="../../images/get_tcert.png" /></p>
+<p><strong>Peer accepts transaction &amp; sends to the blockchain network</strong></p>
+<p>VP-A performs TCert authentication as soon as it receives the
+transaction. The peer only processes the request that passed the
+validation of TCert. Then the API module of the peer will do the
+following transaction verification:</p>
+<ol class="arabic simple">
+<li><p>The transaction throughput has not exceed the configuration of rate
+limit;</p></li>
+<li><p>The transaction proposal is well formed (Verify the legality of the
+transaction field, like the legitimacy of the timestamp);</p></li>
+<li><p>It has not been submitted already in the past (replay-attack
+protection);</p></li>
+<li><p>The signature of transaction is valid (ECDH &amp; SM2 supported).</p></li>
+</ol>
+<p>After passing all the aforementioned verification, the transaction will
+be submitted to the consensus module, and the consensus module will
+broadcast it to all VPs in the entire network.</p>
+<p><strong>Consensus of transaction: ordering, validating, writing</strong></p>
+<p>The transaction goes through the three-phase protocol the Consensus
+Algorithm (RBFT):</p>
+<ol class="arabic simple">
+<li><p><em>Pre-Prepare</em> The primary peer (master peer among all VPs) orders
+tansactions chronologically by channel, and creates block of
+transactions in a certain period of time (or a certain number). And
+then, primary broadcasts the block to all VPs. <img alt="image2" src="../../images/txs_to_block.png" /></p></li>
+<li><p><em>Prepare</em> Replicas (another name of all VPs used in consensus) make
+confirmation and pre-execute the transactions in the block. Then
+they broadcast the result hash.</p></li>
+<li><p><em>Commit</em> Replicas write the block, update in the blockchain ledger.
+<img alt="image3" src="../../images/block_to_ledger.png" /></p></li>
+</ol>
+<p>All the illegal transactions found after pre-executing will be recorded
+into the database of illegal transactions instead of blockchain ledger.
+The blockchain ledger is a ledger of blocks including all valid
+transactions.</p>
+<p>Furthermore, all VPs will push the block to all the respectively
+connected NVPs after the block is successfully updated in blockchain
+ledger.</p>
+<p><strong>Transaction Receipt</strong> SDK implements timely query in the result of
+deploying transaction in the <em>Transaction</em> interface, that is,
+transaction receipt. The configuration of the number of transactions and
+packaging time (used in ordering) set in Blockchain network will affect
+the latency of transaction.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="consensus.html" class="btn btn-neutral float-right" title="Consensus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hyperchain_samples.html" class="btn btn-neutral float-left" title="Hyperchain Samples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
