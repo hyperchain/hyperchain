@@ -11,11 +11,13 @@ Hyperchain文档
    :caption: 平台介绍:
 
    Introduction
+   Version information
 
 .. toctree::
    :maxdepth: 2
    :caption: 快速入门:
 
+   General Concepts
    Prepare
    quickstart
    invoking contract
@@ -45,5 +47,29 @@ Hyperchain文档
 .. toctree::
    :maxdepth: 2
    :caption: 用户手册:
+
+   Data Index
+   Data Archiving
+   Trusted File Sharing
+   Oracle
+   Partition Consensus
+   Security Audit
+   Interface Authority Management
+   Chain Authority Management
+   Simulate Contract
+   Message Subscription
+   Data Monitor
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 应用场景:
+
+   application
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 更多资源:
+
+   Community_Resources
 
 

@@ -90,9 +90,11 @@
               <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
 <li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
@@ -126,12 +128,34 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">大规模组网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
 </ul>
 
             
@@ -208,15 +232,15 @@ Java、Solidity、Go等编程语言，提供完善的合约生命周期管理。
 <div class="section" id="id2">
 <h3>HVM概述<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>由于当前Java语言的流行以及其强大的生态，使用Java语言编写合约无疑会让合约开发更加便捷且易于推广。HVM为趣链科技首创支持Java语言的智能合约执行引擎，支持符合Java编写规范多种数据结构，内置数据表结构，可以实现业务数据可视化，在保证智能合约执行的安全性、确定性、可终止性的前提下，提供了一系列灵活的应用模式和工具方法集，以满足复杂多样的业务场景需求，为广泛的区块链开发人员提供更便捷、灵活、安全的区块链应用开发模式。</p>
-<p><img alt="image4" src="_images/HVM5.png" /></p>
 </div>
 <div class="section" id="id3">
 <h3>HVM使用<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>HVM执行机制从外部来看主要负责合约执行的操作。从SDK调用一笔HVM的合约，首先需要共识模块将通过共识的区块交易发送给执行模块，然后执行模块调用HVM暴露出来的合约接口，最后合约执行完成后会将结果返回，将执行结果写入账本中。在架构层面，HVM自上而下主要分为三个部分：合约操作层、库函数层以及虚拟机层。</p>
+<img alt="_images/HVM_Architecture.png" src="_images/HVM_Architecture.png" />
 <ol class="arabic simple">
 <li><p>合约操作层</p></li>
 </ol>
-<p>这一层与用户直接相关联，主要包括合约部署、调用等全生命周期管理。</p>
+<p>这一层与用户直接相关联，主要包括合约部署、调用等全生命周期管理，对于合约的操作通过会对链上的合约数据状态产生影响，所以平台采取了灵活的合约管理提案申请-阈值投票-提案执行的策略，通过合约管理员对合约操作进行控制，保证合约管理操作的公平与安全。</p>
 <ul class="simple">
 <li><p>合约部署 ：编写Java智能合约，并通过SDK发交易的形式将其部署到区块链上；</p></li>
 <li><p>合约调用 ： 根据合约地址，调用相应合约中的逻辑。</p></li>
@@ -228,10 +252,10 @@ Java、Solidity、Go等编程语言，提供完善的合约生命周期管理。
 <li><p>库函数层</p></li>
 </ol>
 <p>库函数包括数据结构、账本操作、日志信息以及加解密等功能。</p>
-<p><img alt="image1" src="_images/HVM2.png" /></p>
 <ul class="simple">
 <li><p><strong>数据结构符合 Java 编写范式</strong>：HyperList、HyperMap为平台独立研发，为了方便Java 软件开发者习惯，使其无需感知区块链底层 KV 结构即可编写相应业务逻辑代码。HyperMap 和 HyperList 的使用类似于开发者所熟知的 HashMap 和 ArrayList，但做了原创性地优化，在减少内存使用的同时也提高了更新账本的插入效率。</p></li>
 </ul>
+<p><img alt="image1" src="_images/HVM2.png" /></p>
 <p><img alt="image3" src="_images/HVM4.png" /></p>
 <ul class="simple">
 <li><p><strong>内置数据表结构 HyperTable</strong>：为了满足复杂业务场景下数据类型多样化、业务数据可视化与可分析的需求，智能合约需要支持复杂的表结构数据组织形式。HVM 提供了内置数据结构 HyperTable，支持在合约内部按照表的形式组织业务数据，便于业务数据可视化以及后续的数据分析与价值挖掘。这种结构可以让原Solidity 语言中复杂嵌套的数据操作简单化，同时在性能方面，能有效解决序列化、反序列化造成的性能瓶颈，整体维护成本更低、使用更高效。</p></li>
@@ -243,9 +267,7 @@ Java、Solidity、Go等编程语言，提供完善的合约生命周期管理。
 <ol class="arabic simple" start="3">
 <li><p>虚拟机层</p></li>
 </ol>
-<p>这一层用户感知较浅，主要是在合约执行过程中，对于合约解析执行的内部操作。为了提高整体的执行效率，HVM设计定制类加载器，类加载缓存提供合约地址
-到合约类加载器的映射，一个合约类加载器保存合约的字节码和合约类实例，采用最近最少使用淘汰策略（LRU）减少类重复加载带来的开销；指令解析从开始
-的每次对指令进行解析到将指令做成单例，并进行栈帧复用，大量节省指令执行时间，提高整体执行效率。</p>
+<p>虚拟机层主要是在合约执行过程中，对于合约解析执行的内部操作。为了提高整体的执行效率，HVM设计定制类加载器，类加载缓存提供合约地址到合约类加载器的映射，一个合约类加载器保存合约的字节码和合约类实例，采用最近最少使用淘汰策略（LRU）减少类重复加载带来的开销；指令解析从开始的每次对指令进行解析到将指令做成单例，并进行栈帧复用，大量节省指令执行时间，提高整体执行效率。</p>
 </div>
 <div class="section" id="id4">
 <h3>HVM优势<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>

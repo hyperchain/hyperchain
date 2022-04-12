@@ -1,0 +1,1378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>数据监控 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="应用案例" href="application.html" />
+    <link rel="prev" title="消息订阅MQ" href="Message%20Subscription.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">数据监控</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">安装及初始化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prometheus">安装Prometheus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grafana">安装Grafana</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">相关配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">参考教程</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">数据指标</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">指标说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">系统相关指标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">共识相关指标</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rbft">RBFT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#txpool">txpool</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">存储相关指标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">执行相关指标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">网络相关指标</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#p2p">P2P</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">消息分发</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#api">API相关指标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">密码相关指标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#go">Go相关指标</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>数据监控</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Data Monitor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>数据监控<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>功能概述<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Metrics数据监控平台提供一站式的数据可视化监控服务，实现数据的自动化采集及展示，帮助用户轻松了解底层平台运行情况，及时识别并处理异常。</p>
+<p>数据监控平台由数据生成层Hyperchain、数据监控层Prometheus以及数据展示层Grafana三部组成。Hyperchain负责生成需要监控的数据并推送到Prometheus服务器中；Prometheus负责存储Hyperchian推送出来的数据，并对外提供读取接口；Grafana：负责从Prometheus服务器中读取数据，并在web上进行展示。</p>
+<p>平台现已支持100+业务及系统层面的监控指标，指标开关灵活可配，具体可参考附录中的数据监控指标清单。</p>
+</div>
+<div class="section" id="id3">
+<h2>安装及初始化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>为了能够完整的使用并展示数据监控的数据，除了需要应用层（即趣链区块链平台）适配并暴露一些监控数据之外，还需要下载并使用额外的两个组件：Prometheus（用于记录监控数据）以及Grafana（用于展示监控数据）。</p>
+<div class="section" id="prometheus">
+<h3>安装Prometheus<a class="headerlink" href="#prometheus" title="Permalink to this headline">¶</a></h3>
+<p><strong>Prometheus</strong></p>
+<p>Prometheus是一种时序数据库（TSDB, time-series database），用于记录平台推送出去的监控数据。</p>
+<p>详细介绍请参考：<a class="reference external" href="https://prometheus.io/docs/introduction/overview/">https://prometheus.io/docs/introduction/overview/</a></p>
+<p>安装下载请参考：<a class="reference external" href="https://prometheus.io/download">https://prometheus.io/download</a>/（建议安装最新版本）</p>
+<p>Prometheus安装完成之后，需要配置好需要监听的区块链节点的地址与端口号，其配置文件默认为： <code class="docutils literal notranslate"><span class="pre">prometheus.yml</span></code></p>
+<p><strong>node_exporter</strong></p>
+<p>如果用户希望监控系统资源的使用情况（例如CPU、磁盘、网络等），我们推荐使用Prometheus官方的工具node_exporter进行监控。</p>
+<p>安装使用教程请参考：<a class="reference external" href="https://prometheus.io/docs/guides/node-exporter/">https://prometheus.io/docs/guides/node-exporter/</a></p>
+</div>
+<div class="section" id="grafana">
+<h3>安装Grafana<a class="headerlink" href="#grafana" title="Permalink to this headline">¶</a></h3>
+<p>Grafana是我们推荐使用的数据监控展示工具。</p>
+<p>安装使用教程请参考：<a class="reference external" href="https://prometheus.io/docs/visualization/grafana/">https://prometheus.io/docs/visualization/grafana/</a></p>
+</div>
+<div class="section" id="id4">
+<h3>相关配置<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>数据监控功能是可选的，即可以通过节点开关配置来决定节点是否启用数据监控，相关配置位于configuration/debug.toml中。</p>
+<p>平台默认不开启数据监控功能， <strong>如果您想启用该功能，请将下述配置复制到debug.toml中，并做好相应配置</strong>。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">metrics.enable</span></code>：是否开启监控服务(true, false)；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metrics.enable_expensive</span></code>：是否开启资源消耗较大的监控服务，<strong>实际不建议开启，需谨慎选择</strong>；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metrics.port</span></code>：监控服务端口。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">metrics</span><span class="p">]</span>
+<span class="n">enable</span>           <span class="o">=</span> <span class="n">true</span>
+<span class="n">enable_expensive</span> <span class="o">=</span> <span class="n">false</span>
+<span class="c1"># visit &quot;http://127.0.0.1:&#39;port&#39;&quot; to get metrics data</span>
+<span class="n">port</span>             <span class="o">=</span> <span class="mi">9001</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>参考教程<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>搭建简单的Linux服务监控：<a class="reference external" href="https://blog.csdn.net/xuqide77/article/details/107850386?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.control">参考教程</a></p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>数据指标<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>指标说明<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>数据指标按用途不同分为外部指标和内部指标；按对平台性能影响程度又分为normal级别与expensive级别。其中，normal级别的指标不影响平台的运行， <strong>expensive级别的指标打开后会降低平台整体的性能，因此需要用户谨慎选择开启。</strong></p>
+<p><strong>有关于系统资源的使用情况，建议使用Prometheus官方推荐的node_exporter工具进行监控</strong>。</p>
+</div>
+<div class="section" id="id9">
+<h3>系统相关指标<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>所有指标以”flato_namespace”（“flato”为趣链区块链平台新版英文简称）为前缀，例如在global这namespace下所有下述指标都要加上前缀”flato_global”（“flato”为趣链区块链平台新版英文简称）。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>execMgr_commit_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>此次启动后新增的交易数量</p></td>
+<td><p>可以通过rate/irate命令计算出交易TPS</p></td>
+</tr>
+<tr class="row-odd"><td><p>execMgr_total_blocks</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>当前链高度</p></td>
+<td><p>可以通过rate/irate命令计算出区块BPS</p></td>
+</tr>
+<tr class="row-even"><td><p>rbft_batch_to_commit_duration</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>共识区块处理时间（rbft从打包到提交的时间）</p></td>
+<td><p>由于主从节点间有时差，因此以主节点的数据为主</p></td>
+</tr>
+<tr class="row-odd"><td><p>execMgr_validate_tx_time</p></td>
+<td><p>histogram</p></td>
+<td><p>expensive</p></td>
+<td><p>单笔交易执行时间</p></td>
+<td><p>交易级别的平均处理时间</p></td>
+</tr>
+<tr class="row-even"><td><p>execMgr_commit_time</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写入区块处理时间（写块时间，包括区块组成、写入等等）</p></td>
+<td><p>区块级别的平均写入时间</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h3>共识相关指标<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>所有指标以”flato_namespace”（“flato”为趣链区块链平台新版英文简称）为前缀，例如在global这个Namespace下所有下述指标都要加上前缀”flato_global”（“flato”为趣链区块链平台新版英文简称）。</p>
+<div class="section" id="rbft">
+<h4>RBFT<a class="headerlink" href="#rbft" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>rbft_ID</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft节点ID</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_version</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft共识协议版本号</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_epoch</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft当前共识所处的epoch</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_view</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft当前共识所处的view</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_cluster_size</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft当前共识节点的个数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_quorum_size</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft当前quorum大小</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_status_normal</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft是否处于normal状态on：1；off：0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_status_conf_change</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft是否处于配置区块状态on：2；off：0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_status_viewchange</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft是否处于vc状态on：3；off：0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_status_recovery</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft是否处于recovery状态on：4；off：0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_status_state_update</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft是否处于state update状态on：5；off：0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_status_pool_full</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft是否处于pool full状态on：6；off：0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_status_pending</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft是否处于pending状态on：7；off：0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_committed_block_number</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft提交的区块数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_committed_config_block_number</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft提交的配置区块数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_committed_empty_block_number</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft提交的空块数（由vc导致的）</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_committed_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft提交的交易个数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_txs_per_block</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>rbft提交的每个区块的交易个数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_batch_persist_duration</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>rbft从打包到提交的时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_batche_number</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft当前缓存的batch个数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_outstanding_batche_number</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft当前正在共识的batch个数，无负载时=0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_state_update_times</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft触发的StateUpdate的次数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_cache_batch_number</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>rbft当前缓存的已打包但是不能共识的batch个数，仅主节点有该值无负载时=0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_fetch_missing_txs_times</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft向主节点索取缺失交易的次数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_fetch_request_batch_times</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft向其他节点索取batch的次数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>txset_incoming_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>txset模块接收到的来自API的交易（这里包括了NVP转发过来的）</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>txset_pending_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>txset模块等待共识的交易个数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_incoming_local_tx_sets</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft接收到的本地生成的txSet的个数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_incoming_remote_tx_sets</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft接收到的其他VP节点转发过来的txSet的个数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_incoming_local_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft接收到的来自API的交易（这里包括了NVP转发过来的）</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_incoming_remote_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft接收到的其他VP节点转发过来的交易</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>rbft_rejected_local_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft拒收的来自API的交易</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>rbft_rejected_remote_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>rbft拒收的其他VP节点转发过来的交易</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注意：</p>
+<ul class="simple">
+<li><p>由于交易进入consensus模块之后需要经由txSet模块打包成一个set才能进入rbft模块，因此有txset_incoming_txs &gt;= rbft_incoming_local_txs</p></li>
+</ul>
+</div>
+<div class="section" id="txpool">
+<h4>txpool<a class="headerlink" href="#txpool" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>txpool_incoming_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>txpool接收到的交易总数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>txpool_duplicate_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>txpool中检测到的重复交易</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>txpool_nonBatched_txs</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>当前交易池中未打包的交易个数，无负载时=0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>txpool_batched_txs</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>当前交易池中已打包的交易个数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>txpool_batches</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>当前交易池中的batch个数，无负载时&lt;20（共识缓存最多20个batch）有负载时从节点&lt;50，主节点理论上无上限</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong></p>
+<ul class="simple">
+<li><p>txpool接收的交易是经由rbft模块传递下来的，因此有</p></li>
+</ul>
+<p>txpool_incoming_txs = rbft_incoming_local_txs + rbft_incoming_remote_txs - rbft_reject_txs</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>存储相关指标<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>db_accountdb_batchCommitTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写入accountdb的返回时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>db_statedb_batchCommitTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写入statedb的返回时间</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>db_metadb_batchCommitTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写入metadb的返回时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>db_chaindb_batchCommitTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写入chaindb的返回时间</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>db_blockdb_batchCommitTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写入blockdb的返回时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>db_journaldb_batchCommitTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写入journaldb的返回时间</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>db_receiptdb_batchCommitTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写入receiptdb的返回时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>db_indexdb_batchCommitTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写入indexdb的返回时间</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>db_dbtype_multicache_memSize</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>多级缓存内存占用大小</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>db_dbtype_multicache_persist_time</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>多级缓存持久化一个区块数据至底层数据库所需时间</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>db_dbtype_multicache_walPersist_time</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>多级缓存写一个seqNo对应的wal的耗时</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>db_dbtype_multicache_cache_get</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>multicache尝试从自身的读缓存中读取数据的次数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>db_dbtype_multicache_cache_set</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>multicache向自身的读缓存中插入数据的次数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>db_dbtype_multicache_cache_hit</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>multicache缓存命中的次数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>db_dbtype_leveldb_compaction_occurrence</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>底层leveldb compaction的次数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>db_dbtype_leveldb_size</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>底层leveldb的数据量大小</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>db_dbtype_filelog_fdNumber</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>filelog中处于open状态的句柄数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>db_dbtype_filelog_readTime</p></td>
+<td><p>histogram</p></td>
+<td><p>expensive</p></td>
+<td><p>filelog读取一个元素的耗时</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>db_dbtype_filelog_fsyncTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>filelog在一个log文件写完后，做一次fsync的耗时</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id12">
+<h3>执行相关指标<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bloomFilter_memSize</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>布隆过滤器占用的内存大小</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>bloomFilter_lookCounter</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>布隆过滤器查询次数</p></td>
+<td><p>有「source」标签说明调用查询的模块，分为“namespace表示共识去重”、“executor表示执行层去重”、“API表示接口层去重”</p></td>
+</tr>
+<tr class="row-even"><td><p>bloomFilter_lookExistCounter</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>布隆过滤器中，查询到存在的交易数量，即会穿透布隆过滤器进行db查询的次数</p></td>
+<td><p>有「source」标签说明调用查询的模块，分为“namespace表示共识去重”、“executor表示执行层去重”、“API表示接口层去重”</p></td>
+</tr>
+<tr class="row-odd"><td><p>execMgr_validate_bloom_readValidDBTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>布隆过滤器发现交易可能重复后，查询合法交易的时间</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>execMgr_validate_bloom_readInvalidDBTime</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>布隆过滤器发现交易可能重复后，查询非法交易的时间（会先查询合法交易，再查询非法交易，查询次数可能比合法交易少一些）</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>execMgr_validate_tx_time</p></td>
+<td><p>histogram</p></td>
+<td><p>expensive</p></td>
+<td><p>单笔交易执行时间</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>execMgr_total_blocks</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>当前链高度</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>execMgr_total_txs</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>区块链所有交易总量</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>execMgr_online_txs</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>区块链归档点后所有交易总量</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>execMgr_commit_txs</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>此次启动后新增的交易数量</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>execMgr_commit_time</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>写块时间，包括区块组成、写入等等</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>execMgr_commit_writeDB_time</p></td>
+<td><p>histogram</p></td>
+<td><p>normal</p></td>
+<td><p>区块batch写入数据库的时间</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h3>网络相关指标<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="p2p">
+<h4>P2P<a class="headerlink" href="#p2p" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>grpc_stream_request_send_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc发送的流请求数目</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>grpc_stream_request_received_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc收到的流请求数目</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>grpc_stream_request_completed_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc完成的流请求的数目</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>grpc_stream_message_send_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc发送的流消息的数目</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>grpc_stream_message_recv_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc收到的流消息的数目</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>grpc_conn_opened_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc连接打开数目。打开数目减去关闭数目便是目前活跃的连接数。</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>grpc_conn_closed_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc连接关闭数目。打开数目减去关闭数目便是目前活跃的连接数。</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>grpc_stream_opened_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc流打开数目。打开数目减去关闭数目便是目前活跃的流数。</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>grpc_stream_closed_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc流关闭数目。打开数目减去关闭数目便是目前活跃的流数。</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>msg_dropped_count_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>某个节点在某个message channel弃的消息的数目</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>grpc_stream_message_send_time_microseconds</p></td>
+<td><p>histogram</p></td>
+<td><p>expensive</p></td>
+<td><p>grpc发送一条消息所需要的时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>logic_conn_opened_count_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>逻辑连接打开数目。打开数目减去关闭数目便是目前活跃的连接数。</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>logic_conn_closed_count_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>逻辑连接关闭数目。打开数目减去关闭数目便是目前活跃的连接数。</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>grpc_network_receive_bytes_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc网络接收到的消息大小总量</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>grpc_network_send_bytes_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>grpc网络发送的消息大小总量</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id14">
+<h4>消息分发<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>dispatcher_%s_writeMsg_ch_size_usage</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>消息分发器发送消息通道对应节点的模块消息数量</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dispatcher_%s_writeMsg_ch_mem_usage</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>消息分发器发送消息通道对应节点的模块消息占用内存的大小</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>dispatcher_%s_readMsg_ch_size_usage</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>消息分发器接收消息通道对应节点的模块消息数量</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>dispatcher_%s_readMsg_ch_mem_usage</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td><p>消息分发器接收消息通道对应节点的模块消息占用内存的大小</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="api">
+<h3>API相关指标<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>jsonrpc_request_received_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>接收的jsonrpc请求个数</p></td>
+</tr>
+<tr class="row-odd"><td><p>jsonrpc_new_tx_request_success_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>成功处理的发送交易相关请求的个数</p></td>
+</tr>
+<tr class="row-even"><td><p>jsonrpc_new_tx_request_error_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>发送交易相关请求处理失败，不同失败原因的请求个数</p></td>
+</tr>
+<tr class="row-odd"><td><p>jsonrpc_received_request_bytes_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>请求总流量统计单位byte</p></td>
+</tr>
+<tr class="row-even"><td><p>jsonrpc_sent_response_bytes_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>响应总流量统计单位byte</p></td>
+</tr>
+<tr class="row-odd"><td><p>jsonrpc_new_tx_request_consensus_abnormal_error_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>由于共识状态异常原因导致请求失败的个数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id15">
+<h3>密码相关指标<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>verify_tube_signature_in_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>输入验签管道的总签名数</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>verify_tube_signature_out_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td><p>输出验签管道的总签名数</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>vt_liner_duration_cycle</p></td>
+<td><p>Histogram</p></td>
+<td><p>normal</p></td>
+<td><p>完成批量验证两段子操作的时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>vt_logic_duration_cycle</p></td>
+<td><p>Histogram</p></td>
+<td><p>normal</p></td>
+<td><p>验签中每段操作的时间</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>vt_hash_duration_cycle</p></td>
+<td><p>Histogram</p></td>
+<td><p>normal</p></td>
+<td><p>完成哈希的时间</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>verify_tube_batch_size</p></td>
+<td><p>Gauge</p></td>
+<td><p>normal</p></td>
+<td><p>每批次的签名数量</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>crypto_verify_channel_length</p></td>
+<td><p>Gauge</p></td>
+<td><p>normal</p></td>
+<td><p>每个阶段的缓冲池大小</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="go">
+<h3>Go相关指标<a class="headerlink" href="#go" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>级别</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>备注</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>go_goroutines</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>go_threads</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>go_gc_duration_seconds</p></td>
+<td><p>summary</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>go_info</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>alloc_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>alloc_bytes_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>sys_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>lookups_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mallocs_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>frees_total</p></td>
+<td><p>counter</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>heap_alloc_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>heap_sys_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>heap_idle_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>heap_inuse_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>heap_released_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>heap_objects</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>stack_inuse_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>stack_sys_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mspan_inuse_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>mspan_sys_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>mcache_inuse_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>mcache_sys_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>buck_hash_sys_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>gc_sys_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>other_sys_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>next_gc_bytes</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>last_gc_time_seconds</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>gc_cpu_fraction</p></td>
+<td><p>gauge</p></td>
+<td><p>normal</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="application.html" class="btn btn-neutral float-right" title="应用案例" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Message%20Subscription.html" class="btn btn-neutral float-left" title="消息订阅MQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

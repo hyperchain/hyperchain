@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Consensus &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ledger" href="ledger.html" />
+    <link rel="prev" title="Transaction Flow" href="txflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Get Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Pre-requisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain Samples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="txflow.html">Transaction Flow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Consensus</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rbft-related-parameters">2. RBFT related parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rbft-normal-case">3. RBFT normal case</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#process-of-normal-case">Process of normal case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checkpoint">Checkpoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transaction-pool-txpool">Transaction pool(txpool)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rbft-viewchange">4. RBFT ViewChange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#view">view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#byzantine-behavior-that-can-be-detected">Byzantine behavior that can be detected</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process-of-viewchange">Process of ViewChange</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rbft-recovery">5. RBFT Recovery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#process-of-recovery">Process of Recovery</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rbft-node-management">6. RBFT Node Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#process-of-adding-nodes">Process of Adding nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ledger.html">Ledger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bucket_tree.html">Bucket tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smart_contract.html">Smart Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p_introduce.html">P2P</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Privacy &amp;&amp; Security:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ca_manager.html">Digital Certificate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">Cryptography Algorithm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User manual:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual.html">JSON-RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_op.html">Node Operation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Developers’ Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Hyperchain Roadmap</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Consensus</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/consensus.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="consensus">
+<h1>Consensus<a class="headerlink" href="#consensus" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Consensus mechanism is the foundation of blockchain consistency, it
+ensures that all consensus nodes (or say validating peer, VP) execute
+transactions in the same order and then write into exactly the same
+ledgers. Accounting nodes(or say non-validating peer, NVP) which connect
+to one or more VP(s) can only synchronize ledger information from its
+connected VP(s), so NVP don’t participate in consensus while NVP can
+forward transactions to VP(s) received from client.</p>
+<p>Hyperchain supports the pluggable consensus mechanism and provides
+different consensus algorithms for different scenarios of the
+blockchain. Current version has implemented the improved algorithm of
+<a class="reference external" href="http://www.usenix.net/legacy/publications/library/proceedings/osdi2000/castro/castro.pdf">PBFT</a>:
+Robust Byzantine Fault Tolerance (RBFT), the idea of this algorithm
+comes from many classic papers (especially
+<a class="reference external" href="https://www.usenix.org/legacy/event/nsdi09/tech/full_papers/clement/clement.pdf">Aardvark</a>).
+Hyperchain will continue to support other consensus algorithms such as
+RAFT later.</p>
+<p>After received transcations from clients, the API layer parses out the
+transactions and forwards to the consensus module. Consensus module
+receives and stores the transactions into local transaction pool
+(TxPool). TxPool takes the role of caching transactions and packaging
+blocks so it is implemented as a sub-module of consensus module. In
+addition, consensus module needs to maintain a consensus database to
+store some variables required by the algorithm for autonomous recovery
+after the system is crashed. For example, the RBFT algorithm needs to
+maintain consensus information such as View, PrePrepare, Prepare, and
+Commit.</p>
+<p><img alt="image0" src="../../images/consensus.png" /></p>
+</div>
+<div class="section" id="rbft-related-parameters">
+<h2>2. RBFT related parameters<a class="headerlink" href="#rbft-related-parameters" title="Permalink to this headline">¶</a></h2>
+<p>In a consensus network of N nodes (N&gt; = 4), RBFT can tolerate at most f
+Byzantine faults which:</p>
+<div class="math notranslate nohighlight">
+\[f=\lfloor \frac{N-1}{3} \rfloor\]</div>
+<p>The number of nodes that can guarantee consensus is:</p>
+<div class="math notranslate nohighlight">
+\[quorum=\lceil \frac{N+f+1}{2} \rceil\]</div>
+</div>
+<div class="section" id="rbft-normal-case">
+<h2>3. RBFT normal case<a class="headerlink" href="#rbft-normal-case" title="Permalink to this headline">¶</a></h2>
+<p>The normal case of RBFT ensures that each consensus node in blockchain
+processes the transactions from the client in the same order. RBFT
+requires at least 3f + 1 nodes to tolerate f Byzantine falult which is
+the same as PBFT. The figure below is the consensus flow under the
+minimum number of cluster nodes, where N = 4 and f = 1. Primary1 is the
+master node which is dynamically elected by the consensus node, and is
+responsible for sorting and packing the transactions sent from the
+client. Replica2, 3 and 4 are backup nodes. All Replica nodes execute
+the transaction with the same logic and are able to participate in the
+election of new primary node when the primary node fails.</p>
+<div class="section" id="process-of-normal-case">
+<h3>Process of normal case<a class="headerlink" href="#process-of-normal-case" title="Permalink to this headline">¶</a></h3>
+<p>The consensus of RBFT retains PBFT’s original three-phase submission
+flow (PrePrepare, Prepare, Commit) and inserts important transaction
+validation session which not only guarantees the consensus on the
+transaction execution sequence but also gurantees the consensus on block
+validation results.</p>
+<p><img alt="image1" src="../../images/normal.png" /></p>
+<p>RBFT inserts important transaction validation session into native PBFT
+normal case operations. Primary will validate block immidiately after
+packing the transactions, and then include the validation result into
+the PrePrepare message for the whole network broadcast, so PrePrepare
+message contains both the ordered Transaction information and block
+validation result. After receiving a PrePrepare message from primary,
+the backup nodes check the legitimacy of the message. After passing the
+legality check, backup node broadcasts Prepare message which indicates
+that the backup node agrees with primary’s sorting result. The backup
+node starts to validate the batch after receiving (quorum-1) Prepare
+messages and compares the validation result with the validation result
+of primary’s. If consistent, backup broadcasts Commit message which
+indicates that the backup node agrees with the validation result of
+primary’s, otherwise, directly triggers ViewChange which indicates that
+the current node discovers primary’s abnormal behavior. RBFT normal case
+operation is divided into the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Transaction forward:</strong> Client sen transactions to any node
+(consensus nodes or accounting nodes) in the blockchain. Accounting
+nodes need to forward the transactions received from clients to its
+connected consensus nodes and the consensus nodes broadcast
+transactions received from clients or accounting nodes to all other
+consensus nodes, so the transaction pool for all consensus nodes
+maintains a complete list of transactions;</p></li>
+<li><p><strong>PrePrepare</strong>: Primary packs transactions according to the policies
+below: User can customize the batch timeout and the packed batch size
+according to demand. Primary triggers the package event when it
+collects more than batchsize transactions during the batch timeout or
+it dosen’t collect batchsize transactions when batch timeout happens.
+Primary packs the transactions into blocks according to the received
+chronological order, then validates and computes the execution
+result, and finally writes the ordered transaction information
+together with the validation result into the PrePrepare message to be
+broadcast to all consensus nodes which starts the three-phase
+processing flow;</p></li>
+<li><p><strong>Prepare:</strong> After receiving the PrePrepare message from the primary,
+backup node first checks the legitimacy of the message(such as
+current view and block number information). If the check passed,
+backup nodes broadcast Prepare message to all consensus node;</p></li>
+<li><p><strong>Commit:</strong> After receiving the (quorum-1) Prepare message and the
+corresponding PrePrepare message, the backup node validates the batch
+and compares the validation result with the validation result of
+primary which is written in the PrePrepare message. If consistent,
+the backup node broadcasts Commit message which indicates that backup
+node agrees with the validation result of primary, otherwise,
+directly triggers the ViewChange event which indicates that the
+current node discovers primary’s abnormal behavior;</p></li>
+<li><p><strong>Write Block:</strong> All consensus nodes write the execution result to
+the local ledger after receiving quorum Commit messages.</p></li>
+</ol>
+<p>By adding a validation mechanism in the consensus module, Hyperchain
+ensures that every backup node participates in checking all primay’s
+ordering results, so backup can discovery primary’s Byzantine behavior
+as soon as possible which improves the stability of the system.</p>
+</div>
+<div class="section" id="checkpoint">
+<h3>Checkpoint<a class="headerlink" href="#checkpoint" title="Permalink to this headline">¶</a></h3>
+<p>Consensus nodes need to periodically clean up some useless message
+caches in order to prevent unlimit message caching during operation.
+RBFT collectes garbage by introducing checkpoint mechanism in the PBFT
+algorithm and fixedly set the checkpoint size K to 10. The node reaches
+a checkpoint after writing into an integer multiple of K and broadcasts
+the checkpoint information. After receiving the same checkpoint
+information from other quorum-1 nodes, replica reaches a stable
+checkpoint, then replica can clean up some of the message cache whose
+message number is less than checkpoint index.</p>
+</div>
+<div class="section" id="transaction-pool-txpool">
+<h3>Transaction pool(txpool)<a class="headerlink" href="#transaction-pool-txpool" title="Permalink to this headline">¶</a></h3>
+<p>Transaction pool(txpool) is the transaction cache place of consensus
+node. The existence of txpool on the one hand limits the client’s
+sending frequence, on the other hand reduces the bandwidth pressure of
+primary. Firstly, by limiting the size of the transaction pool,
+consensus node can refuse transactions from clients after the
+transaction pool reaches its limit size, so users can maximize
+utilization without abnormalities by setting the transaction cache size
+for a reasonable assessment of machine performance. Secondly, the
+consensus node stores the transactions received from the client into its
+own transaction pool and then broadcasts the transactions to other
+consensus nodes to ensure that all consensus nodes maintain a complete
+transaction list. After primary packed transactions, it only needs to
+put the transaction hash list into the PrePrepare message for
+broadcasting instead of put the complete transaction list into
+PrePrepare for broadcasting, which greatly reduces the pressure of the
+egress bandwidth of primary. If the backup node finds that some
+transactions are missing before validation, it needs only fetch the
+missing entries from primary rather than fetching all the transactions
+in the block.</p>
+</div>
+</div>
+<div class="section" id="rbft-viewchange">
+<h2>4. RBFT ViewChange<a class="headerlink" href="#rbft-viewchange" title="Permalink to this headline">¶</a></h2>
+<p>The ViewChange mechanism of RBFT solves the problem that the primary
+node may become a Byzantine node. In the RBFT algorithm, nodes
+participating in consensus can be divided into Primary node and Replica
+nodes according to roles. The most important function of the Primary
+node is to package the received transactions according to a specific
+strategy, order the transactions, and have all the nodes execute in this
+order. However, if the Primary node crashes, goes wrong, or is hacked
+(that is, it becomes a Byzantine node), the Replica nodes need to
+discover the abnormality of the Primary node in time and elect a new
+Primary node. This is a problem that all BFT algorithms must solve in
+order to achieve stability.</p>
+<div class="section" id="view">
+<h3>view<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h3>
+<p>In RBFT, the concept of view has been introduced as same as PBFT. The
+view is changed each time a new Primary node is elected. At present,
+RBFT chooses the Primary node by rotation, and the view increases
+monotonically from zero. The current view and the total number of nodes
+N determines the Primary node id:</p>
+<div class="math notranslate nohighlight">
+\[PrimaryId = (view + 1) \bmod N\]</div>
+</div>
+<div class="section" id="byzantine-behavior-that-can-be-detected">
+<h3>Byzantine behavior that can be detected<a class="headerlink" href="#byzantine-behavior-that-can-be-detected" title="Permalink to this headline">¶</a></h3>
+<p>Currently, there are mainly two types of Primary‘s Byzantine behavior
+that RBFT can detect：</p>
+<ol class="arabic simple">
+<li><p>The Primary node stops working and sending no message；</p></li>
+<li><p>The Primary node sends wrong messages.</p></li>
+</ol>
+<p>For scenario 1, being detected could be guaranteed by the nullRequest
+mechanism. A properly behaved Primary node will send nullRequest
+messages to all Replica nodes periodically to maintain normal connection
+when no transaction occurs. If the Replica node does not receive a
+nullRequest messages within the specified time, the ViewChange process
+is triggered to elect a new Primary node.</p>
+<p>For scenario 2, Replica nodes would check the messages sent from the
+Primary node, such as the verification result contained in the
+PrePrepare message, which is mentioned in the previous section. The
+Replica node will directly initiate the ViewChange process to elect a
+new Primary node if the messages fail to pass the verification.</p>
+<p>In addition, RBFT provides a configurable option called
+ViewChangePeriod. Users can set this option according to their needs.
+Each time a certain number of blocks are written, the network would take
+a proactive ViewChange process to rotate the Primary node. This can
+alleviate the additional pressure on the primary node as a package node.
+And secondly, all the nodes participating in the consensus can take some
+packaging work to ensure fairness.</p>
+</div>
+<div class="section" id="process-of-viewchange">
+<h3>Process of ViewChange<a class="headerlink" href="#process-of-viewchange" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image2" src="../../images/viewchange.png" /></p>
+<p>In the above figure, Primary 1 is a Byzantine node and the network need
+to take ViewChange process. The ViewChange process in RBFT is as follows</p>
+<ol class="arabic simple">
+<li><p>Replica nodes broadcast a ViewChange message to the entire network
+after detecting an abnormal behavior of Primary node (without
+receiving a nullRequest message on time) or after receiving a
+ViewChange message from other f + 1 nodes, and change their view from
+v to v + 1;</p></li>
+<li><p>In the new view, after receiving N-f ViewChange messages, Primary
+node calculates the checkpoint where Primary node would start
+executing from in the new view and the transactions to be processed
+next, according to the received ViewChange message, then encapsulates
+them into the NewView message and broadcasts the message. Finally
+Primary node initiates the VcReset;</p></li>
+<li><p>After receiving the NewView message, Replica nodes validate the
+message. If the message passes validation, Replica nodes initiate the
+VcReset. If it does not pass validation, Replica nodes send
+ViewChange message to start another round of ViewChange;</p></li>
+<li><p>After finishing VcReset, all nodes broadcast FinishVcReset to the
+whole network;</p></li>
+<li><p>After each node receives N-f FinishVcReset messages, it starts to
+process the transactions after the determined checkpoint and finishes
+the entire ViewChange process.</p></li>
+</ol>
+<p>Because the communication between the consensus module and the execution
+module is asynchronous and execution module may have some useless
+validation cache after ViewChange, the consensus module needs to inform
+the execution module to clear this useless cache before the end of
+ViewChange. The RBFT proactively notifies the execution module through
+the VcReset event to clear the cache. The node can finish ViewChange
+only after clearing the cache.</p>
+</div>
+</div>
+<div class="section" id="rbft-recovery">
+<h2>5. RBFT Recovery<a class="headerlink" href="#rbft-recovery" title="Permalink to this headline">¶</a></h2>
+<p>During the operation of the blockchain network, the execution speed of
+some nodes may lag behind that of most nodes due to network jittering,
+sudden power failure, disk failure and the like. In this scenario, these
+nodes need to be able to recover automatically to continue participating
+in subsequent consensus processes. In order to solve this kind of data
+recovery problem, the RBFT algorithm provides a mechanism for automatic
+recovery of dynamic data (recovery). Node updates its storage status by
+actively retrieving information such as the view of all nodes in the
+existing consensus network and the latest block information, and finally
+synchronizes to the latest status of the entire system. When the node is
+going to start up, restart or the node falls behind, it will
+automatically enter recovery and synchronize to the latest state of the
+entire system.</p>
+<div class="section" id="process-of-recovery">
+<h3>Process of Recovery<a class="headerlink" href="#process-of-recovery" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image3" src="../../images/recovery.png" /></p>
+<p>In the above figure, replica 4 is a backward node and needs to be
+recovered. This node’s automatic recovery process in RBFT is as follows:</p>
+<ol class="arabic simple">
+<li><p>At the beginning, replica 4 broadcasts the NegotiateView message to
+retrieve the current view of the active nodes;</p></li>
+<li><p>The remaining three nodes send NegotiateViewResponse back to replica
+4, returning the current view;</p></li>
+<li><p>Replica 4 updates its own view after it receives quorum
+NegotiateViewResponse messages;</p></li>
+<li><p>Replica 4 broadcasts the RecoveryInit message to the remaining nodes
+to notify them that replica 4 needs to be recovered, and requests the
+checkpoint information and the latest block information of the
+remaining nodes;</p></li>
+<li><p>After receiving the RecoveryInit message, the active node sends a
+RecoveryResponse to return its own checkpoint information and latest
+block information to the Replica 4;</p></li>
+<li><p>After Replica 4 receives quorum RecoveryResponse messages, it tries
+to find the highest checkpoint among these responses, and then
+updates its status to this checkpoint point;</p></li>
+<li><p>Replica 4 requests PQC data after the checkpoint from the active node
+, and finally synchronize to the latest status of the entire network</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="rbft-node-management">
+<h2>6. RBFT Node Management<a class="headerlink" href="#rbft-node-management" title="Permalink to this headline">¶</a></h2>
+<p>In consortium blockchain, the dynamic addition and deletion of members
+is required due to the expansion of the consortium or the withdrawal of
+some members, but the traditional PBFT algorithm does not support it. To
+make it easier to control addition and deletion of members, RBFT adds
+the function to dynamically add and remove nodes without shutting down
+the cluster.</p>
+<div class="section" id="process-of-adding-nodes">
+<h3>Process of Adding nodes<a class="headerlink" href="#process-of-adding-nodes" title="Permalink to this headline">¶</a></h3>
+<p><img alt="image4" src="../../images/node_management.png" /></p>
+<p>In the above figure, replica 5 is the node to be added. The process of
+dynamically adding this node is as follows:</p>
+<ol class="arabic simple">
+<li><p>Newly added node replica 5 initiates connections to all existing
+nodes by reading the configuration file information. After confirming
+that all nodes are connected successfully, replica 5 updates its own
+routing table and initiates recovery;</p></li>
+<li><p>After receiving a connection request from replica 5, the existing
+node(including node 1, node 2, node 3 and node 4) confirms that
+replica 5 is allowed to join, and then broadcasts an AddNode message
+to the entire network, indicating that it agrees replica 5 to join
+the consensus network;</p></li>
+<li><p>When an existing node receives N AddNode messages (N is the total
+number of nodes in the current blockchain consensus network), it
+updates its own routing table and then starts to respond to the
+replica 5’s consensus message request (before this, All the consensus
+message from replica 5 would not be processed);</p></li>
+<li><p>After Replica 5 finishs recovery, it broadcasts ReadyForN requests to
+existing nodes across the network;</p></li>
+<li><p>After receiving the ReadyForN request, the existing node recalculates
+N and view after replica 5 joins, and then encapsulates the PQC
+message into AgreeUpdateN message and broadcast it to the whole
+network;</p></li>
+<li><p>There would be a new primary node after Replica 5 joins, and now it’s
+still node 1. After receiving N-f AgreeUpdateN messages, node 1 sends
+the UpdateN message as the new primary node;</p></li>
+<li><p>All nodes in the network check the correctness of the UpdateN message
+after receiving it, and proceed to VCReset if there is no problem;</p></li>
+<li><p>After completing VCReset, each node broadcasts FinishUpdate message
+to the whole network;</p></li>
+<li><p>After receiving N-f FinishUpdate messages, all nodes process the
+subsequent requests and complete the adding node process.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="ledger.html" class="btn btn-neutral float-right" title="Ledger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="txflow.html" class="btn btn-neutral float-left" title="Transaction Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

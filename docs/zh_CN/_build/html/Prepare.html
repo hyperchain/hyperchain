@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="快速入门" href="quickstart.html" />
-    <link rel="prev" title="平台介绍" href="Introduction.html" /> 
+    <link rel="prev" title="通用概念" href="General%20Concepts.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,25 +90,14 @@
               <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">准备工作</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">操作系统版本要求</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#go">安装Go语言开发环境</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">下载 Go</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">安装 Go</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gopath">设置 GOPATH</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">检查Go安装结果</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#go-vendor">安装 Go vendor</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">安装命令</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">检查Go vendor安装结果</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">更多信息</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">安装合约编译器(可选)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">安装合约编译器(可选)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
@@ -125,12 +114,34 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">大规模组网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
 </ul>
 
             
@@ -218,129 +229,34 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>RHEL</p></td>
-<td><p>6 或更新</p></td>
+<td><p>6 及以上</p></td>
 <td><p>amd64, 386</p></td>
 </tr>
 <tr class="row-odd"><td><p>CentOS</p></td>
-<td><p>6 或更新</p></td>
+<td><p>6 及以上</p></td>
 <td><p>amd64, 386</p></td>
 </tr>
 <tr class="row-even"><td><p>SLES</p></td>
-<td><p>11SP3 或更新</p></td>
+<td><p>11SP3 及以上</p></td>
 <td><p>amd64, 386</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ubuntu</p></td>
-<td><p>14.04 或更新</p></td>
+<td><p>14.04 及以上</p></td>
 <td><p>amd64, 386</p></td>
 </tr>
 <tr class="row-even"><td><p>macOS</p></td>
-<td><p>10.8 或更新</p></td>
+<td><p>10.8 及以上</p></td>
 <td><p>amd64, 386</p></td>
 </tr>
 </tbody>
 </table>
 <p><strong>硬件标准：</strong></p>
-<div class="line-block">
-<div class="line">配置 | 最低配置 | 推荐配置 |</div>
-<div class="line">—- | ——– | ——– |</div>
-<div class="line">CPU  | 1.8GHz   | 2.3GHz   |</div>
-<div class="line">内存 | 2GB      | 16GB     |</div>
-<div class="line">核心 | 2核      | 8核      |</div>
-<div class="line">带宽 | 2Mb      | 20Mb     |</div>
-</div>
+<p>最低配置要求：CPU 1.8GHz、内存 2GB、核心 2核、带宽 2Mb。</p>
+<p>推荐配置要求：CPU 2.3GHz、内存 16GB、核心 8核、带宽 20Mb。</p>
 <p><strong>注意：如果是本地部署带宽无要求</strong></p>
 </div>
-<div class="section" id="go">
-<h2>安装Go语言开发环境<a class="headerlink" href="#go" title="Permalink to this headline">¶</a></h2>
-<p>因为趣链区块链平台使用Go语言来实现它的各个组件，所以需要安装Go语言开发环境。</p>
 <div class="section" id="id3">
-<h3>下载 Go<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>Go为Mac OS X、Linux和Windows提供二进制发行版。如果您使用的是不同的操作系统，您可以下载Go源代码并从源代码安装。</p>
-<p>在这里下载适用于您的平台的最新版本Go：<a class="reference external" href="https://golang.org/dl">下载</a>
-- 请下载 <code class="docutils literal notranslate"><span class="pre">1.7.x</span> <span class="pre">或更新</span></code></p>
-</div>
-<div class="section" id="id4">
-<h3>安装 Go<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>请按照对应于您的平台的步骤来安装Go环境：<a class="reference external" href="https://golang.org/doc/install#install">安装Go</a>，推荐使用默认配置安装。</p>
-<ul class="simple">
-<li><p>对于Mac OS X 和
-Linux操作系统，默认情况下Go会被安装到<code class="docutils literal notranslate"><span class="pre">/usr/local/go/</span></code> ，并且将环境变量<code class="docutils literal notranslate"><span class="pre">GOROOT</span></code> 设置为该路径<code class="docutils literal notranslate"><span class="pre">/usr/local/go</span></code> .</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GOROOT</span><span class="o">=</span>/usr/local/go
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>同时，请添加路径 <code class="docutils literal notranslate"><span class="pre">GOROOT/bin</span></code>
-到环境变量<code class="docutils literal notranslate"><span class="pre">PATH</span></code> 中，可以使Go工具正常执行。</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOROOT</span>/bin
-</pre></div>
-</div>
-</div>
-<div class="section" id="gopath">
-<h3>设置 GOPATH<a class="headerlink" href="#gopath" title="Permalink to this headline">¶</a></h3>
-<p>您的Go工作目录 ( <code class="docutils literal notranslate"><span class="pre">GOPATH</span></code> )
-是用来存储您的Go代码的地方，您必须要将他跟您的Go安装目录区分开
-( <code class="docutils literal notranslate"><span class="pre">GOROOT</span></code> )。</p>
-<p>以下命令是用了设置您的<code class="docutils literal notranslate"><span class="pre">GOPATH</span></code> 环境变量的，您也可以参考Go官方文档，来获得更详细的内容:
-<a class="reference external" href="https://golang.org/doc/code.html">https://golang.org/doc/code.html</a>.</p>
-<ul class="simple">
-<li><p>对于 Mac OS X 和 Linux 操作系统 将 <code class="docutils literal notranslate"><span class="pre">GOPATH</span></code>
-环境变量设置为您的工作路径：</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/go
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>同时添加路径 <code class="docutils literal notranslate"><span class="pre">GOPATH/bin</span></code>
-到环境变量<code class="docutils literal notranslate"><span class="pre">PATH</span></code> 中，可以使编译后的Go程序正常执行。</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOPATH</span>/bin
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>由于我们将在Go中进行一系列编码，您可以将以下内容添加到您的<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> 文件中：</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">GOROOT</span><span class="o">=</span>/usr/local/go
-<span class="nb">export</span> <span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/go
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GOPATH</span>/bin:<span class="nv">$GOROOT</span>/bin
-</pre></div>
-</div>
-</div>
-<div class="section" id="id5">
-<h3>检查Go安装结果<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>创建和运行这里描述的hello.go应用:
-<a class="reference external" href="https://golang.org/doc/install#testing">https://golang.org/doc/install#testing</a>.</p>
-<p>如果您正确设置了Go运行环境，您应该能够从任何目录运行hello程序，并看到程序成功执行。</p>
-</div>
-</div>
-<div class="section" id="go-vendor">
-<h2>安装 Go vendor<a class="headerlink" href="#go-vendor" title="Permalink to this headline">¶</a></h2>
-<p>Go
-vendor是管理包及其依赖项的工具。此工具将依赖的包复制到项目的<code class="docutils literal notranslate"><span class="pre">vendor</span></code> 目录中，并将其版本记录在名为<code class="docutils literal notranslate"><span class="pre">vendor.json</span></code> 的文件中。</p>
-<div class="section" id="id6">
-<h3>安装命令<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>go get -u github.com/kardianos/govendor
-</pre></div>
-</div>
-</div>
-<div class="section" id="id7">
-<h3>检查Go vendor安装结果<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
-<p>为了要验证您的govendor安装正确，可以通过查看govendor版本信息来检验。</p>
-<p>在命令提示符下，键入以下命令并确保您看到了govendor版本信息：</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ govendor --version
-v1.0.9
-</pre></div>
-</div>
-</div>
-<div class="section" id="id8">
-<h3>更多信息<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
-<p>您可以转到项目的主页了解更多细节。 - <a class="reference external" href="https://github.com/kardianos/govendor">Go
-vendor</a></p>
-</div>
-</div>
-<div class="section" id="id9">
-<h2>安装合约编译器(可选)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<h2>安装合约编译器(可选)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>趣链区块链平台
 支持用<a class="reference external" href="https://solidity.readthedocs.org/en/latest/">Solidity</a>编写的智能合约，然后将它编译为字节码并部署到区块链中。</p>
 <p>鉴于我们是用Solidity语言编写的合约，所以需要确保我们已经安装名为<code class="docutils literal notranslate"><span class="pre">solc</span></code> 的合约编译器。</p>
@@ -357,7 +273,7 @@ vendor</a></p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="quickstart.html" class="btn btn-neutral float-right" title="快速入门" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Introduction.html" class="btn btn-neutral float-left" title="平台介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="General%20Concepts.html" class="btn btn-neutral float-left" title="通用概念" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

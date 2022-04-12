@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>数据归档 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="可信文件共享" href="Trusted%20File%20Sharing.html" />
+    <link rel="prev" title="数据索引" href="Data%20Index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">数据归档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">使用说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">归档数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">查询归档结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">查询归档列表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">数据库变更</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>数据归档</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Data Archiving.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>数据归档<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>功能概述<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>数据归档功能的主要职责是将一部分旧的线上数据移到线下转存。</p>
+<p>一次完整的归档过程包括：</p>
+<ul class="simple">
+<li><p>filelog数据从线上到线下的迁移，包括区块数据、区块对应的日志数据、交易回执数据。</p></li>
+<li><p>leveldb数据从线上到线下的迁移，主要包括交易索引数据。</p></li>
+</ul>
+<p>新创建的数据包括：</p>
+<ul class="simple">
+<li><p>snapshot.meta：存储本次归档的manifest内容；</p></li>
+<li><p>archive.meta：存储本次archive过程中迁移的数据的统计结果；</p></li>
+<li><p>archive.record：为保证本次archive流程的完整性记录文件。</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>使用说明<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>用户可以直接指定一个已经被提交的区块号作为参数，归档结果为： <strong>[创世区块, 入参区块] 的数据将被归档至线下，入参区块将成为新的创世区块</strong>。</p>
+<p>考虑直接归档的流程较为耗时，直接归档的请求返回和归档流程是异步的，可以通过后文提到的查询归档结果的接口查询归档是否成功。</p>
+<p>此外，需要保证归档的区块号小于或等于最新的一个checkpoint，checkpoint为整10的数。例如目前区块高度为125，则checkpoint为120，归档的区块号必须小于等于120。</p>
+<div class="section" id="id4">
+<h3>归档数据<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>调用JSONRPC接口:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8081</span> <span class="n">POST</span> <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;archive_archiveNoPredict&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">],</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>该请求会返回一个长度为32的随机字符串，标识当前创世区块对应的世界状态数据库，从 <code class="docutils literal notranslate"><span class="pre">namespaces/global/data/archive</span></code> 文件夹中可以找到 <code class="docutils literal notranslate"><span class="pre">SNAPSHOT_FileterID</span></code> 为名称的归档数据库。</p>
+</div>
+<div class="section" id="id5">
+<h3>查询归档结果<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>调用JSONRPC接口:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8081</span> <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;archive_queryArchive&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[</span><span class="s2">&quot;&lt;filterId&gt;&quot;</span><span class="p">],</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>该接口用于查询指定的filterID对应的数据，从当前的链上状态来看其归档的状态。可以通过查询请求的返回值判断当前归档的状态。</p>
+</div>
+<div class="section" id="id6">
+<h3>查询归档列表<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>调用JSONRPC接口:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8081</span> <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;archive_listSnapshot&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[</span><span class="s2">&quot;&lt;filterId&gt;&quot;</span><span class="p">],</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>该接口将返回目前归档过的所有记录，即snapshot.meta中所有manifest记录。</p>
+</div>
+<div class="section" id="id7">
+<h3>数据库变更<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>归档成功后的数据库结构如下：</p>
+<p><img alt="image1" src="_images/data_archiving1.jpg" /></p>
+<p>所有归档的数据在配置的archive目录下，每一个文件夹名为filterID，其中一个为0号区块的snapshot，其余的为每次归档的数据存放目录。</p>
+<p>第一次归档，snapshot.meta文件中会多两条记录，其中一条为当前的归档请求对应的manifest文件，另一条是为配合0号区块的世界状态数据库而存在的manifest记录，但这条记录并不表示一次实际的归档操作。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>注意事项<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>各个子文件夹为各次归档产生的文件，其中accountdb与statedb文件夹存储的是snapshot数据，如果要在此基础上进一步做归档，这两个文件夹不能删除。其余文件夹的删除对于线上功能不会有任何影响。即不可删除最后一次归档产生的snapshot文件夹中的accountdb与statedb。</p></li>
+<li><p><strong>archive.meta与snapshot.meta文件为系统级别重要文件，不可删除</strong>。</p></li>
+<li><p>如果想要恢复归档完的数据到线上，需要采用运维手段调用IPC接口。</p></li>
+<li><p>请在归档前估算归档的数据量，并在磁盘中预留该部分的空间，因为归档过程中会发生多一倍的数据膨胀。线下数据生成后才会删除线上数据，释放磁盘空间。</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Trusted%20File%20Sharing.html" class="btn btn-neutral float-right" title="可信文件共享" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Data%20Index.html" class="btn btn-neutral float-left" title="数据索引" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="治理与审计" href="Governonce%20and%20audit.html" />
-    <link rel="prev" title="大规模组网" href="Architecture%20development.html" /> 
+    <link rel="prev" title="架构拓展" href="Architecture%20development.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,11 +90,14 @@
               <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
@@ -107,9 +110,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">大规模组网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">安全隐私</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">分区共识</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">分区扁平化</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tee">TEE账本加密</a></li>
 </ul>
 </li>
@@ -117,6 +121,28 @@
 <li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
 </ul>
 
             
@@ -195,9 +221,22 @@
 <p><img alt="image0" src="_images/partition.png" /></p>
 <p>图中描述了分区共识在政务数据治理场景中的应用。区块链政务数据治理平台的数据协作链承载了民生服务、企业服务等业务，不同业务数据间存在隔离需求。建链时，各委办局部署各自节点，并通过配置确立初始分区及成员节点。随着试点范围的扩大，牵头部门可在民生服务和企业服务分区的基础上，通过IPC命令动态新增政务服务分区，并通过发送交易动态新增其他市/区委办局节点，逐步完善整个政务数据治理平台的搭建。</p>
 </div>
+<div class="section" id="id3">
+<h2>分区扁平化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><strong>分区扁平化是对分区共识的升级，趣链区块链平台 V2.0.8及以上功能支持该功能。</strong></p>
+<p>现有分区共识的设计是在global分区的基础上，按需选择节点创建各自自定义分区。即创建新的分区的前提是，已加入global分区，而加入global分区的前提是，需要各节点间能够建立连接。在大规模多分区部署区块链网络的场景下，如果所有节点都在global分区下，那么其网络架构将非常复杂，尤其在主侧链场景中，侧链之间的网络是很难通信的，也无需通信，所以平台进行了分区扁平化的设计。</p>
+<p>分区扁平化包含以下功能点设计：</p>
+<ul class="simple">
+<li><p>整体架构扁平化：分区完全扁平化，四个节点及以上可以组成一个分区，网络中不一定需要global分区的存在，分区内的节点建立物理和逻辑连接。</p></li>
+<li><p>网络扁平化：不在同一个分区中的节点之间无需建立p2p连接，将DNS、Topotogy、Ping服务和broadcast挪到ns级别。Network划分成多个子网，每个子网代表一个ns。</p></li>
+<li><p>锚节点管理：组网阶段不考虑锚节点，锚节点通过后续注册的方式进行管理，锚节点的注册通过配置交易进行。</p></li>
+<li><p>证书级别调整：节点证书中新增namespace字段，防止同一个节点的分区借用其他分区的证书。</p></li>
+</ul>
+<p><img alt="image1" src="_images/partition_flatten.jpg" /></p>
+</div>
 <div class="section" id="tee">
 <h2>TEE账本加密<a class="headerlink" href="#tee" title="Permalink to this headline">¶</a></h2>
-<p>账本加密针对用户的账户信息和业务数据进行按需加密操作，将密钥存储在TEE硬件可信执行环境中，账本数据通过TEE的密钥进行加解密，由于在整个过程中账本加密的密钥都在TEE中而没有向外暴露，所以可以保证账本数据加密的安全性；而且平台会确保硬件执行环境的安全性，这一层面外部用户无需感知；另外如果需要参与方和审计方具有设计查看数据，则可通过赋予其数据访问权限，通过密码学算法如哈希校验等进行对加密信息的有效性和正确性验证。</p>
+<p>账本加密针对用户的账户信息和业务数据进行按需加密操作，将密钥存储在TEE硬件可信执行环境中，账本数据通过TEE的密钥进行加解密，由于在整个过程中账本加密的密钥都在TEE中而没有向外暴露，所以可以保证账本数据加密的安全性；而且平台会确保硬件执行环境的安全性，这一层面外部用户无需感知；另外如果需要参与方和审计方具有权限查看数据，则可通过赋予其数据访问权限，通过密码学算法如哈希校验等进行对加密信息的有效性和正确性验证。</p>
 <p>账本加密可应用于密钥存储和数据加密两种场景。</p>
 <p>密钥存储，密钥存储某种程度上可以理解为CPU担任了UKey的功能。他是将关键密钥信息托管到可信计算环境中不再导出以便保护关键密钥。这里能够保存的密钥包括平台ecert、rcert的私钥，特殊用途的密钥等，最终的密钥保存在配置文件指定的加密文件中。密钥存储的子功能主要包括：密钥生成、加密解密、密钥导入、签名。</p>
 <p>数据加密，数据加密是利用了密钥存储的加密解密的功能，在此基础上专门提供特定于节点的密钥加密功能。提供公共的一组加密解密接口供对共识数据加密使用。密钥对不同的节点是不同的而且只有一份拷贝，但是考虑到加密的数据在其他节点也能找回，因此不用担心密钥丢失的问题。</p>
@@ -211,7 +250,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Governonce%20and%20audit.html" class="btn btn-neutral float-right" title="治理与审计" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Architecture%20development.html" class="btn btn-neutral float-left" title="大规模组网" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Architecture%20development.html" class="btn btn-neutral float-left" title="架构拓展" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

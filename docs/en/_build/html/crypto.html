@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Cryptography Algorithm &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JSON-RPC API" href="JSON-RPC_manual.html" />
+    <link rel="prev" title="Namespace" href="namespace.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Get Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="prerequisites.html">Pre-requisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">Hyperchain Samples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Architecture:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="txflow.html">Transaction Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ledger.html">Ledger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bucket_tree.html">Bucket tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smart_contract.html">Smart Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p_introduce.html">P2P</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Privacy &amp;&amp; Security:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ca_manager.html">Digital Certificate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namespace.html">Namespace</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cryptography Algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">1.Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#elliptic-curve-digital-signature">2. Elliptic curve digital signature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#symmetric-encryption-algorithm">3.Symmetric encryption algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-exchange-algorithm">4.Key exchange algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hash-algorithm">5.Hash algorithm</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User manual:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="JSON-RPC_manual.html">JSON-RPC API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node_op.html">Node Operation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Developers’ Guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Hyperchain Roadmap</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Cryptography Algorithm</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/crypto.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cryptography-algorithm">
+<h1>Cryptography Algorithm<a class="headerlink" href="#cryptography-algorithm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>1.Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Hyperchain blockchain platform to support multi-level cryptography
+encryption to ensure data security, the use of the following
+cryptographic algorithms to ensure data security issues:</p>
+<ul class="simple">
+<li><p>Elliptic curve digital signature:secp256k1,secp256r1</p></li>
+<li><p>Symmetric encryption algorithm:3DES,AES</p></li>
+<li><p>Key exchange:ECDH</p></li>
+<li><p>Hash:Keccak-256</p></li>
+</ul>
+</div>
+<div class="section" id="elliptic-curve-digital-signature">
+<h2>2. Elliptic curve digital signature<a class="headerlink" href="#elliptic-curve-digital-signature" title="Permalink to this headline">¶</a></h2>
+<p>Elliptic Curve Digital Signature Algorithm (ECDSA) is a simulation of
+Digital Signature Algorithm (DSA) using [Elliptic Curve Cryptography
+(ECC). ECDSA became ANSI standard in 1999 and became the IEEE and NIST
+standards in 2000. It was accepted by the ISO in 1998 and some of the
+other standards that include it are also under ISO’s consideration.
+Unlike the discrete logarithm problem (DLP) and the integer
+factorization problem (IFP), the elliptic curve discrete logarithm
+problem (ECDLP) has no solution to the subexponential time. Therefore,
+the unit bit strength of elliptic curve cryptography is higher than that
+of other public key systems. Elliptic curve graphics as shown below:</p>
+<p><img alt="image0" src="../../images/ecdsa.gif" /></p>
+<p>The Hyperchain blockchain uses the secp256k1 curve to sign and verify
+the platform transaction to ensure the correctness and completeness of
+the transaction. At the same time, the platform supports the use of
+secp256r1 curve to sign messages between nodes to verify the integrity
+and correctness of message communication between nodes. Node message
+signature is pluggable, you can open it through the configuration
+file.the configuration file in the namespace.toml:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">encryption</span><span class="o">.</span><span class="n">check</span><span class="p">]</span>
+<span class="n">sign</span> <span class="o">=</span> <span class="n">true</span>  <span class="c1">#enable Signature</span>
+</pre></div>
+</div>
+<p>That is, when <code class="docutils literal notranslate"><span class="pre">sign</span> <span class="pre">=</span> <span class="pre">true</span></code>, you need to verify the signature of
+messages between nodes, otherwise you do not need to verify.</p>
+</div>
+<div class="section" id="symmetric-encryption-algorithm">
+<h2>3.Symmetric encryption algorithm<a class="headerlink" href="#symmetric-encryption-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>The Hyperchain blockchain platform supports both AES and 3DES symmetric
+encryption algorithms to ensure ciphertext transfer between nodes.</p>
+<p>3DES, also known as Triple DES, is a mode of the DES encryption
+algorithm that uses three 56-bit keys to encrypt 3DES data three times.
+The Data Encryption Standard (DES) is a well-established encryption
+standard in the United States that uses symmetric key cryptography. DES
+uses a 56-bit key and cryptographic block method, whereas in the
+cryptographic block method, the text is divided into 64 Bit-sized text
+blocks are then encrypted. 3DES is safer than the original DES.
+Encryption algorithm, which is specifically implemented as follows: Let
+Ek () and Dk () represent the encryption and decryption process of the
+DES algorithm, K represents the key used by the DES algorithm, M
+represents the plaintext, and C represents the ciphertext:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>3DES Encryption Process：C=Ek3(Dk2(Ek1(M)))
+3DES Decryption Process：M=Dk1(EK2(Dk3(C)))
+</pre></div>
+</div>
+<p>AES, also known as Advanced Encryption Standard, is a block encryption
+standard used by the U.S. federal government. The AES algorithm is based
+on permutation and permutation operations, and AES uses several
+different methods to perform permutation and permutation operations. AES
+is an iterative, symmetric-key-group password that uses 128, 192, and
+256-bit keys and encrypts and decrypts data with 128-bit (16-byte)
+packets. Unlike public key password use key pairs, symmetric key
+passwords use the same key to encrypt and decrypt data. The encrypted
+data returned by the block password has the same number of bits as the
+input data. Iterative encryption uses a loop structure in which the
+input data is repeatedly replaced and replaced.</p>
+<p>In addition,Hyperchain blockchain platform supports symmetric encryption
+algorithm configuration option to encrypt node messages, configured
+under namespace.toml:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">encryption</span><span class="o">.</span><span class="n">security</span><span class="p">]</span>
+<span class="n">algo</span> <span class="o">=</span> <span class="s2">&quot;3des&quot;</span>   <span class="c1"># Selective symmetric encryption algorithm (pure,3des or aes)</span>
+</pre></div>
+</div>
+<p>Support pure, 3des and aes three parameters:</p>
+<ul class="simple">
+<li><p>pure:do not perform any encryption, in plain text</p></li>
+<li><p>3des:3des encryption and decryption</p></li>
+<li><p>aes:aes encryption and decryption</p></li>
+</ul>
+</div>
+<div class="section" id="key-exchange-algorithm">
+<h2>4.Key exchange algorithm<a class="headerlink" href="#key-exchange-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>ECDH is a combination of ECC and DH algorithms for key negotiation. The
+exchange parties can negotiate a key without sharing any secrets. ECC is
+a cryptosystem based on the discrete logarithm problem of elliptic
+curve. Given a point P and an integer k on the elliptic curve, it is
+easy to solve <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">=</span> <span class="pre">kP</span></code>. Given a point P, Q, we know that <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">=</span> <span class="pre">kP</span></code> , Find the
+integer k is indeed a problem. ECDH is built on this math puzzle.</p>
+<p>In addition, Hyperchain exchanges keys when the node handshake for the
+first time and generates shared keys for each other. This key is the
+symmetric encryption key between the nodes.</p>
+</div>
+<div class="section" id="hash-algorithm">
+<h2>5.Hash algorithm<a class="headerlink" href="#hash-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>Hash algorithm, Hyperchain platform using Keccak256 algorithm for Hash
+calculation, the results of the settlement for the signature of the
+summary, but also can be used for address calculation.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="JSON-RPC_manual.html" class="btn btn-neutral float-right" title="JSON-RPC API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="namespace.html" class="btn btn-neutral float-left" title="Namespace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

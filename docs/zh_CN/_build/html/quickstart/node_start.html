@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>启动节点 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="合约部署及调用" href="../invoking%20contract.html" />
+    <link rel="prev" title="检查、修改配置文件" href="check_conf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Version%20information.html">版本信息</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Prepare.html">准备工作</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../quickstart.html">快速入门</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prepare.html">安装准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="check_env.html">检查系统环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node_install.html">安装节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="check_conf.html">检查、修改配置文件</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">启动节点</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">保存配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">启动节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">查看日志</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">停止节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">重启节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">失败恢复</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Architecture%20development.html">架构拓展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Community_Resources.html">社区与资源</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../quickstart.html">快速入门</a> &raquo;</li>
+        
+      <li>启动节点</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/quickstart/node_start.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="node-start">
+<span id="id1"></span><h1>启动节点<a class="headerlink" href="#node-start" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>保存配置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在启动节点前，将整个/opt/flato目录备份一下，主要是 <cite>dynamic.toml</cite> 和 <cite>ns_dynamic.toml</cite> 需要备份。</p>
+<p>备份方法如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#根据实际情况修改/opt/flato</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">flato</span><span class="o">/.</span> <span class="o">./</span>
+<span class="n">tar</span> <span class="n">zcvf</span> <span class="o">~/</span><span class="n">flato</span><span class="o">-</span><span class="n">backup</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="n">flato</span>
+</pre></div>
+</div>
+<p><strong>请依次备份4个节点的Flato目标安装目录，本例中就是</strong> <cite>/opt/flato</cite> <strong>目录。</strong></p>
+</div>
+<div class="section" id="id3">
+<h2>启动节点<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>启动请再按照步骤 <cite>3.3</cite> 检查一次flato二进制程序能否正常执行。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#根据实际情况修改/opt/flato</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">flato</span><span class="o">/</span>
+<span class="o">./</span><span class="n">flato</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>检查完毕后，使用 <cite>start.sh</cite> 启动flato进程:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#根据实际情况修改/opt/flato</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">flato</span>
+<span class="o">./</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span>
+<span class="c1">#或者如果上面命令失败，尝试下面这个命令</span>
+<span class="c1">#./flato start</span>
+</pre></div>
+</div>
+<p><strong>依次启动4台服务器上的Flato进程。</strong></p>
+</div>
+<div class="section" id="id4">
+<h2>查看日志<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>查看flato的日志，查看运行情况。</p>
+<p>System级别日志的路径默认为：</p>
+<p><cite>/opt/flato/system/logs</cite></p>
+<p>Namespace级别日志的路径默认(以global为例)：</p>
+<p><cite>/opt/flato/namespaces/global/data/logsls</cite></p>
+<p>若Namespace__级别日志显示如下信息__，即表示节点都连上，flato平台部署启动完成。</p>
+<blockquote>
+<div><p><img alt="image5" src="../_images/Deployment6.png" /></p>
+</div></blockquote>
+<p><strong>请依次检查4台服务器上的Flato日志。</strong></p>
+</div>
+<div class="section" id="id5">
+<h2>停止节点<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>停止某个节点的flato，执行步骤如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">flato</span>
+<span class="o">./</span><span class="n">stop</span><span class="o">.</span><span class="n">sh</span>
+<span class="c1">#或者如果上面命令失败，尝试下面这个命令</span>
+<span class="c1">#./flato stop</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>重启节点<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>重启某个节点的flato，执行步骤如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">flato</span>
+<span class="o">./</span><span class="n">restart</span><span class="o">.</span><span class="n">sh</span>
+<span class="c1">#或者如果上面命令失败，尝试下面这个命令</span>
+<span class="c1">#./flato restart</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>失败恢复<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>若启动失败，需要使用5.1小节当中的备份进行失败恢复</p>
+<p>将/opt/flato中的dynamic.toml和ns_dynamic.toml两个配置文件替换为备份中的相应配置文件</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">xvf</span> <span class="o">~/</span><span class="n">flato</span><span class="o">-</span><span class="n">backup</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">~/</span>
+<span class="n">cp</span> <span class="o">~/</span><span class="n">flato</span><span class="o">/</span><span class="n">configuration</span><span class="o">/</span><span class="n">dynamic</span><span class="o">.</span><span class="n">toml</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">flato</span><span class="o">/</span><span class="n">configuration</span><span class="o">/</span><span class="n">dynamic</span><span class="o">.</span><span class="n">toml</span>
+<span class="n">cp</span> <span class="o">~/</span><span class="n">flato</span><span class="o">/</span><span class="n">configuration</span><span class="o">/</span><span class="k">global</span><span class="o">/</span><span class="n">ns_dynamic</span><span class="o">.</span><span class="n">toml</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">flato</span><span class="o">/</span><span class="n">configuration</span><span class="o">/</span><span class="k">global</span><span class="o">/</span><span class="n">ns_dynamic</span><span class="o">.</span><span class="n">toml</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../invoking%20contract.html" class="btn btn-neutral float-right" title="合约部署及调用" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="check_conf.html" class="btn btn-neutral float-left" title="检查、修改配置文件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

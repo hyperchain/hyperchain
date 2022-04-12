@@ -1,0 +1,897 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>数据索引 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="数据归档" href="Data%20Archiving.html" />
+    <link rel="prev" title="区块链生态组件" href="Ecological%20components.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">数据索引</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">安装及初始化</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mongodb">安装MongoDB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">下载安装包</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">配置系统环境变量</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">启动MongoDB服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">修改配置文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">启动数据索引服务</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">使用说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jsonrpc">外部接口JSONRPC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tx-sendtransaction">tx_sendTransaction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tx-gettransactionsbyextraid">tx_getTransactionsByExtraID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tx-gettransactionsbyfilter">tx_getTransactionsByFilter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tx-gettransactionsbytimewithlimit">tx_getTransactionsByTimeWithLimit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ipc">外部接口IPC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>数据索引</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Data Index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>数据索引<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>功能概述<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p id="data-index">索引数据库设计目的是提高部分现有接口查询效率以及提供交易数据索引的功能。</p>
+<p>客户端可以向开启索引数据库的节点发起查询请求，过滤出交易from、交易to、交易extraId、区块写入时间戳范围为指定值的符合条件的交易。交易extraId与交易extra类似，用户可自定义与业务相关的数据，区别在于：</p>
+<ul class="simple">
+<li><p>extra 类型是string，而 extraId 类型是数组，数组元素可以为int64类型或者string类型，每个数组元素都可作为交易的索引；</p></li>
+<li><p>extra 为实际完整业务数据内容，可能为一个JSON字符串；而 extraId 为实际用于业务内容索引的字段，它可以与extra内容存在业务关联也可以无关联，完全取决于客户端的设计。对于节点来说，节点不关心这两个字段存储的实质内容，但是可以通过 extraId 的值快速定位到与其相关的交易有哪些。</p></li>
+</ul>
+<p>目前支持的数据索引功能常用应用场景包括：</p>
+<ul class="simple">
+<li><p><strong>存证类</strong> ：对存证场景中的图片、视频、PDF等大文件数据，将文件哈希存储在 extraId 中，建立文件哈希到交易哈希的映射，可快速通过文件哈希检索到文件的存证交易信息，并在必要时返回原文件。</p></li>
+<li><p><strong>溯源类</strong> ：每个商品拥有唯一ID，将商品ID存储在extraId中，可通过商品ID快速检索到该商品生产、物流、分销等流通过程中的所有交易信息，实现全品类、全流程的商品质量溯源。</p></li>
+<li><p><strong>查询过滤</strong> ：可通过数据索引中的过滤功能，快速查询交易相关信息，如查询某个交易发送方或者交易接收方地址下的所有交易等，借此开展精确高效的交易查询。</p></li>
+</ul>
+<p><strong>术语说明</strong></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>术语名称</p></th>
+<th class="head"><p>解释说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>一层索引</p></td>
+<td><p>从块链数据里提取出来的关键信息，作为交易索引数据，这些数据称作一层索引，被存储在索引数据库中。</p></td>
+</tr>
+<tr class="row-odd"><td><p>二层索引</p></td>
+<td><p>为了进一步提高交易查询效率，在一层索引数据的基础上创建的数据库索引，也即索引数据库索引。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>安装及初始化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>数据索引功能是 <strong>可选的</strong> （默认不开启），即可以通过节点开关配置来决定节点是否启用索引数据库功能，相关配置位于 <code class="docutils literal notranslate"><span class="pre">configuration/global/ns_static.toml</span></code> 中。</p>
+<p>平台默认不开启数据索引功能， <strong>如果您想启用该功能，请将下述配置复制到 ns_static.toml 中，并做好相应配置</strong>。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">database.indexdb.layer1.enable</span></code>：是否开启数据索引功能(true, false)；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">database.indexdb.layer1.dbType</span></code>：指定索引数据库底层存储引擎，可选项为mongodb；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">database.indexdb.mongodb.uri</span></code>：若采用MongoDB，需配置MongoDB的URL。</p></li>
+</ul>
+<p>示例如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">database</span><span class="o">.</span><span class="n">indexdb</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">database</span><span class="o">.</span><span class="n">indexdb</span><span class="o">.</span><span class="n">layer1</span><span class="p">]</span>
+        <span class="n">enable</span> <span class="o">=</span> <span class="n">true</span>
+        <span class="n">dbType</span> <span class="o">=</span> <span class="s2">&quot;mongodb&quot;</span>
+
+    <span class="p">[</span><span class="n">database</span><span class="o">.</span><span class="n">indexdb</span><span class="o">.</span><span class="n">mongodb</span><span class="p">]</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;mongodb://127.0.0.1:27017&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="mongodb">
+<h3>安装MongoDB<a class="headerlink" href="#mongodb" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>下载安装包<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>数据索引功能目前依赖于外接MongoDB数据库，本部分将先介绍 MasOS、CentOS7 两种操作系统下的 MongoDB 安装部署步骤。MongoDB 版本必须为 4.2 及以上。</p>
+<p>总体来说，MongoDB的安装只需要下载安装包、解压安装包然后配置系统环境变量即可。</p>
+<p>首先，请根据操作系统类型至MongoDB官网下载相应的MongoDB安装包（版本推荐4.2.5及以上版本，Package选择“tgz”）：</p>
+<p><a class="reference external" href="https://www.mongodb.com/try/download/community">https://www.mongodb.com/try/download/community</a></p>
+<p>然后，将安装包放到自己指定的安装目录下，进行解压缩：</p>
+<p>MacOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">zxvf</span> <span class="n">mongodb</span><span class="o">-</span><span class="n">macos</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">4.2.5</span><span class="o">.</span><span class="n">tgz</span>
+</pre></div>
+</div>
+<p>CentOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tar</span> <span class="n">zxvf</span> <span class="n">mongodb</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">rhel70</span><span class="o">-</span><span class="mf">4.2.5</span><span class="o">.</span><span class="n">tgz</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>配置系统环境变量<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>修改 <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> 文件，在文件末尾添加:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export MONGODB_HOME=&lt;your mongodb install path&gt;
+export PATH=$PATH:$MONGODB_HOME/bin
+</pre></div>
+</div>
+<p>其中， <code class="docutils literal notranslate"><span class="pre">&lt;your</span> <span class="pre">mongodb</span> <span class="pre">install</span> <span class="pre">path&gt;</span></code> 为上一步解压缩后生成的目录的路径。添加完成以后，执行:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">zshrc</span>
+<span class="n">或者</span>
+<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>至此，MongoDB Server安装完毕。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>启动MongoDB服务<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>将 <strong>MongoDB启动目录</strong> （点击<a class="reference external" href="https://upload.filoop.com/mongodb.tar.gz">此处</a>下载启动目录）的mongodb压缩包，解压缩后放到节点部署目录的上一级。</p>
+<p><img alt="image1" src="_images/data_index1.jpg" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 进入到mongodb目录下，然后执行下面命令启动 MongoDB Server</span>
+<span class="n">mongod</span> <span class="o">--</span><span class="n">config</span> <span class="n">mongod</span><span class="o">.</span><span class="n">conf</span>
+<span class="c1"># 也可以将 mongod.conf 文件里的路径改为绝对路径，这样在任意位置都可以执行上面命令</span>
+</pre></div>
+</div>
+<p>实际上，mongodb目录可以解压缩放到任意 <strong>具有读写权限</strong> 的位置。</p>
+</div>
+<div class="section" id="id7">
+<h3>修改配置文件<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>要启动数据索引功能，主要有两个配置需要修改:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">database.indexdb.layer1.enable</span></code> 设置为 <strong>true</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">database.indexdb.mongodb.uri</span></code> 设置为 <strong>MongoDB URI</strong></p></li>
+</ul>
+<p>修改后的配置文件如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">database</span><span class="o">.</span><span class="n">indexdb</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">database</span><span class="o">.</span><span class="n">indexdb</span><span class="o">.</span><span class="n">layer1</span><span class="p">]</span>
+        <span class="n">enable</span> <span class="o">=</span> <span class="n">true</span>
+        <span class="n">dbType</span> <span class="o">=</span> <span class="s2">&quot;mongodb&quot;</span>
+    <span class="p">[</span><span class="n">database</span><span class="o">.</span><span class="n">indexdb</span><span class="o">.</span><span class="n">layer2</span><span class="p">]</span>
+        <span class="c1"># Defines for which fields to create layer2 index, optional value including:</span>
+        <span class="c1">#   1 - indicate field named block write time;</span>
+        <span class="c1">#   2 - indicate field named transaction from;</span>
+        <span class="c1">#   3 - indicate field named transaction to;</span>
+        <span class="c1">#   4 - indicate field named transaction hash;</span>
+        <span class="c1"># For example:</span>
+        <span class="c1">#      active = [] - means dont create any layer2 index;</span>
+        <span class="c1">#      active = [1] - means create layer2 index for block write time;</span>
+        <span class="c1">#      active = [1, 2] - means create layer2 index for block write time and transaction from;</span>
+        <span class="c1"># This config item works only when database.indexdb.layer1.enable is true.</span>
+        <span class="n">active</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="p">[</span><span class="n">database</span><span class="o">.</span><span class="n">indexdb</span><span class="o">.</span><span class="n">mongodb</span><span class="p">]</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;mongodb://127.0.0.1:27017/?w=1&amp;journal=true&quot;</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="mi">5000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>启动数据索引服务<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>请根据规范正常启动节点，即可启用数据索引服务。如果您的节点已经在运行过程中，请停机完成初始配置后再启动。</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>使用说明<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jsonrpc">
+<h3>外部接口JSONRPC<a class="headerlink" href="#jsonrpc" title="Permalink to this headline">¶</a></h3>
+<p>数据索引功能相关的JSON-RPC接口如下：</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>RPC方法</p></th>
+<th class="head"><p>功能</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>tx_sendTransaction</p></td>
+<td><p>发送交易</p></td>
+</tr>
+<tr class="row-odd"><td><p>tx_getTransactionsByExtraID</p></td>
+<td><p>查询extraId为指定值的交易</p></td>
+</tr>
+<tr class="row-even"><td><p>tx_getTransactionsByFilter</p></td>
+<td><p>查询符合过滤条件的交易</p></td>
+</tr>
+<tr class="row-odd"><td><p>tx_getTransactionsByTimeWithLimit</p></td>
+<td><p>查询指定时间区间内的交易（可用于分页）</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="tx-sendtransaction">
+<h4>tx_sendTransaction<a class="headerlink" href="#tx-sendtransaction" title="Permalink to this headline">¶</a></h4>
+<p>发送交易的时候可以自定义extraId字段的值，该值作为这笔交易的可索引信息。由于交易结构的ExtraId的值支持int64数组、string数组或者包含int64和string的数组，因此在发送交易的接口里 <strong>新增了两个参数 extraIdInt64 和 extraIdString</strong> ，类型分别为 []int64 和 []string。</p>
+<p>新增的这两个参数均为可选参数，分别用来接收不同数据类型的索引值。允许接收到的发送交易请求参数里 <strong>不包含这两个字段、只包含extraIdInt64字段、只包含extraIdString字段或者同时包含这两个字段</strong> 。如果同时包含这两个字段，则最终生成的交易结构的ExtraId值为这两个数组的拼接， <strong>数组拼接顺序为int64数组后面拼接string数组</strong>。</p>
+<p><strong>Example1</strong>：该例子最终生成的交易结构ExtraId字段为 [“0F384”]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;tx_sendTransaction&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[{</span>
+    <span class="s2">&quot;signature&quot;</span><span class="p">:</span><span class="s2">&quot;01047ea464762c333762d3be8a04536b22955d97231062442f81a3cff46cb009bbdbb0f30e61ade5705254d4e4e0c0745fb3ba69006d4b377f82ecec05ed094dbe873046022100b16176bc233000f9039a4209daa82a1c7bc662cbfe7cbef7b8ae44dc81043335022100e8f87fff65631726b3975a54c5c561b3277b6d60b2138cdd8281abc23dafd4f1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;0x856E2B9A5FA82FD1B031D1FF6863864DBAC7995D&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;0x794BF01AB3D37DF2D1EA1AA4E6F4A0E988F4DEA5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nonce&quot;</span><span class="p">:</span><span class="mi">8916188877127249</span><span class="p">,</span>
+    <span class="s2">&quot;simulate&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span><span class="mi">1566188957839922607</span><span class="p">,</span>
+    <span class="s2">&quot;extra&quot;</span><span class="p">:</span><span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0F384</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">tom</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">class</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0808</span><span class="se">\&quot;</span><span class="s2">}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extraIdString&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;0F384&quot;</span><span class="p">]</span>
+<span class="p">}],</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p><strong>Example2</strong>：该例子最终生成的交易结构ExtraId字段为 [100, “0F384”]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;namespace&quot;</span><span class="p">:</span><span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;tx_sendTransaction&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[{</span>
+    <span class="s2">&quot;signature&quot;</span><span class="p">:</span><span class="s2">&quot;01047ea464762c333762d3be8a04536b22955d97231062442f81a3cff46cb009bbdbb0f30e61ade5705254d4e4e0c0745fb3ba69006d4b377f82ecec05ed094dbe873046022100b16176bc233000f9039a4209daa82a1c7bc662cbfe7cbef7b8ae44dc81043335022100e8f87fff65631726b3975a54c5c561b3277b6d60b2138cdd8281abc23dafd4f1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;from&quot;</span><span class="p">:</span><span class="s2">&quot;0x856E2B9A5FA82FD1B031D1FF6863864DBAC7995D&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;to&quot;</span><span class="p">:</span><span class="s2">&quot;0x794BF01AB3D37DF2D1EA1AA4E6F4A0E988F4DEA5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EVM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nonce&quot;</span><span class="p">:</span><span class="mi">8916188877127249</span><span class="p">,</span>
+    <span class="s2">&quot;simulate&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="mi">53</span><span class="p">,</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span><span class="mi">1566188957839922607</span><span class="p">,</span>
+    <span class="s2">&quot;extra&quot;</span><span class="p">:</span><span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0F384</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">tom</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">class</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0808</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">score</span><span class="se">\&quot;</span><span class="s2">: 100}&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;extraIdInt64&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">],</span>
+    <span class="s2">&quot;extraIdString&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;0F384&quot;</span><span class="p">]</span>
+<span class="p">}],</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tx-gettransactionsbyextraid">
+<h4>tx_getTransactionsByExtraID<a class="headerlink" href="#tx-gettransactionsbyextraid" title="Permalink to this headline">¶</a></h4>
+<p><strong>接口含义</strong></p>
+<p>根据extraId的值和交易接收方地址(可选)来查询符合查询条件的交易。</p>
+<p><strong>输入参数</strong></p>
+<p>该接口的入参定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    detail: &lt;bool&gt; [可选] 表示是否返回交易详情，默认为false。若为true，则返回的结果为交易详情[&lt;TransactionResult&gt;]，否则为交易摘要[&lt;TransactionSummary&gt;]。
+    mode: &lt;int&gt; [可选] 表示本次查询请求的查询模式，目前有0、1、2三个值可选，默认为0。0 表示按序精确查询模式，即筛选出的的交易 extraId 数组的数值和顺序都与查询条件完全一致；1 表示非按序精确查询模式，即筛选出的交易 extraId 数组包含查询条件里指定的全部数值，顺序无要求；2 表示非按序匹配查询模式，即筛选出的交易 extraId 数组包含部分或全部查询条件指定的值，且顺序无要求。
+    metadata: &lt;Metadata&gt;[可选] 指定本次查询的起始位置、查询方向以及返回的条数。若未指定，则默认从最新区块开始向前查询，默认返回条数是5000条。
+    filter: &lt;Filter&gt;[必选] 指定本次查询过滤条件。
+}
+</pre></div>
+</div>
+<p>Metadata结构包含以下可用成员:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    pagesize: &lt;int32&gt; [可选] 表示本次查询返回多少条交易。如果未指定，则pagesize默认值为5000，如果超过5000，则使用节点默认值5000。
+    bookmark: &lt;Bookmark&gt; [可选] 表示本次查询的书签位置， 即起始位置，返回的结果里不包含用户指定的书签所对应的交易。如果未指定且backward为false，则默认从最新区块开始向前遍历，如果未指定且backward为true，则默认从创世区块开始向后遍历。
+    backward: &lt;bool&gt; [可选] 表示本次查询的方向，false表示以起始位置为起点从高区块往低区块遍历，true 表示以起始位置为起点从低区块往高区块遍历，默认查询方向为false。
+}
+</pre></div>
+</div>
+<p><strong>Bookmark</strong> 结构有以下可用成员:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    blkNum: &lt;uint64&gt;交易所在区块号。
+    txIndex: &lt;int64&gt;交易索引号，即交易在区块内的位置。
+}
+</pre></div>
+</div>
+<p><strong>Filter</strong> 结构包含以下可用成员:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    extraId: &lt;array&gt; [必选] 指定交易extraId的值。
+    txTo: &lt;string&gt; [可选] 指定交易接收方的地址。
+}
+</pre></div>
+</div>
+<p><strong>返回值</strong></p>
+<p>该接口返回值定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    hasmore: &lt;bool&gt; 表示是否有更多符合查询条件的交易未被返回。
+    data: [&lt;TransactionResult&gt;] 或 [&lt;TransactionSummary&gt;] 交易详情数组或者交易摘要数组。
+}
+</pre></div>
+</div>
+<p><strong>TransactionResult</strong> 结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    version: &lt;string&gt; 平台版本号
+    hash: &lt;string&gt; 交易的哈希值,32字节的十六进制字符串
+    blockNumber: &lt;number&gt; 交易所在的区块高度
+    blockHash: &lt;string&gt; 交易所在区块哈希值
+    txIndex: &lt;number&gt; 交易在区块中的交易列表的位置
+    from: &lt;string&gt; 交易发送方的地址,20字节的十六进制字符串
+    to: &lt;string&gt; 交易接收方的地址,20字节的十六进制字符
+    cName: &lt;string&gt; 交易接收方的名称，合约的命名
+    amount: &lt;number&gt; 交易量
+    timestamp: &lt;number&gt; 交易发生的unix时间戳(单位 ns)
+    nonce: &lt;number&gt; 16位随机数
+    extra: &lt;string&gt; 交易的额外信息
+    executeTime: &lt;string&gt; 交易的处理时间(单位ms)
+    payload: &lt;string&gt; 部署合约与调用合约的时候才有这个值，可以通过这个值追溯到合约调用的方法以及调用传入的参数
+    signature: &lt;string&gt; 交易签名
+    invalid: &lt;boolean&gt; 交易是否不合法
+    invalidMsg: &lt;string&gt; 交易的不合法信息
+    blockTimestamp:&lt;number&gt; 交易打包时间
+    blockWriteTime:&lt;number&gt; 交易写块时间
+}
+</pre></div>
+</div>
+<p><strong>TransactionSummary</strong> 结构如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">txHash</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">交易哈希值</span>
+    <span class="n">blkNum</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">uint64</span><span class="o">&gt;</span> <span class="n">交易所在区块号</span>
+    <span class="n">txIndex</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">int64</span><span class="o">&gt;</span> <span class="n">交易在区块里的索引值</span>
+    <span class="n">from</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">交易发送方地址</span>
+    <span class="n">to</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">交易接收方地址</span>
+    <span class="n">extraId</span><span class="p">:</span><span class="o">&lt;</span><span class="nb">any</span><span class="o">&gt;</span> <span class="n">交易的extraId值</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>注意：该接口必须要指定 extraId 的值，交易接收方地址为可选项；当节点的索引数据库创建了针对该地址的extraId部分索引的时候，提供地址可以加快查询速度。</strong></p>
+<p><strong>Example1</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">requestcurl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;tx_getTransactionsByExtraID&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[{</span>
+    <span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;backward&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;pagesize&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;bookmark&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">485</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">123</span><span class="p">]</span>
+            <span class="p">}}],</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span>
+        <span class="p">}</span><span class="s1">&#39;</span>
+        <span class="o">//</span> <span class="n">response</span><span class="p">{</span>
+            <span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;hasmore&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                    <span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb34b1cce284c55383769f2c113d888cf5153d5597a52e842ce1ffd09b5731b9b&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+                    <span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">492</span><span class="p">,</span>
+                    <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xe93b92f1da08f925bdee44e91e7768380ae83307&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">123</span><span class="p">]</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                    <span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0x93bcb6e22b8d0597da3a4d88da6019840a02c5b155a1ceed4864e3b081b81371&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+                    <span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+                    <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0x000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xe93b92f1da08f925bdee44e91e7768380ae83307&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">123</span><span class="p">]</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                    <span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0xe4144de6dbe279e19c38d74d508ebf52a6d487ffa01dbaa4c91c99d98f61aeaf&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+                    <span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+                    <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xe93b92f1da08f925bdee44e91e7768380ae83307&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0x6201cb0448964ac597faf6fdf1f472edf2a22b89&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">123</span><span class="p">]</span>
+                    <span class="p">}</span>
+                    <span class="p">]</span>
+                    <span class="p">}}</span>
+</pre></div>
+</div>
+<p><strong>Example2</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">requestcurl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;tx_getTransactionsByExtraID&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[{</span>
+<span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="s2">&quot;backward&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;pagesize&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="s2">&quot;bookmark&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">485</span>
+<span class="p">}</span>
+<span class="p">},</span>
+<span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">123</span><span class="p">],</span>
+<span class="s2">&quot;txTo&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span>
+<span class="p">}}],</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="s1">&#39;</span>
+<span class="o">//</span> <span class="n">response</span><span class="p">{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="s2">&quot;hasmore&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">{</span>
+<span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb34b1cce284c55383769f2c113d888cf5153d5597a52e842ce1ffd09b5731b9b&quot;</span><span class="p">,</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">492</span><span class="p">,</span>
+<span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xe93b92f1da08f925bdee44e91e7768380ae83307&quot;</span><span class="p">,</span>
+<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">123</span><span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb1057c5081e42bc9a20fe5a43b71dfc30c64e5cc6e173dc54fd4bea05e8f2eb9&quot;</span><span class="p">,</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">193</span><span class="p">,</span>
+<span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">123</span><span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0x54e03fb03feaf0232681f5fb9da6b35542029aff9b8a2f78c8749484a863cc0a&quot;</span><span class="p">,</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">279</span><span class="p">,</span>
+<span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0x6201cb0448964ac597faf6fdf1f472edf2a22b89&quot;</span><span class="p">,</span>
+<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">123</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tx-gettransactionsbyfilter">
+<h4>tx_getTransactionsByFilter<a class="headerlink" href="#tx-gettransactionsbyfilter" title="Permalink to this headline">¶</a></h4>
+<p><strong>接口含义</strong></p>
+<p>根据过滤条件来查询符合查询条件的交易。</p>
+<p><strong>输入参数</strong></p>
+<p>该接口的入参定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    detail: &lt;bool&gt; [可选] 表示是否返回交易详情，默认为false。若为true，则返回的结果为交易详情[&lt;TransactionResult&gt;]，否则为交易摘要[&lt;TransactionSummary&gt;] 。
+    mode: &lt;int&gt; [可选] 表示本次查询请求的查询模式，目前有 0、1 两个值可选，默认为0。0表示多条件与查询模式，即交易对应字段的值与查询条件里所有指定的字段值都完全一致；1表示多条件或询模式，即交易对应字段的值至少有一个等于查询条件里指定的字段值。
+    metadata: &lt;Metadata&gt;[可选] 指定本次查询的起始位置、查询方向以及返回的条数。若未指定，则默认从最新区块开始向前查询，默认返回条数是5000条。
+    filter: &lt;Filter&gt;[必选] 指定本次查询过滤条件。
+}
+</pre></div>
+</div>
+<p><strong>Metadata</strong> 结构包含以下可用成员:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    pagesize: &lt;int32&gt; [可选] 表示本次查询返回多少条交易。如果未指定，则pagesize默认值为5000，如果超过5000，则使用节点默认值5000。
+    bookmark: &lt;Bookmark&gt; [可选] 表示本次查询的书签位置， 即起始位置，返回的结果里不包含用户指定的书签所对应的交易。如果未指定且backward为false，则默认从最新区块开始向前遍历；如果未指定且backward为true，则默认从创世区块开始向后遍历。
+    backward: &lt;bool&gt; [可选] 表示本次查询的方向，false表示以起始位置为起点从高区块往低区块遍历，true 表示以起始位置为起点从低区块往高区块遍历，默认查询方向为false。
+}
+</pre></div>
+</div>
+<p><strong>Bookmark</strong> 结构有以下可用成员:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    blkNum: &lt;uint64&gt;交易所在区块号。
+    txIndex: &lt;int64&gt;交易索引号，即交易在区块内的位置。
+}
+</pre></div>
+</div>
+<p><strong>Filter</strong> 结构包含以下可用成员:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    txHash: &lt;string&gt; [可选] 指定交易的哈希值。
+    blkNumber: &lt;uint64&gt; [可选] 指定交易所在的区块号。
+    txIndex: &lt;int64&gt; [可选] 指定交易在区块内的索引位置。
+    txFrom: &lt;string&gt; [可选] 指定交易发送方的地址。
+    txTo: &lt;string&gt; [可选] 指定交易接收方的地址。
+    extraId: &lt;array&gt; [可选] 指定交易extraId的值。
+}
+</pre></div>
+</div>
+<p><strong>返回值</strong></p>
+<p>该接口返回值定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+    hasmore: &lt;bool&gt; 表示是否有更多符合查询条件的交易未被返回。
+    data: [&lt;TransactionResult&gt;] 或 [&lt;TransactionSummary&gt;] 交易详情数组或者交易摘要数组
+}
+</pre></div>
+</div>
+<p><strong>TransactionResult</strong> 和 <strong>TransactionSummary</strong></p>
+<p>结构定义请参见 <code class="docutils literal notranslate"><span class="pre">getTransactionByExtraID</span></code> 接口</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">requestcurl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">--</span><span class="n">data</span> <span class="s1">&#39;{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;method&quot;</span><span class="p">:</span><span class="s2">&quot;tx_getTransactionsByFilter&quot;</span><span class="p">,</span>
+<span class="s2">&quot;params&quot;</span><span class="p">:[{</span> <span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="s2">&quot;backward&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;pagesize&quot;</span><span class="p">:</span> <span class="mi">6</span>       <span class="p">},</span>
+<span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="s2">&quot;txFrom&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;txTo&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span>
+<span class="p">}}],</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="s1">&#39;</span>
+<span class="o">//</span> <span class="n">response</span><span class="p">{</span>
+<span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+<span class="s2">&quot;namespace&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+<span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;SUCCESS&quot;</span><span class="p">,</span>
+<span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="s2">&quot;hasmore&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="p">{</span>
+<span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0x2fb76887bc6fcaec50eb68b967244b5ec813fbcb7d6a4f5f2c305d97aaf6c8ee&quot;</span><span class="p">,</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0x000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="p">,</span>
+<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="s2">&quot;abc&quot;</span><span class="p">,</span>
+<span class="mi">123</span>
+<span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0x108bc89ec2c077a57a0e4e70f014c08daedb900be6ea238b9f2826cf14d6a0c5&quot;</span><span class="p">,</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xe93b92f1da08f925bdee44e91e7768380ae83307&quot;</span><span class="p">,</span>
+<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="mi">123</span>
+<span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0x0b8f24d4e5daba7d09b7d32278a0749ec14ef2b418d6c0c192849ccce52b5493&quot;</span><span class="p">,</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+<span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="mi">123</span>
+<span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0xcee5342772c3fdc93d809f52e978a66babd15ddd826ba3f63163fb6ce8eba5c7&quot;</span><span class="p">,</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+<span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0x000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="p">,</span>
+<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;efg&quot;</span><span class="p">]</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0x7d1accf199aa945d614bbfd34a344fa2232386ebb59f9ddb058f89483e86c41e&quot;</span><span class="p">,</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xe93b92f1da08f925bdee44e91e7768380ae83307&quot;</span><span class="p">,</span>
+<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+<span class="s2">&quot;txHash&quot;</span><span class="p">:</span> <span class="s2">&quot;0xd35870cf4f611b78ce72c037668f6006ff8a80ed95d19a0786acf26a91b6f606&quot;</span><span class="p">,</span>
+<span class="s2">&quot;blkNum&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="s2">&quot;txIndex&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+<span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xb18c8575e3284e79b92100025a31378feb8100d6&quot;</span><span class="p">,</span>
+<span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xe93b92f1da08f925bdee44e91e7768380ae83307&quot;</span><span class="p">,</span>
+<span class="s2">&quot;extraId&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tx-gettransactionsbytimewithlimit">
+<h4>tx_getTransactionsByTimeWithLimit<a class="headerlink" href="#tx-gettransactionsbytimewithlimit" title="Permalink to this headline">¶</a></h4>
+<p>如果节点未开启索引数据库，则接口查询方法走原来的逻辑，直接遍历filelog里的区块数据。如果节点开启了索引数据库，则查询方法与原来不同，首先检索索引数据库再从filelog里取到交易详情。</p>
+<p>不管节点是否开启了索引功能，当接口入参一样时，期望查询得到的结果也完全一样。</p>
+<p>接口参数详情请参考。。。 <strong>缺链接《交易服务》</strong></p>
+</div>
+</div>
+<div class="section" id="ipc">
+<h3>外部接口IPC<a class="headerlink" href="#ipc" title="Permalink to this headline">¶</a></h3>
+<p>增加索引数据库相关的IPC命令，命令为`indexdb`，用于创建( create )、删除( delete )、查询( list )索引数据库二层索引。</p>
+<p>indexdb子命令如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">indexdb</span> <span class="n">register</span> <span class="o">&lt;</span><span class="n">namespace</span> <span class="n">name</span><span class="o">&gt;</span> <span class="o">-</span> <span class="n">register</span> <span class="n">command</span> <span class="n">namespace</span> <span class="n">scope</span>
+
+<span class="n">indexdb</span> <span class="n">scope</span> <span class="o">-</span> <span class="nb">list</span> <span class="n">command</span> <span class="n">current</span> <span class="n">namespace</span> <span class="n">scope</span>
+
+<span class="n">indexdb</span> <span class="nb">list</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span><span class="p">]</span> <span class="o">-</span> <span class="nb">list</span> <span class="nb">all</span> <span class="n">layer2</span> <span class="n">indexes</span> <span class="n">name</span><span class="o">.</span>
+
+<span class="n">indexdb</span> <span class="n">create</span> <span class="o">&lt;</span><span class="n">field</span> <span class="nb">id</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span><span class="p">]</span> <span class="o">-</span> <span class="n">create</span> <span class="n">field</span> <span class="n">layer2</span> <span class="n">index</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">provide</span> <span class="n">multiple</span> <span class="n">field</span> <span class="n">name</span><span class="o">.</span> <span class="o">&lt;</span><span class="n">field</span> <span class="nb">id</span><span class="o">&gt;</span> <span class="n">including</span><span class="p">:</span>
+                    <span class="mi">1</span> <span class="o">-</span> <span class="n">indicate</span> <span class="n">field</span> <span class="n">named</span> <span class="n">block</span> <span class="n">write</span> <span class="n">time</span><span class="p">;</span>
+                    <span class="mi">2</span> <span class="o">-</span> <span class="n">indicate</span> <span class="n">field</span> <span class="n">named</span> <span class="n">transaction</span> <span class="n">from</span><span class="p">;</span>
+                    <span class="mi">3</span> <span class="o">-</span> <span class="n">indicate</span> <span class="n">field</span> <span class="n">named</span> <span class="n">transaction</span> <span class="n">to</span><span class="p">;</span>
+                    <span class="mi">4</span> <span class="o">-</span> <span class="n">indicate</span> <span class="n">field</span> <span class="n">named</span> <span class="n">transaction</span> <span class="nb">hash</span><span class="p">;</span>
+
+<span class="n">indexdb</span> <span class="n">createPartial</span> <span class="o">&lt;</span><span class="n">address</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span><span class="p">]</span> <span class="o">-</span> <span class="n">create</span> <span class="n">partial</span> <span class="n">extraId</span> <span class="n">layer2</span> <span class="n">index</span><span class="o">.</span> <span class="o">&lt;</span><span class="n">address</span><span class="o">&gt;</span> <span class="n">should</span> <span class="n">be</span> <span class="n">a</span> <span class="n">transaction</span> <span class="n">to</span> <span class="n">address</span><span class="o">.</span>
+
+<span class="n">indexdb</span> <span class="n">delete</span> <span class="o">&lt;</span><span class="n">index</span> <span class="n">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span><span class="p">]</span>  <span class="o">-</span> <span class="n">delete</span> <span class="n">layer2</span> <span class="n">index</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>由于索引数据库是namespace级别的，因此每次使用 <cite>indexdb</cite> 命令都需要指定命令作用域，所谓作用域即表示该命令要作用于哪个namespace。因此 <cite>indexdb</cite> 命令提供了注册作用域( register )和查询当前作用域( scope )的子命令。</p>
+<p>用户也可以不注册 <cite>indexdb</cite> 命令作用域，而在子命令后面指定 <cite>-d</cite> 即可，表示使用默认(default)的namespace <strong>global</strong> 作用域。</p>
+<p>下面列举一些使用例子:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 0. 在节点启动的情况下，使用该命令进入交互式命令行界面
+&gt; ./flato（“flato”为趣链区块链平台新版英文简称） -s --ipc=hpc_1.ipc
+
+# 1. 列举global下索引数据库的二层索引信息
+&gt;&gt;&gt; indexdb list -d
+current scope: &quot;global&quot;
+total indexes: 1
+[ mongodb.IndexResult{Name:&quot;_id_&quot;, Ns:&quot;global@node1.blocks&quot;, Key:map[string]interface {}   {&quot;_id&quot;:1}} ]
+
+# 2. 在global下，创建作用于区块写入时间的二层索引
+&gt;&gt;&gt; indexdb create 1 -d
+current scope: &quot;global&quot;
+successfully create index
+
+# 3. 再次查询global下索引数据库的二层索引信息，可以看到新增了一项
+&gt;&gt;&gt; indexdb list -d
+current scope: &quot;global&quot;
+total indexes: 2
+[ mongodb.IndexResult{Name:&quot;_id_&quot;, Ns:&quot;global@node1.blocks&quot;, Key:map[string]interface {}  {&quot;_id&quot;:1}} ]
+[ mongodb.IndexResult{Name:&quot;writeTime_1&quot;, Ns:&quot;global@node1.blocks&quot;,   Key:map[string]interface {}{&quot;writeTime&quot;:1}} ]
+
+# 4. 删除global下的名称为 writeTime_1 的二层索引
+&gt;&gt;&gt; indexdb delete writeTime_1 -d
+current scope: &quot;global&quot;
+successfully delete index
+
+&gt;&gt;&gt; indexdb list -d
+current scope: &quot;global&quot;
+total indexes: 1
+[ mongodb.IndexResult{Name:&quot;_id_&quot;, Ns:&quot;global@node1.blocks&quot;, Key:map[string]interface {}  {&quot;_id&quot;:1}} ]
+&gt;&gt;&gt;
+
+# 5. 创建extraId部分索引
+&gt;&gt;&gt; indexdb createPartial 0xe93b92f1da08f925bdee44e91e7768380ae83307 -d
+current scope: &quot;global&quot;
+successfully create partial index
+&gt;&gt;&gt; indexdb list -d
+current scope: &quot;global&quot;
+total indexes: 2
+[ mongodb.IndexResult{Name:&quot;_id_&quot;, Ns:&quot;global@node1.blocks&quot;, Key:map[string]interface {} {&quot;_id&quot;:1}} ]
+[ mongodb.IndexResult{Name:&quot;txs.extraId_0xe93b92f1da08f925bdee44e91e7768380ae83307&quot;,   Ns:&quot;global@node1.blocks&quot;, Key:map[string]interface {}{&quot;_id&quot;:1,   &quot;_partial_index_0xe93b92f1da08f925bdee44e91e7768380ae83307&quot;:1, &quot;txs.eid&quot;:1}} ]
+&gt;&gt;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Data%20Archiving.html" class="btn btn-neutral float-right" title="数据归档" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Ecological%20components.html" class="btn btn-neutral float-left" title="区块链生态组件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

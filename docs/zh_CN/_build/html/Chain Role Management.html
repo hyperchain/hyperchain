@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>链级角色管理 &mdash; hyperchain  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> hyperchain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">平台介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">平台介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Version%20information.html">版本信息</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">快速入门:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="General%20Concepts.html">通用概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prepare.html">准备工作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">快速入门</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invoking%20contract.html">合约部署及调用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperchain_samples.html">使用示例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">基础协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="consensus%20mechanism.html">共识机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Networking%20protocol.html">网络协议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="execution%20engine.html">执行引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Storage%20model.html">存储模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security%20mechanism.html">加密机制</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20management.html">数据管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ecological%20components.html">区块链生态组件</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">用户手册:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Index.html">数据索引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Archiving.html">数据归档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Trusted%20File%20Sharing.html">可信文件共享</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Oracle.html">预言机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Partition%20Consensus.html">分区共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Security%20Audit.html">安全审计</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Interface%20Authority%20Management.html">接口权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chain%20Authority%20Management.html">链级权限管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Simulate%20Contract.html">Simulate合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Message%20Subscription.html">消息订阅MQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data%20Monitor.html">数据监控</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">应用场景:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="application.html">应用案例</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">更多资源:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Community_Resources.html">社区与资源</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hyperchain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>链级角色管理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Chain Role Management.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chain-role-manage">
+<span id="id1"></span><h1>链级角色管理<a class="headerlink" href="#chain-role-manage" title="Permalink to this headline">¶</a></h1>
+<p>链级角色管理用于管理账户在整个链上的角色。</p>
+<div class="section" id="id2">
+<h2>链级配置管理概述<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>链级角色管理通过提案完成，提案的状态迁移如下：</p>
+<p><img alt="image1" src="_images/chainRoleManage1.png" /></p>
+<p>通过提案管理链级角色的流程如下：（关于提案的总体介绍参考 <a class="reference internal" href="Chain%20Authority%20Management.html#chain-auth-manage"><span class="std std-ref">链级权限管理</span></a>）</p>
+<ol class="arabic simple">
+<li><p>由链级管理员发送交易创建提案，提案中包含了链级角色的对应操作；</p></li>
+<li><p>由其他的链级管理员发送交易对提案进行投票，交易中携带有投票的提案编号和是否赞同提案中携带的内容；</p></li>
+<li><p>当提案投票通过后，由提案创建者发送交易执行提案，交易中携带由执行的提案编号。</p></li>
+</ol>
+<p>链级角色管理的操作分为以下几种：</p>
+<ol class="arabic simple">
+<li><p>CreateRole，创建角色。其中 <cite>admin、contractManager、nodeOfVP</cite> 为内置角色，合约初始化时默认创建。其中 <cite>admin</cite> 为链级管理员， <cite>contractManager</cite> 为合约管理员， <cite>nodeOfVP</cite> 代表VP节点；</p></li>
+<li><p>DeleteRole，删除角色。其中 <cite>admin、contractManager、nodeOfVP</cite> 角色不能被删除；</p></li>
+<li><p>Grant，授予账户某角色；</p></li>
+<li><p>Revoke，回收账户的某角色。</p></li>
+</ol>
+<p>在内置的提案合约初始化时（第一次发交易执行提案操作时），会将带有余额的账户(链启动时，如果没有使用genesis账户向其他账户转账，则是genesis账户，初始化完成后，只能通过提案管理链级角色，为其他账户授权或回收角色，其他账户有了余额也不会再被初始化为具有角色的账户)初始化为链级管理员和合约管理员。</p>
+<div class="section" id="litesdk">
+<h3>litesdk接口说明<a class="headerlink" href="#litesdk" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h4>链级角色管理接口<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>litesdk提供了 <cite>ProposalBuilder</cite> 构造器用于构造提案的操作，在 <cite>ProposalBuilder</cite> 中提供了 <cite>createForPermission</cite> 、 <cite>vote</cite> 、 <cite>cancel</cite> 和 <cite>execute</cite> 方法分别用于创建权限类(即链级角色管理)提案、提案投票、取消提案和执行提案的提案操作，其定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="k">class</span> <span class="nc">ProposalBuilder</span> <span class="n">extends</span> <span class="n">BuiltinOperationBuilder</span> <span class="p">{</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">creat</span> <span class="n">ProposalOperation</span> <span class="k">for</span> <span class="n">permission</span> <span class="n">to</span> <span class="n">create</span> <span class="n">permission</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">opts</span> <span class="n">permission</span> <span class="n">operations</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">createForPermission</span><span class="p">(</span><span class="n">PermissionOperation</span><span class="o">...</span> <span class="n">opts</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">vote</span> <span class="n">ProposalOperation</span> <span class="n">to</span> <span class="n">vote</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">proposalID</span> <span class="n">proposal</span> <span class="nb">id</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">vote</span>       <span class="n">vote</span> <span class="n">value</span><span class="p">,</span> <span class="n">true</span> <span class="n">means</span> <span class="n">agree</span><span class="p">;</span> <span class="n">false</span> <span class="n">means</span> <span class="n">refuse</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">vote</span><span class="p">(</span><span class="nb">int</span> <span class="n">proposalID</span><span class="p">,</span> <span class="n">boolean</span> <span class="n">vote</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">cancel</span> <span class="n">ProposalOperation</span> <span class="n">to</span> <span class="n">cancel</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">proposalID</span> <span class="n">proposal</span> <span class="nb">id</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">cancel</span><span class="p">(</span><span class="nb">int</span> <span class="n">proposalID</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">execute</span> <span class="n">ProposalOperation</span> <span class="n">to</span> <span class="n">cancel</span> <span class="n">proposal</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">proposalID</span> <span class="n">proposal</span> <span class="nb">id</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">ProposalBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">ProposalBuilder</span> <span class="n">execute</span><span class="p">(</span><span class="nb">int</span> <span class="n">proposalID</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在创建权限类提案时，根据提案内容中需要对链级角色管理的操作，接收对应的权限类操作即可。litesdk为权限类操作 <cite>PermissionOperation</cite> 提供了构造器 <cite>PermissionBuilder</cite> ，构造器中提供了 <cite>createRole</cite> 、 <cite>deleteRole</cite> 、 <cite>grant</cite> 、 <cite>revoke</cite> 以及 <cite>build</cite> 方法，其定义如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="k">class</span> <span class="nc">PermissionBuilder</span> <span class="p">{</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">PermissionBuilder</span> <span class="n">to</span> <span class="n">create</span> <span class="n">role</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">role</span> <span class="n">role</span> <span class="n">name</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">PermissionBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">PermissionBuilder</span> <span class="n">createRole</span><span class="p">(</span><span class="n">String</span> <span class="n">role</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">PermissionBuilder</span> <span class="n">to</span> <span class="n">delete</span> <span class="n">role</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">role</span> <span class="n">role</span> <span class="n">name</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">PermissionBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">PermissionBuilder</span> <span class="n">deleteRole</span><span class="p">(</span><span class="n">String</span> <span class="n">role</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">PermissionBuilder</span> <span class="n">to</span> <span class="n">grant</span> <span class="n">role</span> <span class="n">to</span> <span class="n">address</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">role</span>    <span class="n">role</span> <span class="n">name</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">address</span> <span class="n">account</span> <span class="n">address</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">PermissionBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">PermissionBuilder</span> <span class="n">grant</span><span class="p">(</span><span class="n">String</span> <span class="n">role</span><span class="p">,</span> <span class="n">String</span> <span class="n">address</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="n">create</span> <span class="n">PermissionBuilder</span> <span class="n">to</span> <span class="n">revoke</span> <span class="n">role</span> <span class="kn">from</span> <span class="nn">address.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">role</span>    <span class="n">role</span> <span class="n">name</span>
+     <span class="o">*</span> <span class="nd">@param</span> <span class="n">address</span> <span class="n">account</span> <span class="n">address</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">PermissionBuilder</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">PermissionBuilder</span> <span class="n">revoke</span><span class="p">(</span><span class="n">String</span> <span class="n">role</span><span class="p">,</span> <span class="n">String</span> <span class="n">address</span><span class="p">);</span>
+
+    <span class="o">/**</span>
+     <span class="o">*</span> <span class="k">return</span> <span class="n">build</span> <span class="n">PermissionOperation</span><span class="o">.</span>
+     <span class="o">*</span>
+     <span class="o">*</span> <span class="nd">@return</span> <span class="p">{</span><span class="nd">@link</span> <span class="n">PermissionOperation</span><span class="p">}</span>
+     <span class="o">*/</span>
+    <span class="n">public</span> <span class="n">PermissionOperation</span> <span class="n">build</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>链级角色管理的操作构造好后，用ProposalBuild构造器构造提案相关的操作，创建好之后，使用 <cite>BVMBuilder</cite> 提供的 <cite>invoke</cite> 方法构造bvm的交易体，使用 <cite>build</cite> 方法构造出交易 <cite>transaction</cite> ，并为交易设置 <cite>txVersion</cite> 并使用 <cite>sign</cite> 方法签名，得到最终可以发送执行的交易体。</p>
+</div>
+<div class="section" id="id4">
+<h4>链级角色查询接口<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>litesdk的configService中还提供了查询链级角色是否存在的接口 <cite>isRileExist</cite> 和查询所有链级角色的接口 <cite>getAllRoles</cite> ，另外AccountService中还提供了查询账户链级角色的接口 <cite>getRoles</cite> 和根据链级角色查询账户的接口 <cite>getAccountsByRole</cite> 。</p>
+<ol class="arabic simple">
+<li><p>查询链级角色是否存在</p></li>
+</ol>
+<p>参数：</p>
+<ul class="simple">
+<li><p>role 要查询的角色名称；</p></li>
+<li><p>nodeIds 请求向哪些节点发送。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="o">&lt;</span><span class="n">RoleExistResponse</span><span class="o">&gt;</span> <span class="n">isRoleExist</span><span class="p">(</span><span class="n">String</span> <span class="n">role</span><span class="p">,</span> <span class="nb">int</span><span class="o">...</span> <span class="n">nodeIds</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>拿到 <cite>RoleExistResponse</cite> 后，通过 <cite>isRoleExist</cite> 方法拿到角色是否存在的结果。 <cite>isRoleExist</cite> 方法返回的是一个布尔值， <cite>true</cite> 表示存在， <cite>false</cite>  表示不存在。</p>
+<ol class="arabic simple" start="2">
+<li><p>查询所有链级角色</p></li>
+</ol>
+<p>参数：</p>
+<ul class="simple">
+<li><p>nodeIds 请求向哪些节点发送。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="o">&lt;</span><span class="n">AllRolesResponse</span><span class="o">&gt;</span> <span class="n">getAllRoles</span><span class="p">(</span><span class="nb">int</span><span class="o">...</span> <span class="n">nodeIds</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>拿到 <cite>AllRolesResponse</cite> 后，通过 <cite>getAllRoles</cite> 方法拿到所有的角色信息。 <cite>getAllRoles</cite> 方法返回的是key为角色名称，value为角色权重的map。</p>
+<ol class="arabic simple" start="3">
+<li><p>查询账户链级角色</p></li>
+</ol>
+<p>参数：</p>
+<ul class="simple">
+<li><p>address 要查询的账户地址；</p></li>
+<li><p>nodeIds 请求向哪些节点发送。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="o">&lt;</span><span class="n">RolesResponse</span><span class="o">&gt;</span> <span class="n">getRoles</span><span class="p">(</span><span class="n">String</span> <span class="n">address</span><span class="p">,</span> <span class="nb">int</span><span class="o">...</span> <span class="n">nodeIds</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>拿到 <cite>RolesResponse</cite> 后，通过 <cite>getRoles</cite> 方法拿到所有的角色信息。 <cite>getRoles</cite> 方法返回的是账户的角色列表。</p>
+<ol class="arabic simple" start="4">
+<li><p>根据链级角色查询账户</p></li>
+</ol>
+<p>参数：</p>
+<ul class="simple">
+<li><p>role 要查询的链级角色；</p></li>
+<li><p>nodeIds 请求向哪些节点发送。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Request</span><span class="o">&lt;</span><span class="n">AccountsByRoleResponse</span><span class="o">&gt;</span> <span class="n">getAccountsByRole</span><span class="p">(</span><span class="n">String</span> <span class="n">role</span><span class="p">,</span> <span class="nb">int</span><span class="o">...</span> <span class="n">nodeIds</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>拿到 <cite>AccountsByRoleResponse</cite> 后，通过 <cite>getAllRoles</cite> 方法拿到所有的角色信息。 <cite>getAccounts</cite> 方法返回的是账户列表。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>litesdk使用示例<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>具有链级管理员的账户，使用litesdk创建角色accountManager ，为账户A授权角色accountManager和admin角色，回收账户A的accountManager角色，删除accountManager角色，其代码如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">testPermissionOperation</span><span class="p">()</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">accountA</span> <span class="o">=</span> <span class="s2">&quot;37a1100567bf7e0de2f5a0dc1917f0552aa43d88&quot;</span><span class="p">;</span>
+    <span class="o">//</span> <span class="n">new</span> <span class="n">proposal</span> <span class="n">create</span> <span class="n">operation</span> <span class="k">for</span> <span class="n">config</span>
+    <span class="n">BuiltinOperation</span> <span class="n">opt</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">createForPermission</span><span class="p">(</span>
+            <span class="o">//</span> <span class="n">new</span> <span class="n">permission</span> <span class="n">operation</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">createRole</span><span class="p">(</span><span class="s2">&quot;accountManager&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">grant</span><span class="p">(</span><span class="s2">&quot;accountManager&quot;</span><span class="p">,</span> <span class="n">accountA</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">grant</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="n">accountA</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">revoke</span><span class="p">(</span><span class="s2">&quot;accountManager&quot;</span><span class="p">,</span> <span class="n">accountA</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span>
+            <span class="n">new</span> <span class="n">PermissionOperation</span><span class="o">.</span><span class="n">PermissionBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">deleteRole</span><span class="p">(</span><span class="s2">&quot;accountManager&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">();</span>
+    <span class="o">//</span> <span class="n">send</span> <span class="n">transaction</span> <span class="n">to</span> <span class="n">create</span> <span class="n">proposal</span>
+    <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+
+    <span class="o">//</span> <span class="n">get</span> <span class="n">proposal</span>
+    <span class="n">Request</span><span class="o">&lt;</span><span class="n">ProposalResponse</span><span class="o">&gt;</span> <span class="n">proposal</span> <span class="o">=</span> <span class="n">configService</span><span class="o">.</span><span class="n">getProposal</span><span class="p">();</span>
+    <span class="n">ProposalResponse</span> <span class="n">proposalResponse</span> <span class="o">=</span> <span class="n">proposal</span><span class="o">.</span><span class="n">send</span><span class="p">();</span>
+    <span class="n">ProposalResponse</span><span class="o">.</span><span class="n">Proposal</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">proposalResponse</span><span class="o">.</span><span class="n">getProposal</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">vote</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">vote</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">getId</span><span class="p">(),</span> <span class="n">true</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="n">i</span><span class="p">]));</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">execute</span>
+    <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">new</span> <span class="n">ProposalOperation</span><span class="o">.</span><span class="n">ProposalBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">prop</span><span class="o">.</span><span class="n">getId</span><span class="p">())</span><span class="o">.</span><span class="n">build</span><span class="p">(),</span> <span class="n">accountService</span><span class="o">.</span><span class="n">fromAccountJson</span><span class="p">(</span><span class="n">accountJsons</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+    <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">getErr</span><span class="p">());</span>
+
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">OperationResult</span><span class="o">&gt;</span> <span class="n">resultList</span> <span class="o">=</span> <span class="n">Decoder</span><span class="o">.</span><span class="n">decodeBVMResult</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">OperationResult</span> <span class="ow">or</span> <span class="p">:</span> <span class="n">resultList</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SuccessCode</span><span class="o">.</span><span class="n">getCode</span><span class="p">(),</span> <span class="ow">or</span><span class="o">.</span><span class="n">getCode</span><span class="p">());</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SuccessCode</span><span class="o">.</span><span class="n">getCode</span><span class="p">(),</span> <span class="ow">or</span><span class="o">.</span><span class="n">getCode</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">Result</span> <span class="n">invokeBVMContract</span><span class="p">(</span><span class="n">BuiltinOperation</span> <span class="n">opt</span><span class="p">,</span> <span class="n">Account</span> <span class="n">acc</span><span class="p">)</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+        <span class="n">Transaction</span> <span class="n">transaction</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Transaction</span><span class="o">.</span>
+                <span class="n">BVMBuilder</span><span class="p">(</span><span class="n">acc</span><span class="o">.</span><span class="n">getAddress</span><span class="p">())</span><span class="o">.</span>
+                <span class="n">invoke</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span><span class="o">.</span>
+                <span class="n">build</span><span class="p">();</span>
+        <span class="n">transaction</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">acc</span><span class="p">);</span>
+
+        <span class="n">ReceiptResponse</span> <span class="n">receiptResponse</span> <span class="o">=</span> <span class="n">contractService</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span><span class="o">.</span><span class="n">send</span><span class="p">()</span><span class="o">.</span><span class="n">polling</span><span class="p">();</span>
+        <span class="n">Result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Decoder</span><span class="o">.</span><span class="n">decodeBVM</span><span class="p">(</span><span class="n">receiptResponse</span><span class="o">.</span><span class="n">getRet</span><span class="p">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>使用litesdk查询链级角色，其代码如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">void</span> <span class="n">testGetRoles</span><span class="p">()</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">accountAddress</span> <span class="o">=</span> <span class="s2">&quot;000f1a7a08ccc48e5d30f80850cf1cf283aa3abd&quot;</span><span class="p">;</span>
+    <span class="n">Request</span><span class="o">&lt;</span><span class="n">RolesResponse</span><span class="o">&gt;</span> <span class="n">balance</span> <span class="o">=</span> <span class="n">accountService</span><span class="o">.</span><span class="n">getRoles</span><span class="p">(</span><span class="n">accountAddress</span><span class="p">);</span>
+    <span class="n">RolesResponse</span> <span class="n">send</span> <span class="o">=</span> <span class="n">balance</span><span class="o">.</span><span class="n">send</span><span class="p">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">send</span><span class="o">.</span><span class="n">getRoles</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">void</span> <span class="n">testGetAccountsByRole</span><span class="p">()</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">role</span> <span class="o">=</span> <span class="s2">&quot;admin&quot;</span><span class="p">;</span>
+    <span class="n">Request</span><span class="o">&lt;</span><span class="n">AccountsByRoleResponse</span><span class="o">&gt;</span> <span class="n">balance</span> <span class="o">=</span> <span class="n">accountService</span><span class="o">.</span><span class="n">getAccountsByRole</span><span class="p">(</span><span class="n">role</span><span class="p">);</span>
+    <span class="n">AccountsByRoleResponse</span> <span class="n">send</span> <span class="o">=</span> <span class="n">balance</span><span class="o">.</span><span class="n">send</span><span class="p">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">send</span><span class="o">.</span><span class="n">getAccounts</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">void</span> <span class="n">testGetAllRoles</span><span class="p">()</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+<span class="n">Request</span><span class="o">&lt;</span><span class="n">AllRolesResponse</span><span class="o">&gt;</span> <span class="n">request</span> <span class="o">=</span> <span class="n">configService</span><span class="o">.</span><span class="n">getAllRoles</span><span class="p">();</span>
+<span class="n">AllRolesResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">send</span><span class="p">();</span>
+<span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">getAllRoles</span><span class="p">());</span>
+<span class="p">}</span>
+
+
+<span class="n">public</span> <span class="n">void</span> <span class="n">testIsRoleExist</span><span class="p">()</span> <span class="n">throws</span> <span class="n">RequestException</span> <span class="p">{</span>
+    <span class="n">Request</span><span class="o">&lt;</span><span class="n">RoleExistResponse</span><span class="o">&gt;</span> <span class="n">request</span> <span class="o">=</span> <span class="n">configService</span><span class="o">.</span><span class="n">isRoleExist</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">);</span>
+    <span class="n">RoleExistResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">send</span><span class="p">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">isRoleExist</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2017, Hyperchain Corp..
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
