@@ -112,6 +112,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NFT.html">数字资产</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">数据管理</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">数据归档</a></li>
@@ -119,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id4">文件保险箱</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">预言机</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sql">链上SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">创世状态上链</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Operation%20manage.html">运维管理</a></li>
@@ -275,6 +277,17 @@
 <li><p>支持符合MySQL语法规则的SQL语句，满足数据操作需求。</p></li>
 <li><p>SQL语句链上执行，保障分布式数据操作一致性。</p></li>
 </ul>
+</div>
+<div class="section" id="id6">
+<h2>创世状态上链<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>创世状态指建链时链相关的状态，包含创世节点的相关信息和一些链级配置。目前，创世节点初始化需要链启动后手动完成，如果没有进行创世节点的初始化，则无法进行增删节点操作。另外，越来越多的功能实现需要依赖账本上的节点信息、链配置等进行，如果账本上没有对应的信息，对其他的功能也会造成影响。</p>
+<p>因此，平台设计了创世状态上链功能，平台启动时创世状态上链功能流程如下：</p>
+<ol class="arabic simple">
+<li><p>从config模块读取genesis配置，生成genesis块；</p></li>
+<li><p>触发sync去同步区块；</p></li>
+<li><p>同步区块完成后检查账本是否有节点信息如果没有就停节点。</p></li>
+</ol>
+<p><img alt="image4" src="_images/StateOnChain.png" /></p>
 </div>
 </div>
 

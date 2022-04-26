@@ -241,9 +241,7 @@
 <p>多分区的使用可以在节点启动时配置，也可以在启动后通过IPC命令进行动态增删。</p>
 <div class="section" id="id4">
 <h3>节点启动配置<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>节点在启动前可以配置多个分区，配置后的目录结构如下</p>
-<p><img alt="image1" src="_images/PartitionConsensus2.jpg" /></p>
-<p>其中，global分区是必须存在的，且必须连接网络中的所有节点。在系统资源充足的情况下，其他分区的个数不做限制。每一个分区下的 <code class="docutils literal notranslate"><span class="pre">ns_dynamic.toml</span></code> 文件需要配置该分区下连接的节点。</p>
+<p>节点在启动前可以配置多个分区。其中，global分区是必须存在的，且必须连接网络中的所有节点。在系统资源充足的情况下，其他分区的个数不做限制。每一个分区下的 <code class="docutils literal notranslate"><span class="pre">ns_dynamic.toml</span></code> 文件需要配置该分区下连接的节点。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">nodes</span><span class="p">]]</span>
 <span class="n">hostname</span>    <span class="o">=</span> <span class="s2">&quot;node1&quot;</span>
 

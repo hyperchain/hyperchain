@@ -39,6 +39,7 @@ Hyperchain文档
    
    Architecture development
    Safe Privacy
+   NFT
    Governonce and audit
    Data management
    Operation manage

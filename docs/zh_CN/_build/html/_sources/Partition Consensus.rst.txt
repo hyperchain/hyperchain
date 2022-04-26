@@ -19,11 +19,7 @@
 
 节点启动配置
 >>>>>>>>>>>>>>>>>>>
-节点在启动前可以配置多个分区，配置后的目录结构如下
-
-|image1|
-
-其中，global分区是必须存在的，且必须连接网络中的所有节点。在系统资源充足的情况下，其他分区的个数不做限制。每一个分区下的 ``ns_dynamic.toml`` 文件需要配置该分区下连接的节点。
+节点在启动前可以配置多个分区。其中，global分区是必须存在的，且必须连接网络中的所有节点。在系统资源充足的情况下，其他分区的个数不做限制。每一个分区下的 ``ns_dynamic.toml`` 文件需要配置该分区下连接的节点。
 
 ::
 
@@ -184,5 +180,4 @@ node2、3、5、6在configuration文件夹下建立ns2文件夹，里面写入�
 4. 分区间彼此独立，但共享系统资源，若业务要求多分区架构，需要保证有更高的机器配置，可以考虑将节点各分区的数据挂载在不同磁盘下。
 
 .. |image0| image:: ../../images/PartitionConsensus1.jpg
-.. |image1| image:: ../../images/PartitionConsensus2.jpg
 .. |image2| image:: ../../images/PartitionConsensus3.jpg

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>安全隐私 &mdash; hyperchain  documentation</title>
+  <title>数字资产 &mdash; hyperchain  documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="NFT.html" />
-    <link rel="prev" title="架构拓展" href="Architecture%20development.html" /> 
+    <link rel="next" title="治理与审计" href="Governonce%20and%20audit.html" />
+    <link rel="prev" title="安全隐私" href="Safe%20Privacy.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -111,10 +111,9 @@
 <p class="caption" role="heading"><span class="caption-text">扩展协议:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Architecture%20development.html">架构拓展</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">安全隐私</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">分区共识</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">分区扁平化</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tee">TEE账本加密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Safe%20Privacy.html">安全隐私</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">数字资产</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nft">NFT</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Governonce%20and%20audit.html">治理与审计</a></li>
@@ -191,13 +190,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>安全隐私</li>
+      <li>数字资产</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/Safe Privacy.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/NFT.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -211,35 +210,20 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>安全隐私<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>区块链公开透明的特性在实际商用场景落地过程中往往限制了业务的扩展，为了应对实际场景中隐私保护的需求，平台提供分区共识以及TEE账本加密两种隐私保护方案。</p>
-<div class="section" id="id2">
-<h2>分区共识<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>区块链冗余存储的特性决定了区块链网络中的每个节点都需要存储一份全量账本数据，而在商业应用中，存在敏感数据只能在有限节点间进行共享，或者不同业务间数据需要相互隔离的需求。</p>
-<p>为此，平台设计了分区共识（Namespace）机制，不同分区间的交易共识、执行、存储完全解耦，不仅实现了交易数据对其他分区不可见，同时，由于交易并行执行，分区性能也不会随分区数量增加而显著下降。平台支持分区及分区成员的动态管理，允许用户在不停机的情况下，进行分区以及分区节点的增删，快速适应业务需求变化。</p>
-<p>通过分区共识机制，需要进行隔离的数据可以仅在指定分区内进行共享和存储。原本通过建不同的链实现数据隔离的模式，需要在每次建链时重新部署节点，十分繁琐，而现在的分区隔离模式只需单次部署节点，便可按照实际需求选择加入一个或多个分区，在实现数据隔离的同时有效降低了部署及运维复杂度。</p>
-<p><img alt="image0" src="_images/partition.png" /></p>
-<p>图中描述了分区共识在政务数据治理场景中的应用。区块链政务数据治理平台的数据协作链承载了民生服务、企业服务等业务，不同业务数据间存在隔离需求。建链时，各委办局部署各自节点，并通过配置确立初始分区及成员节点。随着试点范围的扩大，牵头部门可在民生服务和企业服务分区的基础上，通过IPC命令动态新增政务服务分区，并通过发送交易动态新增其他市/区委办局节点，逐步完善整个政务数据治理平台的搭建。</p>
-</div>
-<div class="section" id="id3">
-<h2>分区扁平化<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p><strong>分区扁平化是对分区共识的升级，趣链区块链平台 V2.0.8及以上功能支持该功能。</strong></p>
-<p>现有分区共识的设计是在global分区的基础上，按需选择节点创建各自自定义分区。即创建新的分区的前提是，已加入global分区，而加入global分区的前提是，需要各节点间能够建立连接。在大规模多分区部署区块链网络的场景下，如果所有节点都在global分区下，那么其网络架构将非常复杂，尤其在主侧链场景中，侧链之间的网络是很难通信的，也无需通信，所以平台进行了分区扁平化的设计。</p>
-<p>分区扁平化包含以下功能点设计：</p>
+<h1>数字资产<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nft">
+<h2>NFT<a class="headerlink" href="#nft" title="Permalink to this headline">¶</a></h2>
+<p>NFT（Non-Fungible Token，非同质化代币) 定义了一种生态中不可分割的、具有唯一性的代币交互和流通的接口规范，是用于表示数字资产的唯一加密货币令牌。NFT由于其非同质化、不可拆分的特性，使得它可以锚定现实世界中商品的概念，例如通证化的门票、一瓶珍贵的红酒、独特设计的珠宝等等。NFT 可将任意有价值的事物通证化，并追溯该信息的所有权，实现信息与价值的交汇。</p>
+<p>平台设计了链原生支持数字资产账户，解决一个合约账户存储全量数据的问题，实现资产全平台唯一性，增加互操作性。在通用链的基础上，将NFT资产定义为区块链账户，在智能合约中发布的NFT资产可直接映射到底层区块链账户中，基于这一系列操作完成对NFT资产的全生命流程功能支持。NFT链功能通用，可构建多使用场景的NFT应用，满足业务使用场景功能和非功能需求。</p>
+<p><img alt="image0" src="_images/NFT1.png" /></p>
+<p>链原生数字资产架构如图所示，其具有以下功能特性：</p>
 <ul class="simple">
-<li><p>整体架构扁平化：分区完全扁平化，四个节点及以上可以组成一个分区，网络中不一定需要global分区的存在，分区内的节点建立物理和逻辑连接。</p></li>
-<li><p>网络扁平化：不在同一个分区中的节点之间无需建立p2p连接，将DNS、Topotogy、Ping服务和broadcast挪到ns级别。Network划分成多个子网，每个子网代表一个ns。</p></li>
-<li><p>锚节点管理：组网阶段不考虑锚节点，锚节点通过后续注册的方式进行管理，锚节点的注册通过配置交易进行。</p></li>
-<li><p>证书级别调整：节点证书中新增namespace字段，防止同一个节点的分区借用其他分区的证书。</p></li>
+<li><p>支持ERC-721、ERC-1155、ERC-998，性能更高；</p></li>
+<li><p>支持创世数字资产、创世账户、创世合约的发布；</p></li>
+<li><p>基于索引数据库灵活支持对特定用户、特定资产、特定操作的数字资产交易链路溯源；</p></li>
+<li><p>基于大文件功能，原生管理资产源文件，支持上传、下载、更新等操作及相关权限管理；</p></li>
+<li><p>联盟链交易费用稳定，可监管性强。</p></li>
 </ul>
-<p><img alt="image1" src="_images/partition_flatten.jpg" /></p>
-</div>
-<div class="section" id="tee">
-<h2>TEE账本加密<a class="headerlink" href="#tee" title="Permalink to this headline">¶</a></h2>
-<p>账本加密针对用户的账户信息和业务数据进行按需加密操作，将密钥存储在TEE硬件可信执行环境中，账本数据通过TEE的密钥进行加解密，由于在整个过程中账本加密的密钥都在TEE中而没有向外暴露，所以可以保证账本数据加密的安全性；而且平台会确保硬件执行环境的安全性，这一层面外部用户无需感知；另外如果需要参与方和审计方具有权限查看数据，则可通过赋予其数据访问权限，通过密码学算法如哈希校验等进行对加密信息的有效性和正确性验证。</p>
-<p>账本加密可应用于密钥存储和数据加密两种场景。</p>
-<p>密钥存储，密钥存储某种程度上可以理解为CPU担任了UKey的功能。他是将关键密钥信息托管到可信计算环境中不再导出以便保护关键密钥。这里能够保存的密钥包括平台ecert、rcert的私钥，特殊用途的密钥等，最终的密钥保存在配置文件指定的加密文件中。密钥存储的子功能主要包括：密钥生成、加密解密、密钥导入、签名。</p>
-<p>数据加密，数据加密是利用了密钥存储的加密解密的功能，在此基础上专门提供特定于节点的密钥加密功能。提供公共的一组加密解密接口供对共识数据加密使用。密钥对不同的节点是不同的而且只有一份拷贝，但是考虑到加密的数据在其他节点也能找回，因此不用担心密钥丢失的问题。</p>
 </div>
 </div>
 
@@ -249,8 +233,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="NFT.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Architecture%20development.html" class="btn btn-neutral float-left" title="架构拓展" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Governonce%20and%20audit.html" class="btn btn-neutral float-right" title="治理与审计" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Safe%20Privacy.html" class="btn btn-neutral float-left" title="安全隐私" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
