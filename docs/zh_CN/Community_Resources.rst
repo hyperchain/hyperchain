@@ -4,8 +4,6 @@
 开源资源
 ------------------
 
-SDK开源链接：
-
 hyperbench开源链接：https://github.com/meshplus/hyperbench
 
 

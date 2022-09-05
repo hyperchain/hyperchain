@@ -11,16 +11,18 @@
 * :ref:`链级角色管理 <chain-role-manage>`
 * :ref:`节点增删管理 <node-manage>`
 * :ref:`合约权限管理 <contract-auth-manage>`
+* :ref:`接口权限管理 <Interface-Authority-Management>`
 * :ref:`合约生命周期管理 <contract-life-manage>`
 * :ref:`合约命名服务CNS <contract-naming-service>`
 * :ref:`账户生命周期管理 <account-life-manage>`
+* :ref:`CA模式管理 <CA-Mode-Management>`
 
 
 功能概述
 ------------------
-联盟自治框架CAF（Consortium Autonomous Framework）由管理员共同形成“联盟自治成员组织”，以联盟协商的形式管理联盟链。该框架适用于一切链级别的变更，如节点增删、合约管理等。
+联盟自治框架CAF（Consortium Autonomous Framework）由管理员共同形成 “联盟自治成员组织” ，以联盟协商的形式管理联盟链。该框架适用于一切链级别的变更，如节点增删、合约管理等。
 
-CAF的管理委员会包括 **系统管理委员会** 和 **合约管理委员会**。前者由系统管理员组成，负责链级配置变更、链级角色管理、节点增删等提案的商议与投票；后者由合约管理员组成，负责合约访问权限管理、合约生命周期管理、合约命名服务CNS等提案的商议与投票。
+CAF的管理委员会包括 **系统管理委员会** 和 **合约管理委员会** 。前者由系统管理员组成，负责链级配置变更、链级角色管理、节点增删等提案的商议与投票；后者由合约管理员组成，负责合约访问权限管理、合约生命周期管理、合约命名服务CNS等提案的商议与投票。
 
 提案的提出、表决、通过等核心逻辑都依托于 **内置智能合约（BVM）** 实现，具体流程如下：
 
@@ -35,11 +37,11 @@ CAF的管理委员会包括 **系统管理委员会** 和 **合约管理委员�
 使用litesdk与节点交互分为以下几步：
 
 1. 首先需要创建 `HttpProvider` 对象管理与节点的连接；
-2. 然后创建 `ProviderManager` 对象负责集成、管理 `HttpProvider`；
+2. 然后创建 `ProviderManager` 对象负责集成、管理 `HttpProvider` ；
 3. 然后再根据实际的需要创建相应的服务 `Service` 的具体实现类；
 4. 最后将请求发送出去拿到响应结果。
 
-初始化的流程中litesdk的主文档中有详细介绍，此次不再赘述。此外，执行合约需要创建的是 `Service` 的实现类 `ContractService`。
+初始化的流程中litesdk的主文档中有详细介绍，此次不再赘述。此外，执行合约需要创建的是 `Service` 的实现类 `ContractService` 。
 
 
 使用说明
@@ -78,14 +80,14 @@ BVM交易体
         public ContractMethod getMethod() ;
     }
 
-`BuiltinOpetation` 继承自 `Operation`，增加了要调用的合约地址的封装，其定义如下::
+`BuiltinOpetation` 继承自 `Operation` ，增加了要调用的合约地址的封装，其定义如下::
 
     public abstract class BuiltinOperation extends Operation {
         public String getAddress() ;
         public void setAddress(String address) ;
     }
 
-由于bvm中有多种合约，一个合约中也有多个合约方法，为此提供了相应的 `Builder` 来构造相应的操作，封装了一个父类的 `BuilderOperationBuilder` 用于构造内置操作 `BuiltinOperation`，其定义如下::
+由于bvm中有多种合约，一个合约中也有多个合约方法，为此提供了相应的 `Builder` 来构造相应的操作，封装了一个父类的 `BuilderOperationBuilder` 用于构造内置操作 `BuiltinOperation` ，其定义如下::
 
     public abstract class BuiltinOperationBuilder {
         /**
@@ -96,7 +98,7 @@ BVM交易体
         public BuiltinOperation build() ;
     }
 
-针对不同的合约地址中不同的合约方法调用有封装相应的实现类，目前bvm提供的合约有： `HashContract`、 `ProposalContract` 两种，分别有 `BuiltinOperation` 的实现类 `HashOperation` 和 `ProposalOperation`，相应的也提供了 `HashBuilder` 和 `ProposalBuilder` 用于创建相应的操作。
+针对不同的合约地址中不同的合约方法调用有封装相应的实现类，目前bvm提供的合约有： `HashContract` 、 `ProposalContract` 两种，分别有 `BuiltinOperation` 的实现类 `HashOperation` 和 `ProposalOperation` ，相应的也提供了 `HashBuilder` 和 `ProposalBuilder` 用于创建相应的操作。
 
 HashContract
 ::::::::::::::::::::::::
@@ -106,7 +108,7 @@ HashContract 中提供的合约方法如下：
 *  `Set` : Set方法接收两个参数，一个参数为key，一个参数为value，用于存储键值对。
 *  `Get` : Get方法接收一个参数key，用于取出HashContract中与之对应的value值。
 
-构造 `HashContract`操作的构造器 `HashBuilder`提供了 `set` 和 `get` 方法，分别用于构造 `HashContract` 合约中的 `Set` 和 `Get` 方法，其定义如下::
+构造 `HashContract` 操作的构造器 `HashBuilder` 提供了 `set` 和 `get` 方法，分别用于构造 `HashContract` 合约中的 `Set` 和 `Get` 方法，其定义如下::
 
     public static class HashBuilder extends BuiltinOperationBuilder {
         /**
@@ -155,10 +157,10 @@ ProposalContract 中提供的合约方法如下：
 对于提案可根据提案内容划分为以下几类：
 
 - 配置类， ptype为 `config` ，data则为配置项操作列表；
-- 权限类，ptype为`permission` ，data为权限操作列表；
-- 节点类，ptype为`node` ，data为节点操作列表；
-- 合约命名类，ptype为`cns` ，data为合约命名操作列表；
-- 合约生命周期管理类，ptype为`contract` ，data为合约生命周期管理操作列表。
+- 权限类，ptype为 `permission` ，data为权限操作列表；
+- 节点类，ptype为 `node` ，data为节点操作列表；
+- 合约命名类，ptype为 `cns` ，data为合约命名操作列表；
+- 合约生命周期管理类，ptype为 `contract` ，data为合约生命周期管理操作列表。
 
 构造 `ProposalContract` 操作的构造器 `ProposalBuilder` 提供了 `createForNode` 、 `createForCNS` 、 `createForPermission` 、 `createForContract` 、 `createForConfig` 、 `vote` 、 `cancel` 和 `execute` 方法分别用于创建节点类提案、创建合约命名类提案、创建权限类提案、创建配置类提案、提案投票、取消提案和执行提案的提案操作，其定义如下::
 
@@ -345,8 +347,8 @@ ProposalContract 中提供的合约方法如下：
 
 权限的操作分以下几种：
 
-- CreateRole，创建角色。其中 `admin、contractManager、nodeOfVP` 为内置角色，合约初始化时默认创建。其中`admin` 为链级管理员，`contractManager` 为合约管理员，`nodeOfVP` 代表VP节点
-- DeleteRole，删除角色。其中`admin、contractManager、nodeOfVP` 角色不能被删除。
+- CreateRole，创建角色。其中 `admin、contractManager、nodeOfVP` 为内置角色，合约初始化时默认创建。其中 `admin` 为链级管理员， `contractManager` 为合约管理员， `nodeOfVP` 代表VP节点
+- DeleteRole，删除角色。其中 `admin、contractManager、nodeOfVP` 角色不能被删除。
 - Grant，授予账户某角色
 - Revoke，回收账户的某角色
 
@@ -803,9 +805,6 @@ ProposalContract提供创建提案、取消提案、提案投票以及执行提�
 相关接口
 -----------------------
 
-接口详情可参考链级权限服务的[API文档-链级权限服务](**缺文档地址**）
-
-
 查询提案
 >>>>>>>>>>>>>>>>>
 参数：
@@ -816,7 +815,7 @@ ProposalContract提供创建提案、取消提案、提案投票以及执行提�
 
     Request<ProposalResponse> getProposal(int... nodeIds);
 
-拿到 `ProposalResponse` 后，可通过 `getProposal` 方法拿到提案信息 `Proposal`，其定义如下::
+拿到 `ProposalResponse` 后，可通过 `getProposal` 方法拿到提案信息 `Proposal` ，其定义如下::
 
     public class ProposalResponse extends Response {
         public class Proposal {
@@ -946,8 +945,6 @@ ProposalContract提供创建提案、取消提案、提案投票以及执行提�
     Request<AllCNSResponse> getAllCNS(int... nodeIds);
 
 拿到 `AllCNSResponse` 后，通过 `getAllCNS` 方法拿到所以的合约地址到合约命名的映射关系。 `getAllCNS` 方法返回的是key为合约地址，value为合约命名的map。
-
-
 
 
 .. |image1| image:: ../../images/ChainAuthorityManagement1.png
