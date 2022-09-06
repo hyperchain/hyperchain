@@ -88,4 +88,5 @@ https://github.com/ipfs/go-ipfs#install
 附件资源
 -----------
 
-(咨询平台运维人员获取)
+`go-ipfs_v0.4.23_linux-amd64.tar <https://upload.filoop.com/RTD-Hyperchain%2Fgo-ipfs_v0.4.23_linux-amd64.tar>`_
+`go-ipfs_v0.4.23_darwin-amd64.tar <https://upload.filoop.com/RTD-Hyperchain%2Fgo-ipfs_v0.4.23_darwin-amd64.tar>`_

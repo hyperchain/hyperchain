@@ -227,5 +227,5 @@ hyperchain在执行命令时，会以apply journal的形式，制作出“至入
 
 从hyperchain2.7的数据开始支持状态证明，之前版本生成的数据不支持证明
 
-.. |image0| image:: ../../images/conf1.png
-.. |image1| image:: ../../images/conf2.png
+.. |image0| image:: ../../../images/conf1.png
+.. |image1| image:: ../../../images/conf2.png

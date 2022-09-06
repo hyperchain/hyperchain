@@ -640,7 +640,7 @@ indexdb子命令如下::
 
 （咨询平台运维人员获取）
 
-.. |image1| image:: ../../images/data_index1.jpg
+.. |image1| image:: ../../../images/data_index1.jpg
 
 
 

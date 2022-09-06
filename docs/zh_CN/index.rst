@@ -38,8 +38,6 @@ Hyperchain文档
    
    Architecture development
    NFT1
-   VM Related User Manual
-   Data-storage-and-management
    Safe Privacy
    Governonce and audit
    Data management

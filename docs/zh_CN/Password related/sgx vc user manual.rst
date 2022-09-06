@@ -421,29 +421,29 @@ url：https://ino4:8080/v1/sgx/wasm/verify
 
 |image23|
 
-.. |image0| image:: ../../images/sgx vc1.png
-.. |image1| image:: ../../images/sgx vc2.png
-.. |image2| image:: ../../images/sgx vc3.png
-.. |image3| image:: ../../images/sgx vc4.png
-.. |image4| image:: ../../images/sgx vc5.png
-.. |image5| image:: ../../images/sgx vc6.png
-.. |image6| image:: ../../images/sgx vc7.png
-.. |image7| image:: ../../images/sgx vc8.png
-.. |image8| image:: ../../images/sgx vc9.png
-.. |image9| image:: ../../images/sgx vc10.png
-.. |image10| image:: ../../images/sgx vc11.png
-.. |image11| image:: ../../images/sgx vc12.png
-.. |image12| image:: ../../images/sgx vc13.png
-.. |image13| image:: ../../images/sgx vc14.png
-.. |image14| image:: ../../images/sgx vc15.png
-.. |image15| image:: ../../images/sgx vc16.png
-.. |image16| image:: ../../images/sgx vc17.png
-.. |image17| image:: ../../images/sgx vc18.png
-.. |image18| image:: ../../images/sgx vc19.png
-.. |image19| image:: ../../images/sgx vc20.png
-.. |image20| image:: ../../images/sgx vc21.png
-.. |image21| image:: ../../images/sgx vc22.png
-.. |image22| image:: ../../images/sgx vc23.png
-.. |image23| image:: ../../images/sgx vc24.png
+.. |image0| image:: ../../../images/sgx_vc1.png
+.. |image1| image:: ../../../images/sgx_vc2.png
+.. |image2| image:: ../../../images/sgx_vc3.png
+.. |image3| image:: ../../../images/sgx_vc4.png
+.. |image4| image:: ../../../images/sgx_vc5.png
+.. |image5| image:: ../../../images/sgx_vc6.png
+.. |image6| image:: ../../../images/sgx_vc7.png
+.. |image7| image:: ../../../images/sgx_vc8.png
+.. |image8| image:: ../../../images/sgx_vc9.png
+.. |image9| image:: ../../../images/sgx_vc10.png
+.. |image10| image:: ../../../images/sgx_vc11.png
+.. |image11| image:: ../../../images/sgx_vc12.png
+.. |image12| image:: ../../../images/sgx_vc13.png
+.. |image13| image:: ../../../images/sgx_vc14.png
+.. |image14| image:: ../../../images/sgx_vc15.png
+.. |image15| image:: ../../../images/sgx_vc16.png
+.. |image16| image:: ../../../images/sgx_vc17.png
+.. |image17| image:: ../../../images/sgx_vc18.png
+.. |image18| image:: ../../../images/sgx_vc19.png
+.. |image19| image:: ../../../images/sgx_vc20.png
+.. |image20| image:: ../../../images/sgx_vc21.png
+.. |image21| image:: ../../../images/sgx_vc22.png
+.. |image22| image:: ../../../images/sgx_vc23.png
+.. |image23| image:: ../../../images/sgx_vc24.png
 
 

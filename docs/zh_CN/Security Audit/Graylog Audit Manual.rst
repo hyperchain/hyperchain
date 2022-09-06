@@ -415,29 +415,29 @@ vm.max_map_count~~=~~262144
 
 `MongDB 启动警告 WARNING: soft rlimits too low_KK 笔记：专注数据【精通SQL Server 合作请私信】-CSDN博客 <https://blog.csdn.net/kk185800961/article/details/45613267>`_
 
-.. |image0| image:: ../../images/Graylog1.png
-.. |image1| image:: ../../images/Graylog2.png
-.. |image2| image:: ../../images/Graylog3.png
-.. |image3| image:: ../../images/Graylog4.png
-.. |image4| image:: ../../images/Graylog5.png
-.. |image5| image:: ../../images/Graylog6.png
-.. |image6| image:: ../../images/Graylog7.png
-.. |image7| image:: ../../images/Graylog8.png
-.. |image8| image:: ../../images/Graylog9.png
-.. |image9| image:: ../../images/Graylog10.png
-.. |image10| image:: ../../images/Graylog11.png
-.. |image11| image:: ../../images/Graylog12.png
-.. |image12| image:: ../../images/Graylog13.png
-.. |image13| image:: ../../images/Graylog14.png
-.. |image14| image:: ../../images/Graylog15.png
-.. |image15| image:: ../../images/Graylog16.png
-.. |image16| image:: ../../images/Graylog17.png
-.. |image17| image:: ../../images/Graylog18.png
-.. |image18| image:: ../../images/Graylog19.png
-.. |image19| image:: ../../images/Graylog20.png
-.. |image20| image:: ../../images/Graylog21.png
-.. |image21| image:: ../../images/Graylog22.png
-.. |image22| image:: ../../images/Graylog23.png
-.. |image23| image:: ../../images/Graylog24.png
-.. |image24| image:: ../../images/Graylog25.png
+.. |image0| image:: ../../../images/Graylog1.png
+.. |image1| image:: ../../../images/Graylog2.png
+.. |image2| image:: ../../../images/Graylog3.png
+.. |image3| image:: ../../../images/Graylog4.png
+.. |image4| image:: ../../../images/Graylog5.png
+.. |image5| image:: ../../../images/Graylog6.png
+.. |image6| image:: ../../../images/Graylog7.png
+.. |image7| image:: ../../../images/Graylog8.png
+.. |image8| image:: ../../../images/Graylog9.png
+.. |image9| image:: ../../../images/Graylog10.png
+.. |image10| image:: ../../../images/Graylog11.png
+.. |image11| image:: ../../../images/Graylog12.png
+.. |image12| image:: ../../../images/Graylog13.png
+.. |image13| image:: ../../../images/Graylog14.png
+.. |image14| image:: ../../../images/Graylog15.png
+.. |image15| image:: ../../../images/Graylog16.png
+.. |image16| image:: ../../../images/Graylog17.png
+.. |image17| image:: ../../../images/Graylog18.png
+.. |image18| image:: ../../../images/Graylog19.png
+.. |image19| image:: ../../../images/Graylog20.png
+.. |image20| image:: ../../../images/Graylog21.png
+.. |image21| image:: ../../../images/Graylog22.png
+.. |image22| image:: ../../../images/Graylog23.png
+.. |image23| image:: ../../../images/Graylog24.png
+.. |image24| image:: ../../../images/Graylog25.png
 

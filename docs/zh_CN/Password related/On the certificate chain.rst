@@ -273,4 +273,4 @@ step2 通过 **rpc命令** 使节点的证书修改生效
             Assert.assertEquals("", result.getErr());
         }
 
-.. |image0| image:: ../../images/cert on chain1.png
+.. |image0| image:: ../../../images/cert_on_chain1.png

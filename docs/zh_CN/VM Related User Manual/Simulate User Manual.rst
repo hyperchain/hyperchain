@@ -122,6 +122,6 @@ simulate \_maintainContract 升级合约、冻结合约、解冻合约
 **模拟解冻合约的调用操作结束后，合约状态的修改不会记录到链上，即模拟解冻不影响链上合约的状态。**
 
 
-.. |image0| image:: ../../images/simulate1.png
+.. |image0| image:: ../../../images/simulate1.png
 
 

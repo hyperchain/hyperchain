@@ -305,4 +305,4 @@ Oracle回调状态码 含义
 
 `oracleContractDemo <https://upload.filoop.com/RTD-Hyperchain%2ForacleContractDemo.zip>`_
 
-.. |image0| image:: ../../images/Oracle1.png
+.. |image0| image:: ../../../images/Oracle1.png

@@ -139,4 +139,4 @@ IPC命令：
 - 由于去重需要，可以归档的最新区块产生时间需要早于tx_active_time，tx_active_time配置于ns_static.toml中。
 
 
-.. |image1| image:: ../../images/data_archiving1.jpg
+.. |image1| image:: ../../../images/data_archiving1.jpg

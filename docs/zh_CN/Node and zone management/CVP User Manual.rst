@@ -284,4 +284,4 @@ CVP接口开放清单
 
 `CVP接口开放清单列表 <https://upload.filoop.com/RTD-Hyperchain%2FCVP%20JSONRPC%E6%8E%A5%E5%8F%A3%E5%BC%80%E6%94%BE%E6%B8%85%E5%8D%95.xlsx>`_
 
-.. |image0| image:: ../../images/cvp1.png
+.. |image0| image:: ../../../images/cvp1.png

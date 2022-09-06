@@ -268,4 +268,4 @@ litesdk使用示例
         System.out.println(response.isRoleExist());
     }
 
-.. |image1| image:: ../../images/chainRoleManage1.png
+.. |image1| image:: ../../../images/chainRoleManage1.png
