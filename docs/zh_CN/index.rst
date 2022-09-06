@@ -21,7 +21,6 @@ Hyperchain文档
    Prepare
    quickstart
    invoking contract
-   hyperchain_samples
 
 .. toctree::
    :maxdepth: 2
@@ -38,6 +37,9 @@ Hyperchain文档
    :caption: 扩展协议:
    
    Architecture development
+   NFT1
+   VM Related User Manual
+   Data-storage-and-management
    Safe Privacy
    Governonce and audit
    Data management
@@ -48,17 +50,17 @@ Hyperchain文档
    :maxdepth: 2
    :caption: 用户手册:
 
-   Data Index
-   Data Archiving
-   Trusted File Sharing
-   Oracle
-   Partition Consensus
-   Security Audit
-   Interface Authority Management
    Chain Authority Management
-   Simulate Contract
-   Message Subscription
+   Node and zone management
+   Consensus related user manual
+   Cross domain network User Manual
+   VM Related User Manual
+   Data storage and management
+   Password related
+   Security Audit
    Data Monitor
+   qulian blockchain browser
+   Module
 
 .. toctree::
    :maxdepth: 2

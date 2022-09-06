@@ -111,3 +111,4 @@ api/jsonrpc/Dashboard/node_modules
 scripts/mac_local.sh
 
 docs/_build/
+docs/zh_CN/_build/
