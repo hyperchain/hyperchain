@@ -1106,7 +1106,7 @@ HyperTable是HVM提出的第三种数据结构，具有\ **表、行、列簇、
 
 HyperTable表结构如下图所示：
 
-.. image:: http://teambitiondoc.hyperchain.cn:8099/storage/011w6e12dc5e11bd845d56ae2761a3cf2f82?Signature=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcHBJRCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9hcHBJZCI6IjU5Mzc3MGZmODM5NjMyMDAyZTAzNThmMSIsIl9vcmdhbml6YXRpb25JZCI6IiIsImV4cCI6MTY2MzAzOTI0NCwiaWF0IjoxNjYyNDM0NDQ0LCJyZXNvdXJjZSI6Ii9zdG9yYWdlLzAxMXc2ZTEyZGM1ZTExYmQ4NDVkNTZhZTI3NjFhM2NmMmY4MiJ9.MKwD7kEB5pKzDhoJe9klSF-YyETmvO6FkhDHP0L7KoQ&download=HyperTable%E7%BB%93%E6%9E%84%E5%9B%BE.png
+|image0|
 
 与Hashmap相似，HyperTable也提供了put和get方法来进行插入和查询。与HashMap不同的是，HyperTable的key是由行、列簇、列共同组成。
 
@@ -2502,3 +2502,5 @@ seekEntrySet key：迭代器起始节点的key key为null时抛出异常返回�
    while (itr.hasNext()) {
    	System.out.println(ite.next());
    }
+
+.. |image0| image:: ../../../../images/hypertable1.png
