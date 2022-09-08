@@ -181,5 +181,5 @@ node2、3、5、6在configuration文件夹下建立ns2文件夹，里面写入�
 3. 分区退出后，dynamic.toml配置中分区的start值将改为false，若节点重启时需要启动该分区，请调整配置文件。
 4. 分区间彼此独立，但共享系统资源，若业务要求多分区架构，需要保证有更高的机器配置，可以考虑将节点各分区的数据挂载在不同磁盘下。
 
-.. |image0| image:: ../../images/PartitionConsensus1.jpg
-.. |image2| image:: ../../images/PartitionConsensus3.jpg
+.. |image0| image:: ../../../images/PartitionConsensus1.jpg
+.. |image2| image:: ../../../images/PartitionConsensus3.jpg

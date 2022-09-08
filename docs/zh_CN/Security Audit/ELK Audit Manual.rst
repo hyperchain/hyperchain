@@ -231,17 +231,17 @@ vm.max_map_count=262144
 
  sudo sysctl -p
 
-.. |image0| image:: ../../images/ELK1.png
-.. |image1| image:: ../../images/ELK2.png
-.. |image2| image:: ../../images/ELK3.png
-.. |image3| image:: ../../images/ELK4.png
-.. |image4| image:: ../../images/ELK5.png
-.. |image5| image:: ../../images/ELK6.png
-.. |image6| image:: ../../images/ELK7.png
-.. |image7| image:: ../../images/ELK8.png
-.. |image8| image:: ../../images/ELK9.png
-.. |image9| image:: ../../images/ELK10.png
-.. |image10| image:: ../../images/ELK11.png
-.. |image11| image:: ../../images/ELK12.png
-.. |image12| image:: ../../images/ELK13.png
+.. |image0| image:: ../../../images/ELK1.png
+.. |image1| image:: ../../../images/ELK2.png
+.. |image2| image:: ../../../images/ELK3.png
+.. |image3| image:: ../../../images/ELK4.png
+.. |image4| image:: ../../../images/ELK5.png
+.. |image5| image:: ../../../images/ELK6.png
+.. |image6| image:: ../../../images/ELK7.png
+.. |image7| image:: ../../../images/ELK8.png
+.. |image8| image:: ../../../images/ELK9.png
+.. |image9| image:: ../../../images/ELK10.png
+.. |image10| image:: ../../../images/ELK11.png
+.. |image11| image:: ../../../images/ELK12.png
+.. |image12| image:: ../../../images/ELK13.png
 

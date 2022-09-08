@@ -716,4 +716,4 @@ HVM合约中提供了HyperMap、HyperList、HyperTable、NestedMap四种账本�
 
 5. 不建议合约引用非JDK和hvm-sdk以外包的类。如果合约中类或类实例的字段，那么合约Jar包中必须有这个类的class文件，即使用JDK和hvm-sdk包以外类并操作字段，hvm-abi将无法进行增强。
 
-.. |image0| image:: ../../images/ABI plug-in.png
+.. |image0| image:: ../../../../../images/ABI_plug-in.png

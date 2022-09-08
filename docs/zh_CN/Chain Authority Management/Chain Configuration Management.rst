@@ -236,4 +236,4 @@ javasdk使用示例
 
 
 
-.. |image1| image:: ../../images/chainConfManage1.png
+.. |image1| image:: ../../../images/chainConfManage1.png

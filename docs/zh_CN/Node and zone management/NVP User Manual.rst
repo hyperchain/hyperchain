@@ -492,6 +492,6 @@ IPC命令如下::
 
 **解决方案：** nvp和vp之间的连接状态不正常，需要根据日志信息进行人工介入。
 
-.. |image0| image:: ../../images/nvp1.png
-.. |image1| image:: ../../images/nvp2.png
-.. |image2| image:: ../../images/nvp3.png
+.. |image0| image:: ../../../images/nvp1.png
+.. |image1| image:: ../../../images/nvp2.png
+.. |image2| image:: ../../../images/nvp3.png

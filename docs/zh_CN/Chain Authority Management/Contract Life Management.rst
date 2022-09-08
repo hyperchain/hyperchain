@@ -219,4 +219,4 @@ litesdk使用示例
         return result;
     }
 
-.. |image1| image:: ../../images/ContractLifeManage1.png
+.. |image1| image:: ../../../images/ContractLifeManage1.png

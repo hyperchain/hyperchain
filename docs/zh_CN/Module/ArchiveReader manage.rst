@@ -156,8 +156,8 @@ archive目录下新增了archive.record文件和genesis.meta文件。public目�
 +----------+-----------------------------------+-----------------------+
 
 
-.. |image0| image:: ../../images/Archivereader1.png
-.. |image1| image:: ../../images/Archivereader2.png
-.. |image2| image:: ../../images/Archivereader3.png
-.. |image3| image:: ../../images/Archivereader4.png
+.. |image0| image:: ../../../images/Archivereader1.png
+.. |image1| image:: ../../../images/Archivereader2.png
+.. |image2| image:: ../../../images/Archivereader3.png
+.. |image3| image:: ../../../images/Archivereader4.png
 

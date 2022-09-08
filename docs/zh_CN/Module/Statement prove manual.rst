@@ -238,5 +238,5 @@ journal的形式，制作出“至入参区块号执行完成时为止”的账�
 
 从hyperchain2.7的数据开始支持状态证明，之前版本生成的数据不支持证明
 
-.. |image0| image:: ../../images/statement1.png
-.. |image1| image:: ../../images/statement2.png
+.. |image0| image:: ../../../images/statement1.png
+.. |image1| image:: ../../../images/statement2.png

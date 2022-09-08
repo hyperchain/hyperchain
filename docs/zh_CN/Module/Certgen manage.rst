@@ -77,7 +77,7 @@ gencert.sh是交互式的，只会询问必要的参数选项即可生成一套�
 
 tls证书：
 
-|iamge5|
+|image5|
 
 生成的证书目录certsDir结构如下：
 
@@ -388,24 +388,24 @@ flag说明::
     SubCertPrivPath: --priv，指定子证书私钥的生成路径
 	NVP: --nvp 后面参数为NVP或LP要绑定的VP节点的hostname
 
-.. |image0| image:: ../../images/certgen1.png
-.. |image1| image:: ../../images/certgen2.png
-.. |image2| image:: ../../images/certgen3.png
-.. |image3| image:: ../../images/certgen4.png
-.. |image4| image:: ../../images/certgen5.png
-.. |image5| image:: ../../images/certgen6.png
-.. |image6| image:: ../../images/certgen7.png
-.. |image7| image:: ../../images/certgen8.png
-.. |image8| image:: ../../images/certgen9.png
-.. |image9| image:: ../../images/certgen19.png
-.. |image10| image:: ../../images/certgen10.png
-.. |image11| image:: ../../images/certgen11.png
-.. |image12| image:: ../../images/certgen12.png
-.. |image13| image:: ../../images/certgen13.png
-.. |image14| image:: ../../images/certgen14.png
-.. |image15| image:: ../../images/certgen15.jpg
-.. |image16| image:: ../../images/certgen16.jpg
-.. |image17| image:: ../../images/certgen17.jpg
-.. |image18| image:: ../../images/certgen18.jpg
+.. |image0| image:: ../../../images/certgen1.png
+.. |image1| image:: ../../../images/certgen2.png
+.. |image2| image:: ../../../images/certgen3.png
+.. |image3| image:: ../../../images/certgen4.png
+.. |image4| image:: ../../../images/certgen5.png
+.. |image5| image:: ../../../images/certgen6.png
+.. |image6| image:: ../../../images/certgen7.png
+.. |image7| image:: ../../../images/certgen8.png
+.. |image8| image:: ../../../images/certgen9.png
+.. |image9| image:: ../../../images/certgen19.png
+.. |image10| image:: ../../../images/certgen10.png
+.. |image11| image:: ../../../images/certgen11.png
+.. |image12| image:: ../../../images/certgen12.png
+.. |image13| image:: ../../../images/certgen13.png
+.. |image14| image:: ../../../images/certgen14.png
+.. |image15| image:: ../../../images/certgen15.jpg
+.. |image16| image:: ../../../images/certgen16.jpg
+.. |image17| image:: ../../../images/certgen17.jpg
+.. |image18| image:: ../../../images/certgen18.jpg
 
 
