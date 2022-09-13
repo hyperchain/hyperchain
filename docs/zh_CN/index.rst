@@ -20,7 +20,6 @@ Hyperchain文档
    General Concepts
    Prepare
    quickstart
-   invoking contract
 
 .. toctree::
    :maxdepth: 2
