@@ -596,5 +596,5 @@ JDK支持列表
 
 【JDK支持列表使用详情参考HVM使用手册文件 - 附录 HVM JDK支持列表】
 
-.. |image0| image:: ../../../../../images/lifecycle1.jpg
-.. |image1| image:: ../../../../../images/lifecycle2.png
+.. |image0| image:: ../../../../images/lifecycle1.jpg
+.. |image1| image:: ../../../../images/lifecycle2.png

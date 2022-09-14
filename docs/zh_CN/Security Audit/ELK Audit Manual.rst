@@ -26,13 +26,13 @@ ELK 审计使用手册
 1.4参考文献
 ------------
 
-[__ELK介绍__] `__https://www.elastic.co/cn/what-is/elk-stack__ <https://www.elastic.co/cn/what-is/elk-stack>`_
+[ELK介绍] `https://www.elastic.co/cn/what-is/elk-stack<https://www.elastic.co/cn/what-is/elk-stack>`_
 
-[__elasticsearch 参考文档__] `__https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html__ <https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html>`_
+[elasticsearch 参考文档] `https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html <https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html>`_
 
-[__kibana 参考文档__] `__https://www.elastic.co/guide/en/kibana/current/index.html__ <https://www.elastic.co/guide/en/kibana/current/index.html>`_
+[kibana 参考文档] `https://www.elastic.co/guide/en/kibana/current/index.html <https://www.elastic.co/guide/en/kibana/current/index.html>`_
 
-[__filebeat参考文档__] `__https://www.elastic.co/guide/en/beats/filebeat/7.9/index.html__ <https://www.elastic.co/guide/en/beats/filebeat/7.9/index.html>`_
+[filebeat参考文档] `https://www.elastic.co/guide/en/beats/filebeat/7.9/index.html <https://www.elastic.co/guide/en/beats/filebeat/7.9/index.html>`_
 
 2. 安装和初始化
 ==================
@@ -57,8 +57,8 @@ elk 安装部署一般分为单机版部署和集群版部署。
 
  ::
 
- unzip elasticsearch-filbeat-kibana.tar.gz.zip
- tar -xvf elasticsearch-filbeat-kibana.tar.gz
+     unzip elasticsearch-filbeat-kibana.tar.gz.zip
+     tar -xvf elasticsearch-filbeat-kibana.tar.gz
 
 2. 接下来分别进入三个组件的目录修改配置文件，首先修改elasticsearch的配置文件，进入elasticsearch-7.7.0目录，配置文件在config目录下, 进入config目录，可以看到如下的配置文件目录：
 
@@ -221,15 +221,15 @@ ELK单机部署和使用说明至此结束。
 
  sudo vi /etc/sysctl.conf
 
-在最后一行添加一行
+在最后一行添加一行::
 
-vm.max_map_count=262144
+    vm.max_map_count=262144
 
 然后执行 下面的命令重新载入配置文件
 
  ::
 
- sudo sysctl -p
+    sudo sysctl -p
 
 .. |image0| image:: ../../../images/ELK1.png
 .. |image1| image:: ../../../images/ELK2.png

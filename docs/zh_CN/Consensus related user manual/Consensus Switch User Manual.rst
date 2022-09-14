@@ -14,12 +14,20 @@
 1.2 术语
 -------------
 
-| 英文   | 中文                     | 含义                                                         |
-| ------ | ------------------------ | ------------------------------------------------------------ |
-| /      | 共识算法切换             | 区块链平台在保留账本数据的前提下，从一种共识切换到另一种共识 |
-| NoxBFT | /                        | Hyperchain新型拜占庭共识算法                                 |
-| RBFT   | 鲁棒性拜占庭容错共识算法 | Hyperchain实现的一种强鲁棒性拜占庭容错共识算法               |
-| epoch  | 世代                     | 共识算法在发生集群配置变更后会触发“世代”的更替               |
++------------+--------------+-----------------------------------------+
+| 英文       | 中文         | 含义                                    |
++============+==============+=========================================+
+| /          | 共识算法切换 | 区块链平台在保留账本数                  |
+|            |              | 据的前提下，从一种共识切换到另一种共识  |
++------------+--------------+-----------------------------------------+
+| NoxBFT     | /            | Hyperchain新型拜占庭共识算法            |
++------------+--------------+-----------------------------------------+
+| RBFT       | 鲁棒性拜占庭 | Hyperch                                 |
+|            | 容错共识算法 | ain实现的一种强鲁棒性拜占庭容错共识算法 |
++------------+--------------+-----------------------------------------+
+| epoch      | 世代         | 共识算法                                |
+|            |              | 在发生集群配置变更后会触发“世代”的更替  |
++------------+--------------+-----------------------------------------+
 
 2. 配置说明
 ===============
@@ -65,63 +73,61 @@
 
  ::
 
- # 通过rpc查看集群当前状态
- curl <ip地址>:<端口> --data '{"jsonrpc":"2.0","method": "node_getNodeStates","id": 1, "namespace":"<分区名>"}'
+     # 通过rpc查看集群当前状态
+     curl <ip地址>:<端口> --data '{"jsonrpc":"2.0","method": "node_getNodeStates","id": 1, "namespace":"<分区名>"}'
 
- {
-    "code": 0,
-    "id": 1,
-    "jsonrpc": "2.0",
-    "message": "SUCCESS",
-    "namespace": "global",
-    "result": [
-        {
-            "blockHash": "0000000000000013eec2cc0a0866491f8d031283298a9a45a60e55eb65ca58e5",
-            "blockHeight": 19,
-            "checkpoint": 10,
-            "epoch": 2,
-            "hash": "fa34664ec14727c34943045bcaba9ef05d2c48e06d294c15effc900a5b4b663a",
-            "hostname": "node1",
-            "id": 1,
-            "status": "NORMAL",
-            "view": 0
-        },
-        {
-            "blockHash": "0000000000000013eec2cc0a0866491f8d031283298a9a45a60e55eb65ca58e5",
-            "blockHeight": 19,
-            "checkpoint": 10,
-            "epoch": 2,
-            "hash": "c82a71a88c58540c62fc119e78306e7fdbe114d9b840c47ab564767cb1c706e2",
-            "hostname": "node2",
-            "id": 2,
-            "status": "NORMAL",
-            "view": 0
-        },
-        {
-            "blockHash": "0000000000000013eec2cc0a0866491f8d031283298a9a45a60e55eb65ca58e5",
-            "blockHeight": 19,
-            "checkpoint": 10,
-            "epoch": 2,
-            "hash": "0c89dc7d8bdf45d1fed89fdbac27463d9f144875d3d73795f64f35dc204480fd",
-            "hostname": "node3",
-            "id": 3,
-            "status": "NORMAL",
-            "view": 0
-        },
-        {
-            "blockHash": "0000000000000013eec2cc0a0866491f8d031283298a9a45a60e55eb65ca58e5",
-            "blockHeight": 19,
-            "checkpoint": 10,
-            "epoch": 2,
-            "hash": "34d299742260716bab353995fe98727004b5c27bde52489f61de093176e82088",
-            "hostname": "node4",
-            "id": 4,
-            "status": "NORMAL"
-		}
-    ]
- }
-
-
+     {
+        "code": 0,
+        "id": 1,
+        "jsonrpc": "2.0",
+        "message": "SUCCESS",
+        "namespace": "global",
+        "result": [
+            {
+                "blockHash": "0000000000000013eec2cc0a0866491f8d031283298a9a45a60e55eb65ca58e5",
+                "blockHeight": 19,
+                "checkpoint": 10,
+                "epoch": 2,
+                "hash": "fa34664ec14727c34943045bcaba9ef05d2c48e06d294c15effc900a5b4b663a",
+                "hostname": "node1",
+                "id": 1,
+                "status": "NORMAL",
+                "view": 0
+            },
+            {
+                "blockHash": "0000000000000013eec2cc0a0866491f8d031283298a9a45a60e55eb65ca58e5",
+                "blockHeight": 19,
+                "checkpoint": 10,
+                "epoch": 2,
+                "hash": "c82a71a88c58540c62fc119e78306e7fdbe114d9b840c47ab564767cb1c706e2",
+                "hostname": "node2",
+                "id": 2,
+                "status": "NORMAL",
+                "view": 0
+            },
+            {
+                "blockHash": "0000000000000013eec2cc0a0866491f8d031283298a9a45a60e55eb65ca58e5",
+                "blockHeight": 19,
+                "checkpoint": 10,
+                "epoch": 2,
+                "hash": "0c89dc7d8bdf45d1fed89fdbac27463d9f144875d3d73795f64f35dc204480fd",
+                "hostname": "node3",
+                "id": 3,
+                "status": "NORMAL",
+                "view": 0
+            },
+            {
+                "blockHash": "0000000000000013eec2cc0a0866491f8d031283298a9a45a60e55eb65ca58e5",
+                "blockHeight": 19,
+                "checkpoint": 10,
+                "epoch": 2,
+                "hash": "34d299742260716bab353995fe98727004b5c27bde52489f61de093176e82088",
+                "hostname": "node4",
+                "id": 4,
+                "status": "NORMAL"
+            }
+        ]
+     }
 
 1. 使用v2.7.0的hyperchain二进制文件生成配置 `upgrade.toml`
 
@@ -129,7 +135,7 @@
 
  ::
 
-./hyperchain --gqc configuration
+    ./hyperchain --gqc configuration
 
 
 3.1.2 v2.7.0版本的RBFT算法切换到NoxBFT
@@ -142,62 +148,60 @@
 
  ::
 
- # 通过rpc查看集群当前状态
- curl <ip地址>:<端口> --data '{"jsonrpc":"2.0","method": "node_getNodeStates","id": 1, "namespace":"<分区名>"}'
+     # 通过rpc查看集群当前状态
+     curl <ip地址>:<端口> --data '{"jsonrpc":"2.0","method": "node_getNodeStates","id": 1, "namespace":"<分区名>"}'
 
- {
-    "code": 0,
-    "id": 1,
-    "jsonrpc": "2.0",
-    "message": "SUCCESS",
-    "namespace": "global",
-    "result": [
-        {
-            "blockHash": "000000000000000dafd619e625e629e4f79d2acf4782220aa030bf411e8aef21",
-            "blockHeight": 13,
-            "checkpoint": 13,
-            "epoch": 2,
-            "hash": "fa34664ec14727c34943045bcaba9ef05d2c48e06d294c15effc900a5b4b663a",
-            "hostname": "node1",
-            "id": 1,
-            "status": "NORMAL",
-            "view": 0
-        },
-        {
-            "blockHash": "000000000000000dafd619e625e629e4f79d2acf4782220aa030bf411e8aef21",
-            "blockHeight": 13,
-            "checkpoint": 13,
-            "epoch": 2,
-            "hash": "c82a71a88c58540c62fc119e78306e7fdbe114d9b840c47ab564767cb1c706e2",
-            "hostname": "node2",
-            "id": 2,
-            "status": "NORMAL",
-            "view": 0
-        },
-        {
-            "blockHash": "000000000000000dafd619e625e629e4f79d2acf4782220aa030bf411e8aef21",
-            "blockHeight": 13,
-            "checkpoint": 13,
-            "epoch": 2,
-            "hash": "0c89dc7d8bdf45d1fed89fdbac27463d9f144875d3d73795f64f35dc204480fd",
-            "hostname": "node3",
-            "id": 3,
-            "status": "NORMAL",
-            "view": 0
-        },
-        {
-            "blockHash": "000000000000000dafd619e625e629e4f79d2acf4782220aa030bf411e8aef21",
-            "blockHeight": 13,
-            "checkpoint": 13,
-            "epoch": 2,
-            "hash": "34d299742260716bab353995fe98727004b5c27bde52489f61de093176e82088",
-            "hostname": "node4",
-            "id": 4,
-            "status": "NORMAL",
-            "view": 0
-        },
-
-
+     {
+        "code": 0,
+        "id": 1,
+        "jsonrpc": "2.0",
+        "message": "SUCCESS",
+        "namespace": "global",
+        "result": [
+            {
+                "blockHash": "000000000000000dafd619e625e629e4f79d2acf4782220aa030bf411e8aef21",
+                "blockHeight": 13,
+                "checkpoint": 13,
+                "epoch": 2,
+                "hash": "fa34664ec14727c34943045bcaba9ef05d2c48e06d294c15effc900a5b4b663a",
+                "hostname": "node1",
+                "id": 1,
+                "status": "NORMAL",
+                "view": 0
+            },
+            {
+                "blockHash": "000000000000000dafd619e625e629e4f79d2acf4782220aa030bf411e8aef21",
+                "blockHeight": 13,
+                "checkpoint": 13,
+                "epoch": 2,
+                "hash": "c82a71a88c58540c62fc119e78306e7fdbe114d9b840c47ab564767cb1c706e2",
+                "hostname": "node2",
+                "id": 2,
+                "status": "NORMAL",
+                "view": 0
+            },
+            {
+                "blockHash": "000000000000000dafd619e625e629e4f79d2acf4782220aa030bf411e8aef21",
+                "blockHeight": 13,
+                "checkpoint": 13,
+                "epoch": 2,
+                "hash": "0c89dc7d8bdf45d1fed89fdbac27463d9f144875d3d73795f64f35dc204480fd",
+                "hostname": "node3",
+                "id": 3,
+                "status": "NORMAL",
+                "view": 0
+            },
+            {
+                "blockHash": "000000000000000dafd619e625e629e4f79d2acf4782220aa030bf411e8aef21",
+                "blockHeight": 13,
+                "checkpoint": 13,
+                "epoch": 2,
+                "hash": "34d299742260716bab353995fe98727004b5c27bde52489f61de093176e82088",
+                "hostname": "node4",
+                "id": 4,
+                "status": "NORMAL",
+                "view": 0
+            },
 
 3.2 修改共识算法类型
 -----------------------

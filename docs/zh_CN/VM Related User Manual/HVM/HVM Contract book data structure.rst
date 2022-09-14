@@ -22,36 +22,34 @@ HyperList是HVM内部定义的一种与ArrayList类似的类型，它是一个�
 **HyperList使用示例**
 ---------------------
 
-.. code:: java
+ ::
 
    //定义
    @StoreField
    private HyperList<String> hyperList = new HyperList<>();
 
-//调用接口示例 hyperList.add(0, “w0”); hyperList.get(0);
+    //调用接口示例 hyperList.add(0, “w0”); hyperList.get(0);
 
-String[] array = new String[]{“a”, “b”, “c”, “d”}; ArrayList arrayList =
-new ArrayList(Arrays.asList(array)); hyperList.addAll(arrayList);
-hyperList.get(hyperList.size() - 1);
+    String[] array = new String[]{“a”, “b”, “c”, “d”}; ArrayList arrayList =
+    new ArrayList(Arrays.asList(array)); hyperList.addAll(arrayList);
+    hyperList.get(hyperList.size() - 1);
 
-hyperList.contains(“0”); hyperList.equals(arrayList);
-hyperList.hashCode(); hyperList.remove(3); hyperList.remove(“b0”);
-hyperList.set(0, “q”); ListsubList = hyperList.subList(0, 3);
-
-::
+    hyperList.contains(“0”); hyperList.equals(arrayList);
+    hyperList.hashCode(); hyperList.remove(3); hyperList.remove(“b0”);
+    hyperList.set(0, “q”); ListsubList = hyperList.subList(0, 3);
 
 
-   **HyperList使用demo**
+
+**HyperList使用demo**
 
    **【源码包可参考HVM使用手册 - HVM合约Demo附件源码 - hvm-manual-demo的hyperlist目录】**
 
-   ## HyperList接口
+## HyperList接口
 
-   ### add
+### add
 
-   向HyperList的末尾位置添加元素
+向HyperList的末尾位置添加元素::
 
-   ```java
    public boolean add(E e) {}
 
 ==== =============== ===============================

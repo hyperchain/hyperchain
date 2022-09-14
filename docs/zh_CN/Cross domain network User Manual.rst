@@ -114,7 +114,7 @@
 
 节点发现是系统自带功能，与其相关的配置有：
 
-`ns_static.toml`文件::
+`ns_static.toml` 文件::
 
  [p2p]
     [p2p.discover]

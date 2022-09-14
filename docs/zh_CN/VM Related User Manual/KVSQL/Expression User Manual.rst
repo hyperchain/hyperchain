@@ -6,48 +6,46 @@ Expression 使用手册
 buildin Function映射表
 ===========================
 
-    mysql中支持内置函数，内置函数在词法分析阶段就会被解析成特定的终结符类型，下面给出内置函数到终结符类型的映射关系表。
+mysql中支持内置函数，内置函数在词法分析阶段就会被解析成特定的终结符类型，下面给出内置函数到终结符类型的映射关系表。
 
-    ============ ==================
-    函数名       终结符类型
-    ============ ==================
-    ADDDATE      builtinAddDate
-    BIT_AND      builtinBitAnd
-    BIT_OR       builtinBitOr
-    BIT_XOR      builtinBitXor
-    CAST         builtinCast
-    COUNT        builtinCount
-    CURDATE      builtinCurDate
-    CURTIME      builtinCurTime
-    DATE_ADD     builtinDateAdd
-    DATE_SUB     builtinDateSub
-    EXTRACT      builtinExtract
-    GROUP_CONCAT builtinGroupConcat
-    MAX          builtinMax
-    MID          builtinSubstring
-    MIN          builtinMin
-    NOW          builtinNow
-    POSITION     builtinPosition
-    SESSION_USER builtinUser
-    STD          builtinStddevPop
-    STDDEV       builtinStddevPop
-    STDDEV_POP   builtinStddevPop
-    STDDEV_SAMP  builtinStddevSamp
-    SUBDATE      builtinSubDate
-    SUBSTR       builtinSubstring
-    SUBSTRING    builtinSubstring
-    SUM          builtinSum
-    SYSDATE      builtinSysDate
-    SYSTEM_USER  builtinUser
-    TRIM         builtinTrim
-    VARIANCE     builtinVarPop
-    VAR_POP      builtinVarPop
-    VAR_SAMP     builtinVarSamp
-    ============ ==================
+============ ==================
+函数名       终结符类型
+============ ==================
+ADDDATE      builtinAddDate
+BIT_AND      builtinBitAnd
+BIT_OR       builtinBitOr
+BIT_XOR      builtinBitXor
+CAST         builtinCast
+COUNT        builtinCount
+CURDATE      builtinCurDate
+CURTIME      builtinCurTime
+DATE_ADD     builtinDateAdd
+DATE_SUB     builtinDateSub
+EXTRACT      builtinExtract
+GROUP_CONCAT builtinGroupConcat
+MAX          builtinMax
+MID          builtinSubstring
+MIN          builtinMin
+NOW          builtinNow
+POSITION     builtinPosition
+SESSION_USER builtinUser
+STD          builtinStddevPop
+STDDEV       builtinStddevPop
+STDDEV_POP   builtinStddevPop
+STDDEV_SAMP  builtinStddevSamp
+SUBDATE      builtinSubDate
+SUBSTR       builtinSubstring
+SUBSTRING    builtinSubstring
+SUM          builtinSum
+SYSDATE      builtinSysDate
+SYSTEM_USER  builtinUser
+TRIM         builtinTrim
+VARIANCE     builtinVarPop
+VAR_POP      builtinVarPop
+VAR_SAMP     builtinVarSamp
+============ ==================
 
     ::
-
-    %{%}
 
     %token	<ident>
         pipes              "||"
@@ -442,8 +440,5 @@ buildin Function映射表
     ElseOpt:
         /* empty */
     |	"ELSE" Expression
-
-    %%
-
 
 
