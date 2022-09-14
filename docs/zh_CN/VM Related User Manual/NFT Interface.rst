@@ -110,7 +110,7 @@ HPC721Metadata作为HPC721的补充接口，增加了NFT项目的扩展指定内
 
 铸造nft账户，默认会为创建的nft资产账户设置的平台地址为当前合约地址，默认初始状态为0::
 
- public final native String emit0(byte[] identity, String owner, byte[] meta);
+     public final native String emit0(byte[] identity, String owner, byte[] meta);
 
 ===== ==== ==================
 方法  参数 返回值
@@ -120,7 +120,7 @@ emit0      资产的底层账户地址
 
 **示例**::
 
- String propertyAddr = this.emit0(id, "0x123456", "meta".getBytes());
+     String propertyAddr = this.emit0(id, "0x123456", "meta".getBytes());
 
 获取NFT资产
 --------------
@@ -133,7 +133,7 @@ emit0      资产的底层账户地址
 
  ::
 
- public final native PropertyV1 getProperty0(byte[] identity);
+     public final native PropertyV1 getProperty0(byte[] identity);
 
 ============ ==== ============
 方法         参数 返回值
@@ -143,7 +143,7 @@ getProperty0      资产账户结构
 
 **示例**::
 
- PropertyV1 property = this.getProperty0();
+     PropertyV1 property = this.getProperty0();
 
 资产结构
 ------------

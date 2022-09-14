@@ -36,7 +36,7 @@
 
  ::
 
- func GetLevelArray() []crypto.Level{}
+     func GetLevelArray() []crypto.Level{}
 
 
 2.1.2  hash、随机数生成器、加解密等工厂接口
@@ -147,7 +147,7 @@ PluginSignFunc接口实现密钥的签名功能，该接口的两个关键方法
 
     - 私钥索引文件的约定格式。所谓私钥索引文件是用于替代私钥文件的占位文件。该文件只有一行文本内容，由三部分组成，三部分间用空格分割，样例如下::
 
- plugin sm2 3081a40201010430bdb9839c08ee793d1157886a7
+     plugin sm2 3081a40201010430bdb9839c08ee793d1157886a7
 
 **第一部分** 是固定开头plugin； **第二部分** 是算法名称，为如下字符串之一：sm2、secp256k1、secp256r1、secp256k1recover，flato会解析得到算法类型后用mode参数传递给GetSignKey方法； **第三部分** 是hex编码，flato会将hex解码后的字节数组传递给GetSignKey方法作为key参数。第三部分的具体内容和含义是plugin负责解释的，对flato透明，因此第三部分可以是密钥的名称，索引，密钥本身，加密后的密钥等等。
 

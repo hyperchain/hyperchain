@@ -50,17 +50,17 @@ isLibrary    boolean true表示获取library实例，false表示获取contract�
 
  ::
 
- public class A extends BaseContract implements IA {
-    public void funcA(){}
- }
+     public class A extends BaseContract implements IA {
+        public void funcA(){}
+     }
 
 合约A继承了BaseContract类，实现了IA中声明的方法，该合约方法中会调用合约B的方法。
 
  ::
 
- public interface IA extends BaseContractInterface {
-    void funcA();
- }
+     public interface IA extends BaseContractInterface {
+        void funcA();
+     }
 
 IA继承了BaseContractInterface类。
 
@@ -69,17 +69,17 @@ IA继承了BaseContractInterface类。
 
  ::
 
- public class B extends BaseContract implements IB {
-    public void funcB(){}
- }
+     public class B extends BaseContract implements IB {
+        public void funcB(){}
+     }
 
 合约B继承了BaseContract类，实现了IB中声明的方法。
 
  ::
 
- public interface IB extends BaseContractInterface {
-    void funcB();
- }
+     public interface IB extends BaseContractInterface {
+        void funcB();
+     }
 
 IB继承了BaseContractInterface类。
 
@@ -90,10 +90,10 @@ CrossCall需要配合相应的注解来使用。用户必须在合约声明Cross
 
 如果我们要在合约A中调用合约B的方法，我们需要先在平台部署合约B，然后在合约A中声明一个带有注解的CrossCall字段，注解中的address即我们部署好的合约B地址，如下面的代码所示::
 
- public class A extends BaseContract implements IA {
-    @Contract(address = "0x209a1a980946e899b2cb4fc0ecb2b921f64bd236")
-    private CrossCall call = new CrossCall();
- }
+     public class A extends BaseContract implements IA {
+        @Contract(address = "0x209a1a980946e899b2cb4fc0ecb2b921f64bd236")
+        private CrossCall call = new CrossCall();
+     }
 
 跨合约调用
 -----------
@@ -102,21 +102,21 @@ CrossCall需要配合相应的注解来使用。用户必须在合约声明Cross
 
  ::
 
- public final <T extends BaseContractInterface> T getCrossContract()
+     public final <T extends BaseContractInterface> T getCrossContract()
 
 在我们合约A中声明了含有 `@contract` 的CrossCall字段以后，我们可以在合约A的方法中，通过 `getCrossContract` 获取合约B的contract实例，然后调用合约B的方法。
 
  ::
 
- public class A extends BaseContract implements IA {
-    @Contract(address = "0x209a1a980946e899b2cb4fc0ecb2b921f64bd236")
-    private CrossCall call = new CrossCall();
+     public class A extends BaseContract implements IA {
+        @Contract(address = "0x209a1a980946e899b2cb4fc0ecb2b921f64bd236")
+        private CrossCall call = new CrossCall();
 
-    public void funcA() {
-        IB iB = call.getCrossContract();
-        iB.funcB();
-    }
- }
+        public void funcA() {
+            IB iB = call.getCrossContract();
+            iB.funcB();
+        }
+     }
 
 注意事项
 ============
@@ -130,7 +130,7 @@ CrossCall需要配合相应的注解来使用。用户必须在合约声明Cross
 
 若出现，将会得到如下异常::
 
- cn.hyperchain.sdk.exception.RequestException: Deploy contract failed: DEPLOY_CONTRACT_FAILED:java.lang.RuntimeException: init library failed: found a duplicate class: org.example.bean.Man, please change it
+     cn.hyperchain.sdk.exception.RequestException: Deploy contract failed: DEPLOY_CONTRACT_FAILED:java.lang.RuntimeException: init library failed: found a duplicate class: org.example.bean.Man, please change it
 
 跨合约调用链
 -----------
@@ -164,26 +164,26 @@ NumAdd合约代码如下。在合约部署阶段，通过 `onInit` 方法初始�
 
  ::
 
- public class NumAdd extends BaseContract implements INumAdd {
-    @StoreField
-    int num;
+     public class NumAdd extends BaseContract implements INumAdd {
+        @StoreField
+        int num;
 
-    @Override
-    public void onInit() {
-        num = 100;
-    }
+        @Override
+        public void onInit() {
+            num = 100;
+        }
 
-    @Override
-    public int getNum() {
-        return num;
-    }
+        @Override
+        public int getNum() {
+            return num;
+        }
 
-    @Override
-    public int addNum(int v) {
-        num += v;
-        return num;
-    }
- }
+        @Override
+        public int addNum(int v) {
+            num += v;
+            return num;
+        }
+     }
 
 部署NumAdd合约
 ------------------
@@ -192,27 +192,27 @@ NumAdd合约代码如下。在合约部署阶段，通过 `onInit` 方法初始�
 
  ::
 
- public void deployNumAdd() throws IOException, RequestException {
-    //1.部署合约
-    InputStream is1 = FileUtil.readFileAsStream(jarPath1);
-    DefaultHttpProvider defaultHttpProvider = new DefaultHttpProvider.Builder().setUrl(defaultURL).build();
-    ProviderManager providerManager = ProviderManager.createManager(defaultHttpProvider);
+     public void deployNumAdd() throws IOException, RequestException {
+        //1.部署合约
+        InputStream is1 = FileUtil.readFileAsStream(jarPath1);
+        DefaultHttpProvider defaultHttpProvider = new DefaultHttpProvider.Builder().setUrl(defaultURL).build();
+        ProviderManager providerManager = ProviderManager.createManager(defaultHttpProvider);
 
-    ContractService contractService = ServiceManager.getContractService(providerManager);
-    AccountService accountService = ServiceManager.getAccountService(providerManager);
-    Account account = accountService.fromAccountJson(accountJson);
+        ContractService contractService = ServiceManager.getContractService(providerManager);
+        AccountService accountService = ServiceManager.getAccountService(providerManager);
+        Account account = accountService.fromAccountJson(accountJson);
 
-    Transaction transaction = new Transaction.HVMBuilder(account.getAddress()).deploy(is1).build();
-    transaction.sign(account);
+        Transaction transaction = new Transaction.HVMBuilder(account.getAddress()).deploy(is1).build();
+        transaction.sign(account);
 
-    ReceiptResponse receiptResponse = contractService.deploy(transaction).send().polling();
-    String contractAddress = receiptResponse.getContractAddress();
-    System.out.println("contract numAdd address: " + contractAddress);
- }
+        ReceiptResponse receiptResponse = contractService.deploy(transaction).send().polling();
+        String contractAddress = receiptResponse.getContractAddress();
+        System.out.println("contract numAdd address: " + contractAddress);
+     }
 
 输出合约地址::
 
- contract numAdd address: 0xd40db0476049f1cf71c59a5ef754bd1c77d1cede
+     contract numAdd address: 0xd40db0476049f1cf71c59a5ef754bd1c77d1cede
 
 CrossCallContract
 ---------------------
@@ -227,23 +227,23 @@ CrossCallContract合约包含了两个方法：
 
  ::
 
- public class CrossCallContract extends BaseContract implements ICrossCallContract {
-    @Contract(address = "0xd40db0476049f1cf71c59a5ef754bd1c77d1cede")
-    private CrossCall contractCall = new CrossCall();
+     public class CrossCallContract extends BaseContract implements ICrossCallContract {
+        @Contract(address = "0xd40db0476049f1cf71c59a5ef754bd1c77d1cede")
+        private CrossCall contractCall = new CrossCall();
 
-    public String crossCallGetNum() {
-        INumAdd iNumAdd = contractCall.getCrossContract();
-        int num = iNumAdd.getNum();
-        return "crossCallGetNum: the num is " + num;
-    }
+        public String crossCallGetNum() {
+            INumAdd iNumAdd = contractCall.getCrossContract();
+            int num = iNumAdd.getNum();
+            return "crossCallGetNum: the num is " + num;
+        }
 
-    public String crossCallAddNum() {
-        INumAdd iNumAdd = contractCall.getCrossContract();
-        int num = iNumAdd.getNum();
-        iNumAdd.addNum(1);
-        return "crossCallAddNum: the num is " + num + ", and add 1";
-    }
- }
+        public String crossCallAddNum() {
+            INumAdd iNumAdd = contractCall.getCrossContract();
+            int num = iNumAdd.getNum();
+            iNumAdd.addNum(1);
+            return "crossCallAddNum: the num is " + num + ", and add 1";
+        }
+     }
 
 调用CrossCallContract合约
 ---------------------------
@@ -252,39 +252,39 @@ CrossCallContract合约的部署与NumAdd合约的部署类似，这里不再赘
 
  ::
 
- public void deployCrossCall() throws IOException, RequestException {
-    //1.部署CrossCallContract合约
-    ……
+     public void deployCrossCall() throws IOException, RequestException {
+        //1.部署CrossCallContract合约
+        ……
 
-    //2.直接调用crossCallGetNum
-    InvokeDirectlyParams invokeDirectlyParams1 = new InvokeDirectlyParams.ParamBuilder("crossCallGetNum").build();
-    Transaction transaction1 = new Transaction.HVMBuilder(account.getAddress())
-            .invokeDirectly(contractAddress, invokeDirectlyParams1)
-            .build();
-    transaction1.sign(account);
-    ReceiptResponse receiptResponse1 = contractService
-            .invoke(transaction1).send().polling();
-    System.out.println(Decoder.decodeHVM(receiptResponse1.getRet(), String.class));
+        //2.直接调用crossCallGetNum
+        InvokeDirectlyParams invokeDirectlyParams1 = new InvokeDirectlyParams.ParamBuilder("crossCallGetNum").build();
+        Transaction transaction1 = new Transaction.HVMBuilder(account.getAddress())
+                .invokeDirectly(contractAddress, invokeDirectlyParams1)
+                .build();
+        transaction1.sign(account);
+        ReceiptResponse receiptResponse1 = contractService
+                .invoke(transaction1).send().polling();
+        System.out.println(Decoder.decodeHVM(receiptResponse1.getRet(), String.class));
 
-    //3.直接调用crossCallGetNum
-    InvokeDirectlyParams invokeDirectlyParams2 = new InvokeDirectlyParams.ParamBuilder("crossCallAddNum").build();
-    Transaction transaction2 = new Transaction.HVMBuilder(account.getAddress())
-            .invokeDirectly(contractAddress, invokeDirectlyParams2)
-            .build();
-    transaction2.sign(account);
-    ReceiptResponse receiptResponse2 = contractService
-            .invoke(transaction2).send().polling();
-    System.out.println(Decoder.decodeHVM(receiptResponse2.getRet(), String.class));
+        //3.直接调用crossCallGetNum
+        InvokeDirectlyParams invokeDirectlyParams2 = new InvokeDirectlyParams.ParamBuilder("crossCallAddNum").build();
+        Transaction transaction2 = new Transaction.HVMBuilder(account.getAddress())
+                .invokeDirectly(contractAddress, invokeDirectlyParams2)
+                .build();
+        transaction2.sign(account);
+        ReceiptResponse receiptResponse2 = contractService
+                .invoke(transaction2).send().polling();
+        System.out.println(Decoder.decodeHVM(receiptResponse2.getRet(), String.class));
 
-    //4.再次直接调用crossCallGetNum
-    Transaction transaction3 = new Transaction.HVMBuilder(account.getAddress())
-            .invokeDirectly(contractAddress, invokeDirectlyParams1)
-            .build();
-    transaction3.sign(account);
-    ReceiptResponse receiptResponse3 = contractService
-            .invoke(transaction3).send().polling();
-    System.out.println(Decoder.decodeHVM(receiptResponse3.getRet(), String.class));
- }
+        //4.再次直接调用crossCallGetNum
+        Transaction transaction3 = new Transaction.HVMBuilder(account.getAddress())
+                .invokeDirectly(contractAddress, invokeDirectlyParams1)
+                .build();
+        transaction3.sign(account);
+        ReceiptResponse receiptResponse3 = contractService
+                .invoke(transaction3).send().polling();
+        System.out.println(Decoder.decodeHVM(receiptResponse3.getRet(), String.class));
+     }
 
 上面的代码进行了三次调用：
 
@@ -292,19 +292,19 @@ CrossCallContract合约的部署与NumAdd合约的部署类似，这里不再赘
 
  ::
 
- crossCallGetNum: the num is 100
+    crossCallGetNum: the num is 100
 
 2. 调用crossCallAddNum方法，使num的值加1，打印结果为
 
  ::
 
- crossCallAddNum: the num is 100, and add 1
+    crossCallAddNum: the num is 100, and add 1
 
 3. 调用crossCallGetNum方法，获取num的值，打印结果为
 
  ::
 
- crossCallGetNum: the num is 101
+    crossCallGetNum: the num is 101
 
 通过上面的例子，我们可以发现被CrossCallContract合约调用的NumAdd合约将num的值被持久化记录到了账本上，符合contract实例的特点。有兴趣的读者可以在CrossCallContract合约中将CrossCall的 `@Contract` 注解类型改为 `@Library` ，观察区别。
 

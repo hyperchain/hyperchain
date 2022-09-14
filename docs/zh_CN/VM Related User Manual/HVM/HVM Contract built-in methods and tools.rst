@@ -34,7 +34,7 @@ HVM合约内置方法和工具方法使用手册
 
  ::
 
- public String getValueFromExtra(String path) {}
+     public String getValueFromExtra(String path) {}
 
 +-------------+-----------------------------+--------------------------+
 | 方法        | 参数                        | 返回值                   |
@@ -49,7 +49,7 @@ HVM合约内置方法和工具方法使用手册
 
 你可以对一个数组使用条件查询， `#[...]` 将返回第一个匹配元素， `#[...]#` 将返回所有匹配元素，其中查询条件支持比较运算符： `==` ，  `!=` ，  `<` ， `<=` ， `>` ， `>=` ，还有一些简单的模式匹配： `%` （like）和 `!%` （not like）。
 
-注意： `.` 和 `?` 和 `*` 可以通过 `\` 转义成为一般字符。
+注意： `.` 和 `?` 和 `*` 可以通过 `\\` 转义成为一般字符。
 
 实例::
 
@@ -100,7 +100,7 @@ HVM合约内置方法和工具方法使用手册
 
 **示例**::
 
- String extra = this.getValueFromExtra("friends.1.last");
+     String extra = this.getValueFromExtra("friends.1.last");
 
 合约事件推送
 ----------------
@@ -112,7 +112,7 @@ hvm为合约的开发者提供了合约事件推送的功能，即可以在合�
 
 合约事件推送的功能由合约基础类BaseContract实现，提供的接口如下::
 
- public final void event(Object data, String name, String... topics);
+     public final void event(Object data, String name, String... topics);
 
 **参数：**
 
@@ -124,10 +124,10 @@ hvm为合约的开发者提供了合约事件推送的功能，即可以在合�
 
 **示例**::
 
- Map<String, String> map = new HashMap<String, String>();
- map.put("tom","99");
- map.put("bob","98");
- event(map, "testEvent", "topicA");
+     Map<String, String> map = new HashMap<String, String>();
+     map.put("tom","99");
+     map.put("bob","98");
+     event(map, "testEvent", "topicA");
 
 合约事件的订阅
 >>>>>>>>>>>>>>>>
@@ -136,24 +136,24 @@ hvm为合约的开发者提供了合约事件推送的功能，即可以在合�
 
 MQParam对象的创建示例如下::
 
- ArrayList<String> array = new ArrayList<String>();
- array.add("SignedMQBlock");
- array.add("MQLog");
- array.add("MQException");
- String qname = "node1queue";
- MQParam mqParam = new MQParam.Builder().
-        //队列订阅相关的参数
-        msgTypes(array).     //表示要订阅的消息类型
-        queueName(qname).    //表示队列名称
-        // MQlog事件订阅需要的参数
-        logFromBlock("1").       //表示需要推送log事件的起始区块号
-        logToBlock("2").         //表示需要推送log事件的终止区块号
-		logAddress("0x12...").   //表示log事件需要匹配的合约地址
-        logTopics(new String[]{"topicA", "topicB"}).
-		//表示log事件需要匹配的topic集合
-        logTopics(new String[]{"topicC", "topicD"}).
-		//可多次调用添加多个topic数组
-        build();
+     ArrayList<String> array = new ArrayList<String>();
+     array.add("SignedMQBlock");
+     array.add("MQLog");
+     array.add("MQException");
+     String qname = "node1queue";
+     MQParam mqParam = new MQParam.Builder().
+            //队列订阅相关的参数
+            msgTypes(array).     //表示要订阅的消息类型
+            queueName(qname).    //表示队列名称
+            // MQlog事件订阅需要的参数
+            logFromBlock("1").       //表示需要推送log事件的起始区块号
+            logToBlock("2").         //表示需要推送log事件的终止区块号
+            logAddress("0x12...").   //表示log事件需要匹配的合约地址
+            logTopics(new String[]{"topicA", "topicB"}).
+            //表示log事件需要匹配的topic集合
+            logTopics(new String[]{"topicC", "topicD"}).
+            //可多次调用添加多个topic数组
+            build();
 
 详细的订阅规则请查看LiteSdk使用文档的 **第七章. MQ相关接口(MQService)** 以及Litedk的 **MQ使用手册**
 
@@ -169,17 +169,17 @@ MQParam对象的创建示例如下::
 
  ::
 
- public final String getSender() {}
+     public final String getSender() {}
 
-========= ==== ==============================
-方法      参数 返回值
-========= ==== ==============================
-getSender 无   sender，即合约方法调用者的地址
-========= ==== ==============================
+========= ====== ==============================
+方法      参数     返回值
+========= ====== ==============================
+getSender 无      sender，即合约方法调用者的地址
+========= ====== ==============================
 
 **示例**::
 
- String sender = this.getSender();
+    String sender = this.getSender();
 
 获取合约调用者地址
 >>>>>>>>>>>>>>>>>>
@@ -188,15 +188,17 @@ getSender 无   sender，即合约方法调用者的地址
 
 得到origin，合约调用者的地址::
 
- public final String getOrigin() {}
+     public final String getOrigin() {}
 
-| 方法      | 参数 | 返回值                     |
-| --------- | ---- | -------------------------- |
-| getOrigin | 无   | origin，即合约调用者的地址 |
+========= ==== ==========================
+方法      参数 返回值
+========= ==== ==========================
+getOrigin 无   origin，即合约调用者的地址
+========= ==== ==========================
 
 **示例**::
 
- String origin = this.getOrigin();
+    String origin = this.getOrigin();
 
 获取交易哈希
 >>>>>>>>>>>>>
@@ -207,15 +209,17 @@ getSender 无   sender，即合约方法调用者的地址
 
  ::
 
- public final String getTxHash() {}
+    public final String getTxHash() {}
 
-| 方法      | 参数 | 返回值                   |
-| --------- | ---- | ------------------------ |
-| getTxHash | 无   | txHash，即当前交易的hash |
+========= ==== ========================
+方法      参数 返回值
+========= ==== ========================
+getTxHash 无   txHash，即当前交易的hash
+========= ==== ========================
 
 **示例**::
 
- String txHash = this.getTxHash();
+     String txHash = this.getTxHash();
 
 获取时间戳
 >>>>>>>>>>>>>>
@@ -226,15 +230,17 @@ getSender 无   sender，即合约方法调用者的地址
 
  ::
 
- public final long getBlockTimestamp() {}
+     public final long getBlockTimestamp() {}
 
-| 方法              | 参数 | 返回值                                 |
-| ----------------- | ---- | -------------------------------------- |
-| getBlockTimestamp | 无   | blockTimestamp，即交易所在区块的时间戳 |
+================= ==== ======================================
+方法              参数 返回值
+================= ==== ======================================
+getBlockTimestamp 无   blockTimestamp，即交易所在区块的时间戳
+================= ==== ======================================
 
 **示例**::
 
- long blockTimestamp = this.getBlockTimestamp();
+     long blockTimestamp = this.getBlockTimestamp();
 
 获取区块号
 >>>>>>>>>>>
@@ -245,11 +251,13 @@ getSender 无   sender，即合约方法调用者的地址
 
  ::
 
- public final long getBlockNumber() {}
+     public final long getBlockNumber() {}
 
-| 方法           | 参数 | 返回值                        |
-| -------------- | ---- | ----------------------------- |
-| getBlockNumber | 无   | blockNumber，即交易所在区块号 |
+============== ==== =============================
+方法           参数 返回值
+============== ==== =============================
+getBlockNumber 无   blockNumber，即交易所在区块号
+============== ==== =============================
 
 **示例**::
 
@@ -264,15 +272,17 @@ getSender 无   sender，即合约方法调用者的地址
 
  ::
 
- public String getContractAddress() {}
+    public String getContractAddress() {}
 
-| 方法               | 参数 | 返回值                      |
-| ------------------ | ---- | --------------------------- |
-| getContractAddress | 无   | contractAddress，即合约地址 |
+================== ==== ===========================
+方法               参数 返回值
+================== ==== ===========================
+getContractAddress 无   contractAddress，即合约地址
+================== ==== ===========================
 
 **示例**::
 
- String contractAddress = this.getContractAddress();
+    String contractAddress = this.getContractAddress();
 
 合约内置方法使用demo
 -------------------------
@@ -317,16 +327,18 @@ byte数组转换为十六进制String类型
 
  ::
 
- public static native String bytesToHex(byte[] input);
+     public static native String bytesToHex(byte[] input);
 
-| 方法       | 参数                      | 返回值         |
-| ---------- | ------------------------- | -------------- |
-| bytesToHex | input：需要转换的byte数组 | 十六进制String |
+========== ========================= ==============
+方法       参数                      返回值
+========== ========================= ==============
+bytesToHex input：需要转换的byte数组 十六进制String
+========== ========================= ==============
 
 **示例**::
 
- byte[] input = new byte[]{'a','b'};
- String hexString = ByteUtil.bytesToHex(byte[] input);
+     byte[] input = new byte[]{'a','b'};
+     String hexString = ByteUtil.bytesToHex(byte[] input);
 
 **fromHexString**
 
@@ -334,20 +346,22 @@ byte数组转换为十六进制String类型
 
  ::
 
- public static native byte[] fromHexString(String s);
+     public static native byte[] fromHexString(String s);
 
-| 方法          | 参数                        | 返回值     |
-| ------------- | --------------------------- | ---------- |
-| fromHexString | s：需要转换的十六进制String | byte[]类型 |
+============= =========================== ==========
+方法          参数                        返回值
+============= =========================== ==========
+fromHexString s：需要转换的十六进制String byte[]类型
+============= =========================== ==========
 
 **示例**::
 
- String s1 = "0xabd43f";
- ByteUtil.fromHexString(s1);
+     String s1 = "0xabd43f";
+     ByteUtil.fromHexString(s1);
 
- String s2 = "abd43f";
- byte[] bytes = ByteUtil.fromHexString(s2);
- //结果相同
+     String s2 = "abd43f";
+     byte[] bytes = ByteUtil.fromHexString(s2);
+     //结果相同
 
 byte数组和int转换
 >>>>>>>>>>>>>>>>>>>>
@@ -358,16 +372,18 @@ byte数组转换为int类型
 
  ::
 
- public static int bytesToInt(byte[] bytes) {}
+    public static int bytesToInt(byte[] bytes) {}
 
-| 方法       | 参数                                                         | 返回值    |
-| ---------- | ------------------------------------------------------------ | --------- |
-| bytesToInt | bytes：需要转换的byte数组，bytes的长度不能大于4，否则抛出异常 | int类型值 |
+========== ========================= ==============
+方法       参数                      返回值
+========== ========================= ==============
+bytesToHex input：需要转换的byte数组 十六进制String
+========== ========================= ==============
 
 **示例**::
 
- byte[] bytes = new byte[]{'a','b','c','d'};
- int result = ByteUtil.bytesToInt(bytes);
+     byte[] bytes = new byte[]{'a','b','c','d'};
+     int result = ByteUtil.bytesToInt(bytes);
 
 **intToBytes**
 
@@ -375,16 +391,18 @@ int类型转换为byte数组
 
  ::
 
- public static byte[] intToBytes(int value) {}
+    public static byte[] intToBytes(int value) {}
 
-| 方法       | 参数                     | 返回值      |
-| ---------- | ------------------------ | ----------- |
-| intToBytes | value：需要转换的int类型 | byte[] 类型 |
+========== ======================== ===========
+方法       参数                     返回值
+========== ======================== ===========
+intToBytes value：需要转换的int类型 byte[] 类型
+========== ======================== ===========
 
 **示例**::
 
- int value = 48;
- byte[] intBytes = ByteUtil.intToBytes(value);
+     int value = 48;
+     byte[] intBytes = ByteUtil.intToBytes(value);
 
 base64编码转byte数组
 >>>>>>>>>>>>>>>>>>>>>
@@ -395,7 +413,7 @@ base64编码转byte数组
 
  ::
 
- public native static byte[] fromBase64Str(String string);
+     public native static byte[] fromBase64Str(String string);
 
 ============= ======================================== ===========
 方法          参数                                     返回值
@@ -405,7 +423,7 @@ fromBase64Str string：需要转换的base64编码的String类型 byte[] 类型
 
 **示例**::
 
- byte[] bytes = ByteUtil.fromBase64Str(string);
+    byte[] bytes = ByteUtil.fromBase64Str(string);
 
 CryptoUtil
 ----------------
@@ -419,7 +437,7 @@ EC账户验签，通过公钥、原文和签名内容来验证签名内容。
 
  ::
 
- public static boolean verifySignature(byte[] addr, byte[] origin, byte[] signature) {}
+     public static boolean verifySignature(byte[] addr, byte[] origin, byte[] signature) {}
 
 ============= ======================================== ===========
 方法          参数                                     返回值
@@ -429,13 +447,13 @@ fromBase64Str string：需要转换的base64编码的String类型 byte[] 类型
 
 **示例**::
 
- //以下代码使用了一些litesdk的工具类
- ECKey ecKey = new ECKey(new SecureRandom());
- byte[] address = ecKey.getAddress();
- byte[] origin = "hyperchain".getBytes();
- byte[] hash = HashUtil.sha3(origin);
- byte[] signature = ecKey.sign(hash).toByteArray();
- CryptoUtil.verifySignature(address, hash, signature);
+     //以下代码使用了一些litesdk的工具类
+     ECKey ecKey = new ECKey(new SecureRandom());
+     byte[] address = ecKey.getAddress();
+     byte[] origin = "hyperchain".getBytes();
+     byte[] hash = HashUtil.sha3(origin);
+     byte[] signature = ecKey.sign(hash).toByteArray();
+     CryptoUtil.verifySignature(address, hash, signature);
 
 SM2国密账户验签
 >>>>>>>>>>>>>>>>>>
@@ -446,26 +464,26 @@ SM账户验签，通过公钥、原文和签名内容来验证签名内容是否
 
  ::
 
- public static boolean verifySM2Signature(byte[] pubKey, byte[] origin, byte[] signature) {}
+     public static boolean verifySM2Signature(byte[] pubKey, byte[] origin, byte[] signature) {}
 
-+---------+----------------------------------+------------------------+
-| 方法    | 参数                             | 返回值                 |
-+=========+==================================+========================+
-| veri    | pubKey：byte[]                   | 布尔值，签名正确则返回 |
-| fySM2Si | 类型的公钥origin：byte[]类型的原 | true，否则返回false。  |
-| gnature | 文signature：byte[]类型的签名。  |                        |
-+---------+----------------------------------+------------------------+
++-----------+----------------------------------------+-----------------+
+| 方法      | 参数                                   | 返回值          |
++===========+========================================+=================+
+| verifySM2 | pubKey：byte[]                         | 布尔值，签名正  |
+| Signature | 类型的公钥origin：byte[]类             | 确则返回true，  |
+|           | 型的原文signature：byte[]类型的签名。  | 否则返回false。 |
++-----------+----------------------------------------+-----------------+
 
 **示例**::
 
- //以下代码使用类litesdk的工具类
- AsymmetricCipherKeyPair keyPair = SM2Util.generateKeyPair();
- ECPublicKeyParameters ecPub;
- ecpub = (ECPublicKeyParameters) keyPair.getPublic();
- byte[] origin = "hyperchain".getBytes();
- byte[] publicKey = ecPub.getQ().getEncoded(false);
- byte[] signature = SM2Util.sign(keyPair, origin);
- CryptoUtil.verifySM2Signature(publicKey,origin,signature);
+     //以下代码使用类litesdk的工具类
+     AsymmetricCipherKeyPair keyPair = SM2Util.generateKeyPair();
+     ECPublicKeyParameters ecPub;
+     ecpub = (ECPublicKeyParameters) keyPair.getPublic();
+     byte[] origin = "hyperchain".getBytes();
+     byte[] publicKey = ecPub.getQ().getEncoded(false);
+     byte[] signature = SM2Util.sign(keyPair, origin);
+     CryptoUtil.verifySM2Signature(publicKey,origin,signature);
 
 SM4加解密
 >>>>>>>>>>>>>
@@ -474,35 +492,35 @@ SM4加解密
 
 sm4加密::
 
- public static byte[] sm4Encrypt(byte[] key, byte[] src) {}
+     public static byte[] sm4Encrypt(byte[] key, byte[] src) {}
 
-+--------+----------------------------------------+-------------------+
-| 方法   | 参数                                   | 返回值            |
-+========+========================================+===================+
-| sm4E   | key：16字                              | byte[]            |
-| ncrypt | 节的对称加密密钥src：需要被加密的内容  | 类型被加密的密文  |
-+--------+----------------------------------------+-------------------+
++------------+------------------------------------+-------------------+
+| 方法       | 参数                               | 返回值            |
++============+====================================+===================+
+| sm4Encrypt | key：16字节的                      | byte[]            |
+|            | 对称加密密钥src：需要被加密的内容  | 类型被加密的密文  |
++------------+------------------------------------+-------------------+
 
 **sm4Decrypt**
 
 sm4解密::
 
- public static byte[] sm4Decrypt(byte[] key, byte[] src) {}
+     public static byte[] sm4Decrypt(byte[] key, byte[] src) {}
 
-+--------+----------------------------------------+-------------------+
-| 方法   | 参数                                   | 返回值            |
-+========+========================================+===================+
-| sm4D   | key：16字                              | byte[]            |
-| ecrypt | 节的对称加密密钥src：需要被解密的内容  | 类型被解密的原文  |
-+--------+----------------------------------------+-------------------+
++------------+------------------------------------+-------------------+
+| 方法       | 参数                               | 返回值            |
++============+====================================+===================+
+| sm4Decrypt | key：16字节的                      | byte[]            |
+|            | 对称加密密钥src：需要被解密的内容  | 类型被解密的原文  |
++------------+------------------------------------+-------------------+
 
 **示例**::
 
- byte[] key = new byte[]{'e','h','r','s','e','h','r','s','e','h','r','s','e','h','r','s'};
- byte[] src = "hyperchain".getBytes();
- byte[] encryptBytes = CryptoUtil.sm4Encrypt(key, src);
- byte[] decryptBytes = CryptoUtil.sm4Decrypt(key, encryptBytes);
- ByteUtil.bytesToHex(src).equals(ByteUtil.bytesToHex(decryptBytes));
+     byte[] key = new byte[]{'e','h','r','s','e','h','r','s','e','h','r','s','e','h','r','s'};
+     byte[] src = "hyperchain".getBytes();
+     byte[] encryptBytes = CryptoUtil.sm4Encrypt(key, src);
+     byte[] decryptBytes = CryptoUtil.sm4Decrypt(key, encryptBytes);
+     ByteUtil.bytesToHex(src).equals(ByteUtil.bytesToHex(decryptBytes));
 
 
 AES加解密
@@ -512,36 +530,36 @@ AES加解密
 
 AES加密::
 
- public static byte[] aesEncrypt(byte[] key, byte[] src) {}
+     public static byte[] aesEncrypt(byte[] key, byte[] src) {}
 
-+--------+----------------------------------------+-------------------+
-| 方法   | 参数                                   | 返回值            |
-+========+========================================+===================+
-| aesE   | key：32字                              | byte[]            |
-| ncrypt | 节的对称加密密钥src：需要被加密的内容  | 类型被加密的密文  |
-+--------+----------------------------------------+-------------------+
++------------+------------------------------------+-------------------+
+| 方法       | 参数                               | 返回值            |
++============+====================================+===================+
+| aesEncrypt | key：32字节的                      | byte[]            |
+|            | 对称加密密钥src：需要被加密的内容  | 类型被加密的密文  |
++------------+------------------------------------+-------------------+
 
 **aesDecrypt**
 
 AES解密::
 
- public static byte[] aesDecrypt(byte[] key, byte[] src) {}
+     public static byte[] aesDecrypt(byte[] key, byte[] src) {}
 
-+--------+----------------------------------------+-------------------+
-| 方法   | 参数                                   | 返回值            |
-+========+========================================+===================+
-| aesD   | key：32字                              | byte[]            |
-| ecrypt | 节的对称加密密钥src：需要被解密的内容  | 类型被解密的原文  |
-+--------+----------------------------------------+-------------------+
++------------+------------------------------------+-------------------+
+| 方法       | 参数                               | 返回值            |
++============+====================================+===================+
+| aesDecrypt | key：32字节的                      | byte[]            |
+|            | 对称加密密钥src：需要被解密的内容  | 类型被解密的原文  |
++------------+------------------------------------+-------------------+
 
 **示例**::
 
- keyStr = keyStr.substring(0, 32);
- byte[] key = keyStr.getBytes();
- byte[] src = "hyperchain".getBytes();
- byte[] encryptBytes = CryptoUtil.aesEncrypt(key, src);
- byte[] decryptBytes = CryptoUtil.aesDecrypt(key, encryptBytes);
- ByteUtil.bytesToHex(src).equals(ByteUtil.bytesToHex(decryptBytes));
+     keyStr = keyStr.substring(0, 32);
+     byte[] key = keyStr.getBytes();
+     byte[] src = "hyperchain".getBytes();
+     byte[] encryptBytes = CryptoUtil.aesEncrypt(key, src);
+     byte[] decryptBytes = CryptoUtil.aesDecrypt(key, encryptBytes);
+     ByteUtil.bytesToHex(src).equals(ByteUtil.bytesToHex(decryptBytes));
 
 tripleDES加解密
 >>>>>>>>>>>>>>>>>>
@@ -550,43 +568,45 @@ tripleDES加解密
 
 tripleDES 加密::
 
- public static byte[] tripleDESEncrypt(byte[] key, byte[] src) {}
+     public static byte[] tripleDESEncrypt(byte[] key, byte[] src) {}
 
-+------------+-------------------------------------+------------------+
-| 方法       | 参数                                | 返回值           |
-+============+=====================================+==================+
-| triple     | key：24字节                         | byte[]           |
-| DESEncrypt | 的对称加密密钥src：需要被加密的内容 | 类型被加密的密文 |
-+------------+-------------------------------------+------------------+
++------------------+--------------------------------+-----------------+
+| 方法             | 参数                           | 返回值          |
++==================+================================+=================+
+| tripleDESEncrypt | key：24字节的对称              | byte[]          |
+|                  | 加密密钥src：需要被加密的内容  | 类              |
+|                  |                                | 型被加密的密文  |
++------------------+--------------------------------+-----------------+
 
 **tripleDESDecrypt**
 
 tripleDES 解密::
 
- public static byte[] tripleDESDecrypt(byte[] key, byte[] src) {}
+     public static byte[] tripleDESDecrypt(byte[] key, byte[] src) {}
 
-+------------+-------------------------------------+------------------+
-| 方法       | 参数                                | 返回值           |
-+============+=====================================+==================+
-| triple     | key：24字节                         | byte[]           |
-| DESDecrypt | 的对称加密密钥src：需要被解密的内容 | 类型被解密的原文 |
-+------------+-------------------------------------+------------------+
++------------------+--------------------------------+-----------------+
+| 方法             | 参数                           | 返回值          |
++==================+================================+=================+
+| tripleDESDecrypt | key：24字节的对称              | byte[]          |
+|                  | 加密密钥src：需要被解密的内容  | 类              |
+|                  |                                | 型被解密的原文  |
++------------------+--------------------------------+-----------------+
 
 **示例**::
 
- keyStr = keyStr.substring(0, 24);
- byte[] key = keyStr.getBytes();
- byte[] src = "hyperchain".getBytes();
- byte[] encryptBytes = CryptoUtil.tripleDESEncrypt(key, src);
- byte[] decryptBytes = CryptoUtil.tripleDESDecrypt(key, encryptBytes);
- ByteUtil.bytesToHex(src).equals(ByteUtil.bytesToHex(decryptBytes));
+     keyStr = keyStr.substring(0, 24);
+     byte[] key = keyStr.getBytes();
+     byte[] src = "hyperchain".getBytes();
+     byte[] encryptBytes = CryptoUtil.tripleDESEncrypt(key, src);
+     byte[] decryptBytes = CryptoUtil.tripleDESDecrypt(key, encryptBytes);
+     ByteUtil.bytesToHex(src).equals(ByteUtil.bytesToHex(decryptBytes));
 
 ecc加密
 >>>>>>>>>>>>
 
 **eccEncrypt**::
 
- public static byte[] eccEncrypt(byte[] publicKey, byte[] src) {
+     public static byte[] eccEncrypt(byte[] publicKey, byte[] src) {
 
 ========== ================================== =======================
 方法       参数                               返回值
@@ -609,7 +629,7 @@ sha3-256哈希计算
 
 对输入的byte数组进行sha3-256哈希计算，返回散列值::
 
- public static byte[] sha3(byte[] input) {}
+     public static byte[] sha3(byte[] input) {}
 
 ==== ========================= =================
 方法 参数                      返回值
@@ -619,8 +639,8 @@ sha3 input：需要哈希的byte数组 byte[] 类型散列值
 
 **示例**::
 
- byte[] input = new byte[]{'a','b','c','d'};
- byte[] hashResult = HashUtil.sha3(input);
+     byte[] input = new byte[]{'a','b','c','d'};
+     byte[] hashResult = HashUtil.sha3(input);
 
 ObjectsUtil
 ---------------
@@ -632,22 +652,20 @@ ObjectsUtil
 
 判断Object是否相等，返回布尔值::
 
- public static boolean equals(final Object x, final Object y) {
+     public static boolean equals(final Object x, final Object y) {
 
-+----+--------------------------+--------------------------------------+
-| 方 | 参数                     | 返回值                               |
-| 法 |                          |                                      |
-+====+==========================+======================================+
-| eq | x：Java Object。y：Java  | 布尔值，                             |
-| ua | Object                   | x和y相等，返回true，否则返回false。  |
-| ls |                          |                                      |
-+----+--------------------------+--------------------------------------+
++-----------+----------------------------+----------------------------+
+| 方法      | 参数                       | 返回值                     |
++===========+============================+============================+
+| equals    | x：Java Object。y：Java    | 布尔值，x和y相等，         |
+|           | Object                     | 返回true，否则返回false。  |
++-----------+----------------------------+----------------------------+
 
 **示例**::
 
- String x = new String("test");
- Integer y = new Integet(0);
- boolean isEqual = ObjectsUtil.equals(x, y);
+     String x = new String("test");
+     Integer y = new Integet(0);
+     boolean isEqual = ObjectsUtil.equals(x, y);
 
 哈希计算
 >>>>>>>>>>>>>
@@ -656,7 +674,7 @@ ObjectsUtil
 
 计算多个Object的哈希值，返回多个Object的哈希值::
 
- public static int hash(final Object... values) {}
+    public static int hash(final Object... values) {}
 
 ==== ============================== ==================
 方法 参数                           返回值
@@ -666,11 +684,11 @@ hash values：0个或多个Java Object。 多个Object的哈希值
 
 **示例**::
 
- String object1 = new String("test");
- Integer object2 = new Integet(0);
- int hashResult0 = ObjectsUtil.hash();
- int hashResult1 = ObjectsUtil.hash(object1);
- int hashResult2 = ObjectsUtil.hash(object1, object2);
+     String object1 = new String("test");
+     Integer object2 = new Integet(0);
+     int hashResult0 = ObjectsUtil.hash();
+     int hashResult1 = ObjectsUtil.hash(object1);
+     int hashResult2 = ObjectsUtil.hash(object1, object2);
 
 StringUtil
 --------------
@@ -682,19 +700,19 @@ StringUtil
 
  ::
 
- public static boolean checkEmpty(String string) {}
+    public static boolean checkEmpty(String string) {}
 
-+-------+---------------------+----------------------------------------+
-| 方法  | 参数                | 返回值                                 |
-+=======+=====================+========================================+
-| check | string:             | 布尔值，Str                            |
-| Empty | 需检查的String对象  | ing对象为空则返回true，否则返回false。 |
-+-------+---------------------+----------------------------------------+
++--------------+--------------------+---------------------------------+
+| 方法         | 参数               | 返回值                          |
++==============+====================+=================================+
+| checkEmpty   | string:            | 布尔值，String对象              |
+|              | 需检查的String对象 | 为空则返回true，否则返回false。 |
++--------------+--------------------+---------------------------------+
 
 **示例**::
 
- String string = new String();
- boolean isEmpty = StringUtil.checkEmpty(string);
+     String string = new String();
+     boolean isEmpty = StringUtil.checkEmpty(string);
 
 Logger
 ----------
@@ -708,7 +726,7 @@ Logger类提供了打印对应classlog信息的功能。
 
  ::
 
- public static Logger getLogger(Class clazz) {}
+     public static Logger getLogger(Class clazz) {}
 
 ========= ====================== ==========
 方法      参数                   返回值
@@ -718,16 +736,16 @@ getLogger clazz: 对应的class对象 Logger对象
 
 **示例**::
 
- public class InvokeTripleDES implements BaseInvoke<Boolean, ICrypto> {
-	private Logger logger = Logger.getLogger(InvokeTripleDES.class);
- }
+     public class InvokeTripleDES implements BaseInvoke<Boolean, ICrypto> {
+        private Logger logger = Logger.getLogger(InvokeTripleDES.class);
+     }
 
 日志级别
 >>>>>>>>>>>>
 
 **critical级别的日志**::
 
- public void critical(Object message) {}
+    public void critical(Object message) {}
 
 ======== ===================================== ======
 方法     参数                                  返回值
@@ -737,11 +755,11 @@ critical message: Object对象，需打印的日志信息 无
 
 **示例**::
 
- logger.critical("logger critical message");
+     logger.critical("logger critical message");
 
 **err级别的日志**::
 
- public void err(Object message) {}
+     public void err(Object message) {}
 
 ==== ===================================== ======
 方法 参数                                  返回值
@@ -751,11 +769,11 @@ err  message: Object对象，需打印的日志信息 无
 
 **示例**::
 
- logger.err("logger err message");
+     logger.err("logger err message");
 
 **warning级别的日志**::
 
- public void warning(Object message) {}
+     public void warning(Object message) {}
 
 ======= ===================================== ======
 方法    参数                                  返回值
@@ -765,11 +783,11 @@ warning message: Object对象，需打印的日志信息 无
 
 **示例**::
 
- logger.warning("logger warning message");
+     logger.warning("logger warning message");
 
 **notice级别的日志**::
 
- public void notice(Object message) {}
+     public void notice(Object message) {}
 
 ====== ===================================== ======
 方法   参数                                  返回值
@@ -779,11 +797,11 @@ notice message: Object对象，需打印的日志信息 无
 
 **示例**::
 
- logger.notice("logger notice message");
+     logger.notice("logger notice message");
 
 **info级别的日志**::
 
- public void info(Object message) {}
+     public void info(Object message) {}
 
 ==== ===================================== ======
 方法 参数                                  返回值
@@ -793,11 +811,11 @@ info message: Object对象，需打印的日志信息 无
 
 **示例**::
 
- logger.info("logger info message");
+     logger.info("logger info message");
 
 **debug级别的日志**::
 
- public void debug(Object message) {}
+     public void debug(Object message) {}
 
 ===== ===================================== ======
 方法  参数                                  返回值
@@ -807,7 +825,7 @@ debug message: Object对象，需打印的日志信息 无
 
 **示例**::
 
- logger.debug("logger debug message");
+     logger.debug("logger debug message");
 
 
 DIDUtil
@@ -818,7 +836,7 @@ DIDUtil
 
 **credentialIsValid**::
 
- public static native boolean credentialIsValid(String creID);
+     public static native boolean credentialIsValid(String creID);
 
 +------------+----------------+---------------------------------------+
 | 方法       | 参数           | 返回值                                |
@@ -829,14 +847,14 @@ DIDUtil
 
 **示例**::
 
- boolean isValid = DIDUtil.credentialIsValid(creID)
+     boolean isValid = DIDUtil.credentialIsValid(creID)
 
 检查凭证是否吊销
 >>>>>>>>>>>>>>>>>>
 
 **credentialIsAbondoned**::
 
- public static native boolean credentialIsAbondoned(String creID);
+     public static native boolean credentialIsAbondoned(String creID);
 
 +----------------+-----------------+-----------------------------------+
 | 方法           | 参数            | 返回值                            |
@@ -847,7 +865,7 @@ DIDUtil
 
 **示例**::
 
- boolean isValid = DIDUtil.credentialIsAbondoned(creID)
+     boolean isValid = DIDUtil.credentialIsAbondoned(creID)
 
 Hyperson
 ------------
@@ -856,19 +874,19 @@ Hyperson提供了 `toHyperson` 方法将Java对象序列化成json字符串，�
 
 在使用Hyperson提供的序列化和反序列化方法之前，首先要构造一个Hyperson对象，可通过构造方法以及HypersonBuilder来构建，示例如下::
 
- // 无参构造函数, 配置均按照默认值
- Hyperson hyperson = new Hyperson();
+     // 无参构造函数, 配置均按照默认值
+     Hyperson hyperson = new Hyperson();
 
- // 有参构造函数，可传入相关配置
- Hyperson hyperson = new Hyperson(escapeHtml, serialzeNull, excludeAnnotationField, excludeClassField);
+     // 有参构造函数，可传入相关配置
+     Hyperson hyperson = new Hyperson(escapeHtml, serialzeNull, excludeAnnotationField, excludeClassField);
 
- // HypersonBuilder构建
- Hyperson hyperson = new Hyperson.HypersonBuilder()
-        .disableEscapeHtml()
-        .enableSerializeNull()
-        .addExcludeAnnotationField(StoreField.class)
-        .addExcludeClassField(PersonName.class)
-        .create();
+     // HypersonBuilder构建
+     Hyperson hyperson = new Hyperson.HypersonBuilder()
+            .disableEscapeHtml()
+            .enableSerializeNull()
+            .addExcludeAnnotationField(StoreField.class)
+            .addExcludeClassField(PersonName.class)
+            .create();
 
 配置项说明如下：
 
@@ -887,7 +905,7 @@ Hyperson提供了 `toHyperson` 方法将Java对象序列化成json字符串，�
 
 **toHyperson**::
 
- public String toHyperson(Object object);
+     public String toHyperson(Object object);
 
 ========== ====================== ================================
 方法       参数                   返回值
@@ -897,35 +915,36 @@ toHyperson object: 需序列化的对象 字符串，对象序列化后的json�
 
 **示例**::
 
- Hyperson hyperson = new Hyperson();
- Student student = new Student();
- String json = hyperson.toHyperson(student);
+     Hyperson hyperson = new Hyperson();
+     Student student = new Student();
+     String json = hyperson.toHyperson(student);
 
 反序列化
 >>>>>>>>>>>
 
 **fromHyperson**::
 
- public <T> T fromHyperson(String hyperson, Type type);
+     public <T> T fromHyperson(String hyperson, Type type);
 
-+----------+--------------------------------------+-------------------+
-| 方法     | 参数                                 | 返回值            |
-+==========+======================================+===================+
-| from     | hyperson:                            | 反序列            |
-| Hyperson | 对象的json字符串type：对象的类型     | 化生成的对象实例  |
-+----------+--------------------------------------+-------------------+
++---------------+---------------------------------------+-------------+
+| 方法          | 参数                                  | 返回值      |
++===============+=======================================+=============+
+| fromHyperson  | hyperson:                             | 反          |
+|               | 对象的json字符串type：对象的类型      | 序列化生成  |
+|               |                                       | 的对象实例  |
++---------------+---------------------------------------+-------------+
 
 **示例**::
 
- Hyperson hyperson = new Hyperson();
+     Hyperson hyperson = new Hyperson();
 
- String json = "test";
- Type type = String.class;
- String res = hyperson.fromHyperson(json, type);
+     String json = "test";
+     Type type = String.class;
+     String res = hyperson.fromHyperson(json, type);
 
- String mapJson = "{\"key\":\"value\"}";
- Type mapType = new ParameterizedTypeImpl(HashMap.class, new Type[]{String.class, String.class}, null);
- Map mapRes = hyperson.fromHyperson(mapJson, mapType);
+     String mapJson = "{\"key\":\"value\"}";
+     Type mapType = new ParameterizedTypeImpl(HashMap.class, new Type[]{String.class, String.class}, null);
+     Map mapRes = hyperson.fromHyperson(mapJson, mapType);
 
 
 

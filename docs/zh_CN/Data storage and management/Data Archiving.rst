@@ -64,7 +64,7 @@
 
 查询直接归档的jsonrpc接口调用方式为::
 
- curl localhost:8081 --data '{"jsonrpc":"2.0","namespace":"global","method":"archive_queryLatestArchive","params":["<filterId>"],"id":1}'
+     curl localhost:8081 --data '{"jsonrpc":"2.0","namespace":"global","method":"archive_queryLatestArchive","params":["<filterId>"],"id":1}'
 
 该接口用于查询最近一次归档或restore的进度。可以通过查询请求的返回值判断当前归档的状态，如果归档失败也将显示失败的原因。
 
@@ -116,7 +116,7 @@
 归档数据线下查询
 -------------------
 
-提供Archive-Reader归档数据浏览器组件，用于在独立服务器资源使用Archive-reader进行归档数据的查询浏览。Archive-Reader的使用指南详见**Archive-Reader使用手册**。
+提供Archive-Reader归档数据浏览器组件，用于在独立服务器资源使用Archive-reader进行归档数据的查询浏览。Archive-Reader的使用指南详见 **Archive-Reader使用手册** 。
 
 归档数据恢复至区块链
 ----------------------

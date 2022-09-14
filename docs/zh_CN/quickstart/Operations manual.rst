@@ -456,7 +456,7 @@ SDKCERT：
 需要通过\ ``--cn`` 指定子证书的name，\ ``--org``
 指定子证书的组织，\ ``--isca=n`` 表示是非ca证书。
 
-\*\* 3 Tls证书签发*\*
+**3 Tls证书签发**
 
 生成根CA:
 
@@ -725,7 +725,7 @@ logger setlevel system ：修改系统级别模块的日志级别
 6.3 LICENSE信息查询
 ---------------------
 
-使用./hyperchain -L
+使用 `./hyperchain -L`
 
 |image11|
 

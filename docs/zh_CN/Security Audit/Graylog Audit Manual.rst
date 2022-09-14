@@ -16,9 +16,9 @@ Graylog Audit Manual
 1.2 参考文献
 ----------------
 
-graylog 官方网站： `__https://www.graylog.org/__ <https://www.graylog.org/>`_
+graylog 官方网站： `https://www.graylog.org/ <https://www.graylog.org/>`_
 
-关于graylog的使用也可以查看graylog官方说明文档： `__https://docs.graylog.org/en/3.3/__ <https://docs.graylog.org/en/3.3/>`_
+关于graylog的使用也可以查看graylog官方说明文档： `https://docs.graylog.org/en/3.3/ <https://docs.graylog.org/en/3.3/>`_
 
 2. 安装和初始化
 ==================
@@ -149,7 +149,7 @@ graylog平台启动需要有严格的启动依赖顺序，mongodb->elasticsticse
 
 昨晚上述配置设置后，基本就可以启动成功了。但是此时graylog还不能接收消息，需要在graylog 页面上进行一些额外设置才能够使其接收我们的审计消息。
 
-在网页上访问 `__http://127.0.0.1:9000/__ <http://172.22.67.51:9000/>`_ ， ip地址是graylog平台所部署的服务器地址,端口是graylog默认端口为9000，可以看到如下界面，提示登录
+在网页上访问 `http://127.0.0.1:9000/ <http://172.22.67.51:9000/>`_ ， ip地址是graylog平台所部署的服务器地址,端口是graylog默认端口为9000，可以看到如下界面，提示登录
 
 |image7|
 
@@ -157,11 +157,11 @@ graylog平台启动需要有严格的启动依赖顺序，mongodb->elasticsticse
 
 1. 首先设置input信息，点击input即可进行进入input创建页面。默认情况下我们已经创建好了一个input, 用户无需创建新的input，只需要对其进行设置即可
 
-|iamge8|
+|image8|
 
 点击Edit input 按钮，
 
-|iamge9|
+|image9|
 
 一般情况下只需要进行节点的选择即可，因为只有elasticsearch一个节点，也可以直接选择为global 。 **如果需要变更端口，那么变更的端口需要和** hyperchain **平台设置的graylog地址端口匹配**
 
@@ -240,7 +240,7 @@ graylog多节点部署架构说明： 多节点架构推荐将每个组件分散
 
 3. 配置文件修改完成之后需要做mongodb的初始化工作，目的是将所有节点进行联通。初始化mongodb 集群前需要启动所有机器上的mongodb节点，启动步骤跟启动单机版mongodb相同。 启动完毕所有的mongodb 节点之后。然后选取一个节点作为主节点，这里选择1号节点作为主节点。然后主节点上操作，将其他的节点加入集群中，具体操作步骤如下：
 
-|iamge13|
+|image13|
 
 4. 进入1号节点的mongodb目录执行下面命令，进入mongo 控制台
 
@@ -248,7 +248,7 @@ graylog多节点部署架构说明： 多节点架构推荐将每个组件分散
 
     ./bin/mongo
 
-|iamge14|
+|image14|
 
 5. 进入控制台之后，接下来初始化集群信息，执行下面的命令， 进入集群初始化，在实际部署的时候，需要将各个节点的ip进行替换
 
@@ -348,13 +348,13 @@ graylog多节点部署架构说明： 多节点架构推荐将每个组件分散
 
 graylog集群配置完成后，就可以启动graylog页面了，因为我们启动了三个graylog节点，所以可以访问三者中间的任意一个graylog即可查看我们的审计数据，无需访问三个graylog节点进行查看, 这里我们选择172.22.67.51 这台机器进行页面查看
 
-在网页上访问 `__http://127.0.0.1:9000/__ <http://172.22.67.51:9000/>`_ ， ip地址是graylog平台所部署的服务器地址,端口是graylog默认端口为9000，可以看到如下界面，提示登录
+在网页上访问 `http://127.0.0.1:9000/ <http://172.22.67.51:9000/>`_ ， ip地址是graylog平台所部署的服务器地址,端口是graylog默认端口为9000，可以看到如下界面，提示登录
 
-|iamge17|
+|image17|
 
 1. 跟单节点设置一样，首先设置input信息
 
-|iamge18|
+|image18|
 
 点击Edit Input
 
@@ -366,7 +366,7 @@ graylog集群配置完成后，就可以启动graylog页面了，因为我们启
 
 input设置完成之后, 会发现 已经有3个input在running呢
 
-|iamge21|
+|image21|
 
 至此，graylog集群的所有配置就完成了，接下来核对hyperchain区块链平台的配置
 

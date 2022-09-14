@@ -29,25 +29,25 @@ hvm-abi获取
 
  ::
 
- <plugin>
-    <groupId>cn.hyperchain.hvm</groupId>
-    <artifactId>hvm-maven-plugin</artifactId>
-    <version>0.0.6</version>
-    <!-- configuration内容请根据实际情况进行修改 -->
-    <configuration>
-        <!-- <jarFile> hvm合约的jar包路径 -->
-        <jarFile>${project.basedir}/target/share-1.0.jar</jarFile>
-        <!-- <invokeBeanPath> hvm合约的class字节码文件夹路径 -->
-        <invokeBeanPath>${project.basedir}/target/classes</invokeBeanPath>
-        <!-- <invokeBeanPackages>中包含很多<param>标签，每个<param>标签中都是一个实现BaseInvoke接口的类的全限定名 -->
-        <invokeBeanPackages>
-                <!--<param>com.hyperchain.invoke.ShareInvoke</param>-->
-                <!--<param>com.hyperchain.invoke.ShareInvoke</param>-->
-        </invokeBeanPackages>
-        <!--<outputFile>中存放的是生成的.abi的存放目录-->
-        <outputFile>${project.basedir}/target/hvm.abi</outputFile>
-    </configuration>
- </plugin>
+     <plugin>
+        <groupId>cn.hyperchain.hvm</groupId>
+        <artifactId>hvm-maven-plugin</artifactId>
+        <version>0.0.6</version>
+        <!-- configuration内容请根据实际情况进行修改 -->
+        <configuration>
+            <!-- <jarFile> hvm合约的jar包路径 -->
+            <jarFile>${project.basedir}/target/share-1.0.jar</jarFile>
+            <!-- <invokeBeanPath> hvm合约的class字节码文件夹路径 -->
+            <invokeBeanPath>${project.basedir}/target/classes</invokeBeanPath>
+            <!-- <invokeBeanPackages>中包含很多<param>标签，每个<param>标签中都是一个实现BaseInvoke接口的类的全限定名 -->
+            <invokeBeanPackages>
+                    <!--<param>com.hyperchain.invoke.ShareInvoke</param>-->
+                    <!--<param>com.hyperchain.invoke.ShareInvoke</param>-->
+            </invokeBeanPackages>
+            <!--<outputFile>中存放的是生成的.abi的存放目录-->
+            <outputFile>${project.basedir}/target/hvm.abi</outputFile>
+        </configuration>
+     </plugin>
 
 
 其中
@@ -64,7 +64,7 @@ hvm-abi获取
 
  ::
 
- mvn hvm:abi
+     mvn hvm:abi
 
 abi文件格式
 -------------
@@ -133,27 +133,27 @@ gosdk使用abi文件
 
 gosdk中提供了hvm.ReadJar()函数来读取jar文件::
 
- jarPath := "/path/to/AbiDemo-1.0-SNAPSHOT.jar"
- payload, _ := hvm.ReadJar(jarPath)
+     jarPath := "/path/to/AbiDemo-1.0-SNAPSHOT.jar"
+     payload, _ := hvm.ReadJar(jarPath)
 
 **部署合约**
 
 将从jar文件读取的内容作为payload，通过交易进行合约部署::
 
- transaction := rpc.NewTransaction(ecKey.GetAddress().Hex()).
-	Deploy(payload).
-	VMType(rpc.HVM)
- transaction.Sign(ecKey)
- receipt, err := hrpc.DeployContract(transaction)
+     transaction := rpc.NewTransaction(ecKey.GetAddress().Hex()).
+        Deploy(payload).
+        VMType(rpc.HVM)
+     transaction.Sign(ecKey)
+     receipt, err := hrpc.DeployContract(transaction)
 
 获取指定方法/InvokeBean的abi
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 将abi的json数据读到abiJson中，通过GenAbi获取abi实例::
 
- abiPath := "/path/to/hvm.abi"
- abiJson, _ := common.ReadFileAsString(abiPath)
- abi, _ := hvm.GenAbi(abiJson)
+     abiPath := "/path/to/hvm.abi"
+     abiJson, _ := common.ReadFileAsString(abiPath)
+     abi, _ := hvm.GenAbi(abiJson)
 
 在gosdk中给abi提供了以下两个函数：
 
@@ -161,7 +161,7 @@ gosdk中提供了hvm.ReadJar()函数来读取jar文件::
 
  ::
 
- func (abi Abi) GetBeanAbi(beanName string) (*BeanAbi, error)
+     func (abi Abi) GetBeanAbi(beanName string) (*BeanAbi, error)
 
 查找abi中符合beanName且 `beanType` 为 `InvokeBean` **类型** 的BeanAbi，返回的BeanAbi唯一。
 
@@ -169,7 +169,7 @@ gosdk中提供了hvm.ReadJar()函数来读取jar文件::
 
  ::
 
- func (abi Abi) GetMethodAbi(methodName string) (*BeanAbi, error)
+     func (abi Abi) GetMethodAbi(methodName string) (*BeanAbi, error)
 
 根据方法的名称返回 `MethodBean` **类型** 的 `BeanAbi` 。考虑到Java中的方法存在重载的情况，Java的方法重载具有以下特点：在同一个类中， 允许存在一个以上的同名方法， 只要它们的 **参数个数或者参数类型不同** 即可， **与返回值无关** 。
 
@@ -199,7 +199,7 @@ gosdk中提供了hvm.ReadJar()函数来读取jar文件::
 
  ::
 
- func GenPayload(beanAbi *BeanAbi, params ...interface{}) ([]byte, error)
+     func GenPayload(beanAbi *BeanAbi, params ...interface{}) ([]byte, error)
 
 我们对传入的params参数做了以下规定：
 
@@ -209,13 +209,13 @@ gosdk中提供了hvm.ReadJar()函数来读取jar文件::
 
  ::
 
- []interface{}{"strList1", "strList2"}
+     []interface{}{"strList1", "strList2"}
 
 - map类型：传入interface数组。如对于map<String,Bean>，我们传入
 
  ::
 
- []interface{}{[]interface{}{"bean1", bean1}, []interface{}{"bean2", bean2}}
+    []interface{}{[]interface{}{"bean1", bean1}, []interface{}{"bean2", bean2}}
 
 具体表格如下：
 
@@ -262,13 +262,13 @@ gosdk中提供了hvm.ReadJar()函数来读取jar文件::
 
  ::
 
- fcmap := make(map[string]map[string]string)
- fcmap["789"] = make(map[string]string)
- fcmap["234"] = make(map[string]string)
- fcmap["789"]["456"] = "12.2"
- fcmap["234"]["345"] = "12.2"
- // ans 的值为 []interface{}{[]interface{}{"789",[]interface{}{[]interface{}{"456","12.2"}}}, []interface{}{"234",[]interface{}{[]interface{}{"345","12.2"}}}},
- ans := hvm.Convert(fcmap)
+     fcmap := make(map[string]map[string]string)
+     fcmap["789"] = make(map[string]string)
+     fcmap["234"] = make(map[string]string)
+     fcmap["789"]["456"] = "12.2"
+     fcmap["234"]["345"] = "12.2"
+     // ans 的值为 []interface{}{[]interface{}{"789",[]interface{}{[]interface{}{"456","12.2"}}}, []interface{}{"234",[]interface{}{[]interface{}{"345","12.2"}}}},
+     ans := hvm.Convert(fcmap)
 
 demo实例
 -------------
@@ -282,46 +282,46 @@ demo实例
 
  ::
 
- public class SimpleInvokeContract
-        extends BaseContract implements ISimpleInvokeContract {
-    public Logger logger = Logger.getLogger(SimpleInvokeContract.class);
+     public class SimpleInvokeContract
+            extends BaseContract implements ISimpleInvokeContract {
+        public Logger logger = Logger.getLogger(SimpleInvokeContract.class);
 
-    @Override
-    public void printint(int v) {
-        logger.notice("printint: " + v);
-    }
-
-    @Override
-    public void printInteger(Integer v) {
-        logger.notice("printInteger: " + v);
-    }
-
-    @Override
-    public void printIntegers(Integer[] v) {
-        StringBuilder s = new StringBuilder();
-        for (Integer i : v) {
-            s.append(i);
-            s.append(" ");
+        @Override
+        public void printint(int v) {
+            logger.notice("printint: " + v);
         }
-        logger.notice("printIntegers: " + s.toString());
-    }
 
-    @Override
-    public void printMan(Man v) {
-        logger.notice("printShort: " + v.toString());
-    }
+        @Override
+        public void printInteger(Integer v) {
+            logger.notice("printInteger: " + v);
+        }
 
-    @Override
-    public void printMap(HashMap<String, Man> v) {
-        logger.notice("printMap: " + v);
-    }
+        @Override
+        public void printIntegers(Integer[] v) {
+            StringBuilder s = new StringBuilder();
+            for (Integer i : v) {
+                s.append(i);
+                s.append(" ");
+            }
+            logger.notice("printIntegers: " + s.toString());
+        }
 
-    @Override
-    public void printList(ArrayList<String> v) {
-        logger.notice("printList: " + v);
-    }
-    ……
- }
+        @Override
+        public void printMan(Man v) {
+            logger.notice("printShort: " + v.toString());
+        }
+
+        @Override
+        public void printMap(HashMap<String, Man> v) {
+            logger.notice("printMap: " + v);
+        }
+
+        @Override
+        public void printList(ArrayList<String> v) {
+            logger.notice("printList: " + v);
+        }
+        ……
+     }
 
 
 InvokeBean调用
@@ -329,81 +329,81 @@ InvokeBean调用
 
 首先我们通过InvokeBean调用我们的合约，InvokeBean的代码如下::
 
- public class IntegerInvoke implements BaseInvoke<Boolean, ISimpleInvokeContract> {
-    private int v1;
-    private Integer v2;
-    private Integer[] v3;
+     public class IntegerInvoke implements BaseInvoke<Boolean, ISimpleInvokeContract> {
+        private int v1;
+        private Integer v2;
+        private Integer[] v3;
 
-    public IntegerInvoke() {
-    }
+        public IntegerInvoke() {
+        }
 
-    @Override
-    public Boolean invoke(ISimpleInvokeContract iSimpleInvokeContract)
-    {
-        iSimpleInvokeContract.printint(v1);
-        iSimpleInvokeContract.printInteger(v2);
-        iSimpleInvokeContract.printIntegers(v3);
-        return true;
-    }
- }
+        @Override
+        public Boolean invoke(ISimpleInvokeContract iSimpleInvokeContract)
+        {
+            iSimpleInvokeContract.printint(v1);
+            iSimpleInvokeContract.printInteger(v2);
+            iSimpleInvokeContract.printIntegers(v3);
+            return true;
+        }
+     }
 
 该InvokeBean对应的abi数据如下::
 
- [{
-	"classBytes": "cafebabe00000032003b0a000c002……",
-	"version": "v1",
-	"beanName": "org.example.invoke.IntegerInvoke",
-	"inputs": [{
-		"name": "v1",
-		"type": "Int",
-		"structName": "int"
-	}, {
-		"name": "v2",
-		"type": "Int",
-		"structName": "java.lang.Integer"
-	}, {
-		"name": "v3",
-		"type": "Array",
-		"properties": [{
-			"name": "java.lang.Integer",
-			"type": "Int",
-			"structName": "java.lang.Integer"
-		}]
-	}],
-	"output": {
-		"name": "java.lang.Boolean",
-		"type": "Bool",
-		"structName": "java.lang.Boolean"
-	},
-	"structs": [],
-	"beanType": "InvokeBean"
- },
-    ……
- ]
+     [{
+        "classBytes": "cafebabe00000032003b0a000c002……",
+        "version": "v1",
+        "beanName": "org.example.invoke.IntegerInvoke",
+        "inputs": [{
+            "name": "v1",
+            "type": "Int",
+            "structName": "int"
+        }, {
+            "name": "v2",
+            "type": "Int",
+            "structName": "java.lang.Integer"
+        }, {
+            "name": "v3",
+            "type": "Array",
+            "properties": [{
+                "name": "java.lang.Integer",
+                "type": "Int",
+                "structName": "java.lang.Integer"
+            }]
+        }],
+        "output": {
+            "name": "java.lang.Boolean",
+            "type": "Bool",
+            "structName": "java.lang.Boolean"
+        },
+        "structs": [],
+        "beanType": "InvokeBean"
+     },
+        ……
+     ]
 
 可以看出，要构造该payload，我们需要传入 `int，int，int[]` 类型的参数，因此在gosdk中的使用代码如下::
 
- abiBean1, _ := abi.GetBeanAbi("org.example.invoke.IntegerInvoke")
- invokePayload1, _ := hvm.GenPayload(abiBean1, "1", "2",
-    []interface{}{"3", "4"})
- transaction1 := rpc.NewTransaction(ecKey.GetAddress().Hex()).
-    Invoke(contractAddress, invokePayload1).
-    VMType(rpc.HVM)
- transaction1.Sign(ecKey)
- receipt1, _ := hrpc.InvokeContract(transaction1)
+     abiBean1, _ := abi.GetBeanAbi("org.example.invoke.IntegerInvoke")
+     invokePayload1, _ := hvm.GenPayload(abiBean1, "1", "2",
+        []interface{}{"3", "4"})
+     transaction1 := rpc.NewTransaction(ecKey.GetAddress().Hex()).
+        Invoke(contractAddress, invokePayload1).
+        VMType(rpc.HVM)
+     transaction1.Sign(ecKey)
+     receipt1, _ := hrpc.InvokeContract(transaction1)
 
 payload还可以下面的形式构造::
 
- invokePayload1, _ := hvm.GenPayload(abiBean1, "1", "2", `["3", "4"]`)
+     invokePayload1, _ := hvm.GenPayload(abiBean1, "1", "2", `["3", "4"]`)
 
- a := []int{3, 4}
- invokePayload1, _ := hvm.GenPayload(abiBean1, "1", "2", hvm.Convert(a))
+     a := []int{3, 4}
+     invokePayload1, _ := hvm.GenPayload(abiBean1, "1", "2", hvm.Convert(a))
 
 调用成功后，会在平台的日志中打印以下内容::
 
- NOTI [2020-08-27T18:52:48.514] [executor] core/logger.go:48 [SimpleInvokeContract]: printint: 1
- NOTI [2020-08-27T18:52:48.515] [executor] core/logger.go:48 [SimpleInvokeContract]: printInteger: 2
- NOTI [2020-08-27T18:52:48.515] [executor] core/logger.go:48 [SimpleInvokeContract]: printIntegers: 3 4
+     NOTI [2020-08-27T18:52:48.514] [executor] core/logger.go:48 [SimpleInvokeContract]: printint: 1
+     NOTI [2020-08-27T18:52:48.515] [executor] core/logger.go:48 [SimpleInvokeContract]: printInteger: 2
+     NOTI [2020-08-27T18:52:48.515] [executor] core/logger.go:48 [SimpleInvokeContract]: printIntegers: 3 4
 
 直接调用
 >>>>>>>>>>>>
@@ -414,151 +414,151 @@ payload还可以下面的形式构造::
 
 `printMan` 方法的abi如下::
 
- [{
-    "version": "v1",
-    "beanName": "printMan",
-    "inputs": [{
-        "name": "org.example.bean.Man",
-        "type": "Struct",
-        "structName": "org.example.bean.Man"
-    }],
-    "output": {
-        "name": "void",
-        "type": "Void",
-        "structName": "void"
-    },
-    "structs": [{
-        "name": "org.example.bean.Man",
-        "type": "Struct",
-        "properties": [{
-            "name": "name",
-            "type": "String",
-            "structName": "java.lang.String"
-        }, {
-            "name": "age",
-            "type": "Int",
-            "structName": "int"
-        }]
-    }],
-    "beanType": "MethodBean"
- },
-    ……
- ]
+     [{
+        "version": "v1",
+        "beanName": "printMan",
+        "inputs": [{
+            "name": "org.example.bean.Man",
+            "type": "Struct",
+            "structName": "org.example.bean.Man"
+        }],
+        "output": {
+            "name": "void",
+            "type": "Void",
+            "structName": "void"
+        },
+        "structs": [{
+            "name": "org.example.bean.Man",
+            "type": "Struct",
+            "properties": [{
+                "name": "name",
+                "type": "String",
+                "structName": "java.lang.String"
+            }, {
+                "name": "age",
+                "type": "Int",
+                "structName": "int"
+            }]
+        }],
+        "beanType": "MethodBean"
+     },
+        ……
+     ]
 
 可以看出，要构造该payload，我们需要传入 `Man` 类型的参数，在gosdk中的使用代码如下::
 
- abiBean2, _ := abi.GetMethodAbi("printMan")
- invokePayload2, _ := hvm.GenPayload(abiBean2,
-	`{"name": "Ming", "age": "20"}`)
- transaction2 := rpc.NewTransaction(ecKey.GetAddress().Hex()).
-	Invoke(contractAddress, invokePayload2).
-	VMType(rpc.HVM)
- transaction2.Sign(ecKey)
- receipt2, _ := hrpc.InvokeContract(transaction2)
+     abiBean2, _ := abi.GetMethodAbi("printMan")
+     invokePayload2, _ := hvm.GenPayload(abiBean2,
+        `{"name": "Ming", "age": "20"}`)
+     transaction2 := rpc.NewTransaction(ecKey.GetAddress().Hex()).
+        Invoke(contractAddress, invokePayload2).
+        VMType(rpc.HVM)
+     transaction2.Sign(ecKey)
+     receipt2, _ := hrpc.InvokeContract(transaction2)
 
 调用成功后，会在平台打印以下内容::
 
- NOTI [2020-08-27T20:23:50.267] [executor] core/logger.go:48 [SimpleInvokeContract]: printShort: Man{name='Ming', age=20}
+     NOTI [2020-08-27T20:23:50.267] [executor] core/logger.go:48 [SimpleInvokeContract]: printShort: Man{name='Ming', age=20}
 
 **printMap**
 
 `printMap` 方法的abi如下::
 
- [{
-    "version": "v1",
-    "beanName": "printMap",
-    "inputs": [{
-        "name": "java.util.HashMap",
-        "type": "Map",
-        "properties": [{
-            "name": "class java.lang.String",
-            "type": "String",
-            "structName": "class java.lang.String"
-        }, {
-            "name": "class org.example.bean.Man",
+     [{
+        "version": "v1",
+        "beanName": "printMap",
+        "inputs": [{
+            "name": "java.util.HashMap",
+            "type": "Map",
+            "properties": [{
+                "name": "class java.lang.String",
+                "type": "String",
+                "structName": "class java.lang.String"
+            }, {
+                "name": "class org.example.bean.Man",
+                "type": "Struct",
+                "structName": "class org.example.bean.Man"
+            }]
+        }],
+        "output": {
+            "name": "void",
+            "type": "Void",
+            "structName": "void"
+        },
+        "structs": [{
+            "name": "org.example.bean.Man",
             "type": "Struct",
-            "structName": "class org.example.bean.Man"
-        }]
-    }],
-    "output": {
-        "name": "void",
-        "type": "Void",
-        "structName": "void"
-    },
-    "structs": [{
-        "name": "org.example.bean.Man",
-        "type": "Struct",
-        "properties": [{
-            "name": "name",
-            "type": "String",
-            "structName": "java.lang.String"
-        }, {
-            "name": "age",
-            "type": "Int",
-            "structName": "int"
-        }]
-    }],
-    "beanType": "MethodBean"
- },
-    ……
- ]
+            "properties": [{
+                "name": "name",
+                "type": "String",
+                "structName": "java.lang.String"
+            }, {
+                "name": "age",
+                "type": "Int",
+                "structName": "int"
+            }]
+        }],
+        "beanType": "MethodBean"
+     },
+        ……
+     ]
 
 相应的调用代码如下::
 
- abiBean3, _ := abi.GetMethodAbi("printMap")
- invokePayload3, _ := hvm.GenPayload(abiBean3,
-   `{"man1":{"name":"Ming","age":20},"man2":{"name":"Yi","age":22}}`)
- transaction3 := rpc.NewTransaction(ecKey.GetAddress().Hex()).
-   Invoke(contractAddress, invokePayload3).
-   VMType(rpc.HVM)
- transaction3.Sign(ecKey)
- receipt3, _ := hrpc.InvokeContract(transaction3)
+     abiBean3, _ := abi.GetMethodAbi("printMap")
+     invokePayload3, _ := hvm.GenPayload(abiBean3,
+       `{"man1":{"name":"Ming","age":20},"man2":{"name":"Yi","age":22}}`)
+     transaction3 := rpc.NewTransaction(ecKey.GetAddress().Hex()).
+       Invoke(contractAddress, invokePayload3).
+       VMType(rpc.HVM)
+     transaction3.Sign(ecKey)
+     receipt3, _ := hrpc.InvokeContract(transaction3)
 
 调用成功后，会在平台打印以下内容::
 
- NOTI [2020-08-27T21:00:17.640] [executor] core/logger.go:48 [SimpleInvokeContract]: printMap: {man2={name=Yi, age=22.0}, man1={name=Ming, age=20.0}}
+     NOTI [2020-08-27T21:00:17.640] [executor] core/logger.go:48 [SimpleInvokeContract]: printMap: {man2={name=Yi, age=22.0}, man1={name=Ming, age=20.0}}
 
 **printList**
 
 `printList` 方法abi内容如下::
 
- [{
-    "version": "v1",
-    "beanName": "printList",
-    "inputs": [{
-        "name": "java.util.ArrayList",
-        "type": "List",
-        "properties": [{
-            "name": "class java.lang.String",
-            "type": "String",
-            "structName": "class java.lang.String"
-        }]
-    }],
-    "output": {
-        "name": "void",
-        "type": "Void",
-        "structName": "void"
-    },
-    "structs": [],
-    "beanType": "MethodBean"
- },
-    ……
- ]
+     [{
+        "version": "v1",
+        "beanName": "printList",
+        "inputs": [{
+            "name": "java.util.ArrayList",
+            "type": "List",
+            "properties": [{
+                "name": "class java.lang.String",
+                "type": "String",
+                "structName": "class java.lang.String"
+            }]
+        }],
+        "output": {
+            "name": "void",
+            "type": "Void",
+            "structName": "void"
+        },
+        "structs": [],
+        "beanType": "MethodBean"
+     },
+        ……
+     ]
 
 相应的调用代码如下::
 
- abiBean4, _ := abi.GetMethodAbi("printList")
- invokePayload4, _ := hvm.GenPayload(abiBean4,
-   `["a", "b", "c"]`)
- transaction4 := rpc.NewTransaction(ecKey.GetAddress().Hex()).
-   Invoke(contractAddress, invokePayload4).
-   VMType(rpc.HVM)
- transaction4.Sign(ecKey)
- receipt4, _ := hrpc.InvokeContract(transaction4)
+     abiBean4, _ := abi.GetMethodAbi("printList")
+     invokePayload4, _ := hvm.GenPayload(abiBean4,
+       `["a", "b", "c"]`)
+     transaction4 := rpc.NewTransaction(ecKey.GetAddress().Hex()).
+       Invoke(contractAddress, invokePayload4).
+       VMType(rpc.HVM)
+     transaction4.Sign(ecKey)
+     receipt4, _ := hrpc.InvokeContract(transaction4)
 
 调用成功后，会在平台打印以下内容::
 
- NOTI [2020-08-27T21:23:18.184] [executor] core/logger.go:48 [SimpleInvokeContract]: printList: a b c
+     NOTI [2020-08-27T21:23:18.184] [executor] core/logger.go:48 [SimpleInvokeContract]: printList: a b c
 
 
 
@@ -578,29 +578,29 @@ hvm-abi插件字节码增强相关配置
 
  ::
 
- <plugin>
-    <groupId>cn.hyperchain.hvm</groupId>
-    <artifactId>hvm-maven-plugin</artifactId>
-    <version>0.0.6</version>
-    <configuration>
-        <inputPaths>
-            <inputPath>
-                /inputpath1/
-            </inputPath>
-            <inputPath>
-                /path2/target/bank.jar
-            </inputPath>
-        </inputPaths>
-        <outputPaths>
-            <outputPath>
-                /outputpath1
-            </outputPath>
-            <outputPath>
-                /path2/target
-            </outputPath>
-        </outputPaths>
-    </configuration>
- </plugin>
+     <plugin>
+        <groupId>cn.hyperchain.hvm</groupId>
+        <artifactId>hvm-maven-plugin</artifactId>
+        <version>0.0.6</version>
+        <configuration>
+            <inputPaths>
+                <inputPath>
+                    /inputpath1/
+                </inputPath>
+                <inputPath>
+                    /path2/target/bank.jar
+                </inputPath>
+            </inputPaths>
+            <outputPaths>
+                <outputPath>
+                    /outputpath1
+                </outputPath>
+                <outputPath>
+                    /path2/target
+                </outputPath>
+            </outputPaths>
+        </configuration>
+     </plugin>
 
 其他插件配置说明
 ------------------
@@ -614,7 +614,7 @@ hvm-abi插件字节码增强相关配置
 
  ::
 
- mvn hvm:enhance
+    mvn hvm:enhance
 
 以对bank.jar进行增强为例，效果如下图所示，插件会对inputpath下的合约jar文件进行处理，并在outputpath路径下输出两个合约jar文件：
 
@@ -642,43 +642,43 @@ HVM合约中提供了HyperMap、HyperList、HyperTable、NestedMap四种账本�
 
  ::
 
- public class MyContract extends BaseContract implements IMyContract {
-    @StoreField
-    public int num;
+     public class MyContract extends BaseContract implements IMyContract {
+        @StoreField
+        public int num;
 
-    @StoreField(hvmType = StoreField.TypeHyperMap)
-    public HyperMap<String, String> hyperMap;
+        @StoreField(hvmType = StoreField.TypeHyperMap)
+        public HyperMap<String, String> hyperMap;
 
-    @StoreField(hvmType = StoreField.TypeHyperList)
-    public HyperList<String> hyperList;
+        @StoreField(hvmType = StoreField.TypeHyperList)
+        public HyperList<String> hyperList;
 
-    @StoreField(hvmType = StoreField.TypeHyperTable)
-    public HyperTable hyperTable;
+        @StoreField(hvmType = StoreField.TypeHyperTable)
+        public HyperTable hyperTable;
 
-    @StoreField(hvmType = StoreField.TypeNestedMap)
-    public NestedMap<String, String> nestedMap;
- }
+        @StoreField(hvmType = StoreField.TypeNestedMap)
+        public NestedMap<String, String> nestedMap;
+     }
 
 2. 声明时创建实例
 
  ::
 
- public class MyContract extends BaseContract implements IMyContract {
-    @StoreField
-    public int num;
+     public class MyContract extends BaseContract implements IMyContract {
+        @StoreField
+        public int num;
 
-    @StoreField
-    public HyperMap<String, String> hyperMap = new HyperMap<String, String>();
+        @StoreField
+        public HyperMap<String, String> hyperMap = new HyperMap<String, String>();
 
-    @StoreField
-    public HyperList<String> hyperList = new HyperList<String>();
+        @StoreField
+        public HyperList<String> hyperList = new HyperList<String>();
 
-    @StoreField
-    public HyperTable hyperTable = new HyperTable();
+        @StoreField
+        public HyperTable hyperTable = new HyperTable();
 
-    @StoreField
-    public NestedMap<String, String> nestedMap = new NestedMap<String, String>();
- }
+        @StoreField
+        public NestedMap<String, String> nestedMap = new NestedMap<String, String>();
+     }
 
 注意事项
 -------------
@@ -691,12 +691,12 @@ HVM合约中提供了HyperMap、HyperList、HyperTable、NestedMap四种账本�
 
  ::
 
- // 正确示范
- public boolean crossISetA(String a) {
-    IBank iBank = crossCall.getCrossContract();
-    iBank.setA(a);
-    return true;
- }
+     // 正确示范
+     public boolean crossISetA(String a) {
+        IBank iBank = crossCall.getCrossContract();
+        iBank.setA(a);
+        return true;
+     }
 
 3. 建议通过合约的钩子函数 `onInit` 和 `onCreated` 来编写合约的初始化逻辑。不建议在构造方法和类初始化方法中编写合约逻辑。
 
@@ -704,16 +704,16 @@ HVM合约中提供了HyperMap、HyperList、HyperTable、NestedMap四种账本�
 
  ::
 
- public class MyContract extends BaseContract implements IMyContract {
-    // 建议用法
-    @StoreField(hvmType = StoreField.TypeHyperMap)
-    public HyperMap<String, String> map1;
+     public class MyContract extends BaseContract implements IMyContract {
+        // 建议用法
+        @StoreField(hvmType = StoreField.TypeHyperMap)
+        public HyperMap<String, String> map1;
 
-    // 不建议声明为static
-    @StoreField(hvmType = StoreField.TypeHyperMap)
-    public static HyperMap<String, String> map2;
- }
+        // 不建议声明为static
+        @StoreField(hvmType = StoreField.TypeHyperMap)
+        public static HyperMap<String, String> map2;
+     }
 
 5. 不建议合约引用非JDK和hvm-sdk以外包的类。如果合约中类或类实例的字段，那么合约Jar包中必须有这个类的class文件，即使用JDK和hvm-sdk包以外类并操作字段，hvm-abi将无法进行增强。
 
-.. |image0| image:: ../../../../../images/ABI_plug-in.png
+.. |image0| image:: ../../../../images/ABI_plug-in.png

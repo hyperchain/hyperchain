@@ -108,7 +108,7 @@ Hyperchain平台支持SQL语句的执行，与MySql存在概念上的差异：
 
 数据库的URL设计遵循JDBC规范，如下
 
-**jdbc:kvsql://blockchain/<database_name>?property1=value1&property2=value2**
+`jdbc:kvsql://blockchain/<database_name>?property1=value1&property2=value2 <jdbc:kvsql://blockchain/<database_name>?property1=value1&property2=value2>`_
 
 其含义如下：
 
