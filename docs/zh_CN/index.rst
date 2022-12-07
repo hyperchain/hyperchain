@@ -19,7 +19,7 @@ Hyperchain文档
 
    General Concepts
    Prepare
-   quickstart
+   Deployedfile
 
 .. toctree::
    :maxdepth: 2
@@ -51,12 +51,12 @@ Hyperchain文档
    Node and zone management
    Consensus related user manual
    Cross domain network User Manual
-   VM Related User Manual
    Data storage and management
    Password related
    Security Audit
    Data Monitor
    qulian blockchain browser
+   VM Related User Manual
    Module
 
 .. toctree::
@@ -64,6 +64,7 @@ Hyperchain文档
    :caption: 应用场景:
 
    application
+   NFT and contract writing
 
 .. toctree::
    :maxdepth: 2

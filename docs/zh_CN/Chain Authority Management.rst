@@ -7,15 +7,53 @@
 
 下文将介绍CAF框架下提案-投票流程的具体使用方式及相关接口说明，其他功能的使用说明请前往相应界面：
 
-* :ref:`链级配置管理 <chain-conf-manage>`
-* :ref:`链级角色管理 <chain-role-manage>`
-* :ref:`节点增删管理 <node-manage>`
-* :ref:`合约权限管理 <contract-auth-manage>`
-* :ref:`接口权限管理 <Interface-Authority-Management>`
-* :ref:`合约生命周期管理 <contract-life-manage>`
-* :ref:`合约命名服务CNS <contract-naming-service>`
-* :ref:`账户生命周期管理 <account-life-manage>`
-* :ref:`CA模式管理 <CA-Mode-Management>`
+其他功能使用说明
+----------------
+
+链级配置管理
+>>>>>>>>>>>>>
+
+本文档提供Hyperchain中 **链级配置** 变更的操作指南，作为 :ref:`链级配置管理 <chain-conf-manage>` 的使用说明。
+
+链级角色管理
+>>>>>>>>>>>>>
+
+本文档提供Hyperchain中 **链级角色管理** 的操作指南，作为 :ref:`链级角色管理 <chain-role-manage>` 的使用说明。
+
+节点增删管理
+>>>>>>>>>>>>>
+
+本文档提供Hyperchain中 **节点管理（即增加节点、删除节点）** 的操作指南，作为 :ref:`节点增删管理 <node-manage>` 的使用说明。
+
+合约权限管理
+>>>>>>>>>>>>>
+
+合约权限管理，是基于链级角色，对账户进行链上的 **合约（也可以是转账交易的to）访问权限** 进行 :ref:`合约权限管理 <contract-auth-manage>` 。
+
+接口权限管理
+>>>>>>>>>>>>>
+
+描述接口权限管理如何使用，预期读者为需要使用 **接口权限管理** 对节点的查询接口进行访问权限管理的用户（对于发交易类的接口，在本特性中不做管理）， :ref:`接口权限管理 <Interface-Authority-Management>` 文档。
+
+合约命名管理
+>>>>>>>>>>>>>
+
+本文档提供hyperchain中 **合约命名服务** 的操作指南，做为 :ref:`合约命名服务CNS <contract-naming-service>` 的使用说明。
+
+合约生命周期管理
+>>>>>>>>>>>>>>>>
+
+本文档提供hyperchain中 **合约生命周期管理** 的操作指南，做为 :ref:`合约生命周期管理 <contract-life-manage>` 的使用说明。
+
+账户生命周期管理
+>>>>>>>>>>>>>>>>
+
+本文档提供Hyperchain中 **账户生命周期管理** 的操作指南，作为 :ref:`账户生命周期管理 <account-life-manage>` 的使用说明。
+
+CA模式管理
+>>>>>>>>>>>>>
+
+本文档提供Hyperchain中 **ca模式管理** 的操作指南，作为 :ref:`CA模式管理 <CA-Mode-Management>` 与root ca管理的使用说明。
 
 
 功能概述

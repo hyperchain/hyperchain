@@ -3299,320 +3299,324 @@ func NewCertFreezeOperation(cert, priv []byte) (BuiltinOperation, error)
   tx := NewTransaction(key.GetAddress().Hex()).Invoke(opt.Address(), payload).VMType(BVM)
   res, serr := rpc.SignAndInvokeContract(tx, key)
 
-
 4.2.9 跨分区交易
 >>>>>>>>>>>>>>>>>>>>>
 
-flato平台为跨分区交易暴露了一种新的API，前缀为`crosschain_`，可使用的API接口包括3种，分别对应三类跨分区相关交易：
+（暂不开放）
 
-| API名称                            | 交易类别        |
-| -------------------------------- | ----------- |
-| crosschain_invokeAnchorContract  | 锚节点相关交易     |
-| crosschain_invokeContract        | 跨分区事务交易     |
-| crosschain_invokeTimeoutContract | 触发跨分区事务超时交易 |
+..
+ 4.2.9 跨分区交易
+    >>>>>>>>>>>>>>>>>>>>>
 
-各类跨分区交易都通过hvm合约或者bvm合约完成。接下来的章节将介绍各个功能对应的合约类型和合约调用接口。
+    flato平台为跨分区交易暴露了一种新的API，前缀为`crosschain_`，可使用的API接口包括3种，分别对应三类跨分区相关交易：
 
-此外，为方便用户使用，平台内置合约提供了获取链上锚节点状态/链上跨分区事务状态的接口，这一类接口是普通的bvm合约调用，通过contract_invokeContract服务来实现。
+    | API名称                            | 交易类别        |
+    | -------------------------------- | ----------- |
+    | crosschain_invokeAnchorContract  | 锚节点相关交易     |
+    | crosschain_invokeContract        | 跨分区事务交易     |
+    | crosschain_invokeTimeoutContract | 触发跨分区事务超时交易 |
 
-**4.2.9.1 注册锚节点（global）**
+    各类跨分区交易都通过hvm合约或者bvm合约完成。接下来的章节将介绍各个功能对应的合约类型和合约调用接口。
 
-- vm类型：BVM
+    此外，为方便用户使用，平台内置合约提供了获取链上锚节点状态/链上跨分区事务状态的接口，这一类接口是普通的bvm合约调用，通过contract_invokeContract服务来实现。
 
-- 合约地址：“0x0000000000000000000000000000000000ffff0a”
+    **4.2.9.1 注册锚节点（global）**
 
-- API接口：crosschain_invokeAnchorContract
+    - vm类型：BVM
 
-- 目标分区：global
+    - 合约地址：“0x0000000000000000000000000000000000ffff0a”
 
-- 合约内容构造函数：
+    - API接口：crosschain_invokeAnchorContract
 
- ::
+    - 目标分区：global
 
-  func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
+    - 合约内容构造函数：
 
+     ::
 
-- 当前功能合约调用具体参数：
+      func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
 
- ::
 
-  NewSystemAnchorOperation(bvm.RegisterAnchor, "hostname", "namespace")
+    - 当前功能合约调用具体参数：
 
+     ::
 
-- 参数1  - 注册锚节点合约函数名称
-- 参数2  - 锚节点的hostname
-- 参数3  - 锚节点预期管理的分区名称
-- 返回值1 - 内置合约操作BuiltinOperation
+      NewSystemAnchorOperation(bvm.RegisterAnchor, "hostname", "namespace")
 
-应用实例
 
- ::
+    - 参数1  - 注册锚节点合约函数名称
+    - 参数2  - 锚节点的hostname
+    - 参数3  - 锚节点预期管理的分区名称
+    - 返回值1 - 内置合约操作BuiltinOperation
 
-  key, _ := account.NewAccountFromAccountJSON(accountJsons[0], "")
-  operation1 := bvm.NewSystemAnchorOperation(bvm.RegisterAnchor, "node1", "ns2")
-  payload1 := bvm.EncodeOperation(operation1)
-  tx1 := NewTransaction(key.GetAddress().Hex()).Invoke(operation1.Address(), payload1).VMType(BVM)
-  rpc.namespace = "global"
-  re1, err := rpc.SignAndInvokeCrossChainContract(tx1, "invokeAnchorContract", key)
+    应用实例
 
+     ::
 
-**4.2.9.2 注册锚节点（普通分区）**
+      key, _ := account.NewAccountFromAccountJSON(accountJsons[0], "")
+      operation1 := bvm.NewSystemAnchorOperation(bvm.RegisterAnchor, "node1", "ns2")
+      payload1 := bvm.EncodeOperation(operation1)
+      tx1 := NewTransaction(key.GetAddress().Hex()).Invoke(operation1.Address(), payload1).VMType(BVM)
+      rpc.namespace = "global"
+      re1, err := rpc.SignAndInvokeCrossChainContract(tx1, "invokeAnchorContract", key)
 
-- vm类型：BVM
 
-- 合约地址：“0x0000000000000000000000000000000000ffff08”
+    **4.2.9.2 注册锚节点（普通分区）**
 
-- API接口：crosschain_invokeAnchorContract
+    - vm类型：BVM
 
-- 目标分区：普通分区
+    - 合约地址：“0x0000000000000000000000000000000000ffff08”
 
-- 合约内容构造函数：
+    - API接口：crosschain_invokeAnchorContract
 
- ::
+    - 目标分区：普通分区
 
-  func NewNormalAnchorOperation(method ContractMethod, args []string) BuiltinOperation
+    - 合约内容构造函数：
 
+     ::
 
-- 当前功能合约调用具体参数：
+      func NewNormalAnchorOperation(method ContractMethod, args []string) BuiltinOperation
 
- ::
 
-  NewNormalAnchorOperation(bvm.RegisterAnchor, []string{"hostname"})
+    - 当前功能合约调用具体参数：
 
+     ::
 
-- 参数1  : 注册锚节点合约函数名称
-- 参数2  : string类型数组，包含一个元素：锚节点的hostname
-- 返回值1 : 内置合约操作BuiltinOperation
+      NewNormalAnchorOperation(bvm.RegisterAnchor, []string{"hostname"})
 
-应用实例
 
- ::
+    - 参数1  : 注册锚节点合约函数名称
+    - 参数2  : string类型数组，包含一个元素：锚节点的hostname
+    - 返回值1 : 内置合约操作BuiltinOperation
 
-  key, _ := account.NewAccountFromAccountJSON(accountJsons[0], "")
-  operation := bvm.NewNormalAnchorOperation(bvm.RegisterAnchor, []string{"node1"})
-  payload := bvm.EncodeOperation(operation)
-  tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
-  rpc.namespace = "ns1"
-  res, err := rpc.SignAndInvokeCrossChainContract(tx, "invokeAnchorContract", key)
+    应用实例
 
+     ::
 
-**4.2.9.3 替换锚节点（global）**
+      key, _ := account.NewAccountFromAccountJSON(accountJsons[0], "")
+      operation := bvm.NewNormalAnchorOperation(bvm.RegisterAnchor, []string{"node1"})
+      payload := bvm.EncodeOperation(operation)
+      tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
+      rpc.namespace = "ns1"
+      res, err := rpc.SignAndInvokeCrossChainContract(tx, "invokeAnchorContract", key)
 
-- vm类型：BVM
 
-- 合约地址：“0x0000000000000000000000000000000000ffff0a”
+    **4.2.9.3 替换锚节点（global）**
 
-- API接口：crosschain_invokeAnchorContract
+    - vm类型：BVM
 
-- 目标分区：global
+    - 合约地址：“0x0000000000000000000000000000000000ffff0a”
 
-- 合约内容构造函数：
+    - API接口：crosschain_invokeAnchorContract
 
- ::
+    - 目标分区：global
 
-  func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
+    - 合约内容构造函数：
 
+     ::
 
-- 当前功能合约调用具体参数：
+      func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
 
- ::
 
-  NewSystemAnchorOperation(bvm.ReplaceAnchor, "old_hostname", "old_namespace", "new_hostname", "new_namespace")
+    - 当前功能合约调用具体参数：
 
+     ::
 
+      NewSystemAnchorOperation(bvm.ReplaceAnchor, "old_hostname", "old_namespace", "new_hostname", "new_namespace")
 
-- 参数1  - 替换锚节点合约函数名称
-- 参数2  - 旧的hostname
-- 参数3  - 旧的分区名称
-- 参数4  - 新的hostname
-- 参数5  - 新的分区名称
-- 返回值1 - 内置合约操作BuiltinOperation
 
-应用实例
 
- ::
+    - 参数1  - 替换锚节点合约函数名称
+    - 参数2  - 旧的hostname
+    - 参数3  - 旧的分区名称
+    - 参数4  - 新的hostname
+    - 参数5  - 新的分区名称
+    - 返回值1 - 内置合约操作BuiltinOperation
 
-  key, _ := account.NewAccountFromAccountJSON(accountJsons[0], "")
-  operation := bvm.NewSystemAnchorOperation(bvm.ReplaceAnchor, "node2", "ns1", "node1", "ns1")
-  payload := bvm.EncodeOperation(operation)
-  tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
-  rpc1 := rpc.NewRPC().Namespace("global")
-  res, err := rpc1.SignAndInvokeCrossChainContract(tx, "invokeAnchorContract", key)
+    应用实例
 
+     ::
 
-**4.2.9.4 global解注册锚节点**
+      key, _ := account.NewAccountFromAccountJSON(accountJsons[0], "")
+      operation := bvm.NewSystemAnchorOperation(bvm.ReplaceAnchor, "node2", "ns1", "node1", "ns1")
+      payload := bvm.EncodeOperation(operation)
+      tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
+      rpc1 := rpc.NewRPC().Namespace("global")
+      res, err := rpc1.SignAndInvokeCrossChainContract(tx, "invokeAnchorContract", key)
 
-- vm类型：BVM
 
-- 合约地址：“0x0000000000000000000000000000000000ffff0a”
+    **4.2.9.4 global解注册锚节点**
 
-- API接口：crosschain_invokeAnchorContract
+    - vm类型：BVM
 
-- 目标分区：global
+    - 合约地址：“0x0000000000000000000000000000000000ffff0a”
 
-- 合约内容构造函数：
+    - API接口：crosschain_invokeAnchorContract
 
- ::
+    - 目标分区：global
 
-  func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
+    - 合约内容构造函数：
 
+     ::
 
-- 当前功能合约调用具体参数：
+      func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
 
- ::
 
-  NewSystemAnchorOperation(bvm.UnRegisterAnchor, "hostname", "namespace")
+    - 当前功能合约调用具体参数：
 
+     ::
 
+      NewSystemAnchorOperation(bvm.UnRegisterAnchor, "hostname", "namespace")
 
-- 参数1  ： 解注册锚节点合约函数名称
-- 参数2  ： 锚节点的hostname
-- 参数3  ： 锚节点预期管理的分区名称
-- 返回值1 ： 内置合约操作BuiltinOperation
 
-应用实例
 
- ::
+    - 参数1  ： 解注册锚节点合约函数名称
+    - 参数2  ： 锚节点的hostname
+    - 参数3  ： 锚节点预期管理的分区名称
+    - 返回值1 ： 内置合约操作BuiltinOperation
 
-  key, _ := account.NewAccountFromAccountJSON(accountJsons[0], "")
-  operation := bvm.NewSystemAnchorOperation(bvm.UnRegisterAnchor, "node1", "ns2")
-  payload := bvm.EncodeOperation(operation)
-  tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
-  rpc1 := rpc.NewRPC().Namespace("global")
-  res, err := rpc1.SignAndInvokeCrossChainContract(tx, "invokeAnchorContract", key)
+    应用实例
 
+     ::
 
-**4.2.9.5 查询锚节点注册状态**
+      key, _ := account.NewAccountFromAccountJSON(accountJsons[0], "")
+      operation := bvm.NewSystemAnchorOperation(bvm.UnRegisterAnchor, "node1", "ns2")
+      payload := bvm.EncodeOperation(operation)
+      tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
+      rpc1 := rpc.NewRPC().Namespace("global")
+      res, err := rpc1.SignAndInvokeCrossChainContract(tx, "invokeAnchorContract", key)
 
-- vm类型：BVM
 
-- 合约地址：“0x0000000000000000000000000000000000ffff0a”
+    **4.2.9.5 查询锚节点注册状态**
 
-- API接口：contract_invokeContract
+    - vm类型：BVM
 
-- 目标分区：global
+    - 合约地址：“0x0000000000000000000000000000000000ffff0a”
 
-- 合约内容构造函数：
+    - API接口：contract_invokeContract
 
- ::
+    - 目标分区：global
 
-  func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
+    - 合约内容构造函数：
 
+     ::
 
-- 当前功能合约调用具体参数：
+      func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
 
- ::
 
-  NewSystemAnchorOperation(bvm.ReadAnchor, "namespace")
+    - 当前功能合约调用具体参数：
 
+     ::
 
+      NewSystemAnchorOperation(bvm.ReadAnchor, "namespace")
 
-- 参数1  ： 查询锚节点注册状态合约函数名称
-- 参数2  ： 分区名称
-- 返回值1 ： 内置合约操作BuiltinOperation
 
-应用实例
 
- ::
+    - 参数1  ： 查询锚节点注册状态合约函数名称
+    - 参数2  ： 分区名称
+    - 返回值1 ： 内置合约操作BuiltinOperation
 
-  operation := bvm.NewSystemAnchorOperation(bvm.ReadAnchor, "ns3")
-  payload := bvm.EncodeOperation(operation)
-  tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
-  rpc1 := rpc.NewRPC().Namespace("global")
-  res, err := rpc1.SignAndInvokeContract(tx, key)
+    应用实例
 
+     ::
 
-> 注：这里使用的是`rpc.SignAndInvokeContract`函数来构造法发往平台的请求。
+      operation := bvm.NewSystemAnchorOperation(bvm.ReadAnchor, "ns3")
+      payload := bvm.EncodeOperation(operation)
+      tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
+      rpc1 := rpc.NewRPC().Namespace("global")
+      res, err := rpc1.SignAndInvokeContract(tx, key)
 
-**4.2.9.6 跨分区事务超时**
 
-- vm类型：BVM
+    > 注：这里使用的是`rpc.SignAndInvokeContract`函数来构造法发往平台的请求。
 
-- 合约地址：“0x0000000000000000000000000000000000ffff0a”
+    **4.2.9.6 跨分区事务超时**
 
-- API接口：crosschain_invokeTimeoutContract
+    - vm类型：BVM
 
-- 目标分区：global
+    - 合约地址：“0x0000000000000000000000000000000000ffff0a”
 
-- 合约内容构造函数：
+    - API接口：crosschain_invokeTimeoutContract
 
- ::
+    - 目标分区：global
 
-  func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
+    - 合约内容构造函数：
 
+     ::
 
-- 当前功能合约调用具体参数：
+      func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
 
- ::
 
-  NewSystemAnchorOperation(bvm.Timeout, "crossChainID")
+    - 当前功能合约调用具体参数：
 
+     ::
 
+      NewSystemAnchorOperation(bvm.Timeout, "crossChainID")
 
-- 参数1  ： 触发跨分区事务超时合约函数名称
-- 参数2  ： 跨分区事务ID
-- 返回值1 ： 内置合约操作BuiltinOperation
 
-应用实例
 
- ::
+    - 参数1  ： 触发跨分区事务超时合约函数名称
+    - 参数2  ： 跨分区事务ID
+    - 返回值1 ： 内置合约操作BuiltinOperation
 
-  operation := bvm.NewSystemAnchorOperation(bvm.Timeout, "ns1__@__0x16b22229e93fdad80cef0920cc26d2fb6acb32945f8f5fe2248f0adcc3aa2c29__@__ns2")
-  payload := bvm.EncodeOperation(operation)
-  tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
-  rpc1 := rpc.NewRPC().Namespace("global")
-  res, err := rpc1.SignAndInvokeCrossChainContract(tx, "invokeTimeoutContract", key)
+    应用实例
 
+     ::
 
+      operation := bvm.NewSystemAnchorOperation(bvm.Timeout, "ns1__@__0x16b22229e93fdad80cef0920cc26d2fb6acb32945f8f5fe2248f0adcc3aa2c29__@__ns2")
+      payload := bvm.EncodeOperation(operation)
+      tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
+      rpc1 := rpc.NewRPC().Namespace("global")
+      res, err := rpc1.SignAndInvokeCrossChainContract(tx, "invokeTimeoutContract", key)
 
 
-**4.2.9.7 查询跨分区事务状态**
 
-- vm类型：BVM
 
-- 合约地址：“0x0000000000000000000000000000000000ffff0a”
+    **4.2.9.7 查询跨分区事务状态**
 
-- API接口：contract_invokeContract
+    - vm类型：BVM
 
-- 目标分区：global
+    - 合约地址：“0x0000000000000000000000000000000000ffff0a”
 
-- 合约内容构造函数：
+    - API接口：contract_invokeContract
 
- ::
+    - 目标分区：global
 
-  func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
+    - 合约内容构造函数：
 
+     ::
 
-- 当前功能合约调用具体参数：
+      func NewSystemAnchorOperation(method ContractMethod, args ...string) BuiltinOperation
 
- ::
 
-  NewSystemAnchorOperation(bvm.ReadCrossChain, "crossChainID")
+    - 当前功能合约调用具体参数：
 
+     ::
 
-- 参数1  ： 获取跨分区事务状态合约函数名称
-- 参数2  ： 跨分区事务ID
-- 返回值1 ： 内置合约操作BuiltinOperation
+      NewSystemAnchorOperation(bvm.ReadCrossChain, "crossChainID")
 
-应用实例
 
- ::
+    - 参数1  ： 获取跨分区事务状态合约函数名称
+    - 参数2  ： 跨分区事务ID
+    - 返回值1 ： 内置合约操作BuiltinOperation
 
-  operation := bvm.NewSystemAnchorOperation(bvm.ReadCrossChain, "ns1__@__0x16b22229e93fdad80cef0920cc26d2fb6acb32945f8f5fe2248f0adcc3aa2c29__@__ns2")
-  payload := bvm.EncodeOperation(operation)
-  tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
-  rpc1 := rpc.NewRPC().Namespace("global")
-  res, err := rpc1.SignAndInvokeContract(tx, key)
+    应用实例
 
+     ::
 
-> 注：这里使用的是`rpc.SignAndInvokeContract`函数来构造法发往平台的请求。
+      operation := bvm.NewSystemAnchorOperation(bvm.ReadCrossChain, "ns1__@__0x16b22229e93fdad80cef0920cc26d2fb6acb32945f8f5fe2248f0adcc3aa2c29__@__ns2")
+      payload := bvm.EncodeOperation(operation)
+      tx := NewTransaction(key.GetAddress().Hex()).Invoke(operation.Address(), payload).VMType(BVM)
+      rpc1 := rpc.NewRPC().Namespace("global")
+      res, err := rpc1.SignAndInvokeContract(tx, key)
 
+
+    > 注：这里使用的是`rpc.SignAndInvokeContract`函数来构造法发往平台的请求。
 
 
 4.2.10 hash类型查询
 >>>>>>>>>>>>>>>>>>>>>>
 
-**4.2.10.1 获取目前支持的算法类型 **
+**4.2.10.1 获取目前支持的算法类型**
 
 - vm类型：BVM
 

@@ -1,7 +1,24 @@
-数据存储及管理
+数据存储使用手册
 ^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`可信文件共享使用手册 <Trusted-File-Sharing>`
-* :ref:`数据索引使用手册 <Data-Index>`
-* :ref:`数据归档使用手册 <Data-Archiving>`
-* :ref:`账本加密使用手册 <Zhang-to-encrypt>`
+可信文件共享
+------------------
+
+:ref:`可信文件共享使用手册 <Trusted-File-Sharing>`
+
+数据索引
+------------------
+
+:ref:`数据索引使用手册 <Data-Index>`
+
+数据归档
+------------------
+
+:ref:`数据归档使用手册 <Data-Archiving>`
+
+账本加密
+------------------
+
+:ref:`账本加密使用手册 <Zhang-to-encrypt>`
+
+

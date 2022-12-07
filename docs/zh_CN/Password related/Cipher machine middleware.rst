@@ -18,18 +18,18 @@
 
 注意：
 
-1. plugin应该仅依赖 `__github.com/meshplus/crypto__ <https://github.com/meshplus/crypto>`_ 和go官方包进行开发
+1. plugin应该仅依赖 `github.com/meshplus/crypto <https://github.com/meshplus/crypto>`_ 和go官方包进行开发
 
 2. go版本和配套使用的平台版本保持一致，目前(flato1.0.6及之前)是go1.15.6
 
 3. golang编译插件需要使用--trimpath编译选项
 
-4. 开发的插件名称(动态链接库的名称)应该有前缀"plugin_"
+4. 开发的插件名称(动态链接库的名称)应该有前缀 "plugin_"
 
 2.1 接口定义与说明
 --------------------
 
-接口包可以从 `__https://github.com/meshplus/crypto__ <https://github.com/meshplus/crypto>`_ 获取
+接口包可以从 `https://github.com/meshplus/crypto <https://github.com/meshplus/crypto>`_ 获取
 
 2.1.1 插件对外提供的方法
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
