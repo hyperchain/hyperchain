@@ -33,11 +33,16 @@
 安装合约编译器(可选)
 --------------------
 
-趣链区块链平台
-支持用\ `Solidity <https://solidity.readthedocs.org/en/latest/>`__\ 编写的智能合约，然后将它编译为字节码并部署到区块链中。
+趣链区块链平台支持用\ `Solidity <https://solidity.readthedocs.org/en/latest/>`__\ 编写的智能合约，然后将它编译为字节码并部署到区块链中。
 
 鉴于我们是用Solidity语言编写的合约，所以需要确保我们已经安装名为\ ``solc`` \ 的合约编译器。
 
 我们已经在源码中提供了一些平台的通用安装包，您可以直接使用他们来快速安装
 ``solc`` ，您也可以参考官方文档来完成安装 -
 `安装Solidity <https://solidity.readthedocs.io/en/latest/installing-solidity.html#installing-solidity>`__.
+
+最高支持solidity编译版本为0.8.x，需添加编译选项 ``--evm-version=homestead``
+
+另外，针对使用Java语言编写的智能合约，我们需要安装JDK环境和maven构建工具。可以参考官方文档来完成安装 -
+`安装JDK <https://www.oracle.com/java/technologies/downloads/>`__.
+`安装Maven <https://maven.apache.org/index.html>`__.
