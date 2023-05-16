@@ -112,3 +112,4 @@ scripts/mac_local.sh
 
 docs/_build/
 docs/zh_CN/_build/
+docs/en/_build/

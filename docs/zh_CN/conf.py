@@ -49,8 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'hyperchain'
-copyright = u'2017, Hyperchain Corp.'
-author = u'Hyperchain Corp.'
+copyright = u'2016-2023, Hangzhou Hyperchain Technology Co., Ltd'
+author = u'Hangzhou Hyperchain Technology Co., Ltd.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
