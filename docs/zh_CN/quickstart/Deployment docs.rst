@@ -396,7 +396,7 @@ nt是一个专门用于测试网络连通性的工具。
 假如显示正确的版本信息，说明节点安装成功，示例如下::
 
    $ ./hyperchain --version
-   Hyperchain Commercial Version: v2.7.0
+   Hyperchain Commercial Version: v2.12.0
 
 如果出现了以下报错信息，说明openssl的动态链接库没有安装成功
 

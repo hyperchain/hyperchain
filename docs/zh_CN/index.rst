@@ -36,12 +36,13 @@ Hyperchain文档
    :caption: 扩展协议:
    
    Architecture development
-   NFT1
+   Digital Service
    Safe Privacy
    Governonce and audit
    Data management
    Operation manage
    Ecological components
+   External Interface
 
 .. toctree::
    :maxdepth: 2
